@@ -1,12 +1,18 @@
 # brat rapid annotation tool (brat) #
 
-## Documentation ##
+## Quick start installation: standalone server ##
 
-1) Run the installation script in “unprivileged” mode
+First, please note the following:
+
+- The brat standalone server only is available in brat v1.3 and above.
+- The standalone server is experimental and should not be used for sensitive data or systems accessible from the internet.
+
+
+Run the installation script in “unprivileged” mode
 
     ./install.sh -u
 
-2) Start the standalone server
+Start the standalone server
 
     python standalone.py
 
