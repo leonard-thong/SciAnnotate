@@ -1,4 +1,4 @@
-# brat rapid annotation tool (brat) #
+# Brat Rapid Annotation Tool (brat) #
 
 ## Quick start installation: standalone server ##
 
