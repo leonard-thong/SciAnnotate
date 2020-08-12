@@ -36,6 +36,7 @@ from session import get_session, load_conf, save_conf
 from svg import retrieve_stored, store_svg
 from tag import tag
 from undo import undo
+from labelFunctionExecutor import function_executor
 
 # no-op function that can be invoked by client to log a user action
 
@@ -104,39 +105,19 @@ DISPATCHER = {
     # Visualisation support
     'getConfiguration': get_configuration,
     'convert': convert,
+    'labelingFunctionProcess': function_executor,
 }
 
 # Actions that correspond to annotation functionality
-ANNOTATION_ACTION = set((
-    'createArc',
-    'deleteArc',
-    'createSpan',
-    'deleteSpan',
-    'splitSpan',
-    'suggestSpanTypes',
-    'undo',
-))
+ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
 # Actions that will be logged as annotator actions (if so configured)
-LOGGED_ANNOTATOR_ACTION = ANNOTATION_ACTION | set((
-    'getDocument',
-    'logAnnotatorAction',
-))
+LOGGED_ANNOTATOR_ACTION = ANNOTATION_ACTION | {'getDocument', 'logAnnotatorAction'}
 
 # Actions that require authentication
-REQUIRES_AUTHENTICATION = ANNOTATION_ACTION | set((
-    # Document functionality
-    'importDocument',
-
-    # Search functionality in whole collection (heavy on the CPU/disk ATM)
-    'searchTextInCollection',
-    'searchEntityInCollection',
-    'searchEventInCollection',
-    'searchRelationInCollection',
-    'searchNoteInCollection',
-
-    'tag',
-))
+REQUIRES_AUTHENTICATION = ANNOTATION_ACTION | {'importDocument', 'searchTextInCollection', 'searchEntityInCollection',
+                                               'searchEventInCollection', 'searchRelationInCollection',
+                                               'searchNoteInCollection', 'tag'}
 
 # Sanity check
 for req_action in REQUIRES_AUTHENTICATION:
