@@ -10,41 +10,47 @@
 import sys
 import os
 
-EXCEPTION = "\033[95m"
+EXCEPTION = "\033[95mEXCEPTION: "
 OKBLUE = "\033[94m"
 OKGREEN = "\033[92m"
-WARNING = "\033[93m"
-ERROR = "\033[91m"
-ENDC = "\033[0m"
+WARNING = "\033[93mWARNING: "
+ERROR = "\033[91mERROR: "
+ENDC = "\033[0m\n"
 
 
 class Logger(object):
-
     def __init__(self, file_path):
         self.file_path = file_path
+        self.f_out = open(self.file_path, "a", encoding="utf8")
+
+    def __del__(self):
+        self.f_out.close()
 
     def log(self, content):
-        f_out = open(self.file_path, 'a', encoding='utf8')
-        f_out.write(content)
-        f_out.close()
-        os.system('clear')
-        os.system('cat log.txt')
+        self.f_out.write(content)
+
+    @staticmethod
+    def print(content):
+        os.system("echo " + content)
 
     def log_normal(self, log):
-        self.log(log)
+        self.print(OKGREEN + "RUNNING LOG: " + log)
 
     def log_warning(self, log):
-        self.log(WARNING + log + ENDC)
+        self.print(WARNING + log + ENDC)
 
     def log_error(self, log):
-        self.log(ERROR + log + ENDC)
+        self.print(ERROR + log + ENDC)
 
     def log_exception(self, log):
-        self.log(EXCEPTION + log + ENDC)
+        self.print(EXCEPTION + log + ENDC)
 
     def log_custom(self, style, log):
-        self.log(style + log + ENDC)
+        self.print(style + log + ENDC)
 
 
-if __name__ == '__main__':
-    pass
+if __name__ == "__main__":
+    logger = Logger("log.txt")
+    logger.log_warning("THIS IS A TEST MESSAGE")
+    logger.log_normal("THIS IS A TEST MESSAGE")
+    logger.log_error("THIS IS A TEST MESSAGE")

@@ -13,6 +13,8 @@ from toolBELogger import Logger
 
 GLOBAL_LOGGER = Logger("log.txt")
 
+LABELING_FUNCTION_SET = {
+}
 
 class Preprocessor(object):
     def __init__(self, name, func):
@@ -56,8 +58,23 @@ class PreprocessPipeline(object):
         self.processor_list = processor_list
 
 
-def function_executor(label_function, txt):
-    out = label_function(txt)
+def _function_executor(directory, document, function):
+    file_path = directory + '/' + document
+
+    return None
+
+def function_executor(**args):
+    directory = args['collection']
+    document = args['document']
+    function = LABELING_FUNCTION_SET[args['function']]
+
+    if directory is None:
+        GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
+    elif document is None:
+        GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
+
+    out = _function_executor(directory, document, function)
+
     return out
 
 
