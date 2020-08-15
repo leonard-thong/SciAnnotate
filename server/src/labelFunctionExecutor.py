@@ -9,12 +9,17 @@
 """
 import re
 import sys
-from toolBELogger import Logger
+from expandLogger import Logger
 
-GLOBAL_LOGGER = Logger("log.txt")
+GLOBAL_LOGGER = Logger()
 
-LABELING_FUNCTION_SET = {
-}
+
+def spam(text=""):
+    return {'version': 1}
+
+
+LABELING_FUNCTION_SET = {"spam": spam}
+
 
 class Preprocessor(object):
     def __init__(self, name, func):
@@ -59,14 +64,26 @@ class PreprocessPipeline(object):
 
 
 def _function_executor(directory, document, function):
-    file_path = directory + '/' + document
+    file_path = "data" + directory + document + '.txt'
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+        content.replace("\n", "")
+        try:
+            out = function(content)
+        except Exception as e:
+            GLOBAL_LOGGER.log_error("ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION")
+        if out is not None:
+            return out
+        else:
+            GLOBAL_LOGGER.log_warning("RETURN OF LABEL FUNCTION IS NONE")
+    return out
 
-    return None
 
 def function_executor(**args):
-    directory = args['collection']
-    document = args['document']
-    function = LABELING_FUNCTION_SET[args['function']]
+    GLOBAL_LOGGER.log_normal(args.__str__())
+    directory = args["collection"]
+    document = args["document"]
+    function = LABELING_FUNCTION_SET[args["function"]]
 
     if directory is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
@@ -74,7 +91,8 @@ def function_executor(**args):
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
 
     out = _function_executor(directory, document, function)
-
+    if out is None:
+        return
     return out
 
 

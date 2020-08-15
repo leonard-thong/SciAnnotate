@@ -37,7 +37,8 @@ from svg import retrieve_stored, store_svg
 from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor
-
+from expandLogger import Logger
+GLOBAL_LOGGER = Logger()
 # no-op function that can be invoked by client to log a user action
 
 
@@ -108,6 +109,7 @@ DISPATCHER = {
     'labelingFunctionProcess': function_executor,
 }
 
+EXPAND_ACTION = {'labelingFunctionProcess'}
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
@@ -208,7 +210,6 @@ def _directory_is_safe(dir_path):
 
 def dispatch(http_args, client_ip, client_hostname):
     action = http_args['action']
-
     log_info('dispatcher handling action: %s' % (action, ))
 
     # Verify that we don't have a protocol version mismatch
@@ -253,6 +254,14 @@ def dispatch(http_args, client_ip, client_hostname):
         log_info('Invalid action "%s"' % action)
         raise InvalidActionError(action)
 
+    if action in EXPAND_ACTION:
+        json_dic = action_function(**http_args)
+
+        # Assign which action that was performed to the json_dic
+        json_dic['action'] = action
+        # Return the protocol version for symmetry
+        json_dic['protocol'] = PROTOCOL_VERSION
+        return json_dic
     # Determine what arguments the action function expects
     args, varargs, keywords, defaults = getargspec(action_function)
     # We will not allow this for now, there is most likely no need for it

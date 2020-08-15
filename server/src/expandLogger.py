@@ -4,34 +4,34 @@
   @author:  lmy
   @time:    2020/8/11 5:54 PM
   @project: brat
-  @file:    toolBELogger.py
+  @file:    expandLogger.py
 ===========================================
 """
 import sys
 import os
 
-EXCEPTION = "\033[95mEXCEPTION: "
-OKBLUE = "\033[94m"
-OKGREEN = "\033[92m"
+EXCEPTION = "\n\033[95mEXCEPTION: "
+OKBLUE = "\n\033[94m"
+OKGREEN = "\n\033[92m"
 WARNING = "\033[93mWARNING: "
-ERROR = "\033[91mERROR: "
-ENDC = "\033[0m\n"
+ERROR = "\n\033[91mERROR: "
+ENDC = "\033[0m"
 
 
 class Logger(object):
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.f_out = open(self.file_path, "a", encoding="utf8")
+    # def __init__(self, file_path):
+    #     self.file_path = file_path
+    #     self.f_out = open(self.file_path, "a", encoding="utf8")
 
-    def __del__(self):
-        self.f_out.close()
+    # def __del__(self):
+        # self.f_out.close()
 
-    def log(self, content):
-        self.f_out.write(content)
+    # def log(self, content):
+    #     self.f_out.write(content)
 
     @staticmethod
     def print(content):
-        os.system("echo " + content)
+        os.system("echo " + "'" + content + "'")
 
     def log_normal(self, log):
         self.print(OKGREEN + "RUNNING LOG: " + log)
