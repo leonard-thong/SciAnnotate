@@ -50,7 +50,7 @@ class Logger(object):
 
 
 if __name__ == "__main__":
-    logger = Logger("log.txt")
+    logger = Logger()
     logger.log_warning("THIS IS A TEST MESSAGE")
     logger.log_normal("THIS IS A TEST MESSAGE")
     logger.log_error("THIS IS A TEST MESSAGE")
