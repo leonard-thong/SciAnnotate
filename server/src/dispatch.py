@@ -211,6 +211,7 @@ def _directory_is_safe(dir_path):
 def dispatch(http_args, client_ip, client_hostname):
     action = http_args['action']
     log_info('dispatcher handling action: %s' % (action, ))
+    GLOBAL_LOGGER.log_normal(http_args.__str__())
 
     # Verify that we don't have a protocol version mismatch
     PROTOCOL_VERSION = 1
@@ -261,6 +262,7 @@ def dispatch(http_args, client_ip, client_hostname):
         json_dic['action'] = action
         # Return the protocol version for symmetry
         json_dic['protocol'] = PROTOCOL_VERSION
+        GLOBAL_LOGGER.log_error(json_dic.__str__())
         return json_dic
     # Determine what arguments the action function expects
     args, varargs, keywords, defaults = getargspec(action_function)
@@ -308,8 +310,11 @@ def dispatch(http_args, client_ip, client_hostname):
         log_annotation(http_args['collection'],
                        http_args['document'],
                        'FINISH', action, action_args)
-
-    # Assign which action that was performed to the json_dic
+    GLOBAL_LOGGER.log_error(json_dic.__str__())
+    # # Assign which action that was performed to the json_dic
+    # json_dic['entities'] = [['T1', 'Entity', [(0, 6)]], ['T2', 'PPP', [(381, 387)]], ['T3', 'Protein', [(401, 413)]], ['T4', 'Protein', [(639, 645)]], ['T5', 'Protein', [(1190, 1202)]], ['T6', 'Protein', [(1254, 1263)]], ['T7', 'Protein', [(1357, 1366)]], ['T8', 'Protein', [(1367, 1376)]], ['T9', 'Protein', [(1420, 1429)]], ['T10', 'Protein', [(1455, 1461)]], ['T11', 'Protein', [(1562, 1571)]]]
+    # json_dic['events'] = [['E1', 'T1', [('Theme', 'T7')]], ['E2', 'T2', [('Theme', 'T8')]]]
+    # json_dic['triggers'] = [['T1', 'Protein', [(0, 6)]], ['T2', 'PPP', [(381, 387)]]]
     json_dic['action'] = action
     # Return the protocol version for symmetry
     json_dic['protocol'] = PROTOCOL_VERSION

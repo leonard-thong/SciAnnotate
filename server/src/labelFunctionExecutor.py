@@ -26,27 +26,38 @@ GLOBAL_LOGGER = Logger()
 
 
 def add_common_info(text, res):
-    res['token_offsets'] = [text[o[0]:o[1]] for o in whitespace_token_boundary_gen(text)]
-    res['ctime'] = time.time()
+    res["text"] = text
+    res["token_offsets"] = [o for o in whitespace_token_boundary_gen(text)]
+    res["ctime"] = time.time()
+    res["source_files"] = ["ann", "txt"]
     return res
+
+
+def get_entity_index():
+    for i in range(1, 1000000):
+        yield i
 
 
 def spam(text=""):
     res = dict()
-    res['entities'] = [
-        ['T1', 'Protein', [(7, 13)]],
-        ['T2', 'Protein', [(381, 387)]],
-        ['T3', 'Protein', [(401, 413)]],
-        ['T4', 'Protein', [(639, 645)]],
-        ['T5', 'Protein', [(1190, 1202)]],
-        ['T6', 'Protein', [(1254, 1263)]],
-        ['T7', 'Protein', [(1357, 1366)]],
-        ['T8', 'Protein', [(1367, 1376)]],
-        ['T9', 'Protein', [(1420, 1429)]],
-        ['T10', 'Protein', [(1455, 1461)]],
-        ['T11', 'Protein', [(1562, 1571)]]
+    index = get_entity_index()
+    poss = [
+        ["T" + str(next(index)), "quantity", [(pos.start(), pos.end())]]
+        for pos in re.finditer("million", text)
     ]
-    res['text'] = text
+    poss.extend(
+        [
+            ["T" + str(next(index)), "quantity", [(pos.start(), pos.end())]]
+            for pos in re.finditer("billion", text)
+        ]
+    )
+    poss.extend(
+        [
+            ["T" + str(next(index)), "money", [(pos.start(), pos.end())]]
+            for pos in re.finditer("(\$([1-9|.]*))|(dollars)", text)
+        ]
+    )
+    res["entities"] = poss
     return add_common_info(text, res)
 
 
@@ -96,7 +107,7 @@ class PreprocessPipeline(object):
 
 
 def _function_executor(directory, document, function):
-    file_path = "data" + directory + document + '.txt'
+    file_path = "data" + directory + document + ".txt"
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
@@ -122,6 +133,8 @@ def function_executor(**args):
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
 
     out = _function_executor(directory, document, function)
+    out["document"] = document
+    out["collection"] = directory
     if out is None:
         return
     return out
