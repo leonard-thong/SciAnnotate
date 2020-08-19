@@ -12,14 +12,13 @@ import sys
 import time
 
 from expandLogger import Logger
-from os.path import join as path_join
-from shutil import rmtree
-from tempfile import mkdtemp
-
-from annotation import Annotations, open_textfile
-from common import ProtocolError
-from document import _document_json_dict
-
+# from os.path import join as path_join
+# from shutil import rmtree
+# from tempfile import mkdtemp
+#
+# from annotation import Annotations, open_textfile
+# from document import _document_json_dict
+from labelFunctions.index import *
 from tokenise import whitespace_token_boundary_gen
 
 GLOBAL_LOGGER = Logger()
@@ -38,30 +37,7 @@ def get_entity_index():
         yield i
 
 
-def spam(text=""):
-    res = dict()
-    index = get_entity_index()
-    poss = [
-        ["T" + str(next(index)), "quantity", [(pos.start(), pos.end())]]
-        for pos in re.finditer("million", text)
-    ]
-    poss.extend(
-        [
-            ["T" + str(next(index)), "quantity", [(pos.start(), pos.end())]]
-            for pos in re.finditer("billion", text)
-        ]
-    )
-    poss.extend(
-        [
-            ["T" + str(next(index)), "money", [(pos.start(), pos.end())]]
-            for pos in re.finditer("(\$([1-9|.]*))|(dollars)", text)
-        ]
-    )
-    res["entities"] = poss
-    return add_common_info(text, res)
-
-
-LABELING_FUNCTION_SET = {"spam": spam}
+ENTITY_INDEX = get_entity_index()
 
 
 class Preprocessor(object):
@@ -76,75 +52,68 @@ class Preprocessor(object):
         return out
 
 
-class PreprocessPipeline(object):
-    def __init__(self, processor_list):
-        self.processor_list = processor_list
-
-    def process(self, txt, log=False):
-        if not log:
-            out = txt
-            for processor in self.processor_list:
-                if type(processor) != Preprocessor:
-                    GLOBAL_LOGGER.log_error(
-                        "TYPE ERROR: CANNOT USE NONE PREPROCESSOR TO PROCESS DATA"
-                    )
-                    return None
-                out = processor(out)
-            return out
-        else:
-            out = [txt]
-            for processor in self.processor_list:
-                if type(processor) != Preprocessor:
-                    GLOBAL_LOGGER.log_error(
-                        "TYPE ERROR: CANNOT USE NONE PREPROCESSOR TO PROCESS DATA"
-                    )
-                    return None
-                out.append(processor(out[-1]))
-            return out
-
-    def re_init(self, processor_list):
-        self.processor_list = processor_list
-
-
-def _function_executor(directory, document, function):
-    file_path = "data" + directory + document + ".txt"
+def _function_executor(collection, document, functions):
+    file_path = "data" + collection + document + ".txt"
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
-            out = function(content)
+            out = eval(functions[0] + '(content, ENTITY_INDEX)')
+            if len(functions) > 1:
+                for function in functions[1:]:
+                    out['entities'].extend(eval(function + '(content)')['entities'])
+                    out['events'].extend(eval(function + '(content)')['events'])
         except Exception as e:
-            GLOBAL_LOGGER.log_error("ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION")
+            GLOBAL_LOGGER.log_error("ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__())
         if out is not None:
-            return out
+            return add_common_info(content, out)
         else:
             GLOBAL_LOGGER.log_warning("RETURN OF LABEL FUNCTION IS NONE")
-    return out
+    return None
 
 
-def function_executor(**kwargs):
-    GLOBAL_LOGGER.log_normal(kwargs.__str__())
-    directory = kwargs["collection"]
-    document = kwargs["document"]
-    function = LABELING_FUNCTION_SET[kwargs["function"]]
-
-    if directory is None:
+def function_executor(**args):
+    GLOBAL_LOGGER.log_normal(args.__str__())
+    collection = args["collection"]
+    document = args["document"]
+    GLOBAL_LOGGER.log_normal(list(args["function[]"]).__str__())
+    functions = list(args["function[]"])
+    if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
     elif document is None:
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
 
-    out = _function_executor(directory, document, function)
+    out = _function_executor(collection, document, functions)
     out["document"] = document
-    out["collection"] = directory
+    out["collection"] = collection
     if out is None:
         return
     return out
 
 
-def function_executors(label_function_sets, txt):
-    out = []
-    for label_function in label_function_sets:
-        out.append(label_function(txt))
-    return out
+def _instant_executor(code, name, entity_index, collection, document):
+    file_path = "data" + collection + document + ".txt"
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+        try:
+            exec(code)
+            out = eval('{}(content, entity_index)'.format(name))
+            return out
+        except Exception as e:
+            GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
+
+
+def instant_executor(**args):
+    # TODO: implement code completion and return logic
+    """
+    This function is designed to handle instant labeling function code. The code must be written in a strict format,
+    which will be released in a later version README.md .
+    :param args: dict | Required arguments set
+    :return: dict | Formatted return value with entities, relation and other common info
+    """
+    collection = args["collection"]
+    document = args["document"]
+    function_codes = list(args["function"])
+    pass
 
 
 def main(argv):
@@ -152,4 +121,5 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    pass
+

@@ -547,7 +547,6 @@ var VisualizerUI = (function($, window, undefined) {
         // alsoResize is special
         var alsoResize = opts.alsoResize;
         delete opts.alsoResize;
-
         // Always add OK and Cancel
         var buttons = (opts.buttons || []);
         if (opts.label_option) {
@@ -559,17 +558,18 @@ var VisualizerUI = (function($, window, undefined) {
                 let document = fullPath.split('/').reverse()[0];
                 let collection = fullPath.substr(0, fullPath.length - document.length);
                 let data = {};
-    
+
                 data['function'] = 'spam';
-                $.post("ajax.cgi", {
-                    'protocol': 1,
-                    'action': 'labelingFunctionProcess',
-                    'collection': collection,
-                    'document': document,
-                    'function': data['function']
-                }, function (result) {
-                    dispatcher.post('renderData', [result]);
-                });  
+                let functions = ['spam', 'spam1'];
+                $.post("ajax.cgi",{
+                  'protocol': 1,
+                  'action': 'labelingFunctionProcess',
+                  'collection': collection,
+                  'document': document,
+                  'function': functions
+                  },function(result){
+                  dispatcher.post('renderData', [result]);
+                });
               }
             });
         }
