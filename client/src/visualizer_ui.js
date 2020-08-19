@@ -550,6 +550,29 @@ var VisualizerUI = (function($, window, undefined) {
 
         // Always add OK and Cancel
         var buttons = (opts.buttons || []);
+        if (opts.label_option) {
+          buttons.push({
+              id: formId + "-label",
+              text: "Label",
+              click: function() { 
+                let fullPath = window.location.href.split('#')[1];
+                let document = fullPath.split('/').reverse()[0];
+                let collection = fullPath.substr(0, fullPath.length - document.length);
+                let data = {};
+    
+                data['function'] = 'spam';
+                $.post("ajax.cgi", {
+                    'protocol': 1,
+                    'action': 'labelingFunctionProcess',
+                    'collection': collection,
+                    'document': document,
+                    'function': data['function']
+                }, function (result) {
+                    dispatcher.post('renderData', [result]);
+                });  
+              }
+            });
+        }
         if (opts.no_ok) {
           delete opts.no_ok;
         } else {
@@ -1459,6 +1482,7 @@ var VisualizerUI = (function($, window, undefined) {
           width: 500,
           resizable: false,
           no_cancel: true,
+          label_option: true,
           open: function(evt) {
             keymap = {};
             // aspects of the data form relating to the current document should
