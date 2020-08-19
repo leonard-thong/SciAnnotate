@@ -121,11 +121,11 @@ def _function_executor(directory, document, function):
     return out
 
 
-def function_executor(**args):
-    GLOBAL_LOGGER.log_normal(args.__str__())
-    directory = args["collection"]
-    document = args["document"]
-    function = LABELING_FUNCTION_SET[args["function"]]
+def function_executor(**kwargs):
+    GLOBAL_LOGGER.log_normal(kwargs.__str__())
+    directory = kwargs["collection"]
+    document = kwargs["document"]
+    function = LABELING_FUNCTION_SET[kwargs["function"]]
 
     if directory is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
