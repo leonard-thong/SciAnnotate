@@ -961,6 +961,26 @@ var VisualizerUI = (function($, window, undefined) {
         });
       };
 
+      var addLabelTypesToSelect = function($select, types, included) {
+        if (!included) included = {};
+        if (!included['']) {
+          included[''] = true;
+          $select.html('<option value="">- Any -</option>');
+        }
+        $.each(types, function(typeNo, type) {
+          if (type !== null) {
+            if (!included[type.name]) {
+              included[type.name] = true;
+              var $option = $('<option value="' + Util.escapeQuotes(type.type) + '"/>').text(type.name);
+              $select.append($option);
+              if (type.children) {
+                addSpanTypesToSelect($select, type.children, included);
+              }
+            }
+          }
+        });
+      };
+
       var rememberNormDb = function(response) {
         // the visualizer needs to remember aspects of the norm setup
         // so that it can avoid making queries for unconfigured or
@@ -980,6 +1000,11 @@ var VisualizerUI = (function($, window, undefined) {
         // nice-looking selects and upload fields
         $('#search_form select').addClass('ui-widget ui-state-default ui-button-text');
         $('#search_form_load_file').addClass('ui-widget ui-state-default ui-button-text');
+      }
+
+      var setupLabelSelection = function(response) {
+        // using response.entity_types, need to discuss how to get labeling function type from backend
+        addLabelTypesToSelect($('#label_form_selection'), response.entity_types);
       }
 
       // when event role changes, event types do as well
@@ -1422,6 +1447,50 @@ var VisualizerUI = (function($, window, undefined) {
 
       /* END data dialog - related */
 
+      /* START label dialog - related */
+
+      var labelForm = $('#label_form');
+      var dataFormSubmit = function(evt) {
+        dispatcher.post('hideForm');
+        return false;
+      };
+      labelForm.submit(dataFormSubmit);
+      initForm(labelForm, {
+          width: 500,
+          resizable: false,
+          no_cancel: true,
+          open: function(evt) {
+            keymap = {};
+            // aspects of the data form relating to the current document should
+            // only be shown when a document is selected.
+            if (!doc) {
+              $('#document_export').hide();
+              $('#document_visualization').hide();
+            } else {
+              $('#document_export').show();
+              $('#document_visualization').show();
+              // the SVG button can only be accessed through the data form,
+              // so we'll spare unnecessary saves by only saving here
+              saveSVG();
+            }
+          }
+      });
+      $('#label_button').click(function() {
+        dispatcher.post('showForm', [labelForm]);
+      });
+      // make nice-looking buttons for checkboxes and buttons
+      $('#label_form').find('input[type="checkbox"]').button();
+      $('#label_form').find('input[type="button"]').button();
+
+      // resize invalidates stored visualization (SVG etc.); add a
+      // button to regen
+      $('#stored_file_regenerate').button().hide();
+      $('#stored_file_regenerate').click(function(evt) {
+        $('#stored_file_regenerate').hide();
+        saveSVG();
+      });
+
+      /* END label dialog - related */
 
       /* START options dialog - related */
 
@@ -1598,8 +1667,10 @@ var VisualizerUI = (function($, window, undefined) {
           searchConfig = response.search_config;
           selectorData.items.sort(docSortFunction);
           setupSearchTypes(response);
+          setupLabelSelection(response);
           // scroller at the top
           docScroll = 0;
+          console.log(response);
         }
       };
 

@@ -36,7 +36,7 @@
             'client/src/annotator_ui.js',
             'client/src/spinner.js'
         );
-        head.ready(function() {
+        head.ready(function () {
             // var dispatcher = new Dispatcher(); // XXX DEBUG
             dispatcher = new Dispatcher();
             var urlMonitor = new URLMonitor(dispatcher);
@@ -68,7 +68,7 @@
                 'collection': collection,
                 'document': document,
                 'function': data['function']
-            }, function(result) {
+            }, function (result) {
                 dispatcher.post('renderData', [result]);
             });
         }
@@ -90,12 +90,14 @@
                     <p class="unselectable">To select a document:</p>
                     <ul>
                         <li class="unselectable">press the <strong>TAB</strong> key, or</li>
-                        <li class="unselectable">click on &quot;<strong>Collection</strong>&quot; in the blue menu bar on top</li>
+                        <li class="unselectable">click on &quot;<strong>Collection</strong>&quot; in the blue menu bar
+                            on top</li>
                     </ul>
                 </fieldset>
                 <fieldset id="loading_message" style="display:none">
                     <h1 class="unselectable">Loading ...</h1>
-                    <p class="unselectable">This may take a while, in particular when loading a larger document collection. Please wait.
+                    <p class="unselectable">This may take a while, in particular when loading a larger document
+                        collection. Please wait.
                     </p>
                 </fieldset>
             </div>
@@ -110,7 +112,8 @@
                     <p class="unselectable">
                         <span class="logo">brat</span> needs JavaScript in order to run.
                     </p>
-                    <p class="unselectable">Please enable JavaScript or try a <a href="http://brat.nlplab.org/supported-browsers.html">supported browser</a>
+                    <p class="unselectable">Please enable JavaScript or try a <a
+                            href="http://brat.nlplab.org/supported-browsers.html">supported browser</a>
                     </p>
                 </fieldset>
             </div>
@@ -142,17 +145,24 @@
             <div id="pulldown_padder">
                 <div>
                     <input id="auth_button" type="button" value="Login" />
-                    <input id="collection_browser_button" type="button" value="Collection" tabindex="-1" title="Open Collection Browser (Tab)" />
-                    <input id="data_button" type="button" value="Data" tabindex="-1" title="Import, Export Data; Manage Collection" />
+                    <input id="collection_browser_button" type="button" value="Collection" tabindex="-1"
+                        title="Open Collection Browser (Tab)" />
+                    <input id="data_button" type="button" value="Data" tabindex="-1"
+                        title="Import, Export Data; Manage Collection" />
                     <input id="search_button" type="checkbox" class="login" value="true" tabindex="-1" />
-                    <label id="search_button_label" for="search_button" title="Search text and annotations">Search</label>
-                    <input id="clear_search_button" type="button" value="✕" tabindex="-1" title="Clear search" style="display: none" />
+                    <label id="search_button_label" for="search_button"
+                        title="Search text and annotations">Search</label>
+                    <input id="clear_search_button" type="button" value="✕" tabindex="-1" title="Clear search"
+                        style="display: none" />
 
-                    <input id="label_function_button" type="button" onclick="labeling()" value="Labeling" tabindex="-1" title="Import, Export Data; Manage Collection" />
+                    <input id="label_button" type="button" value="Label" tabindex="-1"
+                        title="Import, Export Data; Manage Collection" />
 
-                    <input id="unlock_type_button" type="button" value="Unlock" tabindex="-1" title="Stop annotating with the locked type" />
+                    <input id="unlock_type_button" type="button" value="Unlock" tabindex="-1"
+                        title="Stop annotating with the locked type" />
                     <!--<input id="undo_button" type="button" class="login" value="Undo" tabindex="-1"/>-->
-                    <input id="options_button" type="button" value="Options" tabindex="-1" title="Set Visual, Annotation and Network Options" />
+                    <input id="options_button" type="button" value="Options" tabindex="-1"
+                        title="Set Visual, Annotation and Network Options" />
                 </div>
                 <!-- Dummy span, fixes visual glitch (issue #535). TODO: better fix -->
                 <span class="document_edit_time unselectable">&nbsp;</span>
@@ -171,7 +181,7 @@
         <fieldset id="import_form_text">
             <legend>Document text</legend>
             <textarea id="import_text" class="borderless" />
-        </fieldset>
+            </fieldset>
     </form>
     <form id="import_coll_form" class="dialog" title="Import collection">
         <fieldset id="import_coll_form_text">
@@ -263,6 +273,22 @@
                 </div>
             </fieldset>
         </div>
+    </form>
+    <!-- Label dialog -->
+    <form id="label_form" class="dialog" title="Data">
+        <fieldset class="small-buttons">
+            <legend>Select Labelling Function</legend>
+            <div id="search_tab_entity">
+                <table class="fullwidth">
+                    <tr>
+                        <td>Type</td>
+                        <td>
+                            <select id="label_form_selection" class="fullwidth"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
     </form>
     <!-- Options dialog -->
     <form id="options_form" class="dialog" title="Options">
@@ -434,7 +460,7 @@
                     <tr>
                         <td>Type</td>
                         <td colspan="2">
-                            <select id="search_form_relation_type" class="fullwidth" />
+                            <select id="≈" class="fullwidth" />
                         </td>
                     </tr>
                     <tr>
@@ -850,6 +876,7 @@
                 <li><b>Collection</b>: collection browser</li>
                 <li><b>Data</b>: export annotation data</li>
                 <li><b>Search</b>: search current document or collection</li>
+                <li><b>Label</b>: label current document with labelling function</li>
                 <li><b>Options</b>: system configuration options</li>
                 <li><b>Login</b>: log in for editing</li>
             </ul>
