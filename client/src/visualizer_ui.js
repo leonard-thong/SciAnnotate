@@ -1694,7 +1694,6 @@ var VisualizerUI = (function($, window, undefined) {
           setupLabelSelection(response);
           // scroller at the top
           docScroll = 0;
-          console.log(response);
         }
       };
 
