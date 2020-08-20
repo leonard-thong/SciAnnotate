@@ -60,8 +60,8 @@ def _function_executor(collection, document, functions):
             out = eval(functions[0] + '(content, ENTITY_INDEX)')
             if len(functions) > 1:
                 for function in functions[1:]:
-                    out['entities'].extend(eval(function + '(content)')['entities'])
-                    out['events'].extend(eval(function + '(content)')['events'])
+                    out['entities'].extend(eval(function + '(content, ENTITY_INDEX)')['entities'])
+                    
         except Exception as e:
             GLOBAL_LOGGER.log_error("ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__())
         if out is not None:
