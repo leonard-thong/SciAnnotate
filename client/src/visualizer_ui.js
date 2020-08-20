@@ -568,7 +568,7 @@ var VisualizerUI = (function($, window, undefined) {
                     'action': 'labelingFunctionProcess',
                     'collection': collection,
                     'document': document,
-                    'function': functions
+                    'functions': functions
                     },function(result){
                     dispatcher.post('renderData', [result]);
                   });
@@ -1487,7 +1487,6 @@ var VisualizerUI = (function($, window, undefined) {
           width: 500,
           resizable: false,
           no_cancel: true,
-          no_ok: true,
           label_option: true,
           open: function(evt) {
             keymap = {};
