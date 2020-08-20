@@ -562,13 +562,16 @@ var VisualizerUI = (function($, window, undefined) {
                   return $(this).val();
                 }).get();
 
-                if (functions.length != 0) {
+                functions.push("ignore");
+                console.log(functions)
+
+                if (functions.length > 1) {
                   $.post("ajax.cgi",{
                     'protocol': 1,
                     'action': 'labelingFunctionProcess',
                     'collection': collection,
                     'document': document,
-                    'functions': functions
+                    'function': functions
                     },function(result){
                     dispatcher.post('renderData', [result]);
                   });
