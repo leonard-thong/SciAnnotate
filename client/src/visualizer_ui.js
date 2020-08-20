@@ -557,23 +557,28 @@ var VisualizerUI = (function($, window, undefined) {
                 let fullPath = window.location.href.split('#')[1];
                 let document = fullPath.split('/').reverse()[0];
                 let collection = fullPath.substr(0, fullPath.length - document.length);
-                let data = {};
 
-                data['function'] = 'spam';
-                let functions = ['spam', 'spam1'];
-                $.post("ajax.cgi",{
-                  'protocol': 1,
-                  'action': 'labelingFunctionProcess',
-                  'collection': collection,
-                  'document': document,
-                  'function': functions
-                  },function(result){
-                  dispatcher.post('renderData', [result]);
-                });
+                let functions = $("#label_form_selection input:checkbox:checked").map(function(){
+                  return $(this).val();
+                }).get();
+
+                if (functions.length != 0) {
+                  $.post("ajax.cgi",{
+                    'protocol': 1,
+                    'action': 'labelingFunctionProcess',
+                    'collection': collection,
+                    'document': document,
+                    'function': functions
+                    },function(result){
+                    dispatcher.post('renderData', [result]);
+                  });
+                } else {
+                  dispatcher.post('messages', [[['Select at least one labeling function', 'warning']]]);
+                }
               }
             });
         }
-        if (opts.no_ok) {
+        else if (opts.no_ok) {
           delete opts.no_ok;
         } else {
           buttons.push({
@@ -1025,10 +1030,10 @@ var VisualizerUI = (function($, window, undefined) {
         $('#search_form_load_file').addClass('ui-widget ui-state-default ui-button-text');
       }
 
-      var setupLabelSelection = function(response) {
-        // using response.entity_types, need to discuss how to get labeling function type from backend
-        addLabelTypesToSelect($('#label_form_selection'), response.entity_types);
-      }
+      // var setupLabelSelection = function(response) {
+      //   // using response.entity_types, need to discuss how to get labeling function type from backend
+      //   addLabelTypesToSelect($('#label_form_selection'), response.entity_types);
+      // }
 
       // when event role changes, event types do as well
       var searchEventRoles = [];
@@ -1482,6 +1487,7 @@ var VisualizerUI = (function($, window, undefined) {
           width: 500,
           resizable: false,
           no_cancel: true,
+          no_ok: true,
           label_option: true,
           open: function(evt) {
             keymap = {};
@@ -1691,7 +1697,7 @@ var VisualizerUI = (function($, window, undefined) {
           searchConfig = response.search_config;
           selectorData.items.sort(docSortFunction);
           setupSearchTypes(response);
-          setupLabelSelection(response);
+          // setupLabelSelection(response);
           // scroller at the top
           docScroll = 0;
         }
