@@ -562,10 +562,10 @@ var VisualizerUI = (function($, window, undefined) {
                   return $(this).val();
                 }).get();
 
-                functions.push("ignore");
+                // functions.push("ignore");
                 console.log(functions)
 
-                if (functions.length > 1) {
+                if (functions.length >= 1) {
                   $.post("ajax.cgi",{
                     'protocol': 1,
                     'action': 'labelingFunctionProcess',

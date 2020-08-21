@@ -12,6 +12,7 @@ import sys
 import time
 
 from expandLogger import Logger
+
 # from os.path import join as path_join
 # from shutil import rmtree
 # from tempfile import mkdtemp
@@ -52,17 +53,43 @@ class Preprocessor(object):
         return out
 
 
+def annotation_file_generate(res, file_path, text):
+    anno_content = ""
+    for entity in res["entities"]:
+        anno_content += (
+            str(entity[0])
+            + "\t"
+            + str(entity[1])
+            + " "
+            + str(entity[2][0][0])
+            + " "
+            + str(entity[2][0][1])
+            + "\t"
+            + str(text[entity[2][0][0]: entity[2][0][1]])
+            + "\n"
+        )
+    with open(file_path, 'w') as f:
+        f.write(anno_content)
+
+
 def _function_executor(collection, document, functions):
-    file_path = "data" + collection + document + ".txt"
-    with open(file_path, "r", encoding="utf-8") as f:
+    file_path = "data" + collection + document
+    txt_file_path = file_path + ".txt"
+    anno_file_path = file_path + ".ann"
+    with open(txt_file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
-            out = eval(functions[0] + '(content, ENTITY_INDEX)')
-            if len(functions) > 2:
-                for function in functions[1:-1]:
-                    out['entities'].extend(eval(function + '(content, ENTITY_INDEX)')['entities'])
+            out = eval(functions[0] + "(content, ENTITY_INDEX)")
+            if len(functions) > 1:
+                for function in functions[1:]:
+                    out["entities"].extend(
+                        eval(function + "(content, ENTITY_INDEX)")["entities"]
+                    )
+            annotation_file_generate(out, anno_file_path, content)
         except Exception as e:
-            GLOBAL_LOGGER.log_error("ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__())
+            GLOBAL_LOGGER.log_error(
+                "ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__()
+            )
         if out is not None:
             return add_common_info(content, out)
         else:
@@ -75,6 +102,8 @@ def function_executor(**args):
     collection = args["collection"]
     document = args["document"]
     GLOBAL_LOGGER.log_normal(list(args["function[]"]).__str__())
+    if type(args["function[]"]) == str:
+        args["function[]"] = [args["function[]"]]
     functions = list(args["function[]"])
     if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
@@ -95,7 +124,7 @@ def _instant_executor(code, name, entity_index, collection, document):
         content = f.read()
         try:
             exec(code)
-            out = eval('{}(content, entity_index)'.format(name))
+            out = eval("{}(content, entity_index)".format(name))
             return out
         except Exception as e:
             GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
@@ -121,4 +150,3 @@ def main(argv):
 
 if __name__ == "__main__":
     pass
-
