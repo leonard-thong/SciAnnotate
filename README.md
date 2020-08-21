@@ -18,3 +18,13 @@ Start the standalone server
 
 
 You should then be able to access the brat server from the address printed out by standalone.py.
+
+## Add New Labeling Functions
+
+- Access the file labelFunctionExecutor.py
+- Implement / Import your labeling function
+- Add your function and corresponding alias to LABELING_FUNCTION_SET
+
+```
+LABELING_FUNCTION_SET = {"alias": your_new_function}
+```
