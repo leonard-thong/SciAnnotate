@@ -10,7 +10,7 @@
 import re
 def spam_get_entities(text, entity_index):
     entities = [
-        ["T" + str(next(entity_index)), "Person", [(pos.start(), pos.end())]]
+        ["T" + str(next(entity_index)), "quantity", [(pos.start(), pos.end())]]
         for pos in re.finditer("million", text)
     ]
     entities.extend(

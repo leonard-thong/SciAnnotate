@@ -18,12 +18,6 @@ def spam1(text="", entity_index=None):
     ]
     entities.extend(
         [
-            ["T" + str(next(entity_index)), "Person", [(pos.start(), pos.end())]]
-            for pos in re.finditer("million", text)
-        ]
-    )
-    entities.extend(
-        [
             ["T" + str(next(entity_index)), "NoneType", [(pos.start(), pos.end())]]
             for pos in re.finditer("was", text)
         ]
