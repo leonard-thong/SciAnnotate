@@ -5,5 +5,6 @@ config.py
 *.pyc
 *.pyo
 
+*.stats_cache
 # Standard locations of data and server temporary files
 work/
