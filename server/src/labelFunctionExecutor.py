@@ -19,7 +19,7 @@ from expandLogger import Logger
 #
 # from annotation import Annotations, open_textfile
 # from document import _document_json_dict
-from labelFunctions.index import *
+# from labelFunctions.index import *
 from tokenise import whitespace_token_boundary_gen
 
 GLOBAL_LOGGER = Logger()
@@ -36,9 +36,6 @@ def add_common_info(text, res):
 def get_entity_index():
     for i in range(1, 1000000):
         yield i
-
-
-ENTITY_INDEX = None
 
 
 class Preprocessor(object):
@@ -76,12 +73,15 @@ def _function_executor(collection, document, functions):
     file_path = "data" + collection + document
     txt_file_path = file_path + ".txt"
     anno_file_path = file_path + ".ann"
+    ENTITY_INDEX = get_entity_index()
     with open(txt_file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
+            exec("from labelFunctions.index import {}".format(functions[0]))
             out = eval(functions[0] + "(content, ENTITY_INDEX)")
             if len(functions) > 1:
                 for function in functions[1:]:
+                    exec("from labelFunctions.index import {}".format(function))
                     out["entities"].extend(
                         eval(function + "(content, ENTITY_INDEX)")["entities"]
                     )
@@ -98,7 +98,6 @@ def _function_executor(collection, document, functions):
 
 
 def function_executor(**args):
-    ENTITY_INDEX = get_entity_index()
     GLOBAL_LOGGER.log_normal(args.__str__())
     collection = args["collection"]
     document = args["document"]
@@ -121,6 +120,7 @@ def function_executor(**args):
 
 def _instant_executor(code, name, collection, document):
     file_path = "data" + collection + document + ".txt"
+    ENTITY_INDEX = get_entity_index()
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
@@ -139,7 +139,6 @@ def instant_executor(**args):
     :param args: dict | Required arguments set
     :return: dict | Formatted return value with entities, relation and other common info
     """
-    ENTITY_INDEX = get_entity_index()
     collection = args["collection"]
     document = args["document"]
     if args["function"] is None:
