@@ -38,7 +38,7 @@ def get_entity_index():
         yield i
 
 
-ENTITY_INDEX = get_entity_index()
+ENTITY_INDEX = None
 
 
 class Preprocessor(object):
@@ -98,6 +98,7 @@ def _function_executor(collection, document, functions):
 
 
 def function_executor(**args):
+    ENTITY_INDEX = get_entity_index()
     GLOBAL_LOGGER.log_normal(args.__str__())
     collection = args["collection"]
     document = args["document"]
@@ -118,30 +119,36 @@ def function_executor(**args):
     return out
 
 
-def _instant_executor(code, name, entity_index, collection, document):
+def _instant_executor(code, name, collection, document):
     file_path = "data" + collection + document + ".txt"
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
             exec(code)
-            out = eval("{}(content, entity_index)".format(name))
-            return out
+            out = eval("{}(content, ENTITY_INDEX)".format(name))
+            if out is not None:
+                return add_common_info(content, out)
         except Exception as e:
             GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
 
 
 def instant_executor(**args):
-    # TODO: implement code completion and return logic
     """
     This function is designed to handle instant labeling function code. The code must be written in a strict format,
     which will be released in a later version README.md .
     :param args: dict | Required arguments set
     :return: dict | Formatted return value with entities, relation and other common info
     """
+    ENTITY_INDEX = get_entity_index()
     collection = args["collection"]
     document = args["document"]
-    function_codes = list(args["function"])
-    pass
+    if args["function"] is None:
+        GLOBAL_LOGGER.log_error("FUNCTION CODE IS NONE")
+    else:
+        function_code = str(args["function"])
+        name = str(args["name"])
+        out = _instant_executor(function_code, name, collection, document)
+        return out
 
 
 def main(argv):
