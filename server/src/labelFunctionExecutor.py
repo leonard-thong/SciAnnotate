@@ -11,7 +11,7 @@ import re
 import sys
 import time
 
-from expandLogger import Logger
+from utils import GLOBAL_LOGGER
 
 # from os.path import join as path_join
 # from shutil import rmtree
@@ -21,8 +21,6 @@ from expandLogger import Logger
 # from document import _document_json_dict
 # from labelFunctions.index import *
 from tokenise import whitespace_token_boundary_gen
-
-GLOBAL_LOGGER = Logger()
 
 
 def add_common_info(text, res):

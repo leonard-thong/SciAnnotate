@@ -38,8 +38,7 @@ from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function
-from expandLogger import Logger
-GLOBAL_LOGGER = Logger()
+from utils import GLOBAL_LOGGER
 # no-op function that can be invoked by client to log a user action
 
 
