@@ -573,6 +573,13 @@ var VisualizerUI = (function($, window, undefined) {
                     'document': document,
                     'function': functions
                     },function(result){
+                      dispatcher.post('ajax', [{
+                        action: 'getCollectionInformation',
+                        collection: collection
+                      }, 'collectionLoaded', {
+                        collection: collection,
+                        keep: true
+                      }]); 
                     dispatcher.post('renderData', [result]);
                   });
                 } else {

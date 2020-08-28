@@ -104,6 +104,7 @@ DISPATCHER = {
     'normData': norm_get_data,
 
     # Visualisation support
+    # This interface has been abandoned, just ignore it.
     'getConfiguration': get_configuration,
     'convert': convert,
     'labelingFunctionProcess': function_executor,

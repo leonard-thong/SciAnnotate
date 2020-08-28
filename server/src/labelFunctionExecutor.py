@@ -10,6 +10,7 @@
 import re
 import sys
 import time
+import os
 
 from utils import GLOBAL_LOGGER
 
@@ -22,6 +23,8 @@ from utils import GLOBAL_LOGGER
 # from labelFunctions.index import *
 from tokenise import whitespace_token_boundary_gen
 
+def clean_cached_config():
+    os.system('rm ./data/visualConfigs/drawings.conf')
 
 def add_common_info(text, res):
     res["text"] = text
@@ -97,7 +100,7 @@ def function_executor(**args):
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
     elif document is None:
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
-
+    clean_cached_config()
     out = _function_executor(collection, document, functions)
     out["document"] = document
     out["collection"] = collection
@@ -132,6 +135,7 @@ def instant_executor(**args):
     if args["function"] is None:
         GLOBAL_LOGGER.log_error("FUNCTION CODE IS NONE")
     else:
+        clean_cached_config()
         function_code = str(args["function"])
         name = str(args["name"])
         out = _instant_executor(function_code, name, collection, document)
