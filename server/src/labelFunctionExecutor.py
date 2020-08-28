@@ -34,20 +34,10 @@ def add_common_info(text, res):
 
 
 def get_entity_index():
-    for i in range(1, 1000000):
-        yield i
-
-
-class Preprocessor(object):
-    def __init__(self, name, func):
-        self.name = name
-        self.func = func
-
-    def process(self, txt):
-        out = self.func(txt)
-        if out is None:
-            GLOBAL_LOGGER.log_warning("WARNING: RETURN VALUE IS NONE")
-        return out
+    index = 0
+    while 1:
+        index += 1
+        yield index
 
 
 def annotation_file_generate(res, file_path, text):
