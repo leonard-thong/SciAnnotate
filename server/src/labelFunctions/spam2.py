@@ -14,7 +14,7 @@ def spam2(text="", entity_index=None):
     res = dict()
     entities = [
         ["T" + str(next(entity_index)), "Location", [(pos.start(), pos.end())]]
-        for pos in re.finditer("boston", text)
+        for pos in re.finditer("year", text)
     ]
     entities.extend(
         [

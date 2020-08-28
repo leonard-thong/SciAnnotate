@@ -10,3 +10,4 @@ config.py
 work/
 data/examples
 data/tutorials
+.vscode

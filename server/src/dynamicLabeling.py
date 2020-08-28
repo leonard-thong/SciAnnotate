@@ -9,22 +9,12 @@
 """
 
 import os
-import random
 
 from utils import GLOBAL_LOGGER, COLOR_PICKER
 COMMON_CONTEXT = """
 if __name__ == "__main__":
     pass
 """
-
-def generate_color_config(name, entities):
-    # TODO: Define entities and color config source
-    entity_color_items = []
-    for entity in entities:
-        entity_color_items.append('\n{}\tbgColor:{}'.format(entity, next(COLOR_PICKER)))
-    with open('./data/visualCofigs/drawings.conf', 'a') as color_config:
-        color_config.write(''.join(entity_color_items))
-    os.system('sh ./data/build_visual_conf.sh')
 
 def _add_labeling_function(name, code):
     try:
