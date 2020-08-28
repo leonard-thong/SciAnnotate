@@ -8,17 +8,19 @@
 ===========================================
 """
 import re
-
+from utils import generate_color_config
 
 def spam2(text="", entity_index=None):
+    entity_list = ['Location', 'Person']
+    generate_color_config('spam2', entity_list)
     res = dict()
     entities = [
-        ["T" + str(next(entity_index)), "Location", [(pos.start(), pos.end())]]
-        for pos in re.finditer("boston", text)
+        ["T" + str(next(entity_index)), "spam2_Location", [(pos.start(), pos.end())]]
+        for pos in re.finditer("year", text)
     ]
     entities.extend(
         [
-            ["T" + str(next(entity_index)), "Person", [(pos.start(), pos.end())]]
+            ["T" + str(next(entity_index)), "spam2_Person", [(pos.start(), pos.end())]]
             for pos in re.finditer("doctor", text)
         ]
     )

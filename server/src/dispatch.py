@@ -36,9 +36,9 @@ from session import get_session, load_conf, save_conf
 from svg import retrieve_stored, store_svg
 from tag import tag
 from undo import undo
-from labelFunctionExecutor import function_executor
-from expandLogger import Logger
-GLOBAL_LOGGER = Logger()
+from labelFunctionExecutor import function_executor, instant_executor
+from dynamicLabeling import add_labeling_function
+from utils import GLOBAL_LOGGER
 # no-op function that can be invoked by client to log a user action
 
 
@@ -104,12 +104,15 @@ DISPATCHER = {
     'normData': norm_get_data,
 
     # Visualisation support
+    # This interface has been abandoned, just ignore it.
     'getConfiguration': get_configuration,
     'convert': convert,
     'labelingFunctionProcess': function_executor,
+    'instantExecutor': instant_executor,
+    'addLabelingFunction': add_labeling_function,
 }
 
-EXPAND_ACTION = {'labelingFunctionProcess'}
+EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction'}
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
