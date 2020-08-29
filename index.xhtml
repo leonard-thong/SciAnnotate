@@ -10,6 +10,10 @@
     <meta name="google" value="notranslate" />
     <link href="static/jquery-theme/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="static/jquery-theme/jquery-ui-redmond.css" rel="stylesheet" type="text/css" />
+    <!-- code mirror css -->
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="codemirror/theme/xq-light.css" />
+    <!-- code mirror css -->
     <script type="text/javascript" src="client/lib/head.load.min.js"></script>
     <script type="text/javascript">
         head.js(
@@ -34,7 +38,11 @@
             'client/src/visualizer.js',
             'client/src/visualizer_ui.js',
             'client/src/annotator_ui.js',
-            'client/src/spinner.js'
+            'client/src/spinner.js',
+            // code mirror
+            'codemirror/lib/codemirror.js',
+            'codemirror/mode/python/python.js',
+            'codemirror/src/display/autorefresh.js',
         );
         head.ready(function () {
             // var dispatcher = new Dispatcher(); // XXX DEBUG
@@ -47,6 +55,14 @@
             var annotatorUI = new AnnotatorUI(dispatcher, svg);
             var spinner = new Spinner(dispatcher, '#spinner');
             var logger = new AnnotationLog(dispatcher);
+
+            var editor = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_textarea'), {
+                lineNumbers: true,
+                autoRefresh: true,
+                theme: "xq-light",
+                mode: "python",
+            });
+
             // Util.profileEnable();
             dispatcher.post('init');
         });
@@ -253,10 +269,10 @@
         </div>
     </form>
     <!-- Label dialog -->
-    <form id="label_form" class="dialog" title="Data">
+    <form id="label_form" class="dialog" title="Label">
         <fieldset class="small-buttons">
-            <legend>Select Labeling Function</legend>
-            <div id="search_tab_entity">
+            <legend>Select Labeling Function(s)</legend>
+            <div id="">
                 <table class="fullwidth">
                     <tr>
                         <td>Type</td>
@@ -272,6 +288,10 @@
                 </table>
             </div>
         </fieldset>
+        <fieldset class="small-buttons">
+            <legend>Add Labeling Function</legend>
+            <textarea id="add_labeling_function_textarea" class="fullwidth" />
+        </fieldset>
     </form>
     <!-- Options dialog -->
     <form id="options_form" class="dialog" title="Options">
@@ -280,57 +300,49 @@
             <div class="optionRow">
                 <span class="optionLabel">Abbreviate labels</span>
                 <span id="label_abbreviations" class="radio_group small-buttons">
-            <input type="radio" id="label_abbreviations_off" value="off"
-                   name="label_abbrev_radio"/>
-            <label for="label_abbreviations_off"
-                   title="Always display full form of labels.">Off</label>
-            <input type="radio" id="label_abbreviations_on" value="on"
-                   name="label_abbrev_radio" checked="checked"/>
-            <label for="label_abbreviations_on"
-                   title="Abbreviate annotation labels in limited space.">On</label>
-          </span>
+                    <input type="radio" id="label_abbreviations_off" value="off" name="label_abbrev_radio" />
+                    <label for="label_abbreviations_off" title="Always display full form of labels.">Off</label>
+                    <input type="radio" id="label_abbreviations_on" value="on" name="label_abbrev_radio"
+                        checked="checked" />
+                    <label for="label_abbreviations_on"
+                        title="Abbreviate annotation labels in limited space.">On</label>
+                </span>
             </div>
             <div class="optionRow">
                 <span class="optionLabel">Text background</span>
                 <span id="text_backgrounds" class="radio_group small-buttons">
-            <input type="radio" id="text_backgrounds_blank" value="blank"
-                   name="text_background_radio"/>
-            <label for="text_backgrounds_blank"
-                   title="Blank white text backgrounds.">Blank</label>
-            <input type="radio" id="text_backgrounds_striped" value="striped"
-                   name="text_background_radio" checked="checked"/>
-            <label for="text_backgrounds_striped"
-                   title="Striped text backgrounds with every second sentence on light gray background.">Striped</label>
-          </span>
+                    <input type="radio" id="text_backgrounds_blank" value="blank" name="text_background_radio" />
+                    <label for="text_backgrounds_blank" title="Blank white text backgrounds.">Blank</label>
+                    <input type="radio" id="text_backgrounds_striped" value="striped" name="text_background_radio"
+                        checked="checked" />
+                    <label for="text_backgrounds_striped"
+                        title="Striped text backgrounds with every second sentence on light gray background.">Striped</label>
+                </span>
             </div>
             <div class="optionRow">
                 <span class="optionLabel">Layout density</span>
                 <span id="layout_density" class="radio_group small-buttons">
-            <input type="radio" id="layout_density1" value="1"
-                   name="layout_radio"/>
-            <label for="layout_density1"
-                   title="Dense annotation layout: minimizes space taken by annotations.">Dense</label>
-            <input type="radio" id="layout_density2" value="2"
-                   name="layout_radio" checked="checked" />
-            <label for="layout_density2"
-                   title="Normal annotation layout density: balances between annotation size and readability.">Normal</label>
-            <input type="radio" id="layout_density3" value="3"
-                   name="layout_radio"/>
-            <label for="layout_density3"
-                   title="Spacious annotation layout: allows extra space for annotations to improve readability.">Spacious</label>
-          </span>
+                    <input type="radio" id="layout_density1" value="1" name="layout_radio" />
+                    <label for="layout_density1"
+                        title="Dense annotation layout: minimizes space taken by annotations.">Dense</label>
+                    <input type="radio" id="layout_density2" value="2" name="layout_radio" checked="checked" />
+                    <label for="layout_density2"
+                        title="Normal annotation layout density: balances between annotation size and readability.">Normal</label>
+                    <input type="radio" id="layout_density3" value="3" name="layout_radio" />
+                    <label for="layout_density3"
+                        title="Spacious annotation layout: allows extra space for annotations to improve readability.">Spacious</label>
+                </span>
             </div>
             <div class="optionRow">
                 <span class="optionLabel">Visualization width</span>
                 <input id="svg_width_value" maxlength="3" size="3" value="100" style="text-align:right" />
                 <span id="svg_width_unit" class="radio_group small-buttons">
-            <input type="radio" id="svg_width_unit_percent" value="%"
-                   name="svg_width_radio" checked="checked"/>
-            <label for="svg_width_unit_percent">percent</label>
-            <input type="radio" id="svg_width_unit_pixels" value="px"
-                   name="svg_width_radio"/>
-            <label for="svg_width_unit_pixels">pixels</label>
-          </span>
+                    <input type="radio" id="svg_width_unit_percent" value="%" name="svg_width_radio"
+                        checked="checked" />
+                    <label for="svg_width_unit_percent">percent</label>
+                    <input type="radio" id="svg_width_unit_pixels" value="px" name="svg_width_radio" />
+                    <label for="svg_width_unit_pixels">pixels</label>
+                </span>
             </div>
             <div class="optionRow small-buttons">
                 <span class="optionLabel">Paging</span> size
@@ -344,20 +356,17 @@
             <div class="optionRow">
                 <span class="optionLabel">Annotation mode</span>
                 <span id="annotation_speed" class="radio_group small-buttons">
-            <input type="radio" id="annotation_speed1" value="1"
-                   name="annspeed_radio" checked="checked"/>
-            <label for="annotation_speed1"
-                   title="Careful annotation mode: ask for additional confirmation of annotation changes. Suitable for annotators in training and for mature corpora requiring few changes.">Careful</label>
-            <input type="radio" id="annotation_speed2" value="2"
-                   name="annspeed_radio"/>
-            <label for="annotation_speed2"
-                   title="Normal annotation mode. Suitable for standard annotation processes.">Normal</label>
-            <input type="radio" id="annotation_speed3" value="3"
-                   name="annspeed_radio"/>
-            <label for="annotation_speed3"
-                   title="Rapid annotation mode: activate automatic support for speeding up annotation process. Suitable for experienced annotators performing an established task.">Rapid</label>
-            <select id="rapid_model"/>
-          </span>
+                    <input type="radio" id="annotation_speed1" value="1" name="annspeed_radio" checked="checked" />
+                    <label for="annotation_speed1"
+                        title="Careful annotation mode: ask for additional confirmation of annotation changes. Suitable for annotators in training and for mature corpora requiring few changes.">Careful</label>
+                    <input type="radio" id="annotation_speed2" value="2" name="annspeed_radio" />
+                    <label for="annotation_speed2"
+                        title="Normal annotation mode. Suitable for standard annotation processes.">Normal</label>
+                    <input type="radio" id="annotation_speed3" value="3" name="annspeed_radio" />
+                    <label for="annotation_speed3"
+                        title="Rapid annotation mode: activate automatic support for speeding up annotation process. Suitable for experienced annotators performing an established task.">Rapid</label>
+                    <select id="rapid_model" />
+                </span>
             </div>
             <div class="optionRow">
                 <span class="optionLabel">Type Collapse Limit</span>
@@ -369,10 +378,10 @@
             <div class="optionRow">
                 <span class="optionLabel">Collaboration</span>
                 <span class="small-buttons">
-            <input id="autorefresh_mode" type="checkbox"/>
-            <label for="autorefresh_mode"
-                   title="Toggle the autorefresh mode on/off. When autorefresh is on, the system will periodically check with the server for updates to the document you are working on. This is useful when collaborating on annotation but consumes some resources, so you may wish to turn autorefresh off if there are no simultaneous edits.">Autorefresh</label>
-          </span>
+                    <input id="autorefresh_mode" type="checkbox" />
+                    <label for="autorefresh_mode"
+                        title="Toggle the autorefresh mode on/off. When autorefresh is on, the system will periodically check with the server for updates to the document you are working on. This is useful when collaborating on annotation but consumes some resources, so you may wish to turn autorefresh off if there are no simultaneous edits.">Autorefresh</label>
+                </span>
             </div>
         </fieldset>
     </form>
@@ -380,7 +389,7 @@
     <form id="more_information_dialog" class="dialog" title="Collection information">
         <fieldset>
             <textarea id="more_info_readme" readonly="readonly" class="borderless" />
-        </fieldset>
+            </fieldset>
     </form>
     <!-- Search dialog -->
     <form id="search_form" class="dialog" title="Search">
