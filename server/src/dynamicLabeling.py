@@ -10,7 +10,7 @@
 
 import os
 
-from utils import GLOBAL_LOGGER, COLOR_PICKER
+from utils import GLOBAL_LOGGER
 COMMON_CONTEXT = """
 if __name__ == "__main__":
     pass
