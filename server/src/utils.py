@@ -7,9 +7,9 @@ def color_generator(num):
 
 def random_color_generator():
     while 1:
-        r = random.randint(0, 255)
-        g = random.randint(0, 255)
-        b = random.randint(0, 255)
+        r = random.randint(180, 255)
+        g = random.randint(180, 255)
+        b = random.randint(180, 255)
         yield '#' + color_generator(r) + color_generator(g) + color_generator(b)
 
 GLOBAL_LOGGER = Logger()
