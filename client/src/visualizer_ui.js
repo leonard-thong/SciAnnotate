@@ -549,11 +549,14 @@ var VisualizerUI = (function($, window, undefined) {
         delete opts.alsoResize;
         // Always add OK and Cancel
         var buttons = (opts.buttons || []);
-        if (opts.label_option) {
+
+        /* START labeling function related */
+        if (opts.label_select_option) {
           buttons.push({
-              id: formId + "-label",
-              text: "Label",
+              id: formId + "-label-select-execute",
+              text: "Execute",
               click: function() { 
+                // execute selected labeling function
                 let fullPath = window.location.href.split('#')[1];
                 let document = fullPath.split('/').reverse()[0];
                 let collection = fullPath.substr(0, fullPath.length - document.length);
@@ -584,15 +587,26 @@ var VisualizerUI = (function($, window, undefined) {
                 }
               }
             });
-            buttons.push({
-              id: formId + "-label",
-              text: "Add",
-              click: function() { 
-                
-              }
-            });
-        }
-        else if (opts.no_ok) {
+        } 
+        if (opts.label_add_option) {
+          buttons.push({
+            id: formId + "-label-add-execute",
+            text: "Execute",
+            click: function() { 
+              // execute user input labeling function
+            }
+          });
+          buttons.push({
+            id: formId + "-label-add-add",
+            text: "Add",
+            click: function() { 
+              // add user input labeling function
+            }
+          });
+        } 
+        /* STOP labeling function related */
+        
+        if (opts.no_ok) {
           delete opts.no_ok;
         } else {
           buttons.push({
@@ -1497,30 +1511,66 @@ var VisualizerUI = (function($, window, undefined) {
         return false;
       };
       labelForm.submit(dataFormSubmit);
-      initForm(labelForm, {
-          width: 500,
-          resizable: false,
-          no_cancel: true,
-          label_option: true,
-          open: function(evt) {
-            keymap = {};
-            // aspects of the data form relating to the current document should
-            // only be shown when a document is selected.
-            if (!doc) {
-              $('#document_export').hide();
-              $('#document_visualization').hide();
-            } else {
-              $('#document_export').show();
-              $('#document_visualization').show();
-              // the SVG button can only be accessed through the data form,
-              // so we'll spare unnecessary saves by only saving here
-              saveSVG();
-            }
+
+      // labelFormOpts
+      var optsSelect = {
+        width: 500,
+        resizable: false,
+        no_cancel: true,
+        no_ok: true,
+        label_select_option: true,
+        label_add_option: false, 
+        open: function(evt) {
+          keymap = {};
+          // aspects of the data form relating to the current document should
+          // only be shown when a document is selected.
+          if (!doc) {
+            $('#document_export').hide();
+            $('#document_visualization').hide();
+          } else {
+            $('#document_export').show();
+            $('#document_visualization').show();
+            // the SVG button can only be accessed through the data form,
+            // so we'll spare unnecessary saves by only saving here
+            saveSVG();
           }
-      });
+        }
+      }
+      var optsAdd = {
+        width: 800,
+        resizable: false,
+        no_cancel: true,
+        no_ok: true,
+        label_select_option: false,
+        label_add_option: true, 
+        open: function(evt) {
+          keymap = {};
+          if (!doc) {
+            $('#document_export').hide();
+            $('#document_visualization').hide();
+          } else {
+            $('#document_export').show();
+            $('#document_visualization').show(); 
+            saveSVG();
+          }
+        }
+      }
+
+      initForm(labelForm, optsSelect);
       $('#label_button').click(function() {
         dispatcher.post('showForm', [labelForm]);
       });
+      
+      // START different button for different option
+      $('#label_tab_select_head').click(function(){
+        initForm(labelForm, optsSelect)
+      })
+      $('#label_tab_add_head').click(function(){
+        
+        initForm(labelForm, optsAdd);
+      })
+      // STOP different button for different option
+
       // make nice-looking buttons for checkboxes and buttons
       $('#label_form').find('input[type="checkbox"]').button();
       $('#label_form').find('input[type="button"]').button();
@@ -1531,6 +1581,30 @@ var VisualizerUI = (function($, window, undefined) {
       $('#stored_file_regenerate').click(function(evt) {
         $('#stored_file_regenerate').hide();
         saveSVG();
+      });
+
+      var activeLabelTab = function() {
+        // activeTab: 0 = Text, 1 = Entity, 2 = Event, 3 = Relation, 4 = Notes, 5 = Load
+        var activeTab = $('#label_tabs').tabs('option', 'active');
+        return ['labelSelect', 'labelAdd'][activeTab];
+      }
+
+      var onLabelTabSelect = function() {
+        var action = activeLabelTab();
+        switch (action) {
+          case 'labelSelect':
+            $('#select_labeling_function_select').focus().select();
+            
+            break;
+          case 'labelAdd':
+            $('#add_labeling_function_textarea').focus().select();
+            break;
+        }
+      };
+
+      // set up jQuery UI elements in label form
+      $('#label_tabs').tabs({
+        show: onLabelTabSelect
       });
 
       /* END label dialog - related */

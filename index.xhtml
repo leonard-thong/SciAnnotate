@@ -270,28 +270,38 @@
     </form>
     <!-- Label dialog -->
     <form id="label_form" class="dialog" title="Label">
-        <fieldset class="small-buttons">
-            <legend>Select Labeling Function(s)</legend>
-            <div id="">
-                <table class="fullwidth">
-                    <tr>
-                        <td>Type</td>
-                        <td id="label_form_selection">
-                            <input type="checkbox" id="SPAM" name="SPAM" value="spam" />
-                            <label for="SPAM">SPAM</label>
-                            <input type="checkbox" id="SPAM1" name="SPAM1" value="spam1" />
-                            <label for="SPAM1">SPAM1</label>
-                            <input type="checkbox" id="SPAM2" name="SPAM2" value="spam2" />
-                            <label for="SPAM2">SPAM2</label>
-                        </td>
-                    </tr>
-                </table>
+        <div id="label_tabs">
+            <ul>
+                <li><a id="label_tab_select_head" href="#label_tab_select">Select</a></li>
+                <li><a id="label_tab_add_head" href="#label_tab_add">Add</a></li>
+            </ul>
+            <div id="label_tab_select">
+                <fieldset class="small-buttons">
+                    <legend>Select Labeling Function(s)</legend>
+                    <div id="select_labeling_function_select">
+                        <table class="fullwidth">
+                            <tr>
+                                <td>Type</td>
+                                <td id="label_form_selection">
+                                    <input type="checkbox" id="SPAM" name="SPAM" value="spam" />
+                                    <label for="SPAM">SPAM</label>
+                                    <input type="checkbox" id="SPAM1" name="SPAM1" value="spam1" />
+                                    <label for="SPAM1">SPAM1</label>
+                                    <input type="checkbox" id="SPAM2" name="SPAM2" value="spam2" />
+                                    <label for="SPAM2">SPAM2</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
             </div>
-        </fieldset>
-        <fieldset class="small-buttons">
-            <legend>Add Labeling Function</legend>
-            <textarea id="add_labeling_function_textarea" class="fullwidth" />
-        </fieldset>
+            <div id="label_tab_add">
+                <fieldset class="small-buttons">
+                    <legend>Add Labeling Function</legend>
+                    <textarea id="add_labeling_function_textarea" class="fullwidth" />
+                </fieldset>
+            </div>
+        </div>
     </form>
     <!-- Options dialog -->
     <form id="options_form" class="dialog" title="Options">
