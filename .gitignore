@@ -8,6 +8,9 @@ config.py
 *.stats_cache
 # Standard locations of data and server temporary files
 work/
-data/examples
-data/tutorials
 .vscode
+data/tutorials
+data/examples
+
+# for mac
+.DS_Store

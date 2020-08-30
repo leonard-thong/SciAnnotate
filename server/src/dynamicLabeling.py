@@ -21,10 +21,13 @@ def _add_labeling_function(name, code):
         with open('./server/src/labelFunctions/{}.py'.format(name), 'w') as f:
             f.write(code)
             f.write(COMMON_CONTEXT)
-        with open('./server/src/labelFunctions/index.py', 'a') as f:
-            f.write('\nfrom .{} import *'.format(name))
+        with open('./server/src/labelFunctions/index.py', 'r+') as f:
+            if 'from .{} import *'.format(name) not in f.read():
+                f.write(f.read())
+                f.write('\nfrom .{} import *'.format(name))
         return {'status': 0}
     except Exception as e:
+        GLOBAL_LOGGER.log_exception(e.__str__())
         return {'status': -1}
 
 
@@ -36,6 +39,7 @@ def add_labeling_function(**args):
             raise Exception("INVALID FUNCTION CODE OR NAME")
         return _add_labeling_function(name, code)
     except Exception as e:
+        GLOBAL_LOGGER.log_exception(e.__str__())
         return {'status': -1}
 
 
