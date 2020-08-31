@@ -1,13 +1,14 @@
 import random
 import os
 import hashlib
+import time
 
 from expandLogger import Logger
+from tokenise import whitespace_token_boundary_gen
 
 GLOBAL_LOGGER = Logger()
 
 def generate_color_config(name, entities):
-    # TODO: Define entities and color config source
     md5_obj = hashlib.md5()
     md5_obj.update(name.encode('utf-8'))
     hash_code = md5_obj.hexdigest()
@@ -29,6 +30,22 @@ def generate_color_config(name, entities):
        with open('./data/visualConfigs/drawings.conf', 'a') as color_config:
             color_config.write(''.join(entity_color_items)) 
     os.system('sh ./data/build_visual_conf.sh')
+
+def get_entity_index():
+    index = 0
+    while 1:
+        index += 1
+        yield index
+
+def clean_cached_config():
+    os.system('rm ./data/visualConfigs/drawings.conf')
+
+def add_common_info(text, res):
+    res["text"] = text
+    res["token_offsets"] = [o for o in whitespace_token_boundary_gen(text)]
+    res["ctime"] = time.time()
+    res["source_files"] = ["ann", "txt"]
+    return res
 
 if __name__ == "__main__":
     entity_list = ['Location', 'Person']
