@@ -36,7 +36,7 @@ def annotation_file_generate(res, file_path, text):
 
 
 def _function_executor(collection, document, functions):
-    file_path = "data" + collection + document
+    file_path = "data" + collection + '/' + document
     txt_file_path = file_path + ".txt"
     anno_file_path = file_path + ".ann"
     ENTITY_INDEX = get_entity_index()
@@ -84,7 +84,7 @@ def function_executor(**args):
 
 
 def _instant_executor(code, name, collection, document):
-    file_path = "data" + collection + document + ".txt"
+    file_path = "./data" + collection + '/' + document + ".txt"
     ENTITY_INDEX = get_entity_index()
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
