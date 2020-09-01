@@ -624,7 +624,7 @@ def _create_span(collection, document, offsets, _type, attributes=None,
 
     directory = collection
     undo_resp = {}
-
+    print(directory)
     _attributes = _parse_attributes(attributes)
     _normalizations = _parse_span_normalizations(normalizations)
 
