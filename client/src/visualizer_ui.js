@@ -593,7 +593,29 @@ var VisualizerUI = (function($, window, undefined) {
             id: formId + "-label-add-execute",
             text: "Execute",
             click: function() { 
-              // execute user input labeling function
+              // execute labeling function that user enter
+              let fullPath = window.location.href.split('#')[1];
+              let document = fullPath.split('/').reverse()[0];
+              let collection = fullPath.substr(0, fullPath.length - document.length);
+              
+              let functions = $('.CodeMirror')[0].CodeMirror.getValue();
+              console.log(functions);
+
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'getAvailableLabelingFunction',
+                'collection': collection,
+                'function': functions
+                },function(result){
+                  dispatcher.post('ajax', [{
+                    action: 'getCollectionInformation',
+                    collection: collection
+                  }, 'collectionLoaded', {
+                    collection: collection,
+                    keep: true
+                  }]); 
+                dispatcher.post('renderData', [result]);
+              });
             }
           });
           buttons.push({
@@ -601,6 +623,8 @@ var VisualizerUI = (function($, window, undefined) {
             text: "Add",
             click: function() { 
               // add user input labeling function
+
+              // get labeling function and update dom
             }
           });
         } 
