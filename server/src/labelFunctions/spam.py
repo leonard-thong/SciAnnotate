@@ -8,24 +8,24 @@
 ===========================================
 """
 import re
+import sys
+
 from utils import generate_color_config
 
 def spam_get_entities(text, entity_index):
-    entity_list = ['quantity', 'money']
-    generate_color_config('spam', entity_list)
     entities = [
-        ["T" + str(next(entity_index)), "spam_quantity", [(pos.start(), pos.end())]]
+        ["T" + str(next(entity_index)), "quantity", [(pos.start(), pos.end())]]
         for pos in re.finditer("million", text)
     ]
     entities.extend(
         [
-            ["T" + str(next(entity_index)), "spam_quantity", [(pos.start(), pos.end())]]
+            ["T" + str(next(entity_index)), "quantity", [(pos.start(), pos.end())]]
             for pos in re.finditer("billion", text)
         ]
     )
     entities.extend(
         [
-            ["T" + str(next(entity_index)), "spam_money", [(pos.start(), pos.end())]]
+            ["T" + str(next(entity_index)), "money", [(pos.start(), pos.end())]]
             for pos in re.finditer("(\$([1-9|.]*))|(dollars)", text)
         ]
     )
@@ -39,7 +39,11 @@ def spam_get_realtions(text):
 def spam(text="", entity_index=None):
     res = dict()
     entities = spam_get_entities(text, entity_index)
-
+    entity_list = set()
+    for index, entity in enumerate(entities):
+        entity_list.add(entity[1])
+        entities[index][1] = '{}_{}'.format(str(sys._getframe().f_code.co_name), entity[1])
+    generate_color_config(sys._getframe().f_code.co_name, entity_list)
     res["entities"] = entities
     return res
 

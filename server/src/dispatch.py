@@ -37,7 +37,7 @@ from svg import retrieve_stored, store_svg
 from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
-from dynamicLabeling import add_labeling_function
+from dynamicLabeling import add_labeling_function, get_available_labeling_function
 from utils import GLOBAL_LOGGER
 # no-op function that can be invoked by client to log a user action
 
@@ -110,9 +110,10 @@ DISPATCHER = {
     'labelingFunctionProcess': function_executor,
     'instantExecutor': instant_executor,
     'addLabelingFunction': add_labeling_function,
+    'getAvailableLabelingFunction': get_available_labeling_function
 }
 
-EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction'}
+EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'getAvailableLabelingFunction'}
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
@@ -265,7 +266,7 @@ def dispatch(http_args, client_ip, client_hostname):
         json_dic['action'] = action
         # Return the protocol version for symmetry
         json_dic['protocol'] = PROTOCOL_VERSION
-        GLOBAL_LOGGER.log_error(json_dic.__str__())
+        # GLOBAL_LOGGER.log_error(json_dic.__str__())
         return json_dic
     # Determine what arguments the action function expects
     args, varargs, keywords, defaults = getargspec(action_function)
@@ -313,7 +314,7 @@ def dispatch(http_args, client_ip, client_hostname):
         log_annotation(http_args['collection'],
                        http_args['document'],
                        'FINISH', action, action_args)
-    GLOBAL_LOGGER.log_error(json_dic.__str__())
+    # GLOBAL_LOGGER.log_error(json_dic.__str__())
     # # Assign which action that was performed to the json_dic
     # json_dic['entities'] = [['T1', 'Entity', [(0, 6)]], ['T2', 'PPP', [(381, 387)]], ['T3', 'Protein', [(401, 413)]], ['T4', 'Protein', [(639, 645)]], ['T5', 'Protein', [(1190, 1202)]], ['T6', 'Protein', [(1254, 1263)]], ['T7', 'Protein', [(1357, 1366)]], ['T8', 'Protein', [(1367, 1376)]], ['T9', 'Protein', [(1420, 1429)]], ['T10', 'Protein', [(1455, 1461)]], ['T11', 'Protein', [(1562, 1571)]]]
     # json_dic['events'] = [['E1', 'T1', [('Theme', 'T7')]], ['E2', 'T2', [('Theme', 'T8')]]]

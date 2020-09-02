@@ -13,32 +13,7 @@ import time
 import os
 
 from utils import GLOBAL_LOGGER
-
-# from os.path import join as path_join
-# from shutil import rmtree
-# from tempfile import mkdtemp
-#
-# from annotation import Annotations, open_textfile
-# from document import _document_json_dict
-# from labelFunctions.index import *
-from tokenise import whitespace_token_boundary_gen
-
-def clean_cached_config():
-    os.system('rm ./data/visualConfigs/drawings.conf')
-
-def add_common_info(text, res):
-    res["text"] = text
-    res["token_offsets"] = [o for o in whitespace_token_boundary_gen(text)]
-    res["ctime"] = time.time()
-    res["source_files"] = ["ann", "txt"]
-    return res
-
-
-def get_entity_index():
-    index = 0
-    while 1:
-        index += 1
-        yield index
+from utils import get_entity_index, clean_cached_config, add_common_info
 
 
 def annotation_file_generate(res, file_path, text):
@@ -61,7 +36,7 @@ def annotation_file_generate(res, file_path, text):
 
 
 def _function_executor(collection, document, functions):
-    file_path = "data" + collection + document
+    file_path = "data" + collection + '/' + document
     txt_file_path = file_path + ".txt"
     anno_file_path = file_path + ".ann"
     ENTITY_INDEX = get_entity_index()
@@ -92,7 +67,6 @@ def function_executor(**args):
     GLOBAL_LOGGER.log_normal(args.__str__())
     collection = args["collection"]
     document = args["document"]
-    GLOBAL_LOGGER.log_normal(list(args["function[]"]).__str__())
     if type(args["function[]"]) == str:
         args["function[]"] = [args["function[]"]]
     functions = list(args["function[]"])
@@ -110,7 +84,7 @@ def function_executor(**args):
 
 
 def _instant_executor(code, name, collection, document):
-    file_path = "data" + collection + document + ".txt"
+    file_path = "./data" + collection + '/' + document + ".txt"
     ENTITY_INDEX = get_entity_index()
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
@@ -140,10 +114,6 @@ def instant_executor(**args):
         name = str(args["name"])
         out = _instant_executor(function_code, name, collection, document)
         return out
-
-
-def main(argv):
-    pass
 
 
 if __name__ == "__main__":

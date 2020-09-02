@@ -1,23 +1,23 @@
 import random
 import os
+import hashlib
+import time
 
 from expandLogger import Logger
-def color_generator(num):
-    return '0' + str(hex(num)).replace('0x', '') if num < 15 else str(hex(num)).replace('0x', '') 
-
-def random_color_generator():
-    while 1:
-        r = random.randint(0, 255)
-        g = random.randint(0, 255)
-        b = random.randint(0, 255)
-        yield '#' + color_generator(r) + color_generator(g) + color_generator(b)
+from tokenise import whitespace_token_boundary_gen
 
 GLOBAL_LOGGER = Logger()
-COLOR_PICKER = random_color_generator()
 
 def generate_color_config(name, entities):
-    # TODO: Define entities and color config source
-    color = next(COLOR_PICKER)
+    md5_obj = hashlib.md5()
+    md5_obj.update(name.encode('utf-8'))
+    hash_code = md5_obj.hexdigest()
+    color = '#{}'.format(str(hash_code)[0:6])
+    color = list(color)
+    for i in range(1, 6, 2):
+        if '7' >= color[i] >= '0':
+            color[i] = str(hex(int(color[i]) + 8)).replace('0x', '') 
+    color = ''.join(color)
     entity_color_items = []
     for entity in entities:
         entity_color_items.append('\n{}_{}\tbgColor:{}'.format(name, entity, color))
@@ -30,6 +30,22 @@ def generate_color_config(name, entities):
        with open('./data/visualConfigs/drawings.conf', 'a') as color_config:
             color_config.write(''.join(entity_color_items)) 
     os.system('sh ./data/build_visual_conf.sh')
+
+def get_entity_index():
+    index = 0
+    while 1:
+        index += 1
+        yield index
+
+def clean_cached_config():
+    os.system('rm ./data/visualConfigs/drawings.conf')
+
+def add_common_info(text, res):
+    res["text"] = text
+    res["token_offsets"] = [o for o in whitespace_token_boundary_gen(text)]
+    res["ctime"] = time.time()
+    res["source_files"] = ["ann", "txt"]
+    return res
 
 if __name__ == "__main__":
     entity_list = ['Location', 'Person']
