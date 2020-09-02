@@ -1520,8 +1520,7 @@ var VisualizerUI = (function($, window, undefined) {
       };
       labelForm.submit(dataFormSubmit);
 
-      // labelFormOpts
-      var optsSelect = {
+      initForm(labelForm, {
         width: 500,
         resizable: false,
         no_cancel: true,
@@ -1543,39 +1542,58 @@ var VisualizerUI = (function($, window, undefined) {
             saveSVG();
           }
         }
-      }
-      var optsAdd = {
-        width: 800,
-        resizable: false,
-        no_cancel: true,
-        no_ok: true,
-        label_select_option: false,
-        label_add_option: true, 
-        open: function(evt) {
-          keymap = {};
-          if (!doc) {
-            $('#document_export').hide();
-            $('#document_visualization').hide();
-          } else {
-            $('#document_export').show();
-            $('#document_visualization').show(); 
-            saveSVG();
-          }
-        }
-      }
-
-      initForm(labelForm, optsSelect);
+      });
       $('#label_button').click(function() {
         dispatcher.post('showForm', [labelForm]);
       });
       
       // START different button for different option
       $('#label_tab_select_head').click(function(){
-        initForm(labelForm, optsSelect);
+        initForm(labelForm, {
+          width: 500,
+          resizable: false,
+          no_cancel: true,
+          no_ok: true,
+          label_select_option: true,
+          label_add_option: false, 
+          open: function(evt) {
+            keymap = {};
+            // aspects of the data form relating to the current document should
+            // only be shown when a document is selected.
+            if (!doc) {
+              $('#document_export').hide();
+              $('#document_visualization').hide();
+            } else {
+              $('#document_export').show();
+              $('#document_visualization').show();
+              // the SVG button can only be accessed through the data form,
+              // so we'll spare unnecessary saves by only saving here
+              saveSVG();
+            }
+          }
+        });
         dispatcher.post('showForm', [labelForm]);
       })
       $('#label_tab_add_head').click(function(){
-        initForm(labelForm, optsAdd);
+        initForm(labelForm, {
+          width: 800,
+          resizable: false,
+          no_cancel: true,
+          no_ok: true,
+          label_select_option: false,
+          label_add_option: true, 
+          open: function(evt) {
+            keymap = {};
+            if (!doc) {
+              $('#document_export').hide();
+              $('#document_visualization').hide();
+            } else {
+              $('#document_export').show();
+              $('#document_visualization').show(); 
+              saveSVG();
+            }
+          }
+        });
         dispatcher.post('showForm', [labelForm]);
       })
       // STOP different button for different option
