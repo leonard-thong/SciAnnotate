@@ -89,6 +89,7 @@ def _instant_executor(code, name, collection, document):
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
+            code = str(code)
             exec(code)
             out = eval("{}(content, ENTITY_INDEX)".format(name))
             if out is not None:
