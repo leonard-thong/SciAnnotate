@@ -603,7 +603,7 @@ var VisualizerUI = (function($, window, undefined) {
 
               $.post("ajax.cgi",{
                 'protocol': 1,
-                'action': 'getAvailableLabelingFunction',
+                'action': 'instantExecutor',
                 'collection': collection,
                 'function': functions
                 },function(result){
