@@ -678,10 +678,18 @@ var VisualizerUI = (function($, window, undefined) {
         currentForm = form;
         // as suggested in http://stackoverflow.com/questions/2657076/jquery-ui-dialog-fixed-positioning
         form.parent().css({position:"fixed"});
+        
         if (unsafe) {
           unsafeDialogOpen(form);
         } else {
-          form.dialog('open');
+          form.dialog("open");
+          form.dialog({
+            position: { 
+              my: "center top+100px",
+              at: "center top+100px",
+              of: window 
+            },
+          });
         }
         slideToggle($('#pulldown').stop(), false);
         return form;
@@ -1563,11 +1571,12 @@ var VisualizerUI = (function($, window, undefined) {
       
       // START different button for different option
       $('#label_tab_select_head').click(function(){
-        initForm(labelForm, optsSelect)
+        initForm(labelForm, optsSelect);
+        dispatcher.post('showForm', [labelForm]);
       })
       $('#label_tab_add_head').click(function(){
-        
         initForm(labelForm, optsAdd);
+        dispatcher.post('showForm', [labelForm]);
       })
       // STOP different button for different option
 
