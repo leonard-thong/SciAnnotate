@@ -599,13 +599,14 @@ var VisualizerUI = (function($, window, undefined) {
               let collection = fullPath.substr(0, fullPath.length - document.length);
               
               let functions = $('.CodeMirror')[0].CodeMirror.getValue();
-              console.log(functions);
+              var name = functions.split(' ')[1];
 
               $.post("ajax.cgi",{
                 'protocol': 1,
                 'action': 'instantExecutor',
                 'collection': collection,
-                'function': functions
+                'function': functions,
+                'name': name,
                 },function(result){
                   dispatcher.post('ajax', [{
                     action: 'getCollectionInformation',
