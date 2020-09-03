@@ -600,7 +600,7 @@ var VisualizerUI = (function($, window, undefined) {
               
               let functions = $('.CodeMirror')[0].CodeMirror.getValue();
               var name = functions.split(' ')[1].split('(')[0];
-              console.log(name);
+
               $.post("ajax.cgi",{
                 'protocol': 1,
                 'action': 'instantExecutor',
@@ -625,7 +625,21 @@ var VisualizerUI = (function($, window, undefined) {
             text: "Add",
             click: function() { 
               // add user input labeling function
+              let fullPath = window.location.href.split('#')[1];
+              let document = fullPath.split('/').reverse()[0];
+              let collection = fullPath.substr(0, fullPath.length - document.length);
 
+              let functions = $('.CodeMirror')[0].CodeMirror.getValue();
+              var name = functions.split(' ')[1].split('(')[0];
+
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'addLabelingFunction',
+                'collection': collection,
+                'function': functions,
+                'name': name,
+                }
+              );
               // get labeling function and update dom
             }
           });
