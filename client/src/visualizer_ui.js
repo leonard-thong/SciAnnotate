@@ -630,7 +630,7 @@ var VisualizerUI = (function($, window, undefined) {
               let collection = fullPath.substr(0, fullPath.length - document.length);
 
               let functions = $('.CodeMirror')[0].CodeMirror.getValue();
-              let array = functions.split(' ');
+              let array = functions.split(new RegExp(" |\n", "g"));
               let name = '';
 
               for (let i = 0; i < array.length; i++) {
