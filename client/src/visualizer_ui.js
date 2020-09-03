@@ -651,6 +651,7 @@ var VisualizerUI = (function($, window, undefined) {
                 'protocol': 1,
                 'action': 'getAvailableLabelingFunction',
                 'collection': collection,
+                'aysnc': false,
               }, function(result) {
                 let container = $('#label_form_selection');
                 let functions = result['function_list'];
