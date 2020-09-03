@@ -630,7 +630,14 @@ var VisualizerUI = (function($, window, undefined) {
               let collection = fullPath.substr(0, fullPath.length - document.length);
 
               let functions = $('.CodeMirror')[0].CodeMirror.getValue();
-              let name = functions.split(' ')[1].split('(')[0];
+              let array = functions.split(' ');
+              let name = '';
+
+              for (let i = 0; i < array.length; i++) {
+                if (array[i].trim() === "def") {
+                  name = array[i + 1].split('(')[0];
+                }
+              }
 
               $.post("ajax.cgi",{
                 'protocol': 1,
@@ -1610,7 +1617,6 @@ var VisualizerUI = (function($, window, undefined) {
         let fullPath = window.location.href.split('#')[1];
         let document = fullPath.split('/').reverse()[0];
         let collection = fullPath.substr(0, fullPath.length - document.length);
-        console.log(collection);
 
         $.post("ajax.cgi",{
           'protocol': 1,
