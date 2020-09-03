@@ -608,7 +608,7 @@ var VisualizerUI = (function($, window, undefined) {
                 'document': document,
                 'function': functions,
                 'name': name,
-                },function(result){
+                }, function(result) {
                   dispatcher.post('ajax', [{
                     action: 'getCollectionInformation',
                     collection: collection
@@ -630,7 +630,7 @@ var VisualizerUI = (function($, window, undefined) {
               let collection = fullPath.substr(0, fullPath.length - document.length);
 
               let functions = $('.CodeMirror')[0].CodeMirror.getValue();
-              var name = functions.split(' ')[1].split('(')[0];
+              let name = functions.split(' ')[1].split('(')[0];
 
               $.post("ajax.cgi",{
                 'protocol': 1,
@@ -638,9 +638,28 @@ var VisualizerUI = (function($, window, undefined) {
                 'collection': collection,
                 'function': functions,
                 'name': name,
-                }
-              );
+              });
               // get labeling function and update dom
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'getAvailableLabelingFunction',
+                'collection': collection,
+              }, function(result) {
+                let container = $('#label_form_selection');
+                let functions = result['function_list'];
+                
+                container.empty();
+
+                for (i = 0; i < functions.length; i++) { 
+                  let name = functions[i];
+
+                  $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                  $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+                  let labelContainer = $('#lb-' + name);
+                  $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                }
+              });
             }
           });
         } 
