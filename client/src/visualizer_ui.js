@@ -650,15 +650,18 @@ var VisualizerUI = (function($, window, undefined) {
                 
                 container.empty();
 
-                for (i = 0; i < functions.length; i++) { 
-                  let name = functions[i];
+                $.each(functions, function(index) {
+                  let name = functions[index];
 
                   $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
                   $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
 
                   let labelContainer = $('#lb-' + name);
                   $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
-                }
+                });
+
+                $('#label_form_selection').find('input[type="checkbox"]').button();
+                $('#label_form_selection').find('input[type="button"]').button();
               });
             }
           });
@@ -1603,6 +1606,34 @@ var VisualizerUI = (function($, window, undefined) {
         }
       });
       $('#label_button').click(function() {
+        // get labeling function and update dom
+        let fullPath = window.location.href.split('#')[1];
+        let document = fullPath.split('/').reverse()[0];
+        let collection = fullPath.substr(0, fullPath.length - document.length);
+        console.log(collection);
+
+        $.post("ajax.cgi",{
+          'protocol': 1,
+          'action': 'getAvailableLabelingFunction',
+          'collection': collection,
+        }, function(result) {
+          let container = $('#label_form_selection');
+          let functions = result['function_list'];
+          container.empty();
+
+          $.each(functions, function(index) {
+            let name = functions[index];
+
+            $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+            $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+            let labelContainer = $('#lb-' + name);
+            $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+          });
+
+          $('#label_form_selection').find('input[type="checkbox"]').button();
+          $('#label_form_selection').find('input[type="button"]').button();
+        });
         dispatcher.post('showForm', [labelForm]);
       });
       
