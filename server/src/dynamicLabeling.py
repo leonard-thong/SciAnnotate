@@ -63,16 +63,18 @@ def _delete_labeling_function(function_list):
                 lines = f.readlines()
             with open("./server/src/labelFunctions/index.py", "w") as f:
                 for line in lines:
-                    if line.strip("\n") != "from .{} import *".format(function):
-                        f.write(line)
+                    if line != "":
+                        if line.strip("\n") != "from .{} import *".format(function):
+                            f.write(line)
 
             # delete labeling function in labelingFunctionList.conf
             with open("./data/labelingFunctionList.conf", "r") as f:
                 lines = f.readlines()
             with open("./data/labelingFunctionList.conf", "w") as f:
                 for line in lines:
-                    if line.strip("\n") != function:
-                        f.write(line)
+                    if line != "":
+                        if line.strip("\n") != function:
+                            f.write(line)
 
             return {'status': 0}
     except Exception as e:
@@ -83,7 +85,7 @@ def _delete_labeling_function(function_list):
 def delete_labeling_function(**kwargs):
     try:
         if type(kwargs["function[]"]) == str:
-            kwargs["function[]"] = [args["function[]"]]
+            kwargs["function[]"] = [kwargs["function[]"]]
         function_list = list(kwargs["function[]"])
         if function_list is None:
             raise Exception("INVALID FUNCTION CODE OR NAME")
