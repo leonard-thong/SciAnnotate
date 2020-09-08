@@ -82,7 +82,6 @@ def _delete_labeling_function(function_list):
 
 def delete_labeling_function(**kwargs):
     try:
-        console.log(kwargs)
         if type(kwargs["function[]"]) == str:
             kwargs["function[]"] = [args["function[]"]]
         function_list = list(kwargs["function[]"])
