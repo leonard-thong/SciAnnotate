@@ -63,13 +63,13 @@ def _function_executor(collection, document, functions):
     return None
 
 
-def function_executor(**args):
-    GLOBAL_LOGGER.log_normal(args.__str__())
-    collection = args["collection"]
-    document = args["document"]
-    if type(args["function[]"]) == str:
-        args["function[]"] = [args["function[]"]]
-    functions = list(args["function[]"])
+def function_executor(**kwargs):
+    GLOBAL_LOGGER.log_normal(kwargs.__str__())
+    collection = kwargs["collection"]
+    document = kwargs["document"]
+    if type(kwargs["function[]"]) == str:
+        kwargs["function[]"] = [kwargs["function[]"]]
+    functions = list(kwargs["function[]"])
     if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
     elif document is None:
@@ -98,21 +98,21 @@ def _instant_executor(code, name, collection, document):
             GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
 
 
-def instant_executor(**args):
+def instant_executor(**kwargs):
     """
     This function is designed to handle instant labeling function code. The code must be written in a strict format,
     which will be released in a later version README.md .
-    :param args: dict | Required arguments set
+    :param kwargs: dict | Required arguments set
     :return: dict | Formatted return value with entities, relation and other common info
     """
-    collection = args["collection"]
-    document = args["document"]
-    if args["function"] is None:
+    collection = kwargs["collection"]
+    document = kwargs["document"]
+    if kwargs["function"] is None:
         GLOBAL_LOGGER.log_error("FUNCTION CODE IS NONE")
     else:
         clean_cached_config()
-        function_code = str(args["function"])
-        name = str(args["name"])
+        function_code = str(kwargs["function"])
+        name = str(kwargs["name"])
         out = _instant_executor(function_code, name, collection, document)
         return out
 
