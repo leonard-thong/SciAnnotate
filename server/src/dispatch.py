@@ -37,7 +37,7 @@ from svg import retrieve_stored, store_svg
 from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
-from dynamicLabeling import add_labeling_function, get_available_labeling_function
+from dynamicLabeling import add_labeling_function, delete_labeling_function, get_available_labeling_function
 from utils import GLOBAL_LOGGER
 # no-op function that can be invoked by client to log a user action
 
@@ -110,10 +110,11 @@ DISPATCHER = {
     'labelingFunctionProcess': function_executor,
     'instantExecutor': instant_executor,
     'addLabelingFunction': add_labeling_function,
+    'deleteLabelingFunction': delete_labeling_function,
     'getAvailableLabelingFunction': get_available_labeling_function
 }
 
-EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'getAvailableLabelingFunction'}
+EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'delete_labeling_function', 'getAvailableLabelingFunction'}
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
