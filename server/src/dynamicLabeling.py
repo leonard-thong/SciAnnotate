@@ -82,8 +82,11 @@ def _delete_labeling_function(function_list):
 
 def delete_labeling_function(**kwargs):
     try:
+        console.log(kwargs)
+        if type(kwargs["function[]"]) == str:
+            kwargs["function[]"] = [args["function[]"]]
         function_list = list(kwargs["function[]"])
-        if name is None or code is None:
+        if function_list is None:
             raise Exception("INVALID FUNCTION CODE OR NAME")
         return _delete_labeling_function(function_list)
     except Exception as e:

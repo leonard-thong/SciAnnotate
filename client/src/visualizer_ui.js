@@ -604,8 +604,6 @@ var VisualizerUI = (function($, window, undefined) {
                   $.post("ajax.cgi",{
                     'protocol': 1,
                     'action': 'deleteLabelingFunction',
-                    'collection': collection,
-                    'document': document,
                     'function': functions
                     },function(result){
                       dispatcher.post('ajax', [{
