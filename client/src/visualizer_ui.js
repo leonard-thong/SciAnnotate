@@ -617,7 +617,6 @@ var VisualizerUI = (function($, window, undefined) {
                       let functions = result['function_list'];
                       
                       container.empty();
-                      console.log(result['function_list']);
                       $.each(functions, function(index) {
                         let name = functions[index];
     
@@ -707,7 +706,7 @@ var VisualizerUI = (function($, window, undefined) {
                   let functions = result['function_list'];
                   
                   container.empty();
-                  console.log(result['function_list']);
+                  
                   $.each(functions, function(index) {
                     let name = functions[index];
 
