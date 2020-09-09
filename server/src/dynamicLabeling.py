@@ -63,18 +63,20 @@ def _delete_labeling_function(function_list):
                 lines = f.readlines()
             with open("./server/src/labelFunctions/index.py", "w") as f:
                 for line in lines:
-                    if line != "":
-                        if line.strip("\n") != "from .{} import *".format(function):
-                            f.write(line)
+                    if line.strip("\n") == "":
+                        continue
+                    if line.strip("\n") != "from .{} import *".format(function):
+                        f.write(line)
 
             # delete labeling function in labelingFunctionList.conf
             with open("./data/labelingFunctionList.conf", "r") as f:
                 lines = f.readlines()
             with open("./data/labelingFunctionList.conf", "w") as f:
                 for line in lines:
-                    if line != "":
-                        if line.strip("\n") != function:
-                            f.write(line)
+                    if line.strip("\n") == "":
+                        continue
+                    if line.strip("\n") != function:
+                        f.write(line)
 
             return {'status': 0}
     except Exception as e:
@@ -100,7 +102,10 @@ def _get_available_labeling_function(collection=None):
     # if collection is None:
     with open('./data/labelingFunctionList.conf', 'r') as f:
         content = f.read()
-        res['function_list'] = content.split('\n')
+        res['function_list'] = []
+        for content in content.split('\n'):
+            if content != "":
+                res['function_list'].append(content)
     return res
 
 

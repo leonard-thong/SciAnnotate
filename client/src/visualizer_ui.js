@@ -618,7 +618,32 @@ var VisualizerUI = (function($, window, undefined) {
                 } else {
                   dispatcher.post('messages', [[['Select at least one labeling function', 'warning']]]);
                 }
-              }
+                // get labeling function and update dom
+                $.post("ajax.cgi",{
+                  'protocol': 1,
+                  'action': 'getAvailableLabelingFunction',
+                  'collection': collection,
+                  'aysnc': false,
+                }, function(result) {
+                  let container = $('#label_form_select');
+                  let functions = result['function_list'];
+                  
+                  container.empty();
+
+                  $.each(functions, function(index) {
+                    let name = functions[index];
+
+                    $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                    $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+                    let labelContainer = $('#lb-' + name);
+                    $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                  });
+
+                  $('#label_form_select').find('input[type="checkbox"]').button();
+                  $('#label_form_select').find('input[type="button"]').button();
+                });
+              }  
             });
         } 
         if (opts.label_add_option) {
@@ -650,31 +675,6 @@ var VisualizerUI = (function($, window, undefined) {
                     keep: true
                   }]); 
                 dispatcher.post('renderData', [result]);
-              });
-              // get labeling function and update dom
-              $.post("ajax.cgi",{
-                'protocol': 1,
-                'action': 'getAvailableLabelingFunction',
-                'collection': collection,
-                'aysnc': false,
-              }, function(result) {
-                let container = $('#label_form_select');
-                let functions = result['function_list'];
-                
-                container.empty();
-
-                $.each(functions, function(index) {
-                  let name = functions[index];
-
-                  $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
-                  $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
-
-                  let labelContainer = $('#lb-' + name);
-                  $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
-                });
-
-                $('#label_form_select').find('input[type="checkbox"]').button();
-                $('#label_form_select').find('input[type="button"]').button();
               });
             }
           });
