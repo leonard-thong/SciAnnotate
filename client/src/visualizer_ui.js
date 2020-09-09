@@ -600,7 +600,7 @@ var VisualizerUI = (function($, window, undefined) {
               
               let functions = $('.CodeMirror')[0].CodeMirror.getValue();
               var name = functions.split(' ')[1].split('(')[0];
-              console.log(name);
+
               $.post("ajax.cgi",{
                 'protocol': 1,
                 'action': 'instantExecutor',
@@ -608,7 +608,7 @@ var VisualizerUI = (function($, window, undefined) {
                 'document': document,
                 'function': functions,
                 'name': name,
-                },function(result){
+                }, function(result) {
                   dispatcher.post('ajax', [{
                     action: 'getCollectionInformation',
                     collection: collection
@@ -625,8 +625,52 @@ var VisualizerUI = (function($, window, undefined) {
             text: "Add",
             click: function() { 
               // add user input labeling function
+              let fullPath = window.location.href.split('#')[1];
+              let document = fullPath.split('/').reverse()[0];
+              let collection = fullPath.substr(0, fullPath.length - document.length);
 
+              let functions = $('.CodeMirror')[0].CodeMirror.getValue();
+              let array = functions.split(new RegExp(" |\n", "g"));
+              let name = '';
+
+              for (let i = 0; i < array.length; i++) {
+                if (array[i].trim() === "def") {
+                  name = array[i + 1].split('(')[0];
+                }
+              }
+
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'addLabelingFunction',
+                'collection': collection,
+                'function': functions,
+                'name': name,
+              });
               // get labeling function and update dom
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'getAvailableLabelingFunction',
+                'collection': collection,
+                'aysnc': false,
+              }, function(result) {
+                let container = $('#label_form_selection');
+                let functions = result['function_list'];
+                
+                container.empty();
+
+                $.each(functions, function(index) {
+                  let name = functions[index];
+
+                  $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                  $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+                  let labelContainer = $('#lb-' + name);
+                  $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                });
+
+                $('#label_form_selection').find('input[type="checkbox"]').button();
+                $('#label_form_selection').find('input[type="button"]').button();
+              });
             }
           });
         } 
@@ -1570,6 +1614,33 @@ var VisualizerUI = (function($, window, undefined) {
         }
       });
       $('#label_button').click(function() {
+        // get labeling function and update dom
+        let fullPath = window.location.href.split('#')[1];
+        let document = fullPath.split('/').reverse()[0];
+        let collection = fullPath.substr(0, fullPath.length - document.length);
+
+        $.post("ajax.cgi",{
+          'protocol': 1,
+          'action': 'getAvailableLabelingFunction',
+          'collection': collection,
+        }, function(result) {
+          let container = $('#label_form_selection');
+          let functions = result['function_list'];
+          container.empty();
+
+          $.each(functions, function(index) {
+            let name = functions[index];
+
+            $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+            $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+            let labelContainer = $('#lb-' + name);
+            $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+          });
+
+          $('#label_form_selection').find('input[type="checkbox"]').button();
+          $('#label_form_selection').find('input[type="button"]').button();
+        });
         dispatcher.post('showForm', [labelForm]);
       });
       
