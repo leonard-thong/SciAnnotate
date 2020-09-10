@@ -37,10 +37,10 @@ def _add_labeling_function(name, code):
         return {'status': -1}
 
 
-def add_labeling_function(**args):
+def add_labeling_function(**kwargs):
     try:
-        name = args['name']
-        code = args['function']
+        name = kwargs['name']
+        code = kwargs['function']
         if name is None or code is None:
             raise Exception("INVALID FUNCTION CODE OR NAME")
         return _add_labeling_function(name, code)
@@ -109,9 +109,9 @@ def _get_available_labeling_function(collection=None):
     return res
 
 
-def get_available_labeling_function(**args):
+def get_available_labeling_function(**kwargs):
     try:
-        collection = args['collection']
+        collection = kwargs['collection']
         return _get_available_labeling_function(collection)
     except Exception as e:
         GLOBAL_LOGGER.log_exception(e.__str__())

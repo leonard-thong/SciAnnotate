@@ -21,6 +21,7 @@ def generate_color_config(name, entities):
     entity_color_items = []
     for entity in entities:
         entity_color_items.append('\n{}_{}\tbgColor:{}'.format(name, entity, color))
+    entity_color_items.append('\n{}_unlabeled\tbgColor:#000000'.format(name))
     if not os.path.exists('./data/visualConfigs/drawings.conf'):
         with open('./data/visualConfigs/drawings.conf', 'w') as color_config:
             with open('./data/visualConfigs/drawing.conf', 'r') as drawing_content:

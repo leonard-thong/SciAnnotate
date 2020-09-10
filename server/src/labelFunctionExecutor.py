@@ -34,6 +34,33 @@ def annotation_file_generate(res, file_path, text):
     with open(file_path, 'w') as f:
         f.write(anno_content)
 
+def resort_entities(entity_list, func_name_list):
+    all_entities = dict()
+    ENTITY_INDEX = get_entity_index()
+    for entity in entity_list:
+        if all_entities.get(entity[2][0]):
+            all_entities[entity[2][0]].append(entity[1])
+        else:
+            all_entities[entity[2][0]] = [entity[1]]
+    for key, labels in all_entities.items():
+        new_labels = []
+        for idx, func_name in enumerate(func_name_list):
+            found = False
+            for label in labels:
+                if func_name == label.split('_')[0]:
+                    new_labels.append(label)
+                    found = True
+                    break
+            if not found:
+                new_labels.append('{}_unlabeled'.format(func_name))
+        all_entities[key] = new_labels
+    out = []
+    for idx in range(func_name_list.__len__()):
+        for key, labels in all_entities.items():
+            out.append(["T{}".format(next(ENTITY_INDEX)), labels[idx], [key]])
+    return out
+
+    
 
 def _function_executor(collection, document, functions):
     file_path = "data" + collection + '/' + document
@@ -51,6 +78,7 @@ def _function_executor(collection, document, functions):
                     out["entities"].extend(
                         eval(function + "(content, ENTITY_INDEX)")["entities"]
                     )
+            out["entities"] = resort_entities(out["entities"], functions)
             annotation_file_generate(out, anno_file_path, content)
         except Exception as e:
             GLOBAL_LOGGER.log_error(
@@ -63,13 +91,13 @@ def _function_executor(collection, document, functions):
     return None
 
 
-def function_executor(**args):
-    GLOBAL_LOGGER.log_normal(args.__str__())
-    collection = args["collection"]
-    document = args["document"]
-    if type(args["function[]"]) == str:
-        args["function[]"] = [args["function[]"]]
-    functions = list(args["function[]"])
+def function_executor(**kwargs):
+    GLOBAL_LOGGER.log_normal(kwargs.__str__())
+    collection = kwargs["collection"]
+    document = kwargs["document"]
+    if type(kwargs["function[]"]) == str:
+        kwargs["function[]"] = [kwargs["function[]"]]
+    functions = list(kwargs["function[]"])
     if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
     elif document is None:
@@ -98,21 +126,21 @@ def _instant_executor(code, name, collection, document):
             GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
 
 
-def instant_executor(**args):
+def instant_executor(**kwargs):
     """
     This function is designed to handle instant labeling function code. The code must be written in a strict format,
     which will be released in a later version README.md .
-    :param args: dict | Required arguments set
+    :param kwargs: dict | Required arguments set
     :return: dict | Formatted return value with entities, relation and other common info
     """
-    collection = args["collection"]
-    document = args["document"]
-    if args["function"] is None:
+    collection = kwargs["collection"]
+    document = kwargs["document"]
+    if kwargs["function"] is None:
         GLOBAL_LOGGER.log_error("FUNCTION CODE IS NONE")
     else:
         clean_cached_config()
-        function_code = str(args["function"])
-        name = str(args["name"])
+        function_code = str(kwargs["function"])
+        name = str(kwargs["name"])
         out = _instant_executor(function_code, name, collection, document)
         return out
 
