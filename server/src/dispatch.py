@@ -39,6 +39,7 @@ from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function, get_available_labeling_function
 from utils import GLOBAL_LOGGER
+from create_span_all import create_span_all
 # no-op function that can be invoked by client to log a user action
 
 
@@ -67,6 +68,8 @@ DISPATCHER = {
     'createSpan': create_span,
     'deleteSpan': delete_span,
     'splitSpan': split_span,
+
+    'createSpanAll': create_span_all,
 
     'createArc': create_arc,
     'reverseArc': reverse_arc,
