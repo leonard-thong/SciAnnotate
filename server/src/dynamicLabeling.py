@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 """
 ===========================================
-  @author:  lmy
+  @author:  lmy. leonard
   @time:    2020/8/19 11:12 PM
   @project: brat
   @file:    dynamicLabeling.py
@@ -49,12 +49,63 @@ def add_labeling_function(**kwargs):
         return {'status': -1}
 
 
+def _delete_labeling_function(function_list):
+    try:
+        for function in function_list:
+            # delete python file
+            if os.path.exists('./server/src/labelFunctions/{}.py'.format(function)):
+                os.remove('./server/src/labelFunctions/{}.py'.format(function))
+            else:
+                continue
+
+            # delete import in index.py
+            with open("./server/src/labelFunctions/index.py", "r") as f:
+                lines = f.readlines()
+            with open("./server/src/labelFunctions/index.py", "w") as f:
+                for line in lines:
+                    if line.strip("\n") == "":
+                        continue
+                    if line.strip("\n") != "from .{} import *".format(function):
+                        f.write(line)
+
+            # delete labeling function in labelingFunctionList.conf
+            with open("./data/labelingFunctionList.conf", "r") as f:
+                lines = f.readlines()
+            with open("./data/labelingFunctionList.conf", "w") as f:
+                for line in lines:
+                    if line.strip("\n") == "":
+                        continue
+                    if line.strip("\n") != function:
+                        f.write(line)
+
+            return {'status': 0}
+    except Exception as e:
+        GLOBAL_LOGGER.log_exception(e.__str__())
+        return {'status': -1}
+
+
+def delete_labeling_function(**kwargs):
+    try:
+        if type(kwargs["function[]"]) == str:
+            kwargs["function[]"] = [kwargs["function[]"]]
+        function_list = list(kwargs["function[]"])
+        if function_list is None:
+            raise Exception("INVALID FUNCTION CODE OR NAME")
+        return _delete_labeling_function(function_list)
+    except Exception as e:
+        GLOBAL_LOGGER.log_exception(e.__str__())
+        return {'status': -1}
+
+
 def _get_available_labeling_function(collection=None):
     res = dict()
     # if collection is None:
     with open('./data/labelingFunctionList.conf', 'r') as f:
         content = f.read()
-        res['function_list'] = content.split('\n')
+        res['function_list'] = []
+        for content in content.split('\n'):
+            if content != "":
+                res['function_list'].append(content)
     return res
 
 

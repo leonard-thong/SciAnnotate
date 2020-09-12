@@ -561,7 +561,7 @@ var VisualizerUI = (function($, window, undefined) {
                 let document = fullPath.split('/').reverse()[0];
                 let collection = fullPath.substr(0, fullPath.length - document.length);
 
-                let functions = $("#label_form_selection input:checkbox:checked").map(function(){
+                let functions = $("#label_form_select input:checkbox:checked").map(function(){
                   return $(this).val();
                 }).get();
 
@@ -586,6 +586,55 @@ var VisualizerUI = (function($, window, undefined) {
                   dispatcher.post('messages', [[['Select at least one labeling function', 'warning']]]);
                 }
               }
+            });
+            buttons.push({
+              id: formId + "-label-select-delete",
+              text: "Delete",
+              click: function() { 
+                // delete selected labeling function
+                let fullPath = window.location.href.split('#')[1];
+                let document = fullPath.split('/').reverse()[0];
+                let collection = fullPath.substr(0, fullPath.length - document.length);
+
+                let functions = $("#label_form_select input:checkbox:checked").map(function(){
+                  return $(this).val();
+                }).get();
+
+                if (functions.length >= 1) {
+                  $.post("ajax.cgi",{
+                    'protocol': 1,
+                    'action': 'deleteLabelingFunction',
+                    'function': functions,
+                    async: false
+                  }, function() {
+                    // get labeling function and update dom
+                    $.post("ajax.cgi",{
+                      'protocol': 1,
+                      'action': 'getAvailableLabelingFunction',
+                      'collection': collection,
+                    }, function(result) {
+                      let container = $('#label_form_select');
+                      let functions = result['function_list'];
+                      
+                      container.empty();
+                      $.each(functions, function(index) {
+                        let name = functions[index];
+    
+                        $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                        $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+    
+                        let labelContainer = $('#lb-' + name);
+                        $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                      });
+    
+                      $('#label_form_select').find('input[type="checkbox"]').button();
+                      $('#label_form_select').find('input[type="button"]').button();
+                    });
+                  });
+                } else {
+                  dispatcher.post('messages', [[['Select at least one labeling function', 'warning']]]);
+                }
+              }  
             });
         } 
         if (opts.label_add_option) {
@@ -645,31 +694,32 @@ var VisualizerUI = (function($, window, undefined) {
                 'collection': collection,
                 'function': functions,
                 'name': name,
-              });
-              // get labeling function and update dom
-              $.post("ajax.cgi",{
-                'protocol': 1,
-                'action': 'getAvailableLabelingFunction',
-                'collection': collection,
-                'aysnc': false,
-              }, function(result) {
-                let container = $('#label_form_selection');
-                let functions = result['function_list'];
-                
-                container.empty();
+                async: false
+              }, function() {
+                // get labeling function and update dom
+                $.post("ajax.cgi",{
+                  'protocol': 1,
+                  'action': 'getAvailableLabelingFunction',
+                  'collection': collection,
+                }, function(result) {
+                  let container = $('#label_form_select');
+                  let functions = result['function_list'];
+                  
+                  container.empty();
+                  
+                  $.each(functions, function(index) {
+                    let name = functions[index];
 
-                $.each(functions, function(index) {
-                  let name = functions[index];
+                    $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                    $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
 
-                  $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
-                  $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+                    let labelContainer = $('#lb-' + name);
+                    $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                  });
 
-                  let labelContainer = $('#lb-' + name);
-                  $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                  $('#label_form_select').find('input[type="checkbox"]').button();
+                  $('#label_form_select').find('input[type="button"]').button();
                 });
-
-                $('#label_form_selection').find('input[type="checkbox"]').button();
-                $('#label_form_selection').find('input[type="button"]').button();
               });
             }
           });
@@ -1138,7 +1188,7 @@ var VisualizerUI = (function($, window, undefined) {
 
       // var setupLabelSelection = function(response) {
       //   // using response.entity_types, need to discuss how to get labeling function type from backend
-      //   addLabelTypesToSelect($('#label_form_selection'), response.entity_types);
+      //   addLabelTypesToSelect($('#label_form_select'), response.entity_types);
       // }
 
       // when event role changes, event types do as well
@@ -1624,7 +1674,7 @@ var VisualizerUI = (function($, window, undefined) {
           'action': 'getAvailableLabelingFunction',
           'collection': collection,
         }, function(result) {
-          let container = $('#label_form_selection');
+          let container = $('#label_form_select');
           let functions = result['function_list'];
           container.empty();
 
@@ -1638,8 +1688,8 @@ var VisualizerUI = (function($, window, undefined) {
             $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
           });
 
-          $('#label_form_selection').find('input[type="checkbox"]').button();
-          $('#label_form_selection').find('input[type="button"]').button();
+          $('#label_form_select').find('input[type="checkbox"]').button();
+          $('#label_form_select').find('input[type="button"]').button();
         });
         dispatcher.post('showForm', [labelForm]);
       });
