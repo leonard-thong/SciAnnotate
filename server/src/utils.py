@@ -38,6 +38,13 @@ def get_entity_index():
         index += 1
         yield index
 
+
+def get_entity_index_exist(indexNo):
+    index = indexNo
+    while 1:
+        index += 1
+        yield index
+
 def clean_cached_config():
     os.system('rm ./data/visualConfigs/drawings.conf')
 
