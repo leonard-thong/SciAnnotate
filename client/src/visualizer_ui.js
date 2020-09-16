@@ -724,6 +724,63 @@ var VisualizerUI = (function($, window, undefined) {
             }
           });
         } 
+        if (opts.label_add_all_option) {
+          
+          buttons.push({
+            id: formId + "-label-add--all",
+            text: "Add",
+            click: function() { 
+              // add user input labeling function
+              let fullPath = window.location.href.split('#')[1];
+              let document = fullPath.split('/').reverse()[0];
+              let collection = fullPath.substr(0, fullPath.length - document.length);
+
+              let functions = $('.CodeMirror')[0].CodeMirror.getValue();
+              let array = functions.split(new RegExp(" |\n", "g"));
+              let name = '';
+
+              for (let i = 0; i < array.length; i++) {
+                if (array[i].trim() === "def") {
+                  name = array[i + 1].split('(')[0];
+                }
+              }
+
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'addLabelingFunction',
+                'collection': collection,
+                'function': functions,
+                'name': name,
+                async: false
+              }, function() {
+                // get labeling function and update dom
+                $.post("ajax.cgi",{
+                  'protocol': 1,
+                  'action': 'getAvailableLabelingFunction',
+                  'collection': collection,
+                }, function(result) {
+                  let container = $('#label_form_select');
+                  let functions = result['function_list'];
+                  
+                  container.empty();
+                  
+                  $.each(functions, function(index) {
+                    let name = functions[index];
+
+                    $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                    $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+                    let labelContainer = $('#lb-' + name);
+                    $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                  });
+
+                  $('#label_form_select').find('input[type="checkbox"]').button();
+                  $('#label_form_select').find('input[type="button"]').button();
+                });
+              });
+            }
+          });
+        } 
         /* STOP labeling function related */
         
         if (opts.no_ok) {
@@ -1646,7 +1703,8 @@ var VisualizerUI = (function($, window, undefined) {
         no_cancel: true,
         no_ok: true,
         label_select_option: true,
-        label_add_option: false, 
+        label_add_option: false,
+        label_add_all_option:false,
         open: function(evt) {
           keymap = {};
           // aspects of the data form relating to the current document should
@@ -1702,7 +1760,8 @@ var VisualizerUI = (function($, window, undefined) {
           no_cancel: true,
           no_ok: true,
           label_select_option: true,
-          label_add_option: false, 
+          label_add_option: false,
+          label_add_all_option:false,
           open: function(evt) {
             keymap = {};
             // aspects of the data form relating to the current document should
@@ -1729,6 +1788,31 @@ var VisualizerUI = (function($, window, undefined) {
           no_ok: true,
           label_select_option: false,
           label_add_option: true, 
+          label_add_all_option:false,
+          open: function(evt) {
+            keymap = {};
+            if (!doc) {
+              $('#document_export').hide();
+              $('#document_visualization').hide();
+            } else {
+              $('#document_export').show();
+              $('#document_visualization').show(); 
+              saveSVG();
+            }
+          }
+        });
+        dispatcher.post('showForm', [labelForm]);
+      })
+
+      $('#label_tab_add_all_head').click(function(){
+        initForm(labelForm, {
+          width: 800,
+          resizable: false,
+          no_cancel: true,
+          no_ok: true,
+          label_select_option: false,
+          label_add_option: false,
+          label_add_all_option:true,
           open: function(evt) {
             keymap = {};
             if (!doc) {
