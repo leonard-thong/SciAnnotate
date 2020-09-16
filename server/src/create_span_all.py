@@ -4,10 +4,9 @@ from os.path import split as path_split
 from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
 from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF
-from utils import get_entity_index
+from utils import get_entity_index_exist
 
-def create_span_all(collection, document):
-    label_word = 'year'
+def create_span_all(collection, document, label_word):
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
@@ -27,7 +26,7 @@ def _create_span_all(txt_file_path, label_word, ann_file_path, entity_index = ge
         entity_index = entity_index[0][1:] 
     
     entity_index = get_entity_index_exist(entity_index)
-    
+
     entities = [
         ["T" + str(next(entity_index)), "Location", [(pos.start(), pos.end())]]
         for pos in re.finditer(label_word, text)

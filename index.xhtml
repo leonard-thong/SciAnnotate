@@ -63,6 +63,13 @@
                 mode: "python",
             });
 
+            var editor_all = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_text'), {
+                lineNumbers: true,
+                autoRefresh: true,
+                theme: "xq-light",
+                mode: "Markdown",
+            });
+
             // Util.profileEnable();
             dispatcher.post('init');
         });
@@ -274,6 +281,7 @@
             <ul>
                 <li><a id="label_tab_select_head" href="#label_tab_select">Select</a></li>
                 <li><a id="label_tab_add_head" href="#label_tab_add">Add</a></li>
+                <li><a id="label_tab_add_all_head" href="#label_tab_add_All">Add All</a></li>
             </ul>
             <div id="label_tab_select">
                 <fieldset class="small-buttons">
@@ -294,6 +302,12 @@
                 <fieldset class="small-buttons">
                     <legend>Add Labeling Function</legend>
                     <textarea id="add_labeling_function_textarea" class="fullwidth" />
+                </fieldset>
+            </div>
+            <div id="label_tab_add_All">
+                <fieldset class="small-buttons">
+                    <legend>Add Labeling words</legend>
+                    <textarea id="add_labeling_function_text" class="fullwidth" />
                 </fieldset>
             </div>
         </div>
