@@ -573,24 +573,24 @@ var VisualizerUI = (function($, window, undefined) {
                     'document': document,
                     'function': functions
                     },function(result){
-                      location.reload();
+                      // location.reload();
                       // window['config_loaded'] =
-                      // var promise = new Promise(function(resolve, reject) {
-                      //   dispatcher.post('ajax', [{
-                      //     action: 'getCollectionInformation',
-                      //     collection: collection
-                      //   }, 'collectionLoaded', {
-                      //     collection: collection,
-                      //     keep: true
-                      //   }]); 
-                      //   resolve(1);
-                      // })
-                      // promise.then(function(value) {
-                      //   dispatcher.post('renderData', [result]);
-                      // });
-                    // setTimeout(() => {
-                    //   dispatcher.post('renderData', [result]);
-                    // }, 300);
+                      var promise = new Promise(function(resolve, reject) {
+                        dispatcher.post('ajax', [{
+                          action: 'getCollectionInformation',
+                          collection: collection
+                        }, 'collectionLoaded', {
+                          collection: collection,
+                          keep: true
+                        }]); 
+                        resolve(1);
+                      })
+                      promise.then(function(value) {
+                        dispatcher.post('renderData', [result]);
+                      });
+                    setTimeout(() => {
+                      dispatcher.post('renderData', [result]);
+                    }, 300);
                   });
                 } else {
                   dispatcher.post('messages', [[['Select at least one labeling function', 'warning']]]);

@@ -1706,7 +1706,6 @@ Util.profileStart('chunks');
 
             if (!y) y = -sizes.texts.height;
             var x = (fragment.curly.from + fragment.curly.to) / 2;
-
             // XXX is it maybe sizes.texts?
             var yy = y + sizes.fragments.y;
             var hh = sizes.fragments.height;
@@ -1774,6 +1773,11 @@ Util.profileStart('chunks');
               chunkTo = Math.max(bx + bw + rectShadowSize, chunkTo);
               fragmentHeight = Math.max(bh + 2 * rectShadowSize, fragmentHeight);
             }
+            var label_text = data.spanAnnTexts[fragment.glyphedLabelText]._parts[0][1];
+            var function_name = label_text.slice(0,label_text.indexOf('_'));
+            var result = hex_md5(function_name);
+            // console.log(result);
+            borderColor = '#' + result.toString().slice(0, 6);
             fragment.rect = svg.rect(fragment.group,
                 bx, by, bw, bh, {
 
@@ -1825,8 +1829,7 @@ Util.profileStart('chunks');
                   line(xx, yy + hh + Configuration.visual.margin.y - span.floor),
                   { 'class': 'boxcross' });
             }
-            svg.text(fragment.group, x, y - span.floor, data.spanAnnTexts[fragment.glyphedLabelText], { fill: fgColor });
-
+            svg.text(fragment.group, x, y - span.floor, data.spanAnnTexts[fragment.glyphedLabelText], { fill: fgColor});
             // Make curlies to show the fragment
             if (fragment.drawCurly) {
               var curlyColor = 'grey';
