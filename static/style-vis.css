@@ -105,7 +105,7 @@ text[data-arc-role] {
 }
 
 .span rect {
-  stroke-width: 0.75;
+  stroke-width: 2;
 }
 
 .glyph {
@@ -261,7 +261,7 @@ rect.shadow_EditHighlight {
   stroke-width: 0.5;
 }
 .span.highlight rect {
-  stroke-width: 2px;
+  stroke-width: 3px;
 }
 .span rect.reselect {
   stroke-width: 2px;
@@ -528,7 +528,7 @@ fieldset legend {
 }
 .span rect.ChangedAnnotation {
   stroke: #ffff99;
-  stroke-width: 2;
+  stroke-width: 4;
 }
 .shadow_ChangedAnnotation {
   fill: #ff4141;
