@@ -801,15 +801,6 @@ var VisualizerUI = (function($, window, undefined) {
             });
         }
 
-        if (opts.no_add_all) {
-          delete opts.no_add_all;
-        } else {
-          buttons.push({
-              id: formId + "-add_all",
-              text: "Add_all",
-              click: function() { form.submit(); }
-            });
-        }
         delete opts.buttons;
 
         opts = $.extend({
@@ -1711,7 +1702,6 @@ var VisualizerUI = (function($, window, undefined) {
         resizable: false,
         no_cancel: true,
         no_ok: true,
-        no_add_all:true,
         label_select_option: true,
         label_add_option: false,
         label_add_all_option:false,
@@ -1769,7 +1759,6 @@ var VisualizerUI = (function($, window, undefined) {
           resizable: false,
           no_cancel: true,
           no_ok: true,
-          no_add_all:true,
           label_select_option: true,
           label_add_option: false,
           label_add_all_option:false,
@@ -1797,7 +1786,6 @@ var VisualizerUI = (function($, window, undefined) {
           resizable: false,
           no_cancel: true,
           no_ok: true,
-          no_add_all: true,
           label_select_option: false,
           label_add_option: true, 
           label_add_all_option:false,
@@ -1822,7 +1810,6 @@ var VisualizerUI = (function($, window, undefined) {
           resizable: false,
           no_cancel: true,
           no_ok: true,
-          no_add_all:true,
           label_select_option: false,
           label_add_option: false,
           label_add_all_option:true,
@@ -2472,7 +2459,6 @@ var VisualizerUI = (function($, window, undefined) {
         height: 600,
         no_cancel: true,
         no_ok: true,
-        no_add_all:true,
         buttons: [{
           id: "tutorial-ok",
           text: "OK",
