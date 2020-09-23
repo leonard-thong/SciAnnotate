@@ -21,7 +21,7 @@ def _create_span_all(txt_file_path, label_word, ann_file_path, entity_index = ge
         text = txt_file.read()
     with open_textfile(ann_file_path, 'r') as ana_file:
         ann = ann_file.readlines()
-    for line in lines:
+    for line in ann:
         entity_index = line.split(" ")
         entity_index = entity_index[0][1:] 
     
@@ -34,3 +34,29 @@ def _create_span_all(txt_file_path, label_word, ann_file_path, entity_index = ge
     res["entities"] = entities
     return entities
 
+def create_span_with_re(collection, document, regx):
+    directory = collection
+    real_dir = real_directory(directory)
+    document = path_join(real_dir, document)
+    txt_file_path = document + '.' + TEXT_FILE_SUFFIX
+    ann_file_path = JOINED_ANN_FILE_SUFF + '.' + JOINED_ANN_FILE_SUFF
+    return _create_span_regx(txt_file_path,ann_file_path, regx)
+
+def _create_span_regx(txt_file_path, ann_file_path, regx):
+    res = dict()
+    with open_textfile(txt_file_path, 'r') as txt_file:
+        text = txt_file.read()
+    with open_textfile(ann_file_path, 'r') as ana_file:
+        ann = ann_file.readlines()
+    for line in ann:
+        entity_index = line.split(" ")
+        entity_index = entity_index[0][1:]
+    
+    entity_index = get_entity_index_exist(entity_index)
+    regx = re.compile(regx)
+    entities = [
+        ["T" + str(next(entity_index)), "Location", [(pos.start(), pos.end())]]
+        for pos in regx.finditer(text)
+    ]
+    res["entities"] = entities
+    return entities
