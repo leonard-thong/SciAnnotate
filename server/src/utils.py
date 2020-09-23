@@ -10,16 +10,16 @@ GLOBAL_LOGGER = Logger()
 
 def generate_color_config(name, entities):
     md5_obj = hashlib.md5()
-    md5_obj.update(name.encode('utf-8'))
-    hash_code = md5_obj.hexdigest()
-    color = '#{}'.format(str(hash_code)[0:6])
-    color = list(color)
-    for i in range(1, 6, 2):
-        if '7' >= color[i] >= '0':
-            color[i] = str(hex(int(color[i]) + 8)).replace('0x', '') 
-    color = ''.join(color)
     entity_color_items = []
     for entity in entities:
+        md5_obj.update("{}_{}".format(name, entity).encode('utf-8'))
+        hash_code = md5_obj.hexdigest()
+        color = '#{}'.format(str(hash_code)[0:6])
+        color = list(color)
+        for i in range(1, 6, 2):
+            if '7' >= color[i] >= '0':
+                color[i] = str(hex(int(color[i]) + 8)).replace('0x', '') 
+        color = ''.join(color)
         entity_color_items.append('\n{}_{}\tbgColor:{}'.format(name, entity, color))
     entity_color_items.append('\n{}_unlabeled\tbgColor:#000000'.format(name))
     if not os.path.exists('./data/visualConfigs/drawings.conf'):

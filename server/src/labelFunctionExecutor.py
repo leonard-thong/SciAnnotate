@@ -78,7 +78,7 @@ def _function_executor(collection, document, functions):
                     out["entities"].extend(
                         eval(function + "(content, ENTITY_INDEX)")["entities"]
                     )
-            out["entities"] = resort_entities(out["entities"], functions)
+            # out["entities"] = resort_entities(out["entities"], functions)
             annotation_file_generate(out, anno_file_path, content)
         except Exception as e:
             GLOBAL_LOGGER.log_error(
