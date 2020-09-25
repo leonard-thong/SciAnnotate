@@ -549,23 +549,23 @@ var VisualizerUI = (function($, window, undefined) {
         delete opts.alsoResize;
         // Always add OK and Cancel
         var buttons = (opts.buttons || []);
-        if (opts.label_option) {
+
+        /* START labeling function related */
+        if (opts.label_select_option) {
           buttons.push({
-              id: formId + "-label",
-              text: "Label",
+              id: formId + "-label-select-execute",
+              text: "Execute",
               click: function() { 
+                // execute selected labeling function
                 let fullPath = window.location.href.split('#')[1];
                 let document = fullPath.split('/').reverse()[0];
                 let collection = fullPath.substr(0, fullPath.length - document.length);
 
-                let functions = $("#label_form_selection input:checkbox:checked").map(function(){
+                let functions = $("#label_form_select input:checkbox:checked").map(function(){
                   return $(this).val();
                 }).get();
 
-                functions.push("ignore");
-                console.log(functions)
-
-                if (functions.length > 1) {
+                if (functions.length >= 1) {
                   $.post("ajax.cgi",{
                     'protocol': 1,
                     'action': 'labelingFunctionProcess',
@@ -573,15 +573,170 @@ var VisualizerUI = (function($, window, undefined) {
                     'document': document,
                     'function': functions
                     },function(result){
-                    dispatcher.post('renderData', [result]);
+                      // location.reload();
+                      // window['config_loaded'] =
+                      var promise = new Promise(function(resolve, reject) {
+                        dispatcher.post('ajax', [{
+                          action: 'getCollectionInformation',
+                          collection: collection
+                        }, 'collectionLoaded', {
+                          collection: collection,
+                          keep: true
+                        }]); 
+                        resolve(1);
+                      })
+                      promise.then(function(value) {
+                        dispatcher.post('renderData', [result]);
+                      });
+                    setTimeout(() => {
+                      dispatcher.post('renderData', [result]);
+                    }, 300);
                   });
                 } else {
                   dispatcher.post('messages', [[['Select at least one labeling function', 'warning']]]);
                 }
               }
             });
-        }
-        else if (opts.no_ok) {
+            buttons.push({
+              id: formId + "-label-select-delete",
+              text: "Delete",
+              click: function() { 
+                // delete selected labeling function
+                let fullPath = window.location.href.split('#')[1];
+                let document = fullPath.split('/').reverse()[0];
+                let collection = fullPath.substr(0, fullPath.length - document.length);
+
+                let functions = $("#label_form_select input:checkbox:checked").map(function(){
+                  return $(this).val();
+                }).get();
+
+                if (functions.length >= 1) {
+                  $.post("ajax.cgi",{
+                    'protocol': 1,
+                    'action': 'deleteLabelingFunction',
+                    'function': functions,
+                    async: false
+                  }, function() {
+                    // get labeling function and update dom
+                    $.post("ajax.cgi",{
+                      'protocol': 1,
+                      'action': 'getAvailableLabelingFunction',
+                      'collection': collection,
+                    }, function(result) {
+                      let container = $('#label_form_select');
+                      let functions = result['function_list'];
+                      
+                      container.empty();
+                      $.each(functions, function(index) {
+                        let name = functions[index];
+    
+                        $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                        $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+    
+                        let labelContainer = $('#lb-' + name);
+                        $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                      });
+    
+                      $('#label_form_select').find('input[type="checkbox"]').button();
+                      $('#label_form_select').find('input[type="button"]').button();
+                    });
+                  });
+                } else {
+                  dispatcher.post('messages', [[['Select at least one labeling function', 'warning']]]);
+                }
+              }  
+            });
+        } 
+        if (opts.label_add_option) {
+          buttons.push({
+            id: formId + "-label-add-execute",
+            text: "Execute",
+            click: function() { 
+              // execute labeling function that user enter
+              let fullPath = window.location.href.split('#')[1];
+              let document = fullPath.split('/').reverse()[0];
+              let collection = fullPath.substr(0, fullPath.length - document.length);
+              
+              let functions = $('.CodeMirror')[0].CodeMirror.getValue();
+              var name = functions.split(' ')[1].split('(')[0];
+
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'instantExecutor',
+                'collection': collection,
+                'document': document,
+                'function': functions,
+                'name': name,
+                }, function(result) {
+                  dispatcher.post('ajax', [{
+                    action: 'getCollectionInformation',
+                    collection: collection
+                  }, 'collectionLoaded', {
+                    collection: collection,
+                    keep: true
+                  }]); 
+                dispatcher.post('renderData', [result]);
+              });
+            }
+          });
+          buttons.push({
+            id: formId + "-label-add-add",
+            text: "Add",
+            click: function() { 
+              // add user input labeling function
+              let fullPath = window.location.href.split('#')[1];
+              let document = fullPath.split('/').reverse()[0];
+              let collection = fullPath.substr(0, fullPath.length - document.length);
+
+              let functions = $('.CodeMirror')[0].CodeMirror.getValue();
+              let array = functions.split(new RegExp(" |\n", "g"));
+              let name = '';
+
+              for (let i = 0; i < array.length; i++) {
+                if (array[i].trim() === "def") {
+                  name = array[i + 1].split('(')[0];
+                }
+              }
+
+              $.post("ajax.cgi",{
+                'protocol': 1,
+                'action': 'addLabelingFunction',
+                'collection': collection,
+                'function': functions,
+                'name': name,
+                async: false
+              }, function() {
+                // get labeling function and update dom
+                $.post("ajax.cgi",{
+                  'protocol': 1,
+                  'action': 'getAvailableLabelingFunction',
+                  'collection': collection,
+                }, function(result) {
+                  let container = $('#label_form_select');
+                  let functions = result['function_list'];
+                  
+                  container.empty();
+                  
+                  $.each(functions, function(index) {
+                    let name = functions[index];
+
+                    $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+                    $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+                    let labelContainer = $('#lb-' + name);
+                    $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+                  });
+
+                  $('#label_form_select').find('input[type="checkbox"]').button();
+                  $('#label_form_select').find('input[type="button"]').button();
+                });
+              });
+            }
+          });
+        } 
+        /* STOP labeling function related */
+        
+        if (opts.no_ok) {
           delete opts.no_ok;
         } else {
           buttons.push({
@@ -653,10 +808,18 @@ var VisualizerUI = (function($, window, undefined) {
         currentForm = form;
         // as suggested in http://stackoverflow.com/questions/2657076/jquery-ui-dialog-fixed-positioning
         form.parent().css({position:"fixed"});
+        
         if (unsafe) {
           unsafeDialogOpen(form);
         } else {
-          form.dialog('open');
+          form.dialog("open");
+          form.dialog({
+            position: { 
+              my: "center top+100px",
+              at: "center top+100px",
+              of: window 
+            },
+          });
         }
         slideToggle($('#pulldown').stop(), false);
         return form;
@@ -1035,7 +1198,7 @@ var VisualizerUI = (function($, window, undefined) {
 
       // var setupLabelSelection = function(response) {
       //   // using response.entity_types, need to discuss how to get labeling function type from backend
-      //   addLabelTypesToSelect($('#label_form_selection'), response.entity_types);
+      //   addLabelTypesToSelect($('#label_form_select'), response.entity_types);
       // }
 
       // when event role changes, event types do as well
@@ -1486,11 +1649,70 @@ var VisualizerUI = (function($, window, undefined) {
         return false;
       };
       labelForm.submit(dataFormSubmit);
+
       initForm(labelForm, {
+        width: 500,
+        resizable: false,
+        no_cancel: true,
+        no_ok: true,
+        label_select_option: true,
+        label_add_option: false, 
+        open: function(evt) {
+          keymap = {};
+          // aspects of the data form relating to the current document should
+          // only be shown when a document is selected.
+          if (!doc) {
+            $('#document_export').hide();
+            $('#document_visualization').hide();
+          } else {
+            $('#document_export').show();
+            $('#document_visualization').show();
+            // the SVG button can only be accessed through the data form,
+            // so we'll spare unnecessary saves by only saving here
+            saveSVG();
+          }
+        }
+      });
+      $('#label_button').click(function() {
+        // get labeling function and update dom
+        let fullPath = window.location.href.split('#')[1];
+        let document = fullPath.split('/').reverse()[0];
+        let collection = fullPath.substr(0, fullPath.length - document.length);
+
+        $.post("ajax.cgi",{
+          'protocol': 1,
+          'action': 'getAvailableLabelingFunction',
+          'collection': collection,
+        }, function(result) {
+          let container = $('#label_form_select');
+          let functions = result['function_list'];
+          container.empty();
+
+          $.each(functions, function(index) {
+            let name = functions[index];
+
+            $('<input />', { type: 'checkbox', id: name, name: name, value: name, class: 'ui-helper-hidden-accessible' }).appendTo(container);
+            $('<label />', { 'for': name, id: 'lb-' + name, class: 'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only', role: 'button' }).appendTo(container);
+
+            let labelContainer = $('#lb-' + name);
+            $('<span />', { text: name, class: 'ui-button-text' }).appendTo(labelContainer);
+          });
+
+          $('#label_form_select').find('input[type="checkbox"]').button();
+          $('#label_form_select').find('input[type="button"]').button();
+        });
+        dispatcher.post('showForm', [labelForm]);
+      });
+      
+      // START different button for different option
+      $('#label_tab_select_head').click(function(){
+        initForm(labelForm, {
           width: 500,
           resizable: false,
           no_cancel: true,
-          label_option: true,
+          no_ok: true,
+          label_select_option: true,
+          label_add_option: false, 
           open: function(evt) {
             keymap = {};
             // aspects of the data form relating to the current document should
@@ -1506,10 +1728,33 @@ var VisualizerUI = (function($, window, undefined) {
               saveSVG();
             }
           }
-      });
-      $('#label_button').click(function() {
+        });
         dispatcher.post('showForm', [labelForm]);
-      });
+      })
+      $('#label_tab_add_head').click(function(){
+        initForm(labelForm, {
+          width: 800,
+          resizable: false,
+          no_cancel: true,
+          no_ok: true,
+          label_select_option: false,
+          label_add_option: true, 
+          open: function(evt) {
+            keymap = {};
+            if (!doc) {
+              $('#document_export').hide();
+              $('#document_visualization').hide();
+            } else {
+              $('#document_export').show();
+              $('#document_visualization').show(); 
+              saveSVG();
+            }
+          }
+        });
+        dispatcher.post('showForm', [labelForm]);
+      })
+      // STOP different button for different option
+
       // make nice-looking buttons for checkboxes and buttons
       $('#label_form').find('input[type="checkbox"]').button();
       $('#label_form').find('input[type="button"]').button();
@@ -1520,6 +1765,30 @@ var VisualizerUI = (function($, window, undefined) {
       $('#stored_file_regenerate').click(function(evt) {
         $('#stored_file_regenerate').hide();
         saveSVG();
+      });
+
+      var activeLabelTab = function() {
+        // activeTab: 0 = Text, 1 = Entity, 2 = Event, 3 = Relation, 4 = Notes, 5 = Load
+        var activeTab = $('#label_tabs').tabs('option', 'active');
+        return ['labelSelect', 'labelAdd'][activeTab];
+      }
+
+      var onLabelTabSelect = function() {
+        var action = activeLabelTab();
+        switch (action) {
+          case 'labelSelect':
+            $('#select_labeling_function_select').focus().select();
+            
+            break;
+          case 'labelAdd':
+            $('#add_labeling_function_textarea').focus().select();
+            break;
+        }
+      };
+
+      // set up jQuery UI elements in label form
+      $('#label_tabs').tabs({
+        show: onLabelTabSelect
       });
 
       /* END label dialog - related */

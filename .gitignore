@@ -5,6 +5,12 @@ config.py
 *.pyc
 *.pyo
 
+*.stats_cache
 # Standard locations of data and server temporary files
-data/
 work/
+.vscode
+data/tutorials
+data/examples
+
+# for mac
+.DS_Store

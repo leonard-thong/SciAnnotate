@@ -10,59 +10,80 @@
 import re
 import sys
 import time
+import os
 
-from expandLogger import Logger
-# from os.path import join as path_join
-# from shutil import rmtree
-# from tempfile import mkdtemp
-#
-# from annotation import Annotations, open_textfile
-# from document import _document_json_dict
-from labelFunctions.index import *
-from tokenise import whitespace_token_boundary_gen
-
-GLOBAL_LOGGER = Logger()
+from utils import GLOBAL_LOGGER
+from utils import get_entity_index, clean_cached_config, add_common_info
 
 
-def add_common_info(text, res):
-    res["text"] = text
-    res["token_offsets"] = [o for o in whitespace_token_boundary_gen(text)]
-    res["ctime"] = time.time()
-    res["source_files"] = ["ann", "txt"]
-    return res
+def annotation_file_generate(res, file_path, text):
+    anno_content = ""
+    for entity in res["entities"]:
+        anno_content += (
+            str(entity[0])
+            + "\t"
+            + str(entity[1])
+            + " "
+            + str(entity[2][0][0])
+            + " "
+            + str(entity[2][0][1])
+            + "\t"
+            + str(text[entity[2][0][0]: entity[2][0][1]])
+            + "\n"
+        )
+    with open(file_path, 'w') as f:
+        f.write(anno_content)
 
+def resort_entities(entity_list, func_name_list):
+    all_entities = dict()
+    ENTITY_INDEX = get_entity_index()
+    for entity in entity_list:
+        if all_entities.get(entity[2][0]):
+            all_entities[entity[2][0]].append(entity[1])
+        else:
+            all_entities[entity[2][0]] = [entity[1]]
+    for key, labels in all_entities.items():
+        new_labels = []
+        for idx, func_name in enumerate(func_name_list):
+            found = False
+            for label in labels:
+                if func_name == label.split('_')[0]:
+                    new_labels.append(label)
+                    found = True
+                    break
+            if not found:
+                new_labels.append('{}_unlabeled'.format(func_name))
+        all_entities[key] = new_labels
+    out = []
+    for idx in range(func_name_list.__len__()):
+        for key, labels in all_entities.items():
+            out.append(["T{}".format(next(ENTITY_INDEX)), labels[idx], [key]])
+    return out
 
-def get_entity_index():
-    for i in range(1, 1000000):
-        yield i
-
-
-ENTITY_INDEX = get_entity_index()
-
-
-class Preprocessor(object):
-    def __init__(self, name, func):
-        self.name = name
-        self.func = func
-
-    def process(self, txt):
-        out = self.func(txt)
-        if out is None:
-            GLOBAL_LOGGER.log_warning("WARNING: RETURN VALUE IS NONE")
-        return out
-
+    
 
 def _function_executor(collection, document, functions):
-    file_path = "data" + collection + document + ".txt"
-    with open(file_path, "r", encoding="utf-8") as f:
+    file_path = "data" + collection + '/' + document
+    txt_file_path = file_path + ".txt"
+    anno_file_path = file_path + ".ann"
+    ENTITY_INDEX = get_entity_index()
+    with open(txt_file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
-            out = eval(functions[0] + '(content, ENTITY_INDEX)')
-            if len(functions) > 2:
-                for function in functions[1:-1]:
-                    out['entities'].extend(eval(function + '(content, ENTITY_INDEX)')['entities'])
+            exec("from labelFunctions.index import {}".format(functions[0]))
+            out = eval(functions[0] + "(content, ENTITY_INDEX)")
+            if len(functions) > 1:
+                for function in functions[1:]:
+                    exec("from labelFunctions.index import {}".format(function))
+                    out["entities"].extend(
+                        eval(function + "(content, ENTITY_INDEX)")["entities"]
+                    )
+            # out["entities"] = resort_entities(out["entities"], functions)
+            annotation_file_generate(out, anno_file_path, content)
         except Exception as e:
-            GLOBAL_LOGGER.log_error("ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__())
+            GLOBAL_LOGGER.log_error(
+                "ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__()
+            )
         if out is not None:
             return add_common_info(content, out)
         else:
@@ -70,17 +91,18 @@ def _function_executor(collection, document, functions):
     return None
 
 
-def function_executor(**args):
-    GLOBAL_LOGGER.log_normal(args.__str__())
-    collection = args["collection"]
-    document = args["document"]
-    GLOBAL_LOGGER.log_normal(list(args["function[]"]).__str__())
-    functions = list(args["function[]"])
+def function_executor(**kwargs):
+    GLOBAL_LOGGER.log_normal(kwargs.__str__())
+    collection = kwargs["collection"]
+    document = kwargs["document"]
+    if type(kwargs["function[]"]) == str:
+        kwargs["function[]"] = [kwargs["function[]"]]
+    functions = list(kwargs["function[]"])
     if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
     elif document is None:
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
-
+    clean_cached_config()
     out = _function_executor(collection, document, functions)
     out["document"] = document
     out["collection"] = collection
@@ -89,36 +111,39 @@ def function_executor(**args):
     return out
 
 
-def _instant_executor(code, name, entity_index, collection, document):
-    file_path = "data" + collection + document + ".txt"
+def _instant_executor(code, name, collection, document):
+    file_path = "./data" + collection + '/' + document + ".txt"
+    ENTITY_INDEX = get_entity_index()
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         try:
+            code = str(code)
             exec(code)
-            out = eval('{}(content, entity_index)'.format(name))
-            return out
+            out = eval("{}(content, ENTITY_INDEX)".format(name))
+            if out is not None:
+                return add_common_info(content, out)
         except Exception as e:
             GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
 
 
-def instant_executor(**args):
-    # TODO: implement code completion and return logic
+def instant_executor(**kwargs):
     """
     This function is designed to handle instant labeling function code. The code must be written in a strict format,
     which will be released in a later version README.md .
-    :param args: dict | Required arguments set
+    :param kwargs: dict | Required arguments set
     :return: dict | Formatted return value with entities, relation and other common info
     """
-    collection = args["collection"]
-    document = args["document"]
-    function_codes = list(args["function"])
-    pass
-
-
-def main(argv):
-    pass
+    collection = kwargs["collection"]
+    document = kwargs["document"]
+    if kwargs["function"] is None:
+        GLOBAL_LOGGER.log_error("FUNCTION CODE IS NONE")
+    else:
+        clean_cached_config()
+        function_code = str(kwargs["function"])
+        name = str(kwargs["name"])
+        out = _instant_executor(function_code, name, collection, document)
+        return out
 
 
 if __name__ == "__main__":
     pass
-

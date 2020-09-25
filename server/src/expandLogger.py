@@ -31,22 +31,22 @@ class Logger(object):
 
     @staticmethod
     def print(content):
-        os.system("echo " + "'" + content + "'")
+        os.system("echo " + "'" + content.__str__().replace(' ', '\ ').replace('(','\(').replace(')','\)').replace('&','\&') + "'")
 
     def log_normal(self, log):
-        self.print(OKGREEN + "RUNNING LOG: " + log)
+        self.print(OKGREEN + "RUNNING LOG: " + log.__str__() + ENDC)
 
     def log_warning(self, log):
-        self.print(WARNING + log + ENDC)
+        self.print(WARNING + log.__str__() + ENDC)
 
     def log_error(self, log):
-        self.print(ERROR + log + ENDC)
+        self.print(ERROR + log.__str__() + ENDC)
 
     def log_exception(self, log):
-        self.print(EXCEPTION + log + ENDC)
+        self.print(EXCEPTION + log.__str__() + ENDC)
 
     def log_custom(self, style, log):
-        self.print(style + log + ENDC)
+        self.print(style + log.__str__() + ENDC)
 
 
 if __name__ == "__main__":

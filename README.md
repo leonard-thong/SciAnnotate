@@ -28,3 +28,9 @@ You should then be able to access the brat server from the address printed out b
 ```
 LABELING_FUNCTION_SET = {"alias": your_new_function}
 ```
+
+## Release Note Sept.4 2020
+### Feature:
+* Labeling Function Real Time Debug
+* Labeling Function Hot Append
+* MD5 Color Generation, Stable color for each added labeing function
