@@ -6,7 +6,7 @@ from jsonwrap import loads as json_loads
 from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF
 from utils import get_entity_index_exist
 
-def create_span_all(collection, document, label_word):
+def create_span_all_text(collection, document, label_word):
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
@@ -15,7 +15,7 @@ def create_span_all(collection, document, label_word):
     return _create_span_all(txt_file_path,label_word, ann_file_path)
 
 
-def _create_span_all(txt_file_path, label_word, ann_file_path, entity_index = get_entity_index_exist):
+def _create_span_all_text(txt_file_path, label_word, ann_file_path, entity_index = get_entity_index_exist):
     res = dict()
     with open_textfile(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
@@ -34,7 +34,7 @@ def _create_span_all(txt_file_path, label_word, ann_file_path, entity_index = ge
     res["entities"] = entities
     return entities
 
-def create_span_with_re(collection, document, regx):
+def create_span_all_re(collection, document, regx):
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
@@ -42,7 +42,7 @@ def create_span_with_re(collection, document, regx):
     ann_file_path = JOINED_ANN_FILE_SUFF + '.' + JOINED_ANN_FILE_SUFF
     return _create_span_regx(txt_file_path, ann_file_path, regx)
 
-def _create_span_regx(txt_file_path, ann_file_path, regx):
+def _create_span_all_re(txt_file_path, ann_file_path, regx):
     res = dict()
     with open_textfile(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
