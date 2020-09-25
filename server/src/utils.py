@@ -55,6 +55,13 @@ def add_common_info(text, res):
     res["source_files"] = ["ann", "txt"]
     return res
 
+def get_entity_index_exist(indexNo):
+    index = indexNo
+    while 1:
+        index += 1
+        yield index
+
+
 if __name__ == "__main__":
     entity_list = ['Location', 'Person']
     generate_color_config('spam2', entity_list)

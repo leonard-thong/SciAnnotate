@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 T1	spam_quantity 20 27	million
 T2	spam_quantity 63 70	million
 T3	spam_quantity 151 158	million
@@ -138,3 +139,5 @@ T137	spam_money 2747 2751	$9.4
 T138	spam_money 2790 2794	$2.7
 T139	spam_money 2835 2842	dollars
 T140	spam_money 2859 2861	$1
+=======
+>>>>>>> cb1a81d541698367ccf5cad2c2cbb74e6582f983
