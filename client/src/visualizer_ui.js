@@ -551,6 +551,64 @@ var VisualizerUI = (function($, window, undefined) {
         var buttons = (opts.buttons || []);
 
         /* START labeling function related */
+        if (opts.label_keyword_option) {
+          buttons.push({
+            id: formId + "-label-keyword-execute",
+            text: "Execute",
+            click: function() { 
+              // execute labeling based on keyword and label that user enter
+              let fullPath = window.location.href.split('#')[1];
+              let document = fullPath.split('/').reverse()[0];
+              let collection = fullPath.substr(0, fullPath.length - document.length);
+              
+              let keyword = $('#keyword_label_keyword_input').val();
+              let label = $('#keyword_label_label_input').val();
+              // let option = 
+
+              let option = $("#label_scope input:radio:checked").map(function(){
+                return $(this).val();
+              }).get();
+
+              if (option[0] === "text") {
+                $.post("ajax.cgi",{
+                  'protocol': 1,
+                  'action': 'createSpanAllText',
+                  'collection': collection,
+                  'document': document,
+                  'keyword': keyword,
+                  'label': label,
+                  }, function(result) {
+                    dispatcher.post('ajax', [{
+                      action: 'getCollectionInformation',
+                      collection: collection
+                    }, 'collectionLoaded', {
+                      collection: collection,
+                      keep: true
+                    }]); 
+                  dispatcher.post('renderData', [result]);
+                });
+              } else {
+                $.post("ajax.cgi",{
+                  'protocol': 1,
+                  'action': 'createSpanAllRe',
+                  'collection': collection,
+                  'document': document,
+                  'label_word': keyword,
+                  'label': label,
+                  }, function(result) {
+                    dispatcher.post('ajax', [{
+                      action: 'getCollectionInformation',
+                      collection: collection
+                    }, 'collectionLoaded', {
+                      collection: collection,
+                      keep: true
+                    }]); 
+                  dispatcher.post('renderData', [result]);
+                });
+              }
+            }
+          });
+        }
         if (opts.label_select_option) {
           buttons.push({
               id: formId + "-label-select-execute",
@@ -735,7 +793,7 @@ var VisualizerUI = (function($, window, undefined) {
           });
         } 
         /* STOP labeling function related */
-        
+  
         if (opts.no_ok) {
           delete opts.no_ok;
         } else {
@@ -1655,7 +1713,8 @@ var VisualizerUI = (function($, window, undefined) {
         resizable: false,
         no_cancel: true,
         no_ok: true,
-        label_select_option: true,
+        label_keyword_option: true,
+        label_select_option: false,
         label_add_option: false, 
         open: function(evt) {
           keymap = {};
@@ -1705,12 +1764,40 @@ var VisualizerUI = (function($, window, undefined) {
       });
       
       // START different button for different option
+      $('#label_tab_keyword_head').click(function(){
+        initForm(labelForm, {
+          width: 500,
+          resizable: false,
+          no_cancel: true,
+          no_ok: true,
+          label_keyword_option: true,
+          label_select_option: false,
+          label_add_option: false, 
+          open: function(evt) {
+            keymap = {};
+            // aspects of the data form relating to the current document should
+            // only be shown when a document is selected.
+            if (!doc) {
+              $('#document_export').hide();
+              $('#document_visualization').hide();
+            } else {
+              $('#document_export').show();
+              $('#document_visualization').show();
+              // the SVG button can only be accessed through the data form,
+              // so we'll spare unnecessary saves by only saving here
+              saveSVG();
+            }
+          }
+        });
+        dispatcher.post('showForm', [labelForm]);
+      })
       $('#label_tab_select_head').click(function(){
         initForm(labelForm, {
           width: 500,
           resizable: false,
           no_cancel: true,
           no_ok: true,
+          label_keyword_option: false,
           label_select_option: true,
           label_add_option: false, 
           open: function(evt) {
@@ -1737,6 +1824,7 @@ var VisualizerUI = (function($, window, undefined) {
           resizable: false,
           no_cancel: true,
           no_ok: true,
+          label_keyword_option: false,
           label_select_option: false,
           label_add_option: true, 
           open: function(evt) {
