@@ -1758,6 +1758,7 @@ var VisualizerUI = (function($, window, undefined) {
       // make nice-looking buttons for checkboxes and buttons
       $('#label_form').find('input[type="checkbox"]').button();
       $('#label_form').find('input[type="button"]').button();
+      $('#label_form').find('.radio_group').buttonset();
 
       // resize invalidates stored visualization (SVG etc.); add a
       // button to regen
