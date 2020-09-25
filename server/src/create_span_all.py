@@ -5,6 +5,8 @@ from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
 from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF
 from utils import get_entity_index_exist
+from document import real_directory
+from os.path import join as path_join
 
 def create_span_all(collection, document, label_word):
     directory = collection
