@@ -46,3 +46,31 @@ T46	span_loss 121 125	loss
 T47	span_loss 292 296	loss
 T48	span_loss 465 469	loss
 T49	span_loss 636 640	loss
+T50	span_money_label_2 15 16	$
+T51	span_money_label_2 58 59	$
+T52	span_money_label_2 129 130	$
+T53	span_money_label_2 186 187	$
+T54	span_money_label_2 229 230	$
+T55	span_money_label_2 300 301	$
+T56	span_money_label_2 359 360	$
+T57	span_money_label_2 402 403	$
+T58	span_money_label_2 473 474	$
+T59	span_money_label_2 530 531	$
+T60	span_money_label_2 573 574	$
+T61	span_money_label_2 644 645	$
+T62	span_to 28 39	compared to
+T63	span_to 199 210	compared to
+T64	span_to 372 383	compared to
+T65	span_to 543 554	compared to
+T66	span_to 15 16	$
+T67	span_to 58 59	$
+T68	span_to 129 130	$
+T69	span_to 186 187	$
+T70	span_to 229 230	$
+T71	span_to 300 301	$
+T72	span_to 359 360	$
+T73	span_to 402 403	$
+T74	span_to 473 474	$
+T75	span_to 530 531	$
+T76	span_to 573 574	$
+T77	span_to 644 645	$
