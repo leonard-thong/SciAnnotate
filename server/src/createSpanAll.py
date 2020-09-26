@@ -42,15 +42,19 @@ def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_i
     ]
     res["entities"] = entities
     res = add_common_info(text, res)
-    ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
+    #ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
+    '''
+    for line in ann:
+        ann_file_write.write(line)
     for item in entities:
-        ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1])  + " " + keyword +'\n')
+        ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1]) + " " + keyword +'\n')
+    '''
     return res
 
 def create_span_all_re(**kwargs):
     directory = kwargs["collection"]
     document = kwargs["document"]
-    keyword = kwargs["keyword"]
+    keyword = kwargs['keyword']
     label = kwargs["label"]
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
@@ -61,22 +65,26 @@ def create_span_all_re(**kwargs):
 
 def _create_span_regx(txt_file_path, ann_file_path, keyword, label):
     res = dict()
-    with open_textfile(txt_file_path, 'r') as txt_file:
+    with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
-    with open_textfile(ann_file_path, 'r') as ana_file:
+    with open(ann_file_path, 'r') as ann_file:
         ann = ann_file.readlines()
     for line in ann:
         entity_index = line.split(" ")
         entity_index = entity_index[0][1:]
     
-    entity_index = get_entity_index_exist(entity_index)
-    regx = re.compile(regx)
+    entity_index = get_entity_index()
+    regx = re.compile(keyword)
     entities = [
         ["T" + str(next(entity_index)), label, [(pos.start(), pos.end())]]
         for pos in regx.finditer(text)
     ]
     res["entities"] = entities
-    ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
+    #ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
+    '''
+    for line in ann:
+        ann_file_write.write(line)
     for item in entities:
         ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1]) + " " + keyword +'\n')
+    '''
     return entities
