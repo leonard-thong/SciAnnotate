@@ -8,6 +8,22 @@ from jsonwrap import loads as json_loads
 from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF
 from utils import get_entity_index_exist, get_entity_index, add_common_info, annotation_file_generate,parse_annotation_file
 
+
+def locations_of_substring(string, substring):
+    """Return a list of locations of a substring."""
+
+    substring_length = len(substring)    
+    def recurse(locations_found, start):
+        location = string.find(substring, start)
+        if location != -1:
+            return recurse(locations_found + [location], location+substring_length)
+        else:
+            return locations_found
+
+    return recurse([], 0)
+
+
+
 def create_span_all_text(**kwargs):
     label = kwargs['label']
     collection = kwargs['collection']
@@ -33,10 +49,17 @@ def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_i
     
     entity_index = get_entity_index_exist(exist_index)
 
+    location = locations_of_substring(text,keyword)
+    entities = [
+        ["T" + str(next(entity_index)), label, [(pos, pos + len(keyword))]]
+        for pos in location
+    ]
+    '''
     entities = [
         ["T" + str(next(entity_index)), label, [(pos.start(), pos.end())]]
         for pos in re.finditer(keyword, text)
     ]
+    '''
     res["entities"] = entities
     annotation_file_generate(res, ann_file_path, text, 'a')
     cur_anns = parse_annotation_file(ann_file_path)

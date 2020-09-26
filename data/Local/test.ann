@@ -26,3 +26,23 @@ T25	spam_money 530 534	$2.4
 T26	spam_money 573 577	$1.7
 T27	spam_money 620 627	dollars
 T28	spam_money 644 646	$1
+T30	span_prior 28 39	compared to
+T31	span_prior 199 210	compared to
+T32	span_prior 372 383	compared to
+T33	span_prior 543 554	compared to
+T34	span_money_label 15 16	$
+T35	span_money_label 58 59	$
+T36	span_money_label 129 130	$
+T37	span_money_label 186 187	$
+T38	span_money_label 229 230	$
+T39	span_money_label 300 301	$
+T40	span_money_label 359 360	$
+T41	span_money_label 402 403	$
+T42	span_money_label 473 474	$
+T43	span_money_label 530 531	$
+T44	span_money_label 573 574	$
+T45	span_money_label 644 645	$
+T46	span_loss 121 125	loss
+T47	span_loss 292 296	loss
+T48	span_loss 465 469	loss
+T49	span_loss 636 640	loss
