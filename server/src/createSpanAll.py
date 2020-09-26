@@ -14,8 +14,7 @@ def create_span_all_text(collection, document, keyword, label):
     document = path_join(real_dir, document)
     txt_file_path = document + '.' + TEXT_FILE_SUFFIX
     ann_file_path = JOINED_ANN_FILE_SUFF + '.' + JOINED_ANN_FILE_SUFF
-    return _create_span_all(txt_file_path, keyword, label, ann_file_path)
-
+    return _create_span_all_text(txt_file_path, keyword, label, ann_file_path)
 
 def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_index = get_entity_index_exist):
     res = dict()
@@ -42,7 +41,7 @@ def create_span_all_re(collection, document, keyword, label):
     document = path_join(real_dir, document)
     txt_file_path = document + '.' + TEXT_FILE_SUFFIX
     ann_file_path = JOINED_ANN_FILE_SUFF + '.' + JOINED_ANN_FILE_SUFF
-    return _create_span_regx(txt_file_path, ann_file_path, keyword, label)
+    return _create_span_all_re(txt_file_path, ann_file_path, keyword, label)
 
 def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
     res = dict()
