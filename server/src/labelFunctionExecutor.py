@@ -141,6 +141,16 @@ def instant_executor(**kwargs):
         clean_cached_config()
         function_code = str(kwargs["function"])
         name = str(kwargs["name"])
+        name_start = 0
+        for code_line in function_code.split('\n'):
+            if code_line[0:3] == "def":
+                name_start = 4
+                for i in range(4, 100):
+                    if code_line[i] == "(":
+                        name_end = i
+                        break
+                name = code_line[name_start:name_end]
+                break
         out = _instant_executor(function_code, name, collection, document)
         return out
 
