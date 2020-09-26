@@ -3,6 +3,7 @@ import os
 import hashlib
 import time
 
+from annotation import Annotations
 from expandLogger import Logger
 from tokenise import whitespace_token_boundary_gen
 
@@ -54,7 +55,29 @@ def get_entity_index_exist(indexNo):
         index += 1
         yield index
 
+def annotation_file_generate(res, file_path, text, mode='w'):
+    anno_content = ""
+    for entity in res["entities"]:
+        anno_content += (
+            str(entity[0])
+            + "\t"
+            + str(entity[1])
+            + " "
+            + str(entity[2][0][0])
+            + " "
+            + str(entity[2][0][1])
+            + "\t"
+            + str(text[entity[2][0][0]: entity[2][0][1]])
+            + "\n"
+        )
+    with open(file_path, mode) as f:
+        f.write(anno_content)
 
+def parse_annotation_file(ann_path):
+    anns = Annotations(document=ann_path[:-4])
+    anns._parse_ann_file()
+    return anns._lines
+    
 if __name__ == "__main__":
     entity_list = ['Location', 'Person']
     generate_color_config('spam2', entity_list)

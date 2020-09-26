@@ -578,7 +578,16 @@ var VisualizerUI = (function($, window, undefined) {
                   'keyword': keyword,
                   'label': label,
                   }, function(result) {
-                  dispatcher.post('renderData', [result]);
+                    dispatcher.post('ajax', [{
+                      action: 'getCollectionInformation',
+                      collection: collection
+                    }, 'collectionLoaded', {
+                      collection: collection,
+                      keep: true
+                    }]);
+                  setTimeout(()=>{
+                    dispatcher.post('renderData', [result]);
+                  }, 300);  
                 });
               } else {
                 $.post("ajax.cgi",{
