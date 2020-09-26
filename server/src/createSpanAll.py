@@ -5,16 +5,20 @@ from os.path import join as path_join
 from os.path import split as path_split
 from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
-from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF
+from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF, open_textfile
 from utils import get_entity_index_exist
 
-def create_span_all_text(collection, document, keyword, label):
-    directory = collection
+#collection, document, keyword, label
+def create_span_all_text(**kwargs):
+    directory = kwargs["collection"]
+    document = kwargs["document"]
+    keyword = kwargs["keyword"]
+    label = kwargs["label"]
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.' + TEXT_FILE_SUFFIX
-    ann_file_path = JOINED_ANN_FILE_SUFF + '.' + JOINED_ANN_FILE_SUFF
-    return _create_span_all(txt_file_path, keyword, label, ann_file_path)
+    ann_file_path = document + '.' + JOINED_ANN_FILE_SUFF
+    return _create_span_all_text(txt_file_path, keyword, label, ann_file_path)
 
 
 def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_index = get_entity_index_exist):
@@ -36,15 +40,18 @@ def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_i
     res["entities"] = entities
     return entities
 
-def create_span_all_re(collection, document, keyword, label):
-    directory = collection
+def create_span_all_re(**kwargs):
+    directory = kwargs["collection"]
+    document = kwargs["document"]
+    keyword = kwargs["keyword"]
+    label = kwargs["label"]
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.' + TEXT_FILE_SUFFIX
-    ann_file_path = JOINED_ANN_FILE_SUFF + '.' + JOINED_ANN_FILE_SUFF
+    ann_file_path = document + '.' + JOINED_ANN_FILE_SUFF
     return _create_span_regx(txt_file_path, ann_file_path, keyword, label)
 
-def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
+def _create_span_regx(txt_file_path, ann_file_path, keyword, label):
     res = dict()
     with open_textfile(txt_file_path, 'r') as txt_file:
         text = txt_file.read()

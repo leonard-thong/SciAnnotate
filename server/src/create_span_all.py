@@ -8,8 +8,10 @@ from utils import get_entity_index_exist
 from document import real_directory
 from os.path import join as path_join
 
-def create_span_all(collection, document, label_word):
-    directory = collection
+def create_span_all(**kwargs):
+    directory = kwargs["collection"]
+    document = kwargs["document"]
+    label_word = kwargs['label']
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.' + TEXT_FILE_SUFFIX
@@ -36,8 +38,10 @@ def _create_span_all(txt_file_path, label_word, ann_file_path, entity_index = ge
     res["entities"] = entities
     return entities
 
-def create_span_with_re(collection, document, regx):
-    directory = collection
+def create_span_with_re(**kwargs):
+    directory = kwargs["collection"]
+    document = kwargs["document"]
+    regx = kwargs['regx']
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.' + TEXT_FILE_SUFFIX
