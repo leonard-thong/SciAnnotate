@@ -76,7 +76,7 @@ def create_span_all_re(**kwargs):
     label = kwargs['label']
     collection = kwargs['collection']
     document = kwargs['document']
-    keyword = kwargs['label_word']
+    keyword = kwargs['keyword']
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
@@ -84,7 +84,7 @@ def create_span_all_re(**kwargs):
     ann_file_path = txt_file_path[:-3] + 'ann'
     return _create_span_all_re(txt_file_path, ann_file_path, keyword, label)
 
-def _create_span_regx(txt_file_path, ann_file_path, keyword, label):
+def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
