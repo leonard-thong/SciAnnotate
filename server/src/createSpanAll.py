@@ -37,9 +37,7 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_i
     ]
     res["entities"] = entities
     res = add_common_info(text, res)
-    ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
-    for item in entities:
-        ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1])  + " " + keyword +'\n')
+    
     return res
 
 def create_span_all_re(**kwargs):
@@ -63,14 +61,13 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
         entity_index = line.split(" ")
         entity_index = entity_index[0][1:]
     
-    entity_index = get_entity_index_exist(entity_index)
-    regx = re.compile(regx)
+    entity_index = get_entity_index()
+
+    regx = re.compile(keyword)
     entities = [
         ["T" + str(next(entity_index)), label, [(pos.start(), pos.end())]]
         for pos in regx.finditer(text)
     ]
     res["entities"] = entities
-    ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
-    for item in entities:
-        ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1]) + " " + keyword +'\n')
+    
     return entities
