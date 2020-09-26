@@ -578,13 +578,13 @@ var VisualizerUI = (function($, window, undefined) {
                   'keyword': keyword,
                   'label': label,
                   }, function(result) {
-                    dispatcher.post('ajax', [{
-                      action: 'getCollectionInformation',
-                      collection: collection
-                    }, 'collectionLoaded', {
-                      collection: collection,
-                      keep: true
-                    }]); 
+                    // dispatcher.post('ajax', [{
+                    //   action: 'getCollectionInformation',
+                    //   collection: collection
+                    // }, 'collectionLoaded', {
+                    //   collection: collection,
+                    //   keep: true
+                    // }]);
                   dispatcher.post('renderData', [result]);
                 });
               } else {
