@@ -37,10 +37,16 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_i
     ]
     res["entities"] = entities
     res = add_common_info(text, res)
+    ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
+    for item in entities:
+        ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1])  + " " + keyword +'\n')
     return res
 
-def create_span_all_re(collection, document, keyword, label):
-    directory = collection
+def create_span_all_re(**kwargs):
+    directory = kwargs["collection"]
+    document = kwargs["document"]
+    keyword = kwargs["keyword"]
+    label = kwargs["label"]
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
@@ -64,4 +70,7 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
         for pos in regx.finditer(text)
     ]
     res["entities"] = entities
+    ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
+    for item in entities:
+        ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1]) + " " + keyword +'\n')
     return entities
