@@ -64,13 +64,6 @@
                 mode: "python",
             });
 
-            var editor_all = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_text'), {
-                lineNumbers: true,
-                autoRefresh: true,
-                theme: "xq-light",
-                mode: "Markdown",
-            });
-
             // Util.profileEnable();
             dispatcher.post('init');
         });
@@ -276,107 +269,6 @@
             </fieldset>
         </div>
     </form>
-
-    <!---
-    <form id="searchlabel_form" class="dialog" title="Search & Label">
-            <div id="searchlabel_tabs">
-            <ul>
-                <li><a id="label_tab_add_head" href="#label_tab_search_add">Add</a></li>
-            </ul>
-            <div id="label_tab_search_add">
-                <table class="fullwidth">
-                    <tr>
-                        <td>Text</td>
-                        <td>
-                            <input id="search_form_text_text" class="fullwidth" placeholder="Text or Regx to match" />
-                        </td>
-                    </tr>
-                </table>
-                <div class="optionRow">
-                    <span class="optionLabel">Usr arg</span>
-                    <span id="search_form_use_arg_text" class="radio_group small-buttons">
-            <input type="radio" id="search_form_use_arg_text_off"
-                    value="off" name="search_form_use_arg_text_radio"
-                    checked="checked"/>
-            <label for="search_form_use_arg_text_off"
-                    title="Don't use regx in search results.">off</label>
-            <input type="radio" id="search_form_use_arg_text_on"
-                    value="on"
-                    name="search_form_use_arg_text_radio"/>
-            <label for="search_form_use_arg_text_on"
-                    title="Show texts of regx search in search results.">on</label>
-            </span>
-                </div>
-            </div>
-        </div>
-        <fieldset id="search_options">
-            <legend>Options</legend>
-            <a href="" id="advanced_search_option_toggle">Show advanced</a>
-            <div class="optionRow">
-                <span class="optionLabel">Search in current</span>
-                <span id="search_scope" class="radio_group small-buttons">
-            <input type="radio" id="search_scope_doc" value="document"
-                name="search_scope_radio" checked="checked"/>
-            <label for="search_scope_doc"
-                title="Search in current document only.">document</label>
-            <input type="radio" id="search_scope_coll" value="collection"
-                name="search_scope_radio"/>
-            <label for="search_scope_coll"
-                title="Search in all documents in current collection.">collection</label>
-        </span>
-            </div>
-            <div class="advancedOptions">
-                <div class="optionRow">
-                    <span class="optionLabel">Concordancing</span>
-                    <span id="concordancing" class="radio_group small-buttons">
-            <input type="radio" id="concordancing_off" value="document"
-                name="concordancing_radio" checked="checked"/>
-            <label for="concordancing_off"
-                title="Display matched search results only.">off</label>
-            <input type="radio" id="concordancing_on" value="collection"
-                name="concordancing_radio"/>
-            <label for="concordancing_on"
-                title="In addition to search results, display also the text context of the matches in Key Word In Context (KWIC) format.">on</label>
-        </span>
-                </div>
-                <div id="context_size_div" class="optionRow">
-                    <span class="optionLabel" style="margin-left:1em;">Context length</span> <input id="context_length" maxlength="3" size="3" value="50" /> characters
-                </div>
-                <div class="optionRow">
-                    <span class="optionLabel">Match text as</span>
-                    <span id="text_match" class="radio_group small-buttons">
-            <input type="radio" id="text_match_word" value="word"
-                name="text_match_radio" checked="checked"/>
-            <label for="text_match_word"
-                title="Match whole words only.">whole word</label>
-            <input type="radio" id="text_match_substr" value="substring"
-                name="text_match_radio"/>
-            <label for="text_match_substr"
-                title="Match any substring.">any substring</label>
-            <input type="radio" id="text_match_regex" value="regex"
-                name="text_match_radio"/>
-            <label for="text_match_regex"
-                title="Treat given text as regular expression.">regex</label>
-        </span>
-                </div>
-                <div class="optionRow">
-                    <span class="optionLabel">Match case</span>
-                    <span id="match_case" class="radio_group small-buttons">
-            <input type="radio" id="match_case_off" value="document"
-                name="match_case_radio" checked="checked"/>
-            <label for="match_case_off"
-                title="Ignore character case in text search ('abc' matches 'ABC')">off</label>
-            <input type="radio" id="match_case_on" value="collection"
-                name="match_case_radio"/>
-            <label for="match_case_on"
-                title="Require identical character case in text search ('abc' does not match 'ABC')">on</label>
-        </span>
-                </div>
-            </div>
-        </fieldset>
-    </form> 
-    -->
-    
     <!-- Label dialog -->
     <form id="label_form" class="dialog" title="Label">
         <div id="label_tabs">
@@ -384,7 +276,6 @@
                 <li><a id="label_tab_keyword_head" href="#label_tab_keyword">Keyword</a></li>
                 <li><a id="label_tab_select_head" href="#label_tab_select">Select</a></li>
                 <li><a id="label_tab_add_head" href="#label_tab_add">Add</a></li>
-                <li><a id="label_tab_add_all_head" href="#label_tab_add_All">Add All</a></li>
             </ul>
             <div id="label_tab_keyword">
                 <fieldset class="small-buttons">
@@ -440,12 +331,6 @@
                 <fieldset class="small-buttons">
                     <legend>Add Labeling Function</legend>
                     <textarea id="add_labeling_function_textarea" class="fullwidth" />
-                </fieldset>
-            </div>
-            <div id="label_tab_add_All">
-                <fieldset class="small-buttons">
-                    <legend>Add Labeling words</legend>
-                    <textarea id="add_labeling_function_text" class="fullwidth" />
                 </fieldset>
             </div>
         </div>

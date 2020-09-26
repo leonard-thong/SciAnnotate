@@ -40,7 +40,6 @@ from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function, delete_labeling_function, get_available_labeling_function
 from createSpanAll import create_span_all_text, create_span_all_re
 from utils import GLOBAL_LOGGER
-#from create_span_all import create_span_all, create_span_with_re
 # no-op function that can be invoked by client to log a user action
 
 

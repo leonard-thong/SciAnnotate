@@ -5,7 +5,6 @@ from os.path import join as path_join
 from os.path import split as path_split
 from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
-from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF
 from utils import get_entity_index_exist, get_entity_index, add_common_info, annotation_file_generate,parse_annotation_file
 
 
@@ -32,13 +31,11 @@ def create_span_all_text(**kwargs):
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
-    #file_path = "data" + directory + '/' + document
-    txt_file_path = document + '.' + TEXT_FILE_SUFFIX
+    txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-3] + 'ann'
-    return _create_span_all_text(txt_file_path, keyword, label, ann_file_path)
+    return _create_span_all_text(txt_file_path, ann_file_path, keyword, label)
 
-
-def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_index = get_entity_index_exist):
+def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_index = get_entity_index_exist):
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
@@ -72,13 +69,7 @@ def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_i
             pass
     res['entities'] = cur_entities
     res = add_common_info(text, res)
-    #ann_file_write = open(ann_file_path, "tw", encoding="utf-8")
-    '''
-    for line in ann:
-        ann_file_write.write(line)
-    for item in entities:
-        ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1]) + " " + keyword +'\n')
-    '''
+    
     return res
 
 def create_span_all_re(**kwargs):
@@ -89,12 +80,11 @@ def create_span_all_re(**kwargs):
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
-    #file_path = "data" + collection + '/' + document
-    txt_file_path = document + '.' + TEXT_FILE_SUFFIX
+    txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-3] + 'ann'
-    return _create_span_regx(txt_file_path, ann_file_path, keyword, label)
+    return _create_span_all_re(txt_file_path, ann_file_path, keyword, label)
 
-def _create_span_regx(txt_file_path, ann_file_path, keyword, label):
+def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()

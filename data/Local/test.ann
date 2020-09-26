@@ -26,55 +26,23 @@ T25	spam_money 530 534	$2.4
 T26	spam_money 573 577	$1.7
 T27	spam_money 620 627	dollars
 T28	spam_money 644 646	$1
-T30	span_prior 28 39	compared to
-T31	span_prior 199 210	compared to
-T32	span_prior 372 383	compared to
-T33	span_prior 543 554	compared to
-T34	span_money_label 15 16	$
-T35	span_money_label 58 59	$
-T36	span_money_label 129 130	$
-T37	span_money_label 186 187	$
-T38	span_money_label 229 230	$
-T39	span_money_label 300 301	$
-T40	span_money_label 359 360	$
-T41	span_money_label 402 403	$
-T42	span_money_label 473 474	$
-T43	span_money_label 530 531	$
-T44	span_money_label 573 574	$
-T45	span_money_label 644 645	$
-T46	span_loss 121 125	loss
-T47	span_loss 292 296	loss
-T48	span_loss 465 469	loss
-T49	span_loss 636 640	loss
-T50	span_money_label_2 15 16	$
-T51	span_money_label_2 58 59	$
-T52	span_money_label_2 129 130	$
-T53	span_money_label_2 186 187	$
-T54	span_money_label_2 229 230	$
-T55	span_money_label_2 300 301	$
-T56	span_money_label_2 359 360	$
-T57	span_money_label_2 402 403	$
-T58	span_money_label_2 473 474	$
-T59	span_money_label_2 530 531	$
-T60	span_money_label_2 573 574	$
-T61	span_money_label_2 644 645	$
-T62	span_to 28 39	compared to
-T63	span_to 199 210	compared to
-T64	span_to 372 383	compared to
-T65	span_to 543 554	compared to
-T66	span_to 15 16	$
-T67	span_to 58 59	$
-T68	span_to 129 130	$
-T69	span_to 186 187	$
-T70	span_to 229 230	$
-T71	span_to 300 301	$
-T72	span_to 359 360	$
-T73	span_to 402 403	$
-T74	span_to 473 474	$
-T75	span_to 530 531	$
-T76	span_to 573 574	$
-T77	span_to 644 645	$
-T78	span_to_1 28 39	compared to
-T79	span_to_1 199 210	compared to
-T80	span_to_1 372 383	compared to
-T81	span_to_1 543 554	compared to
+T30	span_money_label 15 16	$
+T31	span_money_label 58 59	$
+T32	span_money_label 129 130	$
+T33	span_money_label 186 187	$
+T34	span_money_label 229 230	$
+T35	span_money_label 300 301	$
+T36	span_money_label 359 360	$
+T37	span_money_label 402 403	$
+T38	span_money_label 473 474	$
+T39	span_money_label 530 531	$
+T40	span_money_label 573 574	$
+T41	span_money_label 644 645	$
+T42	span_loss 121 125	loss
+T43	span_loss 292 296	loss
+T44	span_loss 465 469	loss
+T45	span_loss 636 640	loss
+T46	span_to 28 39	compared to
+T47	span_to 199 210	compared to
+T48	span_to 372 383	compared to
+T49	span_to 543 554	compared to
