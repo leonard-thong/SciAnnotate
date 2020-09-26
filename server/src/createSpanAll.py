@@ -14,11 +14,11 @@ def create_span_all_text(**kwargs):
     document = kwargs["document"]
     keyword = kwargs["keyword"]
     label = kwargs["label"]
-    #real_dir = real_directory(directory)
-    #document = path_join(real_dir, document)
-    file_path = "data" + directory + '/' + document
-    txt_file_path = file_path + '.' + TEXT_FILE_SUFFIX
-    ann_file_path = file_path + '.' + JOINED_ANN_FILE_SUFF
+    real_dir = real_directory(directory)
+    document = path_join(real_dir, document)
+    #file_path = "data" + directory + '/' + document
+    txt_file_path = document + '.' + TEXT_FILE_SUFFIX
+    ann_file_path = document + '.' + JOINED_ANN_FILE_SUFF
     return _create_span_all_text(txt_file_path, keyword, label, ann_file_path)
 
 
@@ -46,11 +46,11 @@ def create_span_all_re(**kwargs):
     document = kwargs["document"]
     keyword = kwargs["keyword"]
     label = kwargs["label"]
-    #real_dir = real_directory(directory)
-    #document = path_join(real_dir, document)
-    file_path = "data" + directory + '/' + document
-    txt_file_path = file_path + '.' + TEXT_FILE_SUFFIX
-    ann_file_path = file_path + '.' + JOINED_ANN_FILE_SUFF
+    real_dir = real_directory(directory)
+    document = path_join(real_dir, document)
+    #file_path = "data" + collection + '/' + document
+    txt_file_path = document + '.' + TEXT_FILE_SUFFIX
+    ann_file_path = document + '.' + JOINED_ANN_FILE_SUFF
     return _create_span_regx(txt_file_path, ann_file_path, keyword, label)
 
 def _create_span_regx(txt_file_path, ann_file_path, keyword, label):
