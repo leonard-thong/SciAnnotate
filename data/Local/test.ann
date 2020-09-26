@@ -1,6 +1,4 @@
-T1	spam2_Location 50 54	year
-T2	spam2_Location 221 225	year
-T3	spam2_Location 394 398	year
-T4	spam2_Location 565 569	year
-T5	spam2_Person 141 147	doctor
-T6	spam2_Person 485 491	doctor
+T1   span4  121 125 loss
+T2   span4  292 296 loss
+T3   span4  465 469 loss
+T4   span4  636 640 loss
