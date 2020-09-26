@@ -94,4 +94,4 @@ def _create_span_regx(txt_file_path, ann_file_path, keyword, label):
     for item in entities:
         ann_file_write.write(item[0] + "   " + item[1] + "  " + str(item[2][0][0]) + ' ' + str(item[2][0][1]) + " " + keyword +'\n')
     '''
-    return entities
+    return res
