@@ -38,7 +38,7 @@ from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function, delete_labeling_function, get_available_labeling_function
-from createSpanAll import create_span_all, create_span_with_re
+from createSpanAll import create_span_all_text, create_span_all_re
 from utils import GLOBAL_LOGGER
 # no-op function that can be invoked by client to log a user action
 
@@ -114,13 +114,13 @@ DISPATCHER = {
     'deleteLabelingFunction': delete_labeling_function,
     'getAvailableLabelingFunction': get_available_labeling_function,
 
-    'createSpanAll': create_span_all,
-    'createSpanwithRegx': create_span_with_re,
+    'createSpanAllText': create_span_all_text,
+    'createSpanAllRe': create_span_all_re,
 }
 
-EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction'}
+EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 'createSpanAllRe'}
 # Actions that correspond to annotation functionality
-ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'createSpanAll', 'createSpanwithRegx', 'splitSpan', 'suggestSpanTypes', 'undo'}
+ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
 # Actions that will be logged as annotator actions (if so configured)
 LOGGED_ANNOTATOR_ACTION = ANNOTATION_ACTION | {'getDocument', 'logAnnotatorAction'}

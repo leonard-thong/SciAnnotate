@@ -273,9 +273,45 @@
     <form id="label_form" class="dialog" title="Label">
         <div id="label_tabs">
             <ul>
+                <li><a id="label_tab_keyword_head" href="#label_tab_keyword">Keyword</a></li>
                 <li><a id="label_tab_select_head" href="#label_tab_select">Select</a></li>
                 <li><a id="label_tab_add_head" href="#label_tab_add">Add</a></li>
             </ul>
+            <div id="label_tab_keyword">
+                <fieldset class="small-buttons">
+                    <legend>Keyword Label</legend>
+                    <div id="keyword_label">
+                        <table class="fullwidth">
+                            <tr>
+                                <td>Keyword</td>
+                                <td>
+                                    <input id="keyword_label_keyword_input" class="fullwidth" placeholder="Keyword to label" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Label</td>
+                                <td>
+                                    <input id="keyword_label_label_input" class="fullwidth" placeholder="Label to add" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+                <fieldset class="small-buttons">
+                    <legend>Options</legend>
+                    <div class="optionRow">
+                        <span class="optionLabel">Match Case</span>
+                        <span id="label_scope" class="radio_group small-buttons">
+                            <input type="radio" id="label_scope_doc" value="text"
+                                    name="label_scope_radio" checked="checked"/>
+                            <label for="label_scope_doc">Text</label>
+                            <input type="radio" id="label_scope_coll" value="regex"
+                                    name="label_scope_radio" val="regex"/>
+                            <label for="label_scope_coll">RegEx</label>
+                        </span>
+                    </div>
+                </fieldset>
+            </div>
             <div id="label_tab_select">
                 <fieldset class="small-buttons">
                     <legend>Select Labeling Function(s)</legend>

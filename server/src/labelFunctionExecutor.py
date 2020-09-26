@@ -14,25 +14,7 @@ import os
 
 from utils import GLOBAL_LOGGER
 from utils import get_entity_index, clean_cached_config, add_common_info
-
-
-def annotation_file_generate(res, file_path, text):
-    anno_content = ""
-    for entity in res["entities"]:
-        anno_content += (
-            str(entity[0])
-            + "\t"
-            + str(entity[1])
-            + " "
-            + str(entity[2][0][0])
-            + " "
-            + str(entity[2][0][1])
-            + "\t"
-            + str(text[entity[2][0][0]: entity[2][0][1]])
-            + "\n"
-        )
-    with open(file_path, 'w') as f:
-        f.write(anno_content)
+from utils import annotation_file_generate
 
 def resort_entities(entity_list, func_name_list):
     all_entities = dict()
@@ -141,6 +123,16 @@ def instant_executor(**kwargs):
         clean_cached_config()
         function_code = str(kwargs["function"])
         name = str(kwargs["name"])
+        name_start = 0
+        for code_line in function_code.split('\n'):
+            if code_line[0:3] == "def":
+                name_start = 4
+                for i in range(4, 100):
+                    if code_line[i] == "(":
+                        name_end = i
+                        break
+                name = code_line[name_start:name_end]
+                break
         out = _instant_executor(function_code, name, collection, document)
         return out
 
