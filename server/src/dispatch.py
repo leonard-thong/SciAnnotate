@@ -70,9 +70,6 @@ DISPATCHER = {
     'deleteSpan': delete_span,
     'splitSpan': split_span,
 
-    'createSpanAll': create_span_all,
-    'createSpanwithRegx': create_span_with_re,
-
     'createArc': create_arc,
     'reverseArc': reverse_arc,
     'deleteArc': delete_arc,
