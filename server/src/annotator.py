@@ -15,7 +15,7 @@ Version:    2011-04-22
 from os.path import join as path_join
 from os.path import split as path_split
 from re import compile as re_compile
-
+from global_logger import Log
 from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
                         AnnotationsIsReadOnlyError, AttributeAnnotation,
                         BinaryRelationAnnotation,
@@ -624,7 +624,6 @@ def _create_span(collection, document, offsets, _type, attributes=None,
 
     directory = collection
     undo_resp = {}
-
     _attributes = _parse_attributes(attributes)
     _normalizations = _parse_span_normalizations(normalizations)
 

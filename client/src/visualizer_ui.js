@@ -595,7 +595,7 @@ var VisualizerUI = (function($, window, undefined) {
                   'action': 'createSpanAllRe',
                   'collection': collection,
                   'document': document,
-                  'label_word': keyword,
+                  'keyword': keyword,
                   'label': label,
                   }, function(result) {
                     dispatcher.post('ajax', [{

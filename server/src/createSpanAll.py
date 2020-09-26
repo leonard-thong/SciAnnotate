@@ -5,7 +5,6 @@ from os.path import join as path_join
 from os.path import split as path_split
 from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
-from annotation import TEXT_FILE_SUFFIX,JOINED_ANN_FILE_SUFF
 from utils import get_entity_index_exist, get_entity_index, add_common_info, annotation_file_generate,parse_annotation_file
 
 
@@ -32,12 +31,11 @@ def create_span_all_text(**kwargs):
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
-    txt_file_path = document + '.' + TEXT_FILE_SUFFIX
+    txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-3] + 'ann'
-    return _create_span_all_text(txt_file_path, keyword, label, ann_file_path)
+    return _create_span_all_text(txt_file_path, ann_file_path, keyword, label)
 
-
-def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_index = get_entity_index_exist):
+def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_index = get_entity_index_exist):
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
@@ -71,17 +69,18 @@ def _create_span_all_text(txt_file_path, keyword, label, ann_file_path, entity_i
             pass
     res['entities'] = cur_entities
     res = add_common_info(text, res)
+    
     return res
 
 def create_span_all_re(**kwargs):
     label = kwargs['label']
     collection = kwargs['collection']
     document = kwargs['document']
-    keyword = kwargs['label_word']
+    keyword = kwargs['keyword']
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
-    txt_file_path = document + '.' + TEXT_FILE_SUFFIX
+    txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-3] + 'ann'
     return _create_span_all_re(txt_file_path, ann_file_path, keyword, label)
 
