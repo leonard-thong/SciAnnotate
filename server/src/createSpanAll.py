@@ -7,6 +7,22 @@ from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
 from utils import get_entity_index_exist, get_entity_index, add_common_info, annotation_file_generate,parse_annotation_file
 
+
+def locations_of_substring(string, substring):
+    """Return a list of locations of a substring."""
+
+    substring_length = len(substring)    
+    def recurse(locations_found, start):
+        location = string.find(substring, start)
+        if location != -1:
+            return recurse(locations_found + [location], location+substring_length)
+        else:
+            return locations_found
+
+    return recurse([], 0)
+
+
+
 def create_span_all_text(**kwargs):
     label = kwargs['label']
     collection = kwargs['collection']
@@ -30,10 +46,17 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_i
     
     entity_index = get_entity_index_exist(exist_index)
 
+    location = locations_of_substring(text,keyword)
+    entities = [
+        ["T" + str(next(entity_index)), label, [(pos, pos + len(keyword))]]
+        for pos in location
+    ]
+    '''
     entities = [
         ["T" + str(next(entity_index)), label, [(pos.start(), pos.end())]]
         for pos in re.finditer(keyword, text)
     ]
+    '''
     res["entities"] = entities
     annotation_file_generate(res, ann_file_path, text, 'a')
     cur_anns = parse_annotation_file(ann_file_path)
@@ -52,7 +75,7 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_i
 def create_span_all_re(**kwargs):
     directory = kwargs["collection"]
     document = kwargs["document"]
-    keyword = kwargs["keyword"]
+    keyword = kwargs['keyword']
     label = kwargs["label"]
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
@@ -60,23 +83,21 @@ def create_span_all_re(**kwargs):
     ann_file_path = txt_file_path[:-3] + '.ann'
     return _create_span_all_re(txt_file_path, ann_file_path, keyword, label)
 
-def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
+def _create_span_regx(txt_file_path, ann_file_path, keyword, label):
     res = dict()
-    with open_textfile(txt_file_path, 'r') as txt_file:
+    with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
-    with open_textfile(ann_file_path, 'r') as ana_file:
+    with open(ann_file_path, 'r') as ann_file:
         ann = ann_file.readlines()
     for line in ann:
         entity_index = line.split(" ")
         entity_index = entity_index[0][1:]
     
     entity_index = get_entity_index()
-
     regx = re.compile(keyword)
     entities = [
         ["T" + str(next(entity_index)), label, [(pos.start(), pos.end())]]
         for pos in regx.finditer(text)
     ]
     res["entities"] = entities
-    
-    return entities
+    return res
