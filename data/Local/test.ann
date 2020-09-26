@@ -46,3 +46,19 @@ T46	span_to 28 39	compared to
 T47	span_to 199 210	compared to
 T48	span_to 372 383	compared to
 T49	span_to 543 554	compared to
+T50	span_to_1 28 39	compared to
+T51	span_to_1 199 210	compared to
+T52	span_to_1 372 383	compared to
+T53	span_to_1 543 554	compared to
+T54	span_money_label_2 15 16	$
+T55	span_money_label_2 58 59	$
+T56	span_money_label_2 129 130	$
+T57	span_money_label_2 186 187	$
+T58	span_money_label_2 229 230	$
+T59	span_money_label_2 300 301	$
+T60	span_money_label_2 359 360	$
+T61	span_money_label_2 402 403	$
+T62	span_money_label_2 473 474	$
+T63	span_money_label_2 530 531	$
+T64	span_money_label_2 573 574	$
+T65	span_money_label_2 644 645	$
