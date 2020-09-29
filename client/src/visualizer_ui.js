@@ -563,7 +563,6 @@ var VisualizerUI = (function($, window, undefined) {
               
               let keyword = $('#keyword_label_keyword_input').val();
               let label = $('#keyword_label_label_input').val();
-              // let option = 
 
               let option = $("#label_scope input:radio:checked").map(function(){
                 return $(this).val();
@@ -590,23 +589,34 @@ var VisualizerUI = (function($, window, undefined) {
                   }, 300);  
                 });
               } else {
-                $.post("ajax.cgi",{
-                  'protocol': 1,
-                  'action': 'createSpanAllRe',
-                  'collection': collection,
-                  'document': document,
-                  'keyword': keyword,
-                  'label': label,
-                  }, function(result) {
-                    dispatcher.post('ajax', [{
-                      action: 'getCollectionInformation',
-                      collection: collection
-                    }, 'collectionLoaded', {
-                      collection: collection,
-                      keep: true
-                    }]); 
-                  dispatcher.post('renderData', [result]);
-                });
+                var isValid = true;
+                try {
+                    new RegExp(keyword);
+                } catch(e) {
+                    isValid = false;
+                }
+
+                if (isValid) {
+                  $.post("ajax.cgi",{
+                    'protocol': 1,
+                    'action': 'createSpanAllRe',
+                    'collection': collection,
+                    'document': document,
+                    'keyword': keyword,
+                    'label': label,
+                    }, function(result) {
+                      dispatcher.post('ajax', [{
+                        action: 'getCollectionInformation',
+                        collection: collection
+                      }, 'collectionLoaded', {
+                        collection: collection,
+                        keep: true
+                      }]); 
+                    dispatcher.post('renderData', [result]);
+                  });
+                } else {
+                  dispatcher.post('messages', [[['Please enter a valid Regular Expression', 'warning']]]);
+                }
               }
             }
           });
@@ -633,8 +643,6 @@ var VisualizerUI = (function($, window, undefined) {
                     'document': document,
                     'function': functions
                     },function(result){
-                      // location.reload();
-                      // window['config_loaded'] =
                       var promise = new Promise(function(resolve, reject) {
                         dispatcher.post('ajax', [{
                           action: 'getCollectionInformation',
