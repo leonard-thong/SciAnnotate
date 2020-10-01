@@ -47,7 +47,7 @@ def resort_entities(entity_list, func_name_list):
 def _function_executor(collection, document, functions):
     file_path = "data" + collection + '/' + document
     txt_file_path = file_path + ".txt"
-    anno_file_path = file_path + ".ann"
+    anno_file_path = file_path + "_func.ann"
     ENTITY_INDEX = get_entity_index()
     with open(txt_file_path, "r", encoding="utf-8") as f:
         content = f.read()
