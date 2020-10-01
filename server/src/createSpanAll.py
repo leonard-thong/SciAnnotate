@@ -32,19 +32,25 @@ def create_span_all_text(**kwargs):
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
-    ann_file_path = txt_file_path[:-4] + '_func.ann'
-    return _create_span_all_text(txt_file_path, ann_file_path, keyword, label)
+    func_ann_file_path = txt_file_path[:-4] + '_func.ann'
+    user_ann_file_path = txt_file_path[:-4] + '.ann'
+    return _create_span_all_text(txt_file_path, func_ann_file_path, user_ann_file_path, keyword, label)
 
-def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_index = get_entity_index_exist):
+def _create_span_all_text(txt_file_path, ann_file_path, user_ann_file_path, keyword, label, entity_index = get_entity_index_exist):
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
     with open(ann_file_path, 'r') as ann_file:
         ann = ann_file.read()
 
+    with open(user_ann_file_path, 'r') as user_ann_file:
+        user_ann = user_ann_file.read()
+
     exist_index = ann.split('\n').__len__()
+    exist_index_user = user_ann.split('\n').__len__()
     
     entity_index = get_entity_index_exist(exist_index)
+    entity_index_user = get_entity_index_exist(exist_index_user)
 
     location = locations_of_substring(text,keyword)
     entities = [
@@ -67,6 +73,9 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_i
                 cur_entities.append([cur_ann.id, cur_ann.type, cur_ann.spans])
         except AttributeError:
             pass
+    collection = kwargs['collection']
+    document = kwargs['document']
+    merge_ann_files(collection, document)
     res['entities'] = cur_entities
     res = add_common_info(text, res)
     
@@ -81,10 +90,11 @@ def create_span_all_re(**kwargs):
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
-    ann_file_path = txt_file_path[:-4] + '_func.ann'
-    return _create_span_all_re(txt_file_path, ann_file_path, keyword, label)
+    func_ann_file_path = txt_file_path[:-4] + '_func.ann'
+    user_ann_file_path = txt_file_path[:-4] + '.ann'
+    return _create_span_all_re(txt_file_path, func_ann_file_path,user_ann_file_path,  keyword, label)
 
-def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
+def _create_span_all_re(txt_file_path, ann_file_path, user_ann_file_path, keyword, label):
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
