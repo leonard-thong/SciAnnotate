@@ -5,7 +5,7 @@ from os.path import join as path_join
 from os.path import split as path_split
 from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
-from utils import get_entity_index_exist, get_entity_index, add_common_info, annotation_file_generate,parse_annotation_file
+from utils import get_entity_index_exist, get_entity_index, add_common_info, annotation_file_generate,parse_annotation_file, merge_ann_files
 
 
 def locations_of_substring(string, substring):
@@ -33,9 +33,12 @@ def create_span_all_text(**kwargs):
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-4] + '_func.ann'
-    return _create_span_all_text(txt_file_path, ann_file_path, keyword, label)
+    return _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs)
 
-def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_index = get_entity_index_exist):
+def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, entity_index = get_entity_index_exist):
+    collection = kwargs['collection']   
+    document = kwargs['document']
+
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
@@ -69,7 +72,8 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, entity_i
             pass
     res['entities'] = cur_entities
     res = add_common_info(text, res)
-    
+    merge_ann_files(collection, document)
+
     return res
 
 def create_span_all_re(**kwargs):
@@ -82,9 +86,12 @@ def create_span_all_re(**kwargs):
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-4] + '_func.ann'
-    return _create_span_all_re(txt_file_path, ann_file_path, keyword, label)
+    return _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs)
 
-def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
+def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
+    collection = kwargs['collection']   
+    document = kwargs['document']
+
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
@@ -114,4 +121,6 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label):
             pass
     res['entities'] = cur_entities
     res = add_common_info(text, res)
+    merge_ann_files(collection, document)
+
     return res
