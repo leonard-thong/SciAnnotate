@@ -32,13 +32,6 @@ def create_span_all_text(**kwargs):
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
-<<<<<<< HEAD
-    func_ann_file_path = txt_file_path[:-4] + '_func.ann'
-    user_ann_file_path = txt_file_path[:-4] + '.ann'
-    return _create_span_all_text(txt_file_path, func_ann_file_path, user_ann_file_path, keyword, label)
-
-def _create_span_all_text(txt_file_path, ann_file_path, user_ann_file_path, keyword, label, entity_index = get_entity_index_exist):
-=======
     ann_file_path = txt_file_path[:-4] + '_func.ann'
     return _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs)
 
@@ -46,7 +39,6 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
     collection = kwargs['collection']   
     document = kwargs['document']
 
->>>>>>> fe119c2e9c7487f22de36d9821fd636d9a526056
     res = dict()
     with open(txt_file_path, 'r') as txt_file:
         text = txt_file.read()
