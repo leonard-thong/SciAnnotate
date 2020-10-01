@@ -84,7 +84,33 @@ def parse_annotation_file(ann_path):
     anns = Annotations(document=ann_path[:-4])
     anns._parse_ann_file()
     return anns._lines
+
+def merge_ann_files(collection, document):
+    file_path = "data" + collection + '/' + document
+    manual_anno_file_path = file_path + ".ann"
+    label_function_anno_file_path = file_path + "_func.ann"
+    if not os.path.exists(label_function_anno_file_path):
+        os.system("touch " + label_function_anno_file_path)
+    label_func_anno = parse_annotation_file(label_function_anno_file_path)
+    label_func_entities = []
+    for ann in label_func_anno:
+        try:
+            if ann:
+                label_func_entities.append([ann.id, ann.type, ann.spans])
+        except AttributeError:
+            pass
+    manual_anno = parse_annotation_file(manual_anno_file_path)
+    manual_entities = []
+    for ann in manual_anno:
+        try:
+            if ann:
+                manual_entities.append([ann.id, ann.type, ann.spans])
+        except AttributeError:
+            pass
+    ann_entities = []
+    ann_entities.extend(manual_entities)
+    ann_entities.extend(label_func_entities)
+    return ann_entities
     
 if __name__ == "__main__":
-    entity_list = ['Location', 'Person']
-    generate_color_config('spam2', entity_list)
+    merge_ann_files('/Local', 'test')
