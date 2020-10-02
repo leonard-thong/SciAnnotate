@@ -80,6 +80,17 @@ def annotation_file_generate(res, file_path, text, mode='w'):
     with open(file_path, mode) as f:
         f.write(anno_content)
 
+def fetch_all_annotations(**kwargs):
+    collection = kwargs['collection']
+    document = kwargs['document']
+    res = dict()
+    res['entities'] = merge_ann_files(collection, document)
+    txt_file_path = "data" + collection + '/' + document + '.txt'
+    with open(txt_file_path, 'r') as f:
+        txt = f.read()
+        res = add_common_info(txt, res)
+    return res
+
 def parse_annotation_file(ann_path):
     anns = Annotations(document=ann_path[:-4])
     anns._parse_ann_file()
