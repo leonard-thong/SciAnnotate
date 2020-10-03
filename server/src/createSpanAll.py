@@ -32,7 +32,7 @@ def create_span_all_text(**kwargs):
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
-    ann_file_path = txt_file_path[:-4] + '_func.ann'
+    ann_file_path = txt_file_path[:-4] + '.ann'
     return _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs)
 
 def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, entity_index = get_entity_index_exist):
@@ -45,14 +45,9 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
     with open(ann_file_path, 'r') as ann_file:
         ann = ann_file.read()
 
-    with open(user_ann_file_path, 'r') as user_ann_file:
-        user_ann = user_ann_file.read()
-
     exist_index = ann.split('\n').__len__()
-    exist_index_user = user_ann.split('\n').__len__()
     
     entity_index = get_entity_index_exist(exist_index)
-    entity_index_user = get_entity_index_exist(exist_index_user)
 
     location = locations_of_substring(text,keyword)
     entities = [
@@ -77,10 +72,10 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
             pass
     collection = kwargs['collection']
     document = kwargs['document']
-    merge_ann_files(collection, document)
+    #merge_ann_files(collection, document)
     res['entities'] = cur_entities
     res = add_common_info(text, res)
-    merge_ann_files(collection, document)
+    ann_entities = merge_ann_files(collection, document)
 
     return res
 
@@ -93,7 +88,7 @@ def create_span_all_re(**kwargs):
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
-    ann_file_path = txt_file_path[:-4] + '_func.ann'
+    ann_file_path = txt_file_path[:-4] + '.ann'
     return _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs)
 
 def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
@@ -129,6 +124,5 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
             pass
     res['entities'] = cur_entities
     res = add_common_info(text, res)
-    merge_ann_files(collection, document)
-
+    ann_entities = merge_ann_files(collection, document)
     return res

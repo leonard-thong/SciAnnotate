@@ -12,9 +12,8 @@ import sys
 import time
 import os
 
-from utils import GLOBAL_LOGGER
-from utils import get_entity_index, clean_cached_config, add_common_info
-from utils import annotation_file_generate
+from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER, annotation_file_generate
+
 
 def resort_entities(entity_list, func_name_list):
     all_entities = dict()
@@ -67,6 +66,8 @@ def _function_executor(collection, document, functions):
                 "ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__()
             )
         if out is not None:
+            ann_entities = merge_ann_files(collection, document)
+            #out = out.add(ann_entities)
             return add_common_info(content, out)
         else:
             GLOBAL_LOGGER.log_warning("RETURN OF LABEL FUNCTION IS NONE")
@@ -94,6 +95,7 @@ def function_executor(**kwargs):
 
 
 def _instant_executor(code, name, collection, document):
+    ann_entities = merge_ann_files(collection, document)
     file_path = "./data" + collection + '/' + document + ".txt"
     ENTITY_INDEX = get_entity_index()
     with open(file_path, "r", encoding="utf-8") as f:
@@ -103,6 +105,7 @@ def _instant_executor(code, name, collection, document):
             exec(code)
             out = eval("{}(content, ENTITY_INDEX)".format(name))
             if out is not None:
+                #out = out.add(ann_entities)
                 return add_common_info(content, out)
         except Exception as e:
             GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
