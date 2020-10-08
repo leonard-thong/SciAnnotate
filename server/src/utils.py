@@ -91,6 +91,99 @@ def fetch_all_annotations(**kwargs):
         res = add_common_info(txt, res)
     return res
 
+
+def prehandle_data(**kwargs):
+    collection = kwargs['collection']
+    document = kwargs['document']
+    directory = collection
+    real_dir = real_directory(directory)
+    document = path_join(real_dir, document)
+    txt_file_path = document + '.txt'
+    ann_file_path = txt_file_path[:-4] + '.ann'
+    function_ann_file_path = txt_file_path[:-4] + '_func.ann'
+    return _prehandle_data(txt_file_path, ann_file_path,function_ann_file_path)
+
+def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
+    out = []
+    sentence = dict()
+    annotation = dict()
+    sentence['sentence value'] = []
+    annotation['annotation value'] = []
+    with open(ann_file_path, 'r') as ann_file:
+        for line in ann_file.readlines():
+            data = []
+            info = line.split(' ')
+            source_name = info[1].split('_')[0]
+            temp = info[1].split('_')[1:]
+            label = ''
+            for i in range(len(temp)):
+                label += temp[i]
+            data.append(source_name)
+            data.append(label)
+            start = info[2]
+            end = info[3]
+            line_dict = judge_line(txt_file_path)
+            line_start_index = [key for key in line_dict]
+            line_start_index = sorted(line_start_index)
+            for i in range(len(line_start_index)):
+                if start > line_start_index[i] and end < (line_start_index[i] + len(line_dict[line_start_index[i]])):
+                    sentence['sentence value'].append(line_dict[line_start_index[i]])
+                    start -= line_start_index[i]
+                    end -= line_start_index[i]
+                    break
+                '''
+                elif start > line_start_index[i] and end > (line_start_index[i] + len(line_dict[line_start_index[i]])):
+                '''
+            data.append(start)
+            data.append(end)
+            annotation['annotation value'].append(data)
+            
+            
+    
+    with open(function_ann_file_path, 'r') as function_ann_file:
+        for line in ann_file.readlines():
+            data = []
+            info = line.split(' ')
+            source_name = info[1].split('_')[0]
+            temp = info[1].split('_')[1:]
+            label = ''
+            for i in range(len(temp)):
+                label += temp[i]
+            data.append(source_name)
+            data.append(label)
+            start = info[2]
+            end = info[3]
+            line_dict = judge_line(txt_file_path)
+            line_start_index = [key for key in line_dict]
+            line_start_index = sorted(line_start_index)
+            for i in range(len(line_start_index)):
+                if start > line_start_index[i] and end < (line_start_index[i] + len(line_dict[line_start_index[i]])):
+                    sentence['sentence value'].append(line_dict[line_start_index[i]])
+                    start -= line_start_index[i]
+                    end -= line_start_index[i]
+                    break
+                '''
+                elif start > line_start_index[i] and end > (line_start_index[i] + len(line_dict[line_start_index[i]])):
+                '''
+            data.append(start)
+            data.append(end)
+            annotation['annotation value'].append(data)
+            
+    out.append(sentence)
+    out.append(annotation)
+    return out
+
+
+def judge_line(txt_file_path):
+    count = 0
+    line_dict = dict()
+    with open(txt_file_path, 'r') as txt_file:
+        for line in  txt_file.readlines():
+            line_dict[count] = line
+            count += len(line)
+    return line_dict
+
+
 def parse_annotation_file(ann_path):
     anns = Annotations(document=ann_path[:-4])
     anns._parse_ann_file()
