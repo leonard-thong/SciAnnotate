@@ -67,6 +67,7 @@ def _function_executor(collection, document, functions):
             )
         if out is not None:
             ann_entities = merge_ann_files(collection, document)
+            out["entities"] = ann_entities
             #out = out.add(ann_entities)
             return add_common_info(content, out)
         else:

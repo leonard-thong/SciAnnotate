@@ -76,7 +76,7 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
     res['entities'] = cur_entities
     res = add_common_info(text, res)
     ann_entities = merge_ann_files(collection, document)
-
+    res['entities'] = ann_entities
     return res
 
 def create_span_all_re(**kwargs):
@@ -125,4 +125,5 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
     res['entities'] = cur_entities
     res = add_common_info(text, res)
     ann_entities = merge_ann_files(collection, document)
+    res['entities'] = ann_entities
     return res

@@ -10,3 +10,5 @@
 from .spam import *
 from .spam1 import *
 from .spam2 import *
+
+from .spam4 import *
