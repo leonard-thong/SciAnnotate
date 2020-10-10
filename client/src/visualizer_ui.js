@@ -1892,6 +1892,32 @@ var VisualizerUI = (function($, window, undefined) {
 
       /* END label dialog - related */
 
+      /* START connect dialog - related */
+
+      var connectForm = $('#connect_form');
+      var connectFormSubmit = function(evt) {
+        dispatcher.post('hideForm');
+        return false;
+      };
+      connectForm.submit(optionsFormSubmit);
+      initForm(connectForm, {
+          width: 550,
+          resizable: false,
+          no_cancel: true,
+          open: function(evt) {
+            keymap = {};
+          }
+      });
+      $('#connect_button').click(function() {
+        dispatcher.post('showForm', [connectForm]);
+      });
+      // make nice-looking buttons for checkboxes and radios
+      $('#connect_form').find('input[type="checkbox"], input[type="button"]').button();
+      $('#connect_form').find('.radio_group').buttonset();
+      $('#rapid_model').addClass('ui-widget ui-state-default ui-button-text');
+
+      /* END connect dialog - related */
+
       /* START options dialog - related */
 
       var optionsForm = $('#options_form');
