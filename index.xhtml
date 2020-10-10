@@ -151,7 +151,9 @@
                         style="display: none" />
 
                     <input id="label_button" type="button" value="Label" tabindex="-1"
-                        title="Import, Export Data; Manage Collection" />
+                        title="Label text document with labeling fucnction" />
+                    <input id="connect_button" type="button" value="Connect" tabindex="-1"
+                        title="Connect to machine learning model" />
 
                     <input id="unlock_type_button" type="button" value="Unlock" tabindex="-1"
                         title="Stop annotating with the locked type" />
@@ -335,6 +337,22 @@
             </div>
         </div>
     </form>
+    <!-- Connect dialog -->
+    <form id="connect_form" class="dialog" title="Connect">
+        <fieldset class="small-buttons">
+            <legend>Model API</legend>
+            <div id="connect_tab_entity">
+                <table class="fullwidth">
+                    <tr>
+                        <td>Model API</td>
+                        <td>
+                            <input id="connect_form_text" class="fullwidth" placeholder="Model API" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </form>
     <!-- Options dialog -->
     <form id="options_form" class="dialog" title="Options">
         <fieldset id="options_form_visual">
@@ -494,7 +512,7 @@
                     <tr>
                         <td>Type</td>
                         <td colspan="2">
-                            <select id="≈" class="fullwidth" />
+                            <select id="search_form_relation_type" class="fullwidth" />
                         </td>
                     </tr>
                     <tr>
@@ -911,6 +929,7 @@
                 <li><b>Data</b>: export annotation data</li>
                 <li><b>Search</b>: search current document or collection</li>
                 <li><b>Label</b>: label current document with labeling function</li>
+                <li><b>Connect</b>: connect to machine learning model</li>
                 <li><b>Options</b>: system configuration options</li>
                 <li><b>Login</b>: log in for editing</li>
             </ul>
