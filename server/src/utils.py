@@ -2,7 +2,8 @@ import random
 import os
 import hashlib
 import time
-
+from document import real_directory
+from os.path import join as path_join
 from annotation import Annotations
 from expandLogger import Logger
 from tokenise import whitespace_token_boundary_gen
