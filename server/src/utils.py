@@ -2,7 +2,7 @@ import random
 import os
 import hashlib
 import time
-from document import real_directory
+from config import BASE_DIR, DATA_DIR
 from os.path import join as path_join
 from annotation import Annotations
 from expandLogger import Logger
@@ -92,6 +92,10 @@ def fetch_all_annotations(**kwargs):
         res = add_common_info(txt, res)
     return res
 
+
+def real_directory(directory, rel_to=DATA_DIR):
+    assert isabs(directory), 'directory "%s" is not absolute' % directory
+    return path_join(rel_to, directory[1:])
 
 def prehandle_data(**kwargs):
     collection = kwargs['collection']
