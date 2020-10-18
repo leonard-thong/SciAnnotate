@@ -11,6 +11,6 @@ work/
 .vscode
 data/tutorials
 data/examples
-
+model-deploy-template/venv
 # for mac
 .DS_Store

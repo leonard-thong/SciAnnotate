@@ -2371,6 +2371,31 @@ var VisualizerUI = (function ($, window, undefined) {
         $("#connect_button").click(function () {
             dispatcher.post("showForm", [connectForm]);
         });
+        $('#connect_form-ok').click (function() {
+          let fullPath = window.location.href.split('#')[1];
+          let document = fullPath.split('/').reverse()[0];
+          let collection = fullPath.substr(0, fullPath.length - document.length);
+          let api_link = $('#connect_form_text').val();
+          $.post("ajax.cgi",{
+            'protocol': 1,
+            'action': 'preprocessModelData',
+            'collection': collection,
+            'document': document,
+            },function(result){
+              console.log(result);
+              $.ajax(
+                {
+                    url:api_link,
+                    type:"post",
+                    data:`{"data": ${JSON.stringify(result)}}`,
+                    success:function(arg){
+                    // 把返回的结果填充到 id是i3的input框中
+                      console.log(arg);
+                    }
+                }
+            )
+          });
+        })
         // make nice-looking buttons for checkboxes and radios
         $("#connect_form")
             .find('input[type="checkbox"], input[type="button"]')

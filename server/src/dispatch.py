@@ -39,7 +39,7 @@ from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function, delete_labeling_function, get_available_labeling_function
 from createSpanAll import create_span_all_text, create_span_all_re
-from utils import GLOBAL_LOGGER, fetch_all_annotations
+from utils import GLOBAL_LOGGER, fetch_all_annotations, prehandle_data
 # no-op function that can be invoked by client to log a user action
 
 
@@ -117,9 +117,10 @@ DISPATCHER = {
 
     'createSpanAllText': create_span_all_text,
     'createSpanAllRe': create_span_all_re,
+    'preprocessModelData': prehandle_data,
 }
 
-EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 'createSpanAllRe', 'fetchAllAnnotations'}
+EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData'}
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
