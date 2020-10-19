@@ -4,6 +4,7 @@ import hashlib
 import time
 from config import BASE_DIR, DATA_DIR
 from os.path import join as path_join
+from os.path import isabs
 from annotation import Annotations
 from expandLogger import Logger
 from tokenise import whitespace_token_boundary_gen
@@ -109,6 +110,7 @@ def prehandle_data(**kwargs):
     return _prehandle_data(txt_file_path, ann_file_path,function_ann_file_path)
 
 def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
+    res = dict()
     out = []
     sentence = dict()
     sentence['sentence'] = ''
@@ -173,7 +175,8 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
             data.append(end)
             sentence['annotation'].append(data)           
     out.append(sentence)
-    return out
+    res['processedData'] = out
+    return res
 
 
 def judge_line(txt_file_path):
