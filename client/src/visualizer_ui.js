@@ -773,6 +773,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                     function: functions,
                                 },
                                 function (result) {
+                                    console.log(result);
                                     var promise = new Promise(function (
                                         resolve,
                                         reject
@@ -2390,7 +2391,8 @@ var VisualizerUI = (function ($, window, undefined) {
                     data:`{"data": ${JSON.stringify(result)}}`,
                     success:function(arg){
                     // 把返回的结果填充到 id是i3的input框中
-                      console.log(arg);
+                        console.log(arg.data);
+                        dispatcher.post('renderData', [arg.data]);
                     }
                 }
             )

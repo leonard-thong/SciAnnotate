@@ -114,7 +114,7 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
     out = []
     sentence = dict()
     sentence['sentence'] = ''
-    sentence['annotation'] = []
+    sentence['annotations'] = []
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
             data = []
@@ -143,7 +143,7 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                 '''
             data.append(start)
             data.append(end)
-            sentence['annotation'].append(data)     
+            sentence['annotations'].append(data)     
     
     with open(function_ann_file_path, 'r') as function_ann_file:
         for line in function_ann_file.readlines():
@@ -173,7 +173,7 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                 '''
             data.append(start)
             data.append(end)
-            sentence['annotation'].append(data)           
+            sentence['annotations'].append(data)           
     out.append(sentence)
     res['processedData'] = out
     return res
@@ -219,6 +219,7 @@ def merge_ann_files(collection, document):
     ann_entities = []
     ann_entities.extend(manual_entities)
     ann_entities.extend(label_func_entities)
+    
     return ann_entities
     
 if __name__ == "__main__":
