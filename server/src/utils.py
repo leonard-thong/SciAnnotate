@@ -109,14 +109,14 @@ def prehandle_data(**kwargs):
     function_ann_file_path = txt_file_path[:-4] + '_func.ann'
     return _prehandle_data(txt_file_path, ann_file_path,function_ann_file_path)
 
-def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
+ddef _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
     res = dict()
     out = []
-    sentence = dict()
-    sentence['sentence'] = []
-    sentence['annotation'] = []
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
+            sentence = dict()
+            sentence['sentence'] = []
+            sentence['annotation'] = []
             data = []
             line = line.replace('\t', ' ')
             info = line.split(' ')
@@ -134,6 +134,7 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
             line_start_index = sorted(line_start_index)
             for i in range(len(line_start_index)):
                 if start > int(line_start_index[i]) and end < (int(line_start_index[i]) + len(line_dict[line_start_index[i]])):
+                    print(line_dict[line_start_index[i]])
                     sentence['sentence'].append(line_dict[line_start_index[i]])
                     start -= int(line_start_index[i])
                     end -= int(line_start_index[i])
@@ -143,10 +144,15 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                 '''
             data.append(start)
             data.append(end)
-            sentence['annotations'].append(data)     
+            sentence['annotation'].append(data)
+            out.append(sentence)     
     
     with open(function_ann_file_path, 'r') as function_ann_file:
+        
         for line in function_ann_file.readlines():
+            sentence = dict()
+            sentence['sentence'] = []
+            sentence['annotation'] = []
             data = []
             line = line.replace('\t', ' ')
             info = line.split(' ')
@@ -173,8 +179,8 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                 '''
             data.append(start)
             data.append(end)
-            sentence['annotations'].append(data)           
-    out.append(sentence)
+            sentence['annotation'].append(data)           
+            out.append(sentence)
     res['processedData'] = out
     return res
 
