@@ -115,7 +115,7 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
             sentence = dict()
-            sentence['sentence'] = []
+            sentence['sentence'] = ''
             sentence['annotation'] = []
             data = []
             line = line.replace('\t', ' ')
@@ -134,8 +134,7 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
             line_start_index = sorted(line_start_index)
             for i in range(len(line_start_index)):
                 if start > int(line_start_index[i]) and end < (int(line_start_index[i]) + len(line_dict[line_start_index[i]])):
-                    print(line_dict[line_start_index[i]])
-                    sentence['sentence'].append(line_dict[line_start_index[i]])
+                    sentence['sentence']=line_dict[line_start_index[i]]
                     start -= int(line_start_index[i])
                     end -= int(line_start_index[i])
                     break
@@ -144,14 +143,18 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                 '''
             data.append(start)
             data.append(end)
-            sentence['annotation'].append(data)
-            out.append(sentence)     
+            for item in out:
+                if item['sentence'] == sentence['sentence']:
+                    item['annotation'].append(data)
+            else:
+                sentence['annotation'].append(data)           
+                out.append(sentence)     
     
     with open(function_ann_file_path, 'r') as function_ann_file:
         
         for line in function_ann_file.readlines():
             sentence = dict()
-            sentence['sentence'] = []
+            sentence['sentence'] = ''
             sentence['annotation'] = []
             data = []
             line = line.replace('\t', ' ')
@@ -170,7 +173,7 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
             line_start_index = sorted(line_start_index)
             for i in range(len(line_start_index)):
                 if start > int(line_start_index[i]) and end < (int(line_start_index[i]) + len(line_dict[line_start_index[i]])):
-                    sentence['sentence'].append(line_dict[line_start_index[i]])
+                    sentence['sentence']=line_dict[line_start_index[i]]
                     start -= int(line_start_index[i])
                     end -= int(line_start_index[i])
                     break
@@ -179,8 +182,12 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                 '''
             data.append(start)
             data.append(end)
-            sentence['annotation'].append(data)           
-            out.append(sentence)
+            for item in out:
+                if item['sentence'] == sentence['sentence']:
+                    item['annotation'].append(data)
+            else:
+                sentence['annotation'].append(data)           
+                out.append(sentence)
     res['processedData'] = out
     return res
 
