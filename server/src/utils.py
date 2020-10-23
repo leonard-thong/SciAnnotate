@@ -107,13 +107,20 @@ def prehandle_data(**kwargs):
     txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-4] + '.ann'
     function_ann_file_path = txt_file_path[:-4] + '_func.ann'
-    return _prehandle_data(txt_file_path, ann_file_path,function_ann_file_path)
-
-def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
-    res = dict()
     out = []
+    with open(txt_file_path, 'r') as txt_file:
+        for line in txt_file.readlines():
+            sentence = dict()
+            sentence['sentence'] = line
+            sentence['annotation'] = []
+            out.append(sentence)
+    return _prehandle_data(out, txt_file_path, ann_file_path,function_ann_file_path)
+
+def _prehandle_data(out, txt_file_path, ann_file_path, function_ann_file_path):
+    res = dict()
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
+            line_num = -1
             sentence = dict()
             sentence['sentence'] = ''
             sentence['annotation'] = []
@@ -137,22 +144,19 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                     sentence['sentence']=line_dict[line_start_index[i]]
                     start -= int(line_start_index[i])
                     end -= int(line_start_index[i])
+                    line_num = i
                     break
                 '''
                 elif start > line_start_index[i] and end > (line_start_index[i] + len(line_dict[line_start_index[i]])):
                 '''
             data.append(start)
             data.append(end)
-            for item in out:
-                if item['sentence'] == sentence['sentence']:
-                    item['annotation'].append(data)
-            else:
-                sentence['annotation'].append(data)           
-                out.append(sentence)     
-    
+            out[line_num]['annotation'].append(data)
+
     with open(function_ann_file_path, 'r') as function_ann_file:
         
         for line in function_ann_file.readlines():
+            line_num = -1
             sentence = dict()
             sentence['sentence'] = ''
             sentence['annotation'] = []
@@ -176,18 +180,14 @@ def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
                     sentence['sentence']=line_dict[line_start_index[i]]
                     start -= int(line_start_index[i])
                     end -= int(line_start_index[i])
+                    line_num = i
                     break
                 '''
                 elif start > line_start_index[i] and end > (line_start_index[i] + len(line_dict[line_start_index[i]])):
                 '''
             data.append(start)
             data.append(end)
-            for item in out:
-                if item['sentence'] == sentence['sentence']:
-                    item['annotation'].append(data)
-            else:
-                sentence['annotation'].append(data)           
-                out.append(sentence)
+            out[line_num]['annotation'].append(data)
     res['processedData'] = out
     return res
 
