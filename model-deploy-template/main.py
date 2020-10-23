@@ -22,7 +22,7 @@ def model_handler(kwargs):
     res['entities'] = []
     idx = 1
     for data in datas:
-        sentence = data['sentence'][0]
+        sentence = data['sentence']
         annotations = data['annotation']
         annotations = preprocess(annotations)
         single_res = dict()
