@@ -109,7 +109,7 @@ def prehandle_data(**kwargs):
     function_ann_file_path = txt_file_path[:-4] + '_func.ann'
     return _prehandle_data(txt_file_path, ann_file_path,function_ann_file_path)
 
-ddef _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
+def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
     res = dict()
     out = []
     with open(ann_file_path, 'r') as ann_file:
