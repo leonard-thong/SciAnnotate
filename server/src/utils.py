@@ -107,11 +107,17 @@ def prehandle_data(**kwargs):
     txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-4] + '.ann'
     function_ann_file_path = txt_file_path[:-4] + '_func.ann'
-    return _prehandle_data(txt_file_path, ann_file_path,function_ann_file_path)
-
-def _prehandle_data(txt_file_path, ann_file_path, function_ann_file_path):
-    res = dict()
     out = []
+    with open(txt_file_path, 'r') as txt_file:
+        for line in txt_file.readlines():
+            sentence = dict()
+            sentence['sentence'] = line
+            sentence['annotation'] = []
+            out.append(sentence)
+    return _prehandle_data(out, txt_file_path, ann_file_path,function_ann_file_path)
+
+def _prehandle_data(out, txt_file_path, ann_file_path, function_ann_file_path):
+    res = dict()
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
             sentence = dict()
