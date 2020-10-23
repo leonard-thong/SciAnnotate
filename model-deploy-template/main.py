@@ -10,7 +10,7 @@ def preprocess(data_slice):
         data_slice[i] = [data_slice[i][0], data_slice[i][2], data_slice[i][3], data_slice[i][1]]
     return data_slice
 
-def model_core():
+def model_core(sentence, annotations):
     pass
 
 def model_handler(kwargs):
@@ -26,8 +26,9 @@ def model_handler(kwargs):
         annotations = data['annotation']
         annotations = preprocess(annotations)
         single_res = dict()
-        for annotation in annotations:
-            single_res['{}-{}'.format(annotation[1], annotation[2])] = (annotation[3], 0.9)
+        single_res = model_core(sentence, annotations)
+        # for annotation in annotations:
+        #     single_res['{}-{}'.format(annotation[1], annotation[2])] = (annotation[3], 0.9)
         res['annotation'].append(single_res)
         for key, value in single_res.items():
             res['entities'].append(["T{}".format(idx), value[0], [[int(key.split('-')[0]) + len(res['text']), int(key.split('-')[1]) + len(res['text'])]]])
