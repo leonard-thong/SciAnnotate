@@ -1070,6 +1070,48 @@ var VisualizerUI = (function ($, window, undefined) {
             });
             /* STOP labeling function related */
 
+            /* START creating document related */
+            if (opts.create_document) {
+                buttons.push({
+                    id: formId + "-create-document",
+                    text: "Create",
+                    click: function () {
+                        // create new document
+                        let fullPath = window.location.href.split("#")[1];
+                        let document = fullPath.split("/").reverse()[0];
+                        let collection = fullPath.substr(
+                            0,
+                            fullPath.length - document.length
+                        );
+
+                        $.post(
+                            "ajax.cgi",
+                            {
+                                protocol: 1,
+                                action: "createNewDocument",
+                                collection: collection,
+                                document: document,
+                            },
+                            function (result) {
+                                dispatcher.post("ajax", [
+                                    {
+                                        action: "getCollectionInformation",
+                                        collection: collection,
+                                    },
+                                    "collectionLoaded",
+                                    {
+                                        collection: collection,
+                                        keep: true,
+                                    },
+                                ]);
+                                dispatcher.post("renderData", [result]);
+                            }
+                        );
+                    },
+                });
+            }
+            /* STOP labeling document related */
+
             if (opts.no_ok) {
                 delete opts.no_ok;
             } else {
@@ -1216,6 +1258,7 @@ var VisualizerUI = (function ($, window, undefined) {
         var fileBrowser = $("#collection_browser");
         initForm(fileBrowser, {
             alsoResize: "#document_select",
+            create_document: true,
             close: function (evt) {
                 if (!doc) {
                     // no document; set and show the relevant message, and
@@ -2372,32 +2415,37 @@ var VisualizerUI = (function ($, window, undefined) {
         $("#connect_button").click(function () {
             dispatcher.post("showForm", [connectForm]);
         });
-        $('#connect_form-ok').click (function() {
-          let fullPath = window.location.href.split('#')[1];
-          let document = fullPath.split('/').reverse()[0];
-          let collection = fullPath.substr(0, fullPath.length - document.length);
-          let api_link = $('#connect_form_text').val();
-          $.post("ajax.cgi",{
-            'protocol': 1,
-            'action': 'preprocessModelData',
-            'collection': collection,
-            'document': document,
-            },function(result){
-              console.log(result);
-              $.ajax(
+        $("#connect_form-ok").click(function () {
+            let fullPath = window.location.href.split("#")[1];
+            let document = fullPath.split("/").reverse()[0];
+            let collection = fullPath.substr(
+                0,
+                fullPath.length - document.length
+            );
+            let api_link = $("#connect_form_text").val();
+            $.post(
+                "ajax.cgi",
                 {
-                    url:api_link,
-                    type:"post",
-                    data:`{"data": ${JSON.stringify(result)}}`,
-                    success:function(arg){
-                    // 把返回的结果填充到 id是i3的input框中
-                        console.log(arg.data);
-                        dispatcher.post('renderData', [arg.data]);
-                    }
+                    protocol: 1,
+                    action: "preprocessModelData",
+                    collection: collection,
+                    document: document,
+                },
+                function (result) {
+                    console.log(result);
+                    $.ajax({
+                        url: api_link,
+                        type: "post",
+                        data: `{"data": ${JSON.stringify(result)}}`,
+                        success: function (arg) {
+                            // 把返回的结果填充到 id是i3的input框中
+                            console.log(arg.data);
+                            dispatcher.post("renderData", [arg.data]);
+                        },
+                    });
                 }
-            )
-          });
-        })
+            );
+        });
         // make nice-looking buttons for checkboxes and radios
         $("#connect_form")
             .find('input[type="checkbox"], input[type="button"]')

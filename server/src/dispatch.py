@@ -38,6 +38,7 @@ from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function, delete_labeling_function, get_available_labeling_function
+from createNewDocument import create_new_document
 from createSpanAll import create_span_all_text, create_span_all_re
 from utils import GLOBAL_LOGGER, fetch_all_annotations, prehandle_data
 # no-op function that can be invoked by client to log a user action
@@ -115,12 +116,17 @@ DISPATCHER = {
     'getAvailableLabelingFunction': get_available_labeling_function,
     'fetchAllAnnotations': fetch_all_annotations,
 
+    'createNewDocument': create_new_document,
+
     'createSpanAllText': create_span_all_text,
     'createSpanAllRe': create_span_all_re,
     'preprocessModelData': prehandle_data,
 }
 
-EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData'}
+# Actions that correspond to labeling function functionality
+EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 
+                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument'}
+
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
 
@@ -128,9 +134,8 @@ ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'spli
 LOGGED_ANNOTATOR_ACTION = ANNOTATION_ACTION | {'getDocument', 'logAnnotatorAction'}
 
 # Actions that require authentication
-REQUIRES_AUTHENTICATION = ANNOTATION_ACTION | {'importDocument', 'searchTextInCollection', 'searchEntityInCollection',
-                                               'searchEventInCollection', 'searchRelationInCollection',
-                                               'searchNoteInCollection', 'tag'}
+REQUIRES_AUTHENTICATION = ANNOTATION_ACTION | {'importDocument', 'searchTextInCollection', 'searchEntityInCollection', 'searchEventInCollection', 'searchRelationInCollection', 
+                    'searchNoteInCollection', 'tag'}
 
 # Sanity check
 for req_action in REQUIRES_AUTHENTICATION:
@@ -275,6 +280,7 @@ def dispatch(http_args, client_ip, client_hostname):
         json_dic['protocol'] = PROTOCOL_VERSION
         # GLOBAL_LOGGER.log_error(json_dic.__str__())
         return json_dic
+
     # Determine what arguments the action function expects
     args, varargs, keywords, defaults = getargspec(action_function)
     # We will not allow this for now, there is most likely no need for it
