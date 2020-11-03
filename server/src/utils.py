@@ -38,14 +38,15 @@ def generate_color_config(name, entities):
 def get_entity_index():
     index = 0
     while 1:
-        index += 1
+        index += 2
         yield index
 
 
 def get_entity_index_exist(indexNo):
     index = indexNo
+    index = index + 1 if index % 2 == 1 else index
     while 1:
-        index += 1
+        index += 2
         yield index
 
 def clean_cached_config():
@@ -215,18 +216,22 @@ def merge_ann_files(collection, document):
         os.system("touch " + label_function_anno_file_path)
     label_func_anno = parse_annotation_file(label_function_anno_file_path)
     label_func_entities = []
+    label_func_entities_index = 0
     for ann in label_func_anno:
         try:
             if ann:
                 label_func_entities.append([ann.id, ann.type, ann.spans])
+                label_func_entities_index += 2
         except AttributeError:
             pass
     manual_anno = parse_annotation_file(manual_anno_file_path)
     manual_entities = []
+    manual_entities_index = 1
     for ann in manual_anno:
         try:
             if ann:
                 manual_entities.append([ann.id, ann.type, ann.spans])
+                manual_entities_index += 2
         except AttributeError:
             pass
     ann_entities = []

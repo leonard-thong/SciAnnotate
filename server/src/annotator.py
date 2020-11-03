@@ -191,11 +191,22 @@ def _text_for_offsets(text, offsets):
             str(offsets))
         raise ProtocolArgumentError
 
+@staticmethod
+def convert_func_ann_to_manual_ann(ann_file_path, ann_obj, target_ann_obj):
+    pass
 
 def _edit_span(ann_obj, mods, id, offsets, projectconf, attributes, type,
                undo_resp={}):
     # TODO: Handle failure to find!
     ann = ann_obj.get_ann_by_id(id)
+
+    if int(ann.id[1:]) % 2 == 0:
+        # Handle func annotation
+        from utils import GLOBAL_LOGGER
+        GLOBAL_LOGGER.log_warning(ann_obj.__str__())
+        GLOBAL_LOGGER.log_warning(mods.__str__())
+        GLOBAL_LOGGER.log_warning(attributes.__str__())
+        pass
 
     if isinstance(ann, EventAnnotation):
         # We should actually modify the trigger
@@ -694,6 +705,18 @@ def _create_span(collection, document, offsets, _type, attributes=None,
         if undo_resp:
             mods_json['undo'] = json_dumps(undo_resp)
         mods_json['annotations'] = _json_from_ann(ann_obj)
+        from utils import parse_annotation_file
+        file_path = document
+        label_function_anno_file_path = file_path + "_func.ann"
+        label_func_anno = parse_annotation_file(label_function_anno_file_path)
+        label_func_entities = []
+        for ann in label_func_anno:
+            try:
+                if ann:
+                    label_func_entities.append([ann.id, ann.type, ann.spans])
+            except AttributeError:
+                pass
+        mods_json['annotations']['entities'].extend(label_func_entities)
         return mods_json
 
 

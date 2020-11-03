@@ -833,7 +833,15 @@ class Annotations(object):
     def get_ann_by_id(self, id):
         # TODO: DOC
         try:
-            return self._ann_by_id[id]
+            is_func_label = int(id[1:]) % 2 == 0
+            from utils import parse_annotation_file
+            if is_func_label:
+                func_annos = parse_annotation_file(self._document + '_func.ann')
+                for func_anno in func_annos:
+                    if func_anno.id == id:
+                        return func_anno
+            else:
+                return self._ann_by_id[id]
         except KeyError:
             raise AnnotationNotFoundError(id)
 
@@ -867,7 +875,7 @@ class Annotations(object):
             str(i) +
             suffix for i in range(
                 1,
-                2**15)):
+                2**15,2)):
             # This is getting more complicated by the minute, two checks since
             # the developers no longer know when it is an id or string.
             if suggestion not in self._ann_by_id:
