@@ -9,6 +9,7 @@ config.py
 # Standard locations of data and server temporary files
 work/
 .vscode
+data/
 data/tutorials
 data/examples
 model-deploy-template/venv

@@ -837,9 +837,13 @@ class Annotations(object):
             from utils import parse_annotation_file
             if is_func_label:
                 func_annos = parse_annotation_file(self._document + '_func.ann')
+                if len(func_annos) == 0:
+                    return self._ann_by_id[id]
                 for func_anno in func_annos:
                     if func_anno.id == id:
                         return func_anno
+                # if ann is not found in func_ann file
+                return self._ann_by_id[id]
             else:
                 return self._ann_by_id[id]
         except KeyError:

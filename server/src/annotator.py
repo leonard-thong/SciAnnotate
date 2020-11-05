@@ -191,22 +191,48 @@ def _text_for_offsets(text, offsets):
             str(offsets))
         raise ProtocolArgumentError
 
-@staticmethod
-def convert_func_ann_to_manual_ann(ann_file_path, ann_obj, target_ann_obj):
-    pass
 
 def _edit_span(ann_obj, mods, id, offsets, projectconf, attributes, type,
                undo_resp={}):
     # TODO: Handle failure to find!
     ann = ann_obj.get_ann_by_id(id)
 
-    if int(ann.id[1:]) % 2 == 0:
-        # Handle func annotation
-        from utils import GLOBAL_LOGGER
-        GLOBAL_LOGGER.log_warning(ann_obj.__str__())
-        GLOBAL_LOGGER.log_warning(mods.__str__())
-        GLOBAL_LOGGER.log_warning(attributes.__str__())
-        pass
+    source_file_name = ann.source_id.split('/')[-1]
+    if '_func' in source_file_name:
+        # handle func source file annotation
+        manual_source_file = ann.source_id.replace('_func.ann', '')
+        edit_line = None
+        return_id = None
+        with TextAnnotations(manual_source_file) as manual_ann_obj:
+            from utils import parse_annotation_file, GLOBAL_LOGGER
+            ann_number = 0
+            for ann_key in manual_ann_obj._ann_by_id.keys():
+                if ann_key[0] == 'T':
+                    ann_number = max(ann_number, int(ann_key[1:]))
+            new_manual_ann_id = ann_number + 1 if ann_number % 2 == 0 else ann_number + 2
+            func_ann_lines = []
+            with open(ann.source_id, 'r') as f:
+                ann_lines = f.readlines()
+                for ann_line in ann_lines:
+                    if ann_line[0:len(ann.id)] != ann.id:
+                        func_ann_lines.append(ann_line)
+                    else:
+                        edit_line = ann_line
+            if func_ann_lines.__len__():
+                with open(ann.source_id, 'w') as f:
+                    f.writelines(func_ann_lines)
+            edit_line_items = edit_line.split('\t')
+            edit_line_items[0] = 'T{}'.format(new_manual_ann_id)
+            return_id = edit_line_items[0]
+            edit_line_items_items = edit_line_items[1].split(' ')
+            edit_line_items_items[0] = type
+            edit_line_items[1] = ' '.join(edit_line_items_items)
+            edit_line = '\t'.join(edit_line_items)
+        with open('{}.ann'.format(manual_source_file), 'w') as f:
+            f.write(edit_line)
+            # TODO: delete ann from func_source_file and move to manual_source_file with a new id
+        with TextAnnotations(manual_source_file) as manual_ann_obj:
+            return manual_ann_obj._ann_by_id[return_id], None, True
 
     if isinstance(ann, EventAnnotation):
         # We should actually modify the trigger
@@ -316,7 +342,7 @@ def _edit_span(ann_obj, mods, id, offsets, projectconf, attributes, type,
 
             # Finally remember the change
             mods.change(before, ann)
-    return tb_ann, e_ann
+    return tb_ann, e_ann, False
 
 
 def __create_span(ann_obj, mods, type, offsets, txt_file_path,
@@ -658,7 +684,7 @@ def _create_span(collection, document, offsets, _type, attributes=None,
 
         if _id is not None:
             # We are to edit an existing annotation
-            tb_ann, e_ann = _edit_span(ann_obj, mods, _id, offsets, projectconf,
+            tb_ann, e_ann, funcHandle = _edit_span(ann_obj, mods, _id, offsets, projectconf,
                                        _attributes, _type, undo_resp=undo_resp)
         else:
             # We are to create a new annotation
@@ -670,6 +696,24 @@ def _create_span(collection, document, offsets, _type, attributes=None,
                 undo_resp['id'] = e_ann.id
             else:
                 undo_resp['id'] = tb_ann.id
+
+        if funcHandle:
+            ann_obj.add_annotation(tb_ann)
+            mods_json = {}
+            mods_json['annotations'] = _json_from_ann(ann_obj)
+            from utils import parse_annotation_file
+            file_path = document
+            label_function_anno_file_path = file_path + "_func.ann"
+            label_func_anno = parse_annotation_file(label_function_anno_file_path)
+            label_func_entities = []
+            for ann in label_func_anno:
+                try:
+                    if ann:
+                        label_func_entities.append([ann.id, ann.type, ann.spans])
+                except AttributeError:
+                    pass
+            mods_json['annotations']['entities'].extend(label_func_entities)
+            return mods_json
 
         # Determine which annotation attributes, normalizations,
         # comments etc. should be attached to. If there's an event,
