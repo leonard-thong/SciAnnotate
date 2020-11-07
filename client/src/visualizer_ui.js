@@ -1091,6 +1091,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                 action: "createNewDocument",
                                 collection: collection,
                                 document: document,
+                                keyword: keyword,
                             },
                             function (result) {
                                 dispatcher.post("ajax", [
@@ -1259,6 +1260,7 @@ var VisualizerUI = (function ($, window, undefined) {
         initForm(fileBrowser, {
             alsoResize: "#document_select",
             create_document: true,
+            no_ok: true,
             close: function (evt) {
                 if (!doc) {
                     // no document; set and show the relevant message, and
