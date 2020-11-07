@@ -1084,29 +1084,12 @@ var VisualizerUI = (function ($, window, undefined) {
                             fullPath.length - document.length
                         );
 
-                        $.post(
-                            "ajax.cgi",
-                            {
-                                protocol: 1,
-                                action: "createNewDocument",
-                                collection: collection,
-                                document: document,
-                            },
-                            function (result) {
-                                dispatcher.post("ajax", [
-                                    {
-                                        action: "getCollectionInformation",
-                                        collection: collection,
-                                    },
-                                    "collectionLoaded",
-                                    {
-                                        collection: collection,
-                                        keep: true,
-                                    },
-                                ]);
-                                dispatcher.post("renderData", [result]);
-                            }
-                        );
+                        $.post("ajax.cgi", {
+                            protocol: 1,
+                            action: "createNewDocument",
+                            collection: collection,
+                            document: document,
+                        });
                     },
                 });
             }
