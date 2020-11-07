@@ -49,6 +49,13 @@ def get_entity_index_exist(indexNo):
         index += 2
         yield index
 
+def get_entity_index_exist_normal(indexNo):
+    index = indexNo
+    index = index + 1  if index % 2 == 0 else index 
+    while 1:
+        index += 2
+        yield index
+
 def clean_cached_config():
     os.system('rm ./data/visualConfigs/drawings.conf')
 
@@ -58,12 +65,13 @@ def add_common_info(text, res):
     res["ctime"] = time.time()
     res["source_files"] = ["ann", "txt"]
     return res
-
+'''
 def get_entity_index_exist(indexNo):
     index = indexNo
     while 1:
         index += 1
         yield index
+'''
 
 def annotation_file_generate(res, file_path, text, mode='w'):
     anno_content = ""

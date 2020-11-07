@@ -681,7 +681,7 @@ def _create_span(collection, document, offsets, _type, attributes=None,
             raise AnnotationsIsReadOnlyError(ann_obj.get_document())
 
         mods = ModificationTracker()
-
+        funcHandle = None
         if _id is not None:
             # We are to edit an existing annotation
             tb_ann, e_ann, funcHandle = _edit_span(ann_obj, mods, _id, offsets, projectconf,

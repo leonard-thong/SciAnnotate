@@ -9,4 +9,5 @@
 """
 
 def create_new_document(**kwargs):
-    pass
+    res = dict()
+    return res

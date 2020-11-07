@@ -5,7 +5,7 @@ from os.path import join as path_join
 from os.path import split as path_split
 from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
-from utils import get_entity_index_exist, get_entity_index, add_common_info, annotation_file_generate,parse_annotation_file, merge_ann_files
+from utils import get_entity_index_exist_normal, add_common_info, annotation_file_generate,parse_annotation_file, merge_ann_files
 
 
 def locations_of_substring(string, substring):
@@ -35,7 +35,7 @@ def create_span_all_text(**kwargs):
     ann_file_path = txt_file_path[:-4] + '.ann'
     return _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs)
 
-def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, entity_index = get_entity_index_exist):
+def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, entity_index = get_entity_index_exist_normal):
     collection = kwargs['collection']   
     document = kwargs['document']
 
@@ -47,11 +47,11 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
 
     exist_index = ann.split('\n').__len__()
     
-    entity_index = get_entity_index_exist(exist_index)
+    entity_index = get_entity_index_exist_normal(exist_index)
 
     location = locations_of_substring(text,keyword)
     entities = [
-        ["T" + str(next(entity_index)) + 'h', label, [(pos, pos + len(keyword))]]
+        ["T" + str(next(entity_index)), label, [(pos, pos + len(keyword))]]
         for pos in location
     ]
     '''
@@ -103,12 +103,12 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
 
     exist_index = ann.split('\n').__len__()
     
-    entity_index = get_entity_index_exist(exist_index)
+    entity_index = get_entity_index_exist_normal(exist_index)
 
     location = locations_of_substring(text,keyword)
     
     entities = [
-        ["T" + str(next(entity_index)) + 'h', label, [(pos.start(), pos.end())]]
+        ["T" + str(next(entity_index)), label, [(pos.start(), pos.end())]]
         for pos in re.finditer(keyword, text)
     ]
     
