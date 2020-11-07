@@ -1091,7 +1091,6 @@ var VisualizerUI = (function ($, window, undefined) {
                                 action: "createNewDocument",
                                 collection: collection,
                                 document: document,
-                                keyword: keyword,
                             },
                             function (result) {
                                 dispatcher.post("ajax", [
