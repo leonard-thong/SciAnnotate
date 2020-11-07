@@ -51,7 +51,7 @@ def get_entity_index_exist(indexNo):
 
 def get_entity_index_exist_normal(indexNo):
     index = indexNo
-    index = index + 1  if index % 2 == 0 else index 
+    index = index - 1  if index % 2 == 0 else index -2
     while 1:
         index += 2
         yield index
