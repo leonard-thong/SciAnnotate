@@ -1084,29 +1084,12 @@ var VisualizerUI = (function ($, window, undefined) {
                             fullPath.length - document.length
                         );
 
-                        $.post(
-                            "ajax.cgi",
-                            {
-                                protocol: 1,
-                                action: "createNewDocument",
-                                collection: collection,
-                                document: document,
-                            },
-                            function (result) {
-                                dispatcher.post("ajax", [
-                                    {
-                                        action: "getCollectionInformation",
-                                        collection: collection,
-                                    },
-                                    "collectionLoaded",
-                                    {
-                                        collection: collection,
-                                        keep: true,
-                                    },
-                                ]);
-                                dispatcher.post("renderData", [result]);
-                            }
-                        );
+                        $.post("ajax.cgi", {
+                            protocol: 1,
+                            action: "createNewDocument",
+                            collection: collection,
+                            document: document,
+                        });
                     },
                 });
             }
@@ -1259,6 +1242,7 @@ var VisualizerUI = (function ($, window, undefined) {
         initForm(fileBrowser, {
             alsoResize: "#document_select",
             create_document: true,
+            no_ok: true,
             close: function (evt) {
                 if (!doc) {
                     // no document; set and show the relevant message, and
