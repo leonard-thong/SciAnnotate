@@ -129,6 +129,8 @@ def _prehandle_data(out, txt_file_path, ann_file_path, function_ann_file_path):
     res = dict()
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
+            if line[0] != 'T':
+                continue
             line_num = -1
             sentence = dict()
             sentence['sentence'] = ''
