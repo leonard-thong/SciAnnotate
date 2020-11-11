@@ -129,6 +129,8 @@ def _prehandle_data(out, txt_file_path, ann_file_path, function_ann_file_path):
     res = dict()
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
+            if line[0] != 'T':
+                continue
             line_num = -1
             sentence = dict()
             sentence['sentence'] = ''
@@ -216,7 +218,7 @@ def parse_annotation_file(ann_path):
     anns._parse_ann_file()
     return anns._lines
 
-def merge_ann_files(collection, document):
+def merge_ann_files(collection, document, append_mode=False):
     file_path = "data" + collection + '/' + document
     manual_anno_file_path = file_path + ".ann"
     label_function_anno_file_path = file_path + "_func.ann"
@@ -245,7 +247,8 @@ def merge_ann_files(collection, document):
     ann_entities = []
     ann_entities.extend(manual_entities)
     ann_entities.extend(label_func_entities)
-    
+    if append_mode:
+        return label_func_entities
     return ann_entities
     
 if __name__ == "__main__":

@@ -917,7 +917,7 @@ def get_document(collection, document):
     real_dir = real_directory(directory)
     doc_path = path_join(real_dir, document)
     ori_response = _document_json_dict(doc_path)
-    ori_response['entities'] = merge_ann_files(collection, document)
+    ori_response['entities'].extend(merge_ann_files(collection, document, True))
     return ori_response
 
 

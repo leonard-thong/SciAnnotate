@@ -13,5 +13,6 @@ data/
 data/tutorials
 data/examples
 model-deploy-template/venv
+model-deploy-template/Laptop
 # for mac
 .DS_Store
