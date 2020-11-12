@@ -1077,18 +1077,16 @@ var VisualizerUI = (function ($, window, undefined) {
                     text: "Create",
                     click: function () {
                         // create new document
-                        let fullPath = window.location.href.split("#")[1];
-                        let document = fullPath.split("/").reverse()[0];
-                        let collection = fullPath.substr(
-                            0,
-                            fullPath.length - document.length
-                        );
+                        let collection = window.location.href.split("#")[1];
+                        let document = "";
+                        let text = "";
 
                         $.post("ajax.cgi", {
                             protocol: 1,
                             action: "createNewDocument",
                             collection: collection,
                             document: document,
+                            text: text,
                         });
                     },
                 });
@@ -2387,7 +2385,7 @@ var VisualizerUI = (function ($, window, undefined) {
             dispatcher.post("hideForm");
             return false;
         };
-        connectForm.submit(optionsFormSubmit);
+        connectForm.submit(connectFormSubmit);
         initForm(connectForm, {
             width: 550,
             resizable: false,
@@ -2406,7 +2404,9 @@ var VisualizerUI = (function ($, window, undefined) {
                 0,
                 fullPath.length - document.length
             );
-            let api_link = $("#connect_form_text").val();
+            let url = $("#connect_form_text").val();
+            let script = $(".CodeMirror")[1].CodeMirror.getValue();
+
             $.post(
                 "ajax.cgi",
                 {
@@ -2418,7 +2418,8 @@ var VisualizerUI = (function ($, window, undefined) {
                 function (result) {
                     console.log(result);
                     $.ajax({
-                        url: api_link,
+                        url: url,
+                        script: script,
                         type: "post",
                         data: `{"data": ${JSON.stringify(result)}}`,
                         success: function (arg) {

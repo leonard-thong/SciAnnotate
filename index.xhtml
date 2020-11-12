@@ -58,11 +58,18 @@
             var spinner = new Spinner(dispatcher, '#spinner');
             var logger = new AnnotationLog(dispatcher);
 
-            var editor = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_textarea'), {
+            var label_function_editor = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_textarea'), {
                 lineNumbers: true,
                 autoRefresh: true,
                 theme: "xq-light",
                 mode: "python",
+            });
+
+            var model_api_editor = CodeMirror.fromTextArea(document.getElementById('model_api_textarea'), {
+                lineNumbers: true,
+                autoRefresh: true,
+                theme: "xq-light",
+                mode: "shell",
             });
 
             // Util.profileEnable();
@@ -352,6 +359,10 @@
                     </tr>
                 </table>
             </div>
+        </fieldset>
+        <fieldset class="small-buttons">
+            <legend>Model API Text Area</legend>
+            <textarea id="model_api_textarea" class="fullwidth" />
         </fieldset>
     </form>
     <!-- Options dialog -->
