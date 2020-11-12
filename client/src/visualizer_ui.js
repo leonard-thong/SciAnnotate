@@ -1076,22 +1076,11 @@ var VisualizerUI = (function ($, window, undefined) {
                     id: formId + "-create-document",
                     text: "Create",
                     click: function () {
-                        // create new document
-                        let collection = window.location.href.split("#")[1];
-                        let document = "";
-                        let text = "";
-
-                        $.post("ajax.cgi", {
-                            protocol: 1,
-                            action: "createNewDocument",
-                            collection: collection,
-                            document: document,
-                            text: text,
-                        });
+                        dispatcher.post("showForm", [createForm]);
                     },
                 });
             }
-            /* STOP labeling document related */
+            /* STOP creating document related */
 
             if (opts.no_ok) {
                 delete opts.no_ok;
@@ -2439,6 +2428,48 @@ var VisualizerUI = (function ($, window, undefined) {
         $("#rapid_model").addClass("ui-widget ui-state-default ui-button-text");
 
         /* END connect dialog - related */
+
+        /* START create dialog - related */
+
+        var createForm = $("#create_form");
+        var createFormSubmit = function (evt) {
+            dispatcher.post("hideForm");
+            return false;
+        };
+        createForm.submit(createFormSubmit);
+        initForm(createForm, {
+            width: 550,
+            resizable: false,
+            no_cancel: true,
+            open: function (evt) {
+                keymap = {};
+            },
+        });
+        $("#create_button").click(function () {
+            dispatcher.post("showForm", [createForm]);
+        });
+        $("#create_form-ok").click(function () {
+            // create new document
+            let collection = window.location.href.split("#")[1];
+            let document = $("#create_form_text").val();
+            let text = $(".CodeMirror")[2].CodeMirror.getValue();
+
+            $.post("ajax.cgi", {
+                protocol: 1,
+                action: "createNewDocument",
+                collection: collection,
+                document: document,
+                text: text,
+            });
+        });
+        // make nice-looking buttons for checkboxes and radios
+        $("#create_form")
+            .find('input[type="checkbox"], input[type="button"]')
+            .button();
+        $("#create_form").find(".radio_group").buttonset();
+        $("#rapid_model").addClass("ui-widget ui-state-default ui-button-text");
+
+        /* END create dialog - related */
 
         /* START options dialog - related */
 
