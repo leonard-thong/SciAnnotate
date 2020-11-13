@@ -22,6 +22,6 @@ def create_new_document(**kwargs):
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
-    f = open(document, 'w')
+    f = open(document + '.txt', 'w')
     f.write(text)
     return res
