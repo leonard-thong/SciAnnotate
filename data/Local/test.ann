@@ -1,15 +1,6 @@
-T1	money 199 207	compared
-T3	quantity 15 19	$9.4
-T5	time 105 112	dollars
-T7	NoneType 402 406	$2.7
-T9	quantity 182 185	was
-T11	quantity 644 646	$1
-T13	Location 620 627	dollars
-T17	Acetylation 372 380	compared
-E3	Acetylation:T17 
-T19	GetMoney 215 220	prior
-E5	GetMoney:T19 
-T21	DNA_methylation 394 398	year
-E7	DNA_methylation:T21 
-T23	quantity 105 112	dollars
-T25	money 97 104	billion
+T1	span_to 28 39	compared to
+T3	span_to 199 210	compared to
+T5	span_to 372 383	compared to
+T7	span_to 543 554	compared to
+T9	GetMoney 44 49	prior
+E1	GetMoney:T9 

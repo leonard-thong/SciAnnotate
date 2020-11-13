@@ -58,11 +58,24 @@
             var spinner = new Spinner(dispatcher, '#spinner');
             var logger = new AnnotationLog(dispatcher);
 
-            var editor = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_textarea'), {
+            var label_function_editor = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_textarea'), {
                 lineNumbers: true,
                 autoRefresh: true,
                 theme: "xq-light",
                 mode: "python",
+            });
+
+            var model_api_editor = CodeMirror.fromTextArea(document.getElementById('model_api_textarea'), {
+                lineNumbers: true,
+                autoRefresh: true,
+                theme: "xq-light",
+                mode: "shell",
+            });
+
+            var create_document_editor = CodeMirror.fromTextArea(document.getElementById('create_document_textarea'), {
+                lineNumbers: true,
+                autoRefresh: true,
+                theme: "xq-light",
             });
 
             // Util.profileEnable();
@@ -352,6 +365,10 @@
                     </tr>
                 </table>
             </div>
+        </fieldset>
+        <fieldset class="small-buttons">
+            <legend>Model API Text Area</legend>
+            <textarea id="model_api_textarea" class="fullwidth" />
         </fieldset>
     </form>
     <!-- Options dialog -->
@@ -672,6 +689,26 @@
           </span>
                 </div>
             </div>
+        </fieldset>
+    </form>
+    <!-- Create dialog -->
+    <form id="create_form" class="dialog" title="Create">
+        <fieldset class="small-buttons">
+            <legend>Create New Document</legend>
+            <div>
+                <table class="fullwidth">
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input id="create_form_text" class="fullwidth" placeholder="Name" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+        <fieldset class="small-buttons">
+            <legend>Text</legend>
+            <textarea id="create_document_textarea" class="fullwidth" />
         </fieldset>
     </form>
     <!-- Span dialog (view only) -->
