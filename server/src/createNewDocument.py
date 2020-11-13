@@ -9,7 +9,6 @@
 """
 
 import os
-from utils import GLOBAL_LOGGER
 from document import real_directory
 from os.path import join as path_join
 
