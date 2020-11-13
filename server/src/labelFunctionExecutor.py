@@ -11,6 +11,7 @@ import re
 import sys
 import time
 import os
+import logging
 
 from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER, annotation_file_generate
 
@@ -109,6 +110,7 @@ def _instant_executor(code, name, collection, document):
                 #out = out.add(ann_entities)
                 return add_common_info(content, out)
         except Exception as e:
+            logging.exception(str(e))
             GLOBAL_LOGGER.log_error("ERROR WHILE HANDLING INSTANT REQUEST")
 
 

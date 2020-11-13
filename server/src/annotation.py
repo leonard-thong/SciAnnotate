@@ -840,7 +840,7 @@ class Annotations(object):
                 if len(func_annos) == 0:
                     return self._ann_by_id[id]
                 for func_anno in func_annos:
-                    if func_anno.id == id:
+                    if type(func_anno) != UnknownAnnotation and func_anno.id == id:
                         return func_anno
                 # if ann is not found in func_ann file
                 return self._ann_by_id[id]
