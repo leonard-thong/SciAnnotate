@@ -2450,17 +2450,26 @@ var VisualizerUI = (function ($, window, undefined) {
         });
         $("#create_form-ok").click(function () {
             // create new document
-            let collection = window.location.href.split("#")[1];
+            let collection = $("#collection_input").val();
+            // let collection = window.location.href.split("#")[1];
             let document = $("#create_form_text").val();
             let text = $(".CodeMirror")[2].CodeMirror.getValue();
 
-            $.post("ajax.cgi", {
-                protocol: 1,
-                action: "createNewDocument",
-                collection: collection,
-                document: document,
-                text: text,
-            });
+            $.post(
+                "ajax.cgi",
+                {
+                    protocol: 1,
+                    action: "createNewDocument",
+                    collection: collection,
+                    document: document,
+                    text: text,
+                },
+                function () {
+                    window.location =
+                        window.location.pathname + "#" + collection + document;
+                    $("#collection_browser").dialog("close");
+                }
+            );
         });
         // make nice-looking buttons for checkboxes and radios
         $("#create_form")
