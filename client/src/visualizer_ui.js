@@ -2395,30 +2395,43 @@ var VisualizerUI = (function ($, window, undefined) {
             );
             let url = $("#connect_form_text").val();
             let script = $(".CodeMirror")[1].CodeMirror.getValue();
-
-            $.post(
-                "ajax.cgi",
-                {
-                    protocol: 1,
-                    action: "preprocessModelData",
-                    collection: collection,
-                    document: document,
-                },
-                function (result) {
-                    console.log(result);
-                    $.ajax({
-                        url: url,
-                        script: script,
-                        type: "post",
-                        data: `{"data": ${JSON.stringify(result)}}`,
-                        success: function (arg) {
-                            // 把返回的结果填充到 id是i3的input框中
-                            console.log(arg.data);
-                            dispatcher.post("renderData", [arg.data]);
-                        },
-                    });
-                }
-            );
+            let data = {
+                'shell' : script
+            }
+            if (url.indexOf("train") !== -1) {
+                $.ajax({
+                    url: url,
+                    data: `{"data": ${JSON.stringify(data)}}`,
+                    type: "post",
+                    success: function (arg) {
+                        console.log(arg.data);
+                    },
+                });
+            }
+            else
+                $.post(
+                    "ajax.cgi",
+                    {
+                        protocol: 1,
+                        action: "preprocessModelData",
+                        collection: collection,
+                        document: document,
+                    },
+                    function (result) {
+                        console.log(result);
+                        $.ajax({
+                            url: url,
+                            script: script,
+                            type: "post",
+                            data: `{"data": ${JSON.stringify(result)}}`,
+                            success: function (arg) {
+                                // 把返回的结果填充到 id是i3的input框中
+                                console.log(arg.data);
+                                dispatcher.post("renderData", [arg.data]);
+                            },
+                        });
+                    }
+                );
         });
         // make nice-looking buttons for checkboxes and radios
         $("#connect_form")
