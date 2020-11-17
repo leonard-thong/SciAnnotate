@@ -4,3 +4,7 @@ T5	span_to 372 383	compared to
 T7	span_to 543 554	compared to
 T9	GetMoney 44 49	prior
 E1	GetMoney:T9 
+T11	money 114 118	with
+T13	DNA_demethylation 81 89	exceeded
+E3	DNA_demethylation:T13 
+T15	money 215 220	prior
