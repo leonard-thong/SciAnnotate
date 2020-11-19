@@ -1667,7 +1667,16 @@ Util.profileStart('chunks');
 
           $.each(chunk.fragments, function(fragmentNo, fragment) {
             var span = fragment.span;
-            var spanDesc = spanTypes[span.type];
+            var spanDesc = null;
+
+            var label_text = data.spanAnnTexts[fragment.glyphedLabelText]._parts[0][1];
+            var function_name = null;
+            if(label_text.indexOf('_') !== -1) { 
+              function_name = label_text.slice(0,label_text.indexOf('_'));
+              let entity_name = label_text.slice(label_text.indexOf('_')+1);
+              spanDesc = spanTypes[entity_name];
+            } else spanDesc = spanTypes[span.type];
+            
             var bgColor = ((spanDesc && spanDesc.bgColor) ||
                            (spanTypes.SPAN_DEFAULT &&
                             spanTypes.SPAN_DEFAULT.bgColor) || '#ffffff');
@@ -1773,11 +1782,12 @@ Util.profileStart('chunks');
               chunkTo = Math.max(bx + bw + rectShadowSize, chunkTo);
               fragmentHeight = Math.max(bh + 2 * rectShadowSize, fragmentHeight);
             }
-            var label_text = data.spanAnnTexts[fragment.glyphedLabelText]._parts[0][1];
-            var function_name = label_text.slice(0,label_text.indexOf('_'));
-            var result = hex_md5(function_name);
+            var result = hex_md5(function_name ? function_name : 'standard');
             // console.log(result);
-            borderColor = '#' + result.toString().slice(0, 6);
+            if(function_name)
+              borderColor = '#' + result.toString().slice(0, 6);
+            else
+              borderColor = '#000000';
             fragment.rect = svg.rect(fragment.group,
                 bx, by, bw, bh, {
 
@@ -1829,7 +1839,15 @@ Util.profileStart('chunks');
                   line(xx, yy + hh + Configuration.visual.margin.y - span.floor),
                   { 'class': 'boxcross' });
             }
-            svg.text(fragment.group, x, y - span.floor, data.spanAnnTexts[fragment.glyphedLabelText], { fill: fgColor});
+            if(function_name) {
+              let tmpAnnObj = data.spanAnnTexts[fragment.glyphedLabelText];
+              var copySVGText = svg.createText();
+              copySVGText._parts = [[...data.spanAnnTexts[fragment.glyphedLabelText]._parts]];
+              copySVGText._parts[0][1] = fragment.glyphedLabelText.split('_')[1];
+              svg.text(fragment.group, x, y - span.floor, copySVGText, { fill: fgColor});
+            }
+            else
+              svg.text(fragment.group, x, y - span.floor, data.spanAnnTexts[fragment.glyphedLabelText], { fill: fgColor});
             // Make curlies to show the fragment
             if (fragment.drawCurly) {
               var curlyColor = 'grey';
@@ -3209,6 +3227,9 @@ Util.profileStart('before render');
               span.normalizations]);
 
           var spanDesc = spanTypes[span.type];
+          if(span.type.indexOf('_') !== -1)
+            spanDesc = spanTypes[span.type.slice(span.type.indexOf('_')+1)];
+          
           var bgColor = ((spanDesc && spanDesc.bgColor) ||
                          (spanTypes.SPAN_DEFAULT && spanTypes.SPAN_DEFAULT.bgColor) ||
                          '#ffffff');
