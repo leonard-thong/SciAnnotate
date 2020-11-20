@@ -38,7 +38,7 @@ from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function, delete_labeling_function, get_available_labeling_function
-from createNewDocument import create_new_document
+from newDocument import create_new_document, import_new_document
 from createSpanAll import create_span_all_text, create_span_all_re
 from utils import GLOBAL_LOGGER, fetch_all_annotations, prehandle_data
 from functionCreateAll import function_create_annotation_all
@@ -118,6 +118,7 @@ DISPATCHER = {
     'fetchAllAnnotations': fetch_all_annotations,
 
     'createNewDocument': create_new_document,
+    'importNewDocument': import_new_document,
     'functionCreateAll':function_create_annotation_all,
 
     'createSpanAllText': create_span_all_text,
@@ -127,7 +128,7 @@ DISPATCHER = {
 
 # Actions that correspond to labeling function functionality
 EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 
-                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'functionCreateAll'}
+                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'importNewDocument', 'functionCreateAll'}
 
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}

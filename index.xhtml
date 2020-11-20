@@ -692,7 +692,7 @@
         </fieldset>
     </form>
     <!-- Create dialog -->
-    <form id="create_form" class="dialog" title="Create">
+    <form id="create_document_form" class="dialog" title="Create Document">
         <fieldset class="small-buttons">
             <legend>Create New Document</legend>
             <div>
@@ -700,7 +700,7 @@
                     <tr>
                         <td>Name</td>
                         <td>
-                            <input id="create_form_text" class="fullwidth" placeholder="Name" />
+                            <input id="create_document_form_text" class="fullwidth" placeholder="Name" />
                         </td>
                     </tr>
                 </table>
@@ -709,6 +709,26 @@
         <fieldset class="small-buttons">
             <legend>Text</legend>
             <textarea id="create_document_textarea" class="fullwidth" />
+        </fieldset>
+    </form>
+    <!-- Import dialog -->
+    <form id="import_document_form" class="dialog" title="Import Document">
+        <fieldset class="small-buttons">
+            <legend>Import New Document</legend>
+            <div>
+                <table class="fullwidth">
+                    <tr>
+                        <td>File Name</td>
+                        <td>
+                            <input type="text" id="import_form_filename" name="filename" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Upload</legend>
+            <input type="file" id="import_file" name="import_file" />
         </fieldset>
     </form>
     <!-- Span dialog (view only) -->

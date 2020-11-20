@@ -1076,7 +1076,14 @@ var VisualizerUI = (function ($, window, undefined) {
                     id: formId + "-create-document",
                     text: "Create",
                     click: function () {
-                        dispatcher.post("showForm", [createForm]);
+                        dispatcher.post("showForm", [createDocumentForm]);
+                    },
+                });
+                buttons.push({
+                    id: formId + "-import-document",
+                    text: "Import",
+                    click: function () {
+                        dispatcher.post("showForm", [importDocumentForm]);
                     },
                 });
             }
@@ -2396,8 +2403,8 @@ var VisualizerUI = (function ($, window, undefined) {
             let url = $("#connect_form_text").val();
             let script = $(".CodeMirror")[1].CodeMirror.getValue();
             let data = {
-                'shell' : script
-            }
+                shell: script,
+            };
             if (url.indexOf("train") !== -1) {
                 $.ajax({
                     url: url,
@@ -2407,8 +2414,7 @@ var VisualizerUI = (function ($, window, undefined) {
                         console.log(arg.data);
                     },
                 });
-            }
-            else
+            } else
                 $.post(
                     "ajax.cgi",
                     {
@@ -2444,13 +2450,13 @@ var VisualizerUI = (function ($, window, undefined) {
 
         /* START create dialog - related */
 
-        var createForm = $("#create_form");
-        var createFormSubmit = function (evt) {
+        var createDocumentForm = $("#create_document_form");
+        var createDocumentFormSubmit = function (evt) {
             dispatcher.post("hideForm");
             return false;
         };
-        createForm.submit(createFormSubmit);
-        initForm(createForm, {
+        createDocumentForm.submit(createDocumentFormSubmit);
+        initForm(createDocumentForm, {
             width: 550,
             resizable: false,
             no_cancel: true,
@@ -2458,14 +2464,11 @@ var VisualizerUI = (function ($, window, undefined) {
                 keymap = {};
             },
         });
-        $("#create_button").click(function () {
-            dispatcher.post("showForm", [createForm]);
-        });
-        $("#create_form-ok").click(function () {
+        $("#create_document_form-ok").click(function () {
             // create new document
             let collection = $("#collection_input").val();
             // let collection = window.location.href.split("#")[1];
-            let document = $("#create_form_text").val();
+            let document = $("#create_document_form_text").val();
             let text = $(".CodeMirror")[2].CodeMirror.getValue();
 
             $.post(
@@ -2485,13 +2488,65 @@ var VisualizerUI = (function ($, window, undefined) {
             );
         });
         // make nice-looking buttons for checkboxes and radios
-        $("#create_form")
+        $("#create_document_form")
             .find('input[type="checkbox"], input[type="button"]')
             .button();
-        $("#create_form").find(".radio_group").buttonset();
+        $("#create_document_form").find(".radio_group").buttonset();
         $("#rapid_model").addClass("ui-widget ui-state-default ui-button-text");
 
         /* END create dialog - related */
+
+        /* START import dialog - related */
+
+        var importDocumentForm = $("#import_document_form");
+        var importDocumentFormSubmit = function (evt) {
+            dispatcher.post("hideForm");
+            return false;
+        };
+        importDocumentForm.submit(importDocumentFormSubmit);
+        initForm(importDocumentForm, {
+            width: 550,
+            resizable: false,
+            no_cancel: true,
+            open: function (evt) {
+                keymap = {};
+            },
+        });
+        $("#import_document_form-ok").click(function () {
+            // create new document
+            let collection = $("#collection_input").val();
+            let document = $("#import_form_filename").val();
+            let importDocumentForm = document.getElementById(
+                "import_document_form"
+            );
+            let formData = new FormData(importDocumentForm);
+
+            $.post(
+                "ajax.cgi",
+                {
+                    protocol: 1,
+                    action: "importNewDocument",
+                    collection: collection,
+                    document: document,
+                    data: formData,
+                },
+                function () {
+                    window.location =
+                        window.location.pathname + "#" + collection + document;
+                    $("#collection_browser").dialog("close");
+                }
+            );
+        });
+        // make nice-looking buttons for checkboxes and radios
+        $("#import_document_form")
+            .find('input[type="checkbox"], input[type="button"]')
+            .button();
+        $("#import_document_form").find(".radio_group").buttonset();
+        $("#import_model").addClass(
+            "ui-widget ui-state-default ui-button-text"
+        );
+
+        /* END import dialog - related */
 
         /* START options dialog - related */
 

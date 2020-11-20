@@ -4,7 +4,7 @@
   @author:  leonard, Robin 
   @time:    2020/10/29 4:52 PM
   @project: brat
-  @file:    createNewDocument.py
+  @file:    newDocument.py
 ===========================================
 """
 
@@ -25,3 +25,6 @@ def create_new_document(**kwargs):
     f = open(document + '.txt', 'w')
     f.write(text)
     return res
+
+def import_new_document(**kwargs):
+  pass
