@@ -2515,7 +2515,6 @@ var VisualizerUI = (function ($, window, undefined) {
         $("#import_document_form-ok").click(function () {
             // create new document
             let collection = $("#collection_input").val();
-            let document = $("#import_form_filename").val();
             let importDocumentForm = document.getElementById(
                 "import_document_form"
             );
