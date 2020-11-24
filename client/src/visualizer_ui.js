@@ -2512,28 +2512,53 @@ var VisualizerUI = (function ($, window, undefined) {
                 keymap = {};
             },
         });
-        $("#import_document_form-ok").click(function () {
+        var fileName;
+        var textContent;
+        $('#import_file').change(function(){
+                var oFReader = new FileReader();
+                var file = document.getElementById('import_file').files[0];
+                fileName = file.name;
+                oFReader.onload = function () {
+                    textContent = this.result;
+                    if(!textContent) alert("File content is null, please check your file path");
+                }
+                oFReader.readAsText(file);
+            }
+        );
+        $("#import_document_form-ok").click(function (evt) {
             // create new document
             let collection = $("#collection_input").val();
             let importDocumentForm = document.getElementById(
                 "import_document_form"
             );
-            let formData = new FormData(importDocumentForm);
+            let formData = {
+                protocol: 1,
+                action: "importNewDocument",
+                collection: collection,
+                name : fileName,
+                content : textContent
+            };
+            document = fileName;
+            $.ajax({
+                url: "ajax.cgi",
+                data: formData,
+            });
 
-            $.post(
-                "ajax.cgi",
-                {
-                    protocol: 1,
-                    action: "importNewDocument",
-                    collection: collection,
-                    data: formData,
-                },
-                function () {
-                    window.location =
-                        window.location.pathname + "#" + collection + document;
-                    $("#collection_browser").dialog("close");
-                }
-            );
+            // $.post(
+            //     "ajax.cgi",
+            //     {
+            //         protocol: 1,
+            //         action: "importNewDocument",
+            //         collection: collection,
+            //         document: document,
+            //         data: formData,
+            //     },
+            //     function (x) {
+            //         window.location =
+            //             window.location.pathname + "#" + collection + document;
+            //         $("#collection_browser").dialog("close");
+            //     }
+            // );
         });
         // make nice-looking buttons for checkboxes and radios
         $("#import_document_form")
