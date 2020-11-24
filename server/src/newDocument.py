@@ -11,7 +11,6 @@
 import os
 from document import real_directory
 from os.path import join as path_join
-from utils import GLOBAL_LOGGER
 
 def create_new_document(**kwargs):
     res = dict()
