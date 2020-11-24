@@ -2543,6 +2543,15 @@ var VisualizerUI = (function ($, window, undefined) {
                 url: "ajax.cgi",
                 type: 'post',
                 data: formData,
+                success: function(args) {
+                    if(args.status === 200) {
+                        alert("New Document Imported !");
+                        window.location =
+                            window.location.pathname + "#" + collection + fileName.substr(0, fileName.lastIndexOf('.'));
+                        $("#collection_browser").dialog("close");
+                    }
+                    else alert("Import document failed !");
+                }
             });
 
             // $.post(
