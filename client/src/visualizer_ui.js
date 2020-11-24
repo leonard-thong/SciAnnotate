@@ -2514,15 +2514,26 @@ var VisualizerUI = (function ($, window, undefined) {
         });
         var fileName;
         var textContent;
-        $('#import_file').change(function(){
-                var oFReader = new FileReader();
-                var file = document.getElementById('import_file').files[0];
-                fileName = file.name;
-                oFReader.onload = function () {
-                    textContent = this.result;
-                    if(!textContent) alert("File content is null, please check your file path");
+        var names = [];
+        var contents = [];
+        const fileReaderAsync = file => new Promise(resolve=> {
+                let content = null;
+                const reader = new FileReader();
+                reader.onload = evt => resolve(evt.target.result);
+                reader.readAsText(file);
+        });
+        var fileObjs = [];
+        $('#import_file').change(async function(){
+                var files = document.getElementById('import_file').files;
+                var oFReaders = [];
+                for(let i = 0; i < files.length; i++) {
+                    let file = files[i]
+                    let fileObj = {
+                        'name' : file.name,
+                    }
+                    fileObj['content'] = await fileReaderAsync(file);
+                    fileObjs.push(fileObj);
                 }
-                oFReader.readAsText(file);
             }
         );
         $("#import_document_form-ok").click(function (evt) {
@@ -2535,8 +2546,7 @@ var VisualizerUI = (function ($, window, undefined) {
                 protocol: 1,
                 action: "importNewDocument",
                 collection: collection,
-                name : fileName,
-                content : textContent
+                files: fileObjs
             };
             document = fileName;
             $.ajax({
@@ -2546,8 +2556,9 @@ var VisualizerUI = (function ($, window, undefined) {
                 success: function(args) {
                     if(args.status === 200) {
                         alert("New Document Imported !");
-                        window.location =
-                            window.location.pathname + "#" + collection + fileName.substr(0, fileName.lastIndexOf('.'));
+                        location.reload();
+                        // window.location =
+                        //     window.location.pathname + "#" + collection //+ fileName.substr(0, fileName.lastIndexOf('.'));
                         $("#collection_browser").dialog("close");
                     }
                     else alert("Import document failed !");
