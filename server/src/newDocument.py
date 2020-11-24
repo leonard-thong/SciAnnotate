@@ -27,10 +27,10 @@ def create_new_document(**kwargs):
 
 def import_new_document(**kwargs):
     res = dict()
+    #GLOBAL_LOGGER.log_normal( kwargs)
     collection = kwargs['collection']
-    document = kwargs['document']
-    GLOBAL_LOGGER.log_normal( kwargs)
-    text = kwargs['text']
+    document =  kwargs['name']
+    text = kwargs['content']
     directory = collection
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
