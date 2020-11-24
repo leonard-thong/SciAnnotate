@@ -4,7 +4,7 @@
   @author:  leonard, Robin 
   @time:    2020/10/29 4:52 PM
   @project: brat
-  @file:    createNewDocument.py
+  @file:    newDocument.py
 ===========================================
 """
 
@@ -15,7 +15,6 @@ from os.path import join as path_join
 def create_new_document(**kwargs):
     res = dict()
     collection = kwargs['collection']
-
     document = kwargs['document']
     text = kwargs['text']
     # check if the file has been uploaded 
@@ -25,3 +24,6 @@ def create_new_document(**kwargs):
     f = open(document + '.txt', 'w')
     f.write(text)
     return res
+
+def import_new_document(**kwargs):
+    pass
