@@ -30,7 +30,7 @@ def import_new_document(**kwargs):
     res = dict()
     collection = kwargs['collection']
     document = kwargs['document']
-    GLOBAL_LOGGER.log_normal(document)
+    GLOBAL_LOGGER.log_normal( kwargs)
     text = kwargs['text']
     directory = collection
     real_dir = real_directory(directory)

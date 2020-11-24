@@ -2526,7 +2526,6 @@ var VisualizerUI = (function ($, window, undefined) {
                     protocol: 1,
                     action: "importNewDocument",
                     collection: collection,
-                    document: document,
                     data: formData,
                 },
                 function () {
