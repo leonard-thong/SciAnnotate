@@ -2541,6 +2541,7 @@ var VisualizerUI = (function ($, window, undefined) {
             document = fileName;
             $.ajax({
                 url: "ajax.cgi",
+                type: 'post',
                 data: formData,
             });
 
