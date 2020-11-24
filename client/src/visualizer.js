@@ -1841,10 +1841,10 @@ Util.profileStart('chunks');
             }
             if(function_name) {
               let tmpAnnObj = data.spanAnnTexts[fragment.glyphedLabelText];
-              var copySVGText = svg.createText();
-              copySVGText._parts = [[...data.spanAnnTexts[fragment.glyphedLabelText]._parts]];
-              copySVGText._parts[0][1] = fragment.glyphedLabelText.split('_')[1];
-              svg.text(fragment.group, x, y - span.floor, copySVGText, { fill: fgColor});
+              // var copySVGText = svg.createText();
+              // copySVGText._parts = [[...data.spanAnnTexts[fragment.glyphedLabelText]._parts]];
+              // copySVGText._parts[0][1] = fragment.glyphedLabelText.split('_')[1];
+              svg.text(fragment.group, x, y - span.floor, tmpAnnObj, { fill: fgColor});
             }
             else
               svg.text(fragment.group, x, y - span.floor, data.spanAnnTexts[fragment.glyphedLabelText], { fill: fgColor});
