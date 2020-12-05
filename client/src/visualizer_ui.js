@@ -2521,29 +2521,74 @@ var VisualizerUI = (function ($, window, undefined) {
                 keymap = {};
             },
         });
-        $("#import_document_form-ok").click(function () {
+        var fileName;
+        var textContent;
+        var names = [];
+        var contents = [];
+        const fileReaderAsync = file => new Promise(resolve=> {
+                let content = null;
+                const reader = new FileReader();
+                reader.onload = evt => resolve(evt.target.result);
+                reader.readAsText(file);
+        });
+        var fileObjs = [];
+        $('#import_file').change(async function(){
+                var files = document.getElementById('import_file').files;
+                var oFReaders = [];
+                for(let i = 0; i < files.length; i++) {
+                    let file = files[i]
+                    let fileObj = {
+                        'name' : file.name,
+                    }
+                    fileObj['content'] = await fileReaderAsync(file);
+                    fileObjs.push(fileObj);
+                }
+            }
+        );
+        $("#import_document_form-ok").click(function (evt) {
             // create new document
             let collection = $("#collection_input").val();
             let importDocumentForm = document.getElementById(
                 "import_document_form"
             );
-            let formData = new FormData(importDocumentForm);
-
-            $.post(
-                "ajax.cgi",
-                {
-                    protocol: 1,
-                    action: "importNewDocument",
-                    collection: collection,
-                    document: document,
-                    data: formData,
-                },
-                function () {
-                    window.location =
-                        window.location.pathname + "#" + collection + document;
-                    $("#collection_browser").dialog("close");
+            let formData = {
+                protocol: 1,
+                action: "importNewDocument",
+                collection: collection,
+                files: fileObjs
+            };
+            document = fileName;
+            $.ajax({
+                url: "ajax.cgi",
+                type: 'post',
+                data: formData,
+                success: function(args) {
+                    if(args.status === 200) {
+                        alert("New Document Imported !");
+                        location.reload();
+                        // window.location =
+                        //     window.location.pathname + "#" + collection //+ fileName.substr(0, fileName.lastIndexOf('.'));
+                        $("#collection_browser").dialog("close");
+                    }
+                    else alert("Import document failed !");
                 }
-            );
+            });
+
+            // $.post(
+            //     "ajax.cgi",
+            //     {
+            //         protocol: 1,
+            //         action: "importNewDocument",
+            //         collection: collection,
+            //         document: document,
+            //         data: formData,
+            //     },
+            //     function (x) {
+            //         window.location =
+            //             window.location.pathname + "#" + collection + document;
+            //         $("#collection_browser").dialog("close");
+            //     }
+            // );
         });
         // make nice-looking buttons for checkboxes and radios
         $("#import_document_form")
