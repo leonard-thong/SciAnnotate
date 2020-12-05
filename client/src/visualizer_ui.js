@@ -893,6 +893,9 @@ var VisualizerUI = (function ($, window, undefined) {
                                             $("#label_form_select")
                                                 .find('input[type="button"]')
                                                 .button();
+                                            $("#label_form_scope")
+                                                .find('input[type="radio"]')
+                                                .button();
                                         }
                                     );
                                 }
@@ -1039,6 +1042,9 @@ var VisualizerUI = (function ($, window, undefined) {
                                             .button();
                                         $("#label_form_select")
                                             .find('input[type="button"]')
+                                            .button();
+                                        $("#label_form_scope")
+                                            .find('input[type="radio"]')
                                             .button();
                                     }
                                 );
@@ -2249,6 +2255,9 @@ var VisualizerUI = (function ($, window, undefined) {
                         .button();
                     $("#label_form_select")
                         .find('input[type="button"]')
+                        .button();
+                    $("#label_form_scope")
+                        .find('input[type="radio"]')
                         .button();
                 }
             );
