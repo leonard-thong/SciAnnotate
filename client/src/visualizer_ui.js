@@ -2551,6 +2551,10 @@ var VisualizerUI = (function ($, window, undefined) {
             let importDocumentForm = document.getElementById(
                 "import_document_form"
             );
+            if(fileObjs.length === 0) {
+                alert("Please select at least one file");
+                return;
+            }
             let formData = {
                 protocol: 1,
                 action: "importNewDocument",
