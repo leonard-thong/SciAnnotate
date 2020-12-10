@@ -9,7 +9,8 @@ config.py
 # Standard locations of data and server temporary files
 work/
 .vscode
-data/
+data/Local
+data/visualConfigs
 model-deploy-template/venv
 model-deploy-template/Laptop
 # for mac
