@@ -75,7 +75,7 @@ def _function_executor(collection, document, functions):
             GLOBAL_LOGGER.log_warning("RETURN OF LABEL FUNCTION IS NONE")
     return None
 
-def get_all_scope(collection, scope):
+def get_label_scope(collection, scope):
     scope_list = []
     if scope == "currentCollection":
         # currentCollection
@@ -83,7 +83,7 @@ def get_all_scope(collection, scope):
             for name in files:
                 if name.split('.')[-1] == 'txt':
                     scope_list.append([collection, name[:-4]])
-    elif scope == "allCollection":
+    elif scope == "allCollections":
         # allCollection
         for _, dirs, _ in os.walk("./data", topdown=True):
             for dir_name in dirs:
@@ -97,7 +97,7 @@ def function_executor(**kwargs):
     GLOBAL_LOGGER.log_normal(kwargs.__str__())
     collection = kwargs["collection"]
     document = kwargs["document"]
-    scope = kwargs["scope"] if kwargs.get('scope') else "currentDocument"
+    scope = kwargs["scope[]"] if kwargs['scope[]'] else "currentDocument"
     if type(kwargs["function[]"]) == str:
             kwargs["function[]"] = [kwargs["function[]"]]
     functions = list(kwargs["function[]"])
@@ -109,7 +109,7 @@ def function_executor(**kwargs):
         clean_cached_config()
         out = _function_executor(collection, document, functions)
     else:
-        operation_scope_list = get_all_scope(collection, scope)
+        operation_scope_list = get_label_scope(collection, scope)
         clean_cached_config()
         for single_apply in operation_scope_list:
             if single_apply[1] == document:

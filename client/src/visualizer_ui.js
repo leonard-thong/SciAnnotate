@@ -762,6 +762,11 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
+                        let scopes = $(
+                            "#label_form_scope input:radio:checked"
+                        ).map(function () {
+                            return $(this).val();
+                        }).get();
                         if (functions.length >= 1) {
                             $.post(
                                 "ajax.cgi",
@@ -771,6 +776,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                     collection: collection,
                                     document: document,
                                     function: functions,
+                                    scope: scopes,
                                 },
                                 function (result) {
                                     console.log(result);
