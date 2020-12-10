@@ -1788,6 +1788,23 @@ Util.profileStart('chunks');
               borderColor = '#' + result.toString().slice(0, 6);
             else
               borderColor = '#000000';
+            bgColor = bgColor.split('');
+            for(let i=1;i<7;i+=2) {
+              if(9 >= Number(bgColor[i]) >= 0) {
+                let numColor = Number(bgColor[i]);
+                let x = numColor % 8 + 7;
+                if(x == 7) bgColor[i] = '7';
+                else if(x == 8) bgColor[i] = '8';
+                else if(x == 9) bgColor[i] = '9';
+                else if(x == 10) bgColor[i] = 'a';
+                else if(x == 11) bgColor[i] = 'b';
+                else if(x == 12) bgColor[i] = 'c';
+                else if(x == 13) bgColor[i] = 'd';
+                else if(x == 14) bgColor[i] = 'e';
+                else if(x == 15) bgColor[i] = 'f';
+              }
+            }
+            bgColor = bgColor.join('');
             fragment.rect = svg.rect(fragment.group,
                 bx, by, bw, bh, {
 

@@ -21,8 +21,8 @@ def generate_color_config(name, entities):
         color = '#{}'.format(str(hash_code)[0:6])
         color = list(color)
         for i in range(1, 6, 2):
-            if '7' >= color[i] >= '0':
-                color[i] = str(hex(int(color[i]) + 8)).replace('0x', '') 
+            if '9' >= color[i] >= '0':
+                color[i] = str(hex(int(color[i]) % 5 + 10)).replace('0x', '') 
         color = ''.join(color)
         entity_color_items.append('\n{}_{}\tbgColor:{}'.format(name, entity, color))
         entity_name_set.add('{}_{}'.format(name, entity))

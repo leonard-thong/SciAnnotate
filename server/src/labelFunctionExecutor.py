@@ -101,6 +101,7 @@ def function_executor(**kwargs):
     if type(kwargs["function[]"]) == str:
             kwargs["function[]"] = [kwargs["function[]"]]
     functions = list(kwargs["function[]"])
+    out = dict()
     if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
     elif document is None:
