@@ -762,11 +762,11 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
-                        let scopes = $(
-                            "#label_form_scope input:radio:checked"
-                        ).map(function () {
-                            return $(this).val();
-                        }).get();
+                        let scopes = $("#label_form_scope input:radio:checked")
+                            .map(function () {
+                                return $(this).val();
+                            })
+                            .get();
                         if (functions.length >= 1) {
                             $.post(
                                 "ajax.cgi",
@@ -1097,6 +1097,11 @@ var VisualizerUI = (function ($, window, undefined) {
                     click: function () {
                         dispatcher.post("showForm", [importDocumentForm]);
                     },
+                });
+                buttons.push({
+                    id: formId + "-delete-document",
+                    text: "Delete",
+                    click: function () {},
                 });
             }
             /* STOP creating document related */
@@ -2262,9 +2267,7 @@ var VisualizerUI = (function ($, window, undefined) {
                     $("#label_form_select")
                         .find('input[type="button"]')
                         .button();
-                    $("#label_form_scope")
-                        .find('input[type="radio"]')
-                        .button();
+                    $("#label_form_scope").find('input[type="radio"]').button();
                 }
             );
             dispatcher.post("showForm", [labelForm]);
@@ -2531,33 +2534,33 @@ var VisualizerUI = (function ($, window, undefined) {
         var textContent;
         var names = [];
         var contents = [];
-        const fileReaderAsync = file => new Promise(resolve=> {
+        const fileReaderAsync = (file) =>
+            new Promise((resolve) => {
                 let content = null;
                 const reader = new FileReader();
-                reader.onload = evt => resolve(evt.target.result);
+                reader.onload = (evt) => resolve(evt.target.result);
                 reader.readAsText(file);
-        });
+            });
         var fileObjs = [];
-        $('#import_file').change(async function(){
-                var files = document.getElementById('import_file').files;
-                var oFReaders = [];
-                for(let i = 0; i < files.length; i++) {
-                    let file = files[i]
-                    let fileObj = {
-                        'name' : file.name,
-                    }
-                    fileObj['content'] = await fileReaderAsync(file);
-                    fileObjs.push(fileObj);
-                }
+        $("#import_file").change(async function () {
+            var files = document.getElementById("import_file").files;
+            var oFReaders = [];
+            for (let i = 0; i < files.length; i++) {
+                let file = files[i];
+                let fileObj = {
+                    name: file.name,
+                };
+                fileObj["content"] = await fileReaderAsync(file);
+                fileObjs.push(fileObj);
             }
-        );
+        });
         $("#import_document_form-ok").click(function (evt) {
             // create new document
             let collection = $("#collection_input").val();
             let importDocumentForm = document.getElementById(
                 "import_document_form"
             );
-            if(fileObjs.length === 0) {
+            if (fileObjs.length === 0) {
                 alert("Please select at least one file");
                 return;
             }
@@ -2565,23 +2568,22 @@ var VisualizerUI = (function ($, window, undefined) {
                 protocol: 1,
                 action: "importNewDocument",
                 collection: collection,
-                files: fileObjs
+                files: fileObjs,
             };
             document = fileName;
             $.ajax({
                 url: "ajax.cgi",
-                type: 'post',
+                type: "post",
                 data: formData,
-                success: function(args) {
-                    if(args.status === 200) {
+                success: function (args) {
+                    if (args.status === 200) {
                         alert("New Document Imported !");
                         location.reload();
                         // window.location =
                         //     window.location.pathname + "#" + collection //+ fileName.substr(0, fileName.lastIndexOf('.'));
                         $("#collection_browser").dialog("close");
-                    }
-                    else alert("Import document failed !");
-                }
+                    } else alert("Import document failed !");
+                },
             });
 
             // $.post(
