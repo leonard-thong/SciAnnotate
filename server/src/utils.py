@@ -11,37 +11,37 @@ from tokenise import whitespace_token_boundary_gen
 
 GLOBAL_LOGGER = Logger()
 
-def generate_color_config(name, entities):
-    md5_obj = hashlib.md5()
-    entity_color_items = []
-    entity_name_set = set()
-    for entity in entities:
-        md5_obj.update("{}_{}".format(name, entity).encode('utf-8'))
-        hash_code = md5_obj.hexdigest()
-        color = '#{}'.format(str(hash_code)[0:6])
-        color = list(color)
-        for i in range(1, 6, 2):
-            if '9' >= color[i] >= '0':
-                color[i] = str(hex(int(color[i]) % 5 + 10)).replace('0x', '') 
-        color = ''.join(color)
-        entity_color_items.append('\n{}_{}\tbgColor:{}'.format(name, entity, color))
-        entity_name_set.add('{}_{}'.format(name, entity))
-    entity_color_items.append('\n{}_unlabeled\tbgColor:#000000'.format(name))
-    # TODO: Bug requiring further fix
-    with open('./data/visualConfigs/drawing.conf', 'r') as drawing_content:
-        lines = drawing_content.readlines()
-        for line in lines:
-            entity_name = line.split('\t')[0]
-            if entity_name not in entity_name_set:
-                entity_color_items.append('\n{}'.format(line))
+# def generate_color_config(name, entities):
+#     md5_obj = hashlib.md5()
+#     entity_color_items = []
+#     entity_name_set = set()
+#     for entity in entities:
+#         md5_obj.update("{}_{}".format(name, entity).encode('utf-8'))
+#         hash_code = md5_obj.hexdigest()
+#         color = '#{}'.format(str(hash_code)[0:6])
+#         color = list(color)
+#         for i in range(1, 6, 2):
+#             if '9' >= color[i] >= '0':
+#                 color[i] = str(hex(int(color[i]) % 5 + 10)).replace('0x', '') 
+#         color = ''.join(color)
+#         entity_color_items.append('\n{}_{}\tbgColor:{}'.format(name, entity, color))
+#         entity_name_set.add('{}_{}'.format(name, entity))
+#     entity_color_items.append('\n{}_unlabeled\tbgColor:#000000'.format(name))
+#     # TODO: Bug requiring further fix
+#     with open('./data/visualConfigs/drawing.conf', 'r') as drawing_content:
+#         lines = drawing_content.readlines()
+#         for line in lines:
+#             entity_name = line.split('\t')[0]
+#             if entity_name not in entity_name_set:
+#                 entity_color_items.append('\n{}'.format(line))
     
-    if not os.path.exists('./data/visualConfigs/drawings.conf'):
-        with open('./data/visualConfigs/drawings.conf', 'w') as color_config:
-            color_config.write(''.join(entity_color_items))
-    else:
-       with open('./data/visualConfigs/drawings.conf', 'a') as color_config:
-            color_config.write(''.join(entity_color_items)) 
-    os.system('sh ./data/build_visual_conf.sh')
+#     if not os.path.exists('./data/visualConfigs/drawings.conf'):
+#         with open('./data/visualConfigs/drawings.conf', 'w') as color_config:
+#             color_config.write(''.join(entity_color_items))
+#     else:
+#        with open('./data/visualConfigs/drawings.conf', 'a') as color_config:
+#             color_config.write(''.join(entity_color_items)) 
+#     os.system('sh ./data/build_visual_conf.sh')
 
 def get_entity_index():
     index = 0

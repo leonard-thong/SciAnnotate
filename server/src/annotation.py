@@ -481,6 +481,7 @@ class Annotations(object):
         # ID prefix (first letter)
         self._parse_function_by_id_prefix = {
             'T': self._parse_textbound_annotation,
+            'F': self._parse_labeling_function_textbound_annotation,
             'M': self._parse_modifier_annotation,
             'A': self._parse_attribute_annotation,
             'N': self._parse_normalization_annotation,
@@ -833,19 +834,7 @@ class Annotations(object):
     def get_ann_by_id(self, id):
         # TODO: DOC
         try:
-            is_func_label = int(id[1:]) % 2 == 0
-            from utils import parse_annotation_file
-            if is_func_label:
-                func_annos = parse_annotation_file(self._document + '_func.ann')
-                if len(func_annos) == 0:
-                    return self._ann_by_id[id]
-                for func_anno in func_annos:
-                    if type(func_anno) != UnknownAnnotation and func_anno.id == id:
-                        return func_anno
-                # if ann is not found in func_ann file
-                return self._ann_by_id[id]
-            else:
-                return self._ann_by_id[id]
+            return self._ann_by_id[id]
         except KeyError:
             raise AnnotationNotFoundError(id)
 
@@ -879,7 +868,7 @@ class Annotations(object):
             str(i) +
             suffix for i in range(
                 1,
-                2**15,2)):
+                2**15)):
             # This is getting more complicated by the minute, two checks since
             # the developers no longer know when it is an id or string.
             if suggestion not in self._ann_by_id:
@@ -1031,6 +1020,12 @@ class Annotations(object):
         return type, spans
 
     def _parse_textbound_annotation(
+            self, _id, data, data_tail, input_file_path):
+        _type, spans = self._split_textbound_data(_id, data, input_file_path)
+        return TextBoundAnnotation(
+            spans, _id, _type, data_tail, source_id=input_file_path)
+    
+    def _parse_labeling_function_textbound_annotation(
             self, _id, data, data_tail, input_file_path):
         _type, spans = self._split_textbound_data(_id, data, input_file_path)
         return TextBoundAnnotation(
@@ -1295,6 +1290,97 @@ class TextAnnotations(Annotations):
         Annotations.__init__(self, document=document, read_only=read_only, lock_dir=lock_dir)
 
     def _parse_textbound_annotation(
+            self, id, data, data_tail, input_file_path):
+        type, spans = self._split_textbound_data(id, data, input_file_path)
+
+        # Verify spans
+        seen_spans = []
+        for start, end in spans:
+            if start > end:
+                Messager.error('Text-bound annotation start > end.')
+                raise IdedAnnotationLineSyntaxError(
+                    id, self.ann_line, self.ann_line_num + 1, input_file_path)
+            if start < 0:
+                Messager.error('Text-bound annotation start < 0.')
+                raise IdedAnnotationLineSyntaxError(
+                    id, self.ann_line, self.ann_line_num + 1, input_file_path)
+            if end > len(self._document_text):
+                Messager.error(
+                    'Text-bound annotation offset exceeds text length.')
+                raise IdedAnnotationLineSyntaxError(
+                    id, self.ann_line, self.ann_line_num + 1, input_file_path)
+
+            for ostart, oend in seen_spans:
+                if end >= ostart and start < oend:
+                    Messager.error('Text-bound annotation spans overlap')
+                    raise IdedAnnotationLineSyntaxError(
+                        id, self.ann_line, self.ann_line_num + 1, input_file_path)
+
+            seen_spans.append((start, end))
+
+        # first part is text, second connecting separators
+        spanlen = sum([end - start for start, end in spans]) + \
+            (len(spans) - 1) * len(DISCONT_SEP)
+
+        # Require tail to be either empty or to begin with the text
+        # corresponding to the catenation of the start:end spans.
+        # If the tail is empty, force a fill with the corresponding text.
+        if data_tail.strip() == '' and spanlen > 0:
+            Messager.error(
+                u"Text-bound annotation missing text (expected format 'ID\\tTYPE START END\\tTEXT'). Filling from reference text. NOTE: This changes annotations on disk unless read-only.")
+            text = "".join([self._document_text[start:end]
+                            for start, end in spans])
+
+        elif data_tail[0] != '\t':
+            Messager.error(
+                'Text-bound annotation missing tab before text (expected format "ID\\tTYPE START END\\tTEXT").')
+            raise IdedAnnotationLineSyntaxError(
+                id, self.ann_line, self.ann_line_num + 1, input_file_path)
+
+        elif spanlen > len(data_tail) - 1:  # -1 for tab
+            Messager.error(
+                'Text-bound annotation text "%s" shorter than marked span(s) %s' % (data_tail[1:], str(spans)))
+            raise IdedAnnotationLineSyntaxError(
+                id, self.ann_line, self.ann_line_num + 1, input_file_path)
+
+        else:
+            text = data_tail[1:spanlen + 1]  # shift 1 for tab
+            data_tail = data_tail[spanlen + 1:]
+
+            spantexts = [self._document_text[start:end]
+                         for start, end in spans]
+            reftext = DISCONT_SEP.join(spantexts)
+
+            if text != reftext:
+                # just in case someone has been running an old version of
+                # discont that catenated spans without DISCONT_SEP
+                oldstylereftext = ''.join(spantexts)
+                if text[:len(oldstylereftext)] == oldstylereftext:
+                    Messager.warning(
+                        u'NOTE: replacing old-style (pre-1.3) discontinuous annotation text span with new-style one, i.e. adding space to "%s" in .ann' % text[:len(oldstylereftext)], -1)
+                    text = reftext
+                    data_tail = ''
+                else:
+                    # unanticipated mismatch
+                    Messager.error(
+                        (u'Text-bound annotation text "%s" does not '
+                         u'match marked span(s) %s text "%s" in document') %
+                        (text, str(spans), reftext.replace(
+                            '\n', '\\n')))
+                    raise IdedAnnotationLineSyntaxError(
+                        id, self.ann_line, self.ann_line_num + 1, input_file_path)
+
+            if data_tail != '' and not data_tail[0].isspace():
+                Messager.error(
+                    u'Text-bound annotation text "%s" not separated from rest of line ("%s") by space!' %
+                    (text, data_tail))
+                raise IdedAnnotationLineSyntaxError(
+                    id, self.ann_line, self.ann_line_num + 1, input_file_path)
+
+        return TextBoundAnnotationWithText(
+            spans, id, type, text, data_tail, source_id=input_file_path)
+
+    def _parse_labeling_function_textbound_annotation(
             self, id, data, data_tail, input_file_path):
         type, spans = self._split_textbound_data(id, data, input_file_path)
 

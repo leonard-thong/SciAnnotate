@@ -29,7 +29,6 @@ from annotation import (BIONLP_ST_2013_COMPATIBILITY, JOINED_ANN_FILE_SUFF,
 from auth import AccessDeniedError, allowed_to_read
 from common import CollectionNotAccessibleError, ProtocolError
 from message import Messager
-from utils import merge_ann_files
 from projectconfig import (ARC_DRAWING_ATTRIBUTES, ATTR_DRAWING_ATTRIBUTES,
                            SEPARATOR_STR, SPAN_DRAWING_ATTRIBUTES,
                            SPECIAL_RELATION_TYPES, VISUAL_ARC_DEFAULT,
@@ -917,7 +916,6 @@ def get_document(collection, document):
     real_dir = real_directory(directory)
     doc_path = path_join(real_dir, document)
     ori_response = _document_json_dict(doc_path)
-    ori_response['entities'].extend(merge_ann_files(collection, document, True))
     return ori_response
 
 

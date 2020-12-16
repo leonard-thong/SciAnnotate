@@ -1671,11 +1671,15 @@ Util.profileStart('chunks');
 
             var label_text = data.spanAnnTexts[fragment.glyphedLabelText]._parts[0][1];
             var function_name = null;
+            var entity_name = null;
             if(label_text.indexOf('_') !== -1) { 
               function_name = label_text.slice(0,label_text.indexOf('_'));
-              let entity_name = label_text.slice(label_text.indexOf('_')+1);
+              entity_name = label_text.slice(label_text.indexOf('_')+1);
               spanDesc = spanTypes[entity_name];
-            } else spanDesc = spanTypes[span.type];
+            } else {
+              entity_name = label_text;
+              spanDesc = spanTypes[span.type];
+            }
             
             var bgColor = ((spanDesc && spanDesc.bgColor) ||
                            (spanTypes.SPAN_DEFAULT &&
@@ -1783,7 +1787,10 @@ Util.profileStart('chunks');
               fragmentHeight = Math.max(bh + 2 * rectShadowSize, fragmentHeight);
             }
             var result = hex_md5(function_name ? function_name : 'standard');
-            // console.log(result);
+            // handle undefined labels
+            // console.warn("Label " + entity_name + " has not been defined yet !");
+            if(spanDesc === undefined)
+              bgColor = '#' + hex_md5(entity_name).toString().slice(0, 6);
             if(function_name)
               borderColor = '#' + result.toString().slice(0, 6);
             else
@@ -1792,7 +1799,7 @@ Util.profileStart('chunks');
             for(let i=1;i<7;i+=2) {
               if(9 >= Number(bgColor[i]) >= 0) {
                 let numColor = Number(bgColor[i]);
-                let x = numColor % 8 + 7;
+                let x = numColor % 6 + 10;
                 if(x == 7) bgColor[i] = '7';
                 else if(x == 8) bgColor[i] = '8';
                 else if(x == 9) bgColor[i] = '9';
@@ -1807,7 +1814,6 @@ Util.profileStart('chunks');
             bgColor = bgColor.join('');
             fragment.rect = svg.rect(fragment.group,
                 bx, by, bw, bh, {
-
                 'class': rectClass,
                 fill: bgColor,
                 stroke: borderColor,

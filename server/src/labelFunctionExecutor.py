@@ -14,8 +14,15 @@ import os
 import logging
 
 from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER, annotation_file_generate
-
-
+from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
+                        AnnotationsIsReadOnlyError, AttributeAnnotation,
+                        BinaryRelationAnnotation,
+                        DependingAnnotationDeleteError, EquivAnnotation,
+                        EventAnnotation, NormalizationAnnotation,
+                        OnelineCommentAnnotation, SpanOffsetOverlapError,
+                        TextAnnotations, TextBoundAnnotation,
+                        TextBoundAnnotationWithText, open_textfile)
+from annotator import ModificationTracker
 def resort_entities(entity_list, func_name_list):
     all_entities = dict()
     ENTITY_INDEX = get_entity_index()
@@ -47,33 +54,36 @@ def resort_entities(entity_list, func_name_list):
 def _function_executor(collection, document, functions):
     file_path = "data" + collection + '/' + document
     txt_file_path = file_path + ".txt"
-    anno_file_path = file_path + "_func.ann"
-    ENTITY_INDEX = get_entity_index()
-    with open(txt_file_path, "r", encoding="utf-8") as f:
-        content = f.read()
-        try:
-            exec("from labelFunctions.index import {}".format(functions[0]))
-            out = eval(functions[0] + "(content, ENTITY_INDEX)")
-            if len(functions) > 1:
-                for function in functions[1:]:
-                    exec("from labelFunctions.index import {}".format(function))
-                    out["entities"].extend(
-                        eval(function + "(content, ENTITY_INDEX)")["entities"]
-                    )
-            # out["entities"] = resort_entities(out["entities"], functions)
-            annotation_file_generate(out, anno_file_path, content)
-        except Exception as e:
-            GLOBAL_LOGGER.log_error(
-                "ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__()
-            )
-        if out is not None:
-            ann_entities = merge_ann_files(collection, document)
-            out["entities"] = ann_entities
-            #out = out.add(ann_entities)
-            return add_common_info(content, out)
-        else:
-            GLOBAL_LOGGER.log_warning("RETURN OF LABEL FUNCTION IS NONE")
-    return None
+    try:
+        content = None
+        with open(txt_file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        ENTITY_INDEX = get_entity_index()
+        exec("from labelFunctions.index import {}".format(functions[0]))
+        out = eval(functions[0] + "(content, ENTITY_INDEX)")
+        if len(functions) > 1:
+            for function in functions[1:]:
+                exec("from labelFunctions.index import {}".format(function))
+                out["entities"].extend(
+                    eval(function + "(content, ENTITY_INDEX)")["entities"]
+                )
+        mods = ModificationTracker()
+        with TextAnnotations(file_path) as ann_obj:
+            new_id = ann_obj.get_new_id('F')
+            for i in range(1, int(new_id[1:])):
+                ann = ann_obj.get_ann_by_id('F{}'.format(i))
+                ann_obj.del_annotation(ann, mods)
+            for idx, entity in enumerate(out['entities']):
+                new_id = ann_obj.get_new_id('F')
+                ann = TextBoundAnnotationWithText(entity[2], new_id, entity[1], entity[3])
+                ann_obj.add_annotation(ann)
+                mods.addition(ann)
+                out['entities'][idx][0] = new_id
+        return add_common_info(content, out)
+    except Exception as e:
+        GLOBAL_LOGGER.log_error(
+            "ERROR OCCURRED WHEN PROCESSING LABEL FUNCTION => " + e.__str__()
+        )
 
 def get_label_scope(collection, scope):
     scope_list = []
