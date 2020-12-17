@@ -93,15 +93,15 @@ def get_label_scope(collection, scope):
         for root, dirs, files in os.walk("./data{}".format(collection), topdown=True):
             for name in files:
                 if name.split('.')[-1] == 'txt':
-                    scope_list.append([collection, name[:-4]])
-    elif scope == "allCollections":
+                    scope_list.append(['{}/'.format(root[6:]), name[:-4]])
+    elif scope == "all_collections":
         # allCollection
         for _, dirs, _ in os.walk("./data", topdown=True):
             for dir_name in dirs:
-                for _, _, files in os.walk("./data/{}".format(dir_name), topdown=True):
+                for root, dir2, files in os.walk("./data/{}".format(dir_name), topdown=True):
                     for file_name in files:
                         if file_name.split('.')[-1] == 'txt':
-                            scope_list.append(['/{}/'.format(dir_name), file_name[:-4]])
+                            scope_list.append(['{}/'.format(root[6:]), file_name[:-4]])
     return scope_list
 
 def function_executor(**kwargs):
@@ -117,7 +117,7 @@ def function_executor(**kwargs):
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
     elif document is None:
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
-    if scope not in ['currentCollection', 'allCollection']:
+    if scope not in ['currentCollection', 'all_collections']:
         clean_cached_config()
         out = _function_executor(collection, document, functions)
     else:
