@@ -1010,6 +1010,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                         collection: collection,
                                     },
                                     function (result) {
+                                        alert("Add Labeling Function Succeed!");
                                         let container = $("#label_form_select");
                                         let functions = result["function_list"];
 
@@ -2430,6 +2431,7 @@ var VisualizerUI = (function ($, window, undefined) {
                     type: "post",
                     success: function (arg) {
                         console.log(arg.data);
+                        alert("Model training is completed!");
                     },
                 });
             } else
@@ -2578,9 +2580,19 @@ var VisualizerUI = (function ($, window, undefined) {
                 success: function (args) {
                     if (args.status === 200) {
                         alert("New Document Imported !");
-                        location.reload();
-                        // window.location =
-                        //     window.location.pathname + "#" + collection //+ fileName.substr(0, fileName.lastIndexOf('.'));
+                        window.location =
+                            window.location.pathname + "#" + collection + fileObjs[0].name.substr(0, fileObjs[0].name.lastIndexOf('.'));
+                        dispatcher.post("ajax", [
+                            {
+                                action: "getCollectionInformation",
+                                collection: collection,
+                            },
+                            "collectionLoaded",
+                            {
+                                collection: collection,
+                                keep: true,
+                            },
+                        ]);
                         $("#collection_browser").dialog("close");
                     } else alert("Import document failed !");
                 },
