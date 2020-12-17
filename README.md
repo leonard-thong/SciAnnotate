@@ -37,7 +37,7 @@ LABELING_FUNCTION_SET = {"alias": your_new_function}
 
 
 ## Release Note Dec.17 2020
-- Recontruct basic storage logic of annotations from labeling function
+- Recontruct basic storage logic of annotations from labeling function, annotations from labeling function will appear in ann file like F1, F2, etc...
 - Color of annotations which are not defined in visual.conf will be assigned a color based on MD5 hash (Frontend control)
 - Remove unnecessary error comments to improve visual effect
 ### To developers
@@ -49,12 +49,12 @@ import re
 def executor1(text="", entity_index=None):
     res = dict()
     entities = [
-        ["T" + str(next(entity_index)), "Type", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
+        ["F" + str(next(entity_index)), "Type", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
         for pos in re.finditer("in", text)
     ]
     entities.extend(
         [
-            ["T" + str(next(entity_index)), "NoneType", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
+            ["F" + str(next(entity_index)), "NoneType", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
             for pos in re.finditer("for", text)
         ]
     )
