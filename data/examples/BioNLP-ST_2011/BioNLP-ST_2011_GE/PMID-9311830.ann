@@ -38,3 +38,35 @@ E8	Positive_regulation:T27 Theme:T15
 E9	Positive_regulation:T27 Theme:T16
 E10	Gene_expression:T28 Theme:T21
 E11	Gene_expression:T28 Theme:T20
+F1	executor1_Type 24 26	in
+F2	executor1_Type 228 230	in
+F3	executor1_Type 271 273	in
+F4	executor1_Type 306 308	in
+F5	executor1_Type 377 379	in
+F6	executor1_Type 420 422	in
+F7	executor1_Type 463 465	in
+F8	executor1_Type 524 526	in
+F9	executor1_Type 548 550	in
+F10	executor1_Type 605 607	in
+F11	executor1_Type 729 731	in
+F12	executor1_Type 769 771	in
+F13	executor1_Type 792 794	in
+F14	executor1_Type 881 883	in
+F15	executor1_Type 1035 1037	in
+F16	executor1_Type 1063 1065	in
+F17	executor1_Type 1107 1109	in
+F18	executor1_Type 1111 1113	in
+F19	executor1_Type 1197 1199	in
+F20	executor1_Type 1297 1299	in
+F21	executor1_Type 1304 1306	in
+F22	executor1_Type 1354 1356	in
+F23	executor1_Type 1396 1398	in
+F24	executor1_Type 1415 1417	in
+F25	executor1_Type 1461 1463	in
+F26	executor1_Type 1506 1508	in
+F27	executor1_Type 1519 1521	in
+F28	executor1_Type 1600 1602	in
+F29	executor1_Type 1685 1687	in
+F30	executor1_Type 1724 1726	in
+F31	executor1_Type 1729 1731	in
+F32	executor1_NoneType 212 215	for

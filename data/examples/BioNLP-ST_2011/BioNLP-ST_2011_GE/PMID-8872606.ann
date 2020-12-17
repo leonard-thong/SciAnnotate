@@ -23,3 +23,31 @@ T5	Protein 874 884	TFG-beta 2
 T6	Protein 904 908	GLRP
 T7	Protein 1140 1150	TGF-beta 2
 T8	Protein 1248 1258	TGF-beta 2
+F1	executor1_Type 109 111	in
+F2	executor1_Type 124 126	in
+F3	executor1_Type 146 148	in
+F4	executor1_Type 180 182	in
+F5	executor1_Type 198 200	in
+F6	executor1_Type 208 210	in
+F7	executor1_Type 228 230	in
+F8	executor1_Type 344 346	in
+F9	executor1_Type 372 374	in
+F10	executor1_Type 378 380	in
+F11	executor1_Type 411 413	in
+F12	executor1_Type 528 530	in
+F13	executor1_Type 570 572	in
+F14	executor1_Type 586 588	in
+F15	executor1_Type 613 615	in
+F16	executor1_Type 626 628	in
+F17	executor1_Type 640 642	in
+F18	executor1_Type 659 661	in
+F19	executor1_Type 676 678	in
+F20	executor1_Type 772 774	in
+F21	executor1_Type 775 777	in
+F22	executor1_Type 830 832	in
+F23	executor1_Type 867 869	in
+F24	executor1_Type 946 948	in
+F25	executor1_Type 1004 1006	in
+F26	executor1_Type 1095 1097	in
+F27	executor1_NoneType 788 791	for
+F28	executor1_NoneType 1168 1171	for

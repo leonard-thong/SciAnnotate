@@ -37,3 +37,36 @@ E10	Binding:T23 Theme:T10
 E11	Negative_regulation:T24 Theme:E12
 E12	Binding:T25 Theme:T11
 E13	Gene_expression:T26 Theme:T12
+F1	executor1_Type 12 14	in
+F2	executor1_Type 24 26	in
+F3	executor1_Type 209 211	in
+F4	executor1_Type 271 273	in
+F5	executor1_Type 352 354	in
+F6	executor1_Type 390 392	in
+F7	executor1_Type 421 423	in
+F8	executor1_Type 465 467	in
+F9	executor1_Type 481 483	in
+F10	executor1_Type 510 512	in
+F11	executor1_Type 558 560	in
+F12	executor1_Type 595 597	in
+F13	executor1_Type 624 626	in
+F14	executor1_Type 627 629	in
+F15	executor1_Type 636 638	in
+F16	executor1_Type 662 664	in
+F17	executor1_Type 671 673	in
+F18	executor1_Type 720 722	in
+F19	executor1_Type 723 725	in
+F20	executor1_Type 736 738	in
+F21	executor1_Type 739 741	in
+F22	executor1_Type 807 809	in
+F23	executor1_Type 826 828	in
+F24	executor1_Type 829 831	in
+F25	executor1_Type 849 851	in
+F26	executor1_Type 873 875	in
+F27	executor1_Type 876 878	in
+F28	executor1_Type 888 890	in
+F29	executor1_Type 906 908	in
+F30	executor1_Type 952 954	in
+F31	executor1_Type 973 975	in
+F32	executor1_Type 988 990	in
+F33	executor1_Type 1094 1096	in

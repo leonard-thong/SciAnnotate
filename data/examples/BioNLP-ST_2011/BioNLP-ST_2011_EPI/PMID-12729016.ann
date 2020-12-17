@@ -1,3 +1,18 @@
 T1	Protein 81 99	carboxypeptidase Y
 T2	Protein 310 328	carboxypeptidase Y
 T3	Protein 330 333	CPY
+F1	executor1_Type 64 66	in
+F2	executor1_Type 152 154	in
+F3	executor1_Type 162 164	in
+F4	executor1_Type 181 183	in
+F5	executor1_Type 203 205	in
+F6	executor1_Type 225 227	in
+F7	executor1_Type 416 418	in
+F8	executor1_Type 420 422	in
+F9	executor1_Type 517 519	in
+F10	executor1_Type 529 531	in
+F11	executor1_Type 532 534	in
+F12	executor1_Type 590 592	in
+F13	executor1_Type 599 601	in
+F14	executor1_Type 618 620	in
+F15	executor1_NoneType 261 264	for

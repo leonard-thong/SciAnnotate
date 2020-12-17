@@ -64,3 +64,34 @@ E2	Ubiquitination:T49 Theme:T3
 E3	Ubiquitination:T51 Theme:T29
 E4	Catalysis:T50 Theme:E3 Cause:T30
 E5	Ubiquitination:T52 Theme:T42
+F1	executor1_Type 5 7	in
+F2	executor1_Type 35 37	in
+F3	executor1_Type 107 109	in
+F4	executor1_Type 127 129	in
+F5	executor1_Type 296 298	in
+F6	executor1_Type 301 303	in
+F7	executor1_Type 306 308	in
+F8	executor1_Type 351 353	in
+F9	executor1_Type 486 488	in
+F10	executor1_Type 736 738	in
+F11	executor1_Type 790 792	in
+F12	executor1_Type 829 831	in
+F13	executor1_Type 955 957	in
+F14	executor1_Type 983 985	in
+F15	executor1_Type 1035 1037	in
+F16	executor1_Type 1038 1040	in
+F17	executor1_Type 1077 1079	in
+F18	executor1_Type 1085 1087	in
+F19	executor1_Type 1125 1127	in
+F20	executor1_Type 1162 1164	in
+F21	executor1_Type 1177 1179	in
+F22	executor1_Type 1208 1210	in
+F23	executor1_Type 1265 1267	in
+F24	executor1_Type 1284 1286	in
+F25	executor1_Type 1358 1360	in
+F26	executor1_Type 1411 1413	in
+F27	executor1_Type 1463 1465	in
+F28	executor1_NoneType 184 187	for
+F29	executor1_NoneType 336 339	for
+F30	executor1_NoneType 524 527	for
+F31	executor1_NoneType 578 581	for

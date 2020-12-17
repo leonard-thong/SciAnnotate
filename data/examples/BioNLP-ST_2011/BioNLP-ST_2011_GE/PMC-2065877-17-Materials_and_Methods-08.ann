@@ -1,1 +1,12 @@
 T1	Protein 822 832	peroxidase
+F1	executor1_Type 54 56	in
+F2	executor1_Type 296 298	in
+F3	executor1_Type 378 380	in
+F4	executor1_Type 458 460	in
+F5	executor1_Type 487 489	in
+F6	executor1_Type 517 519	in
+F7	executor1_Type 554 556	in
+F8	executor1_Type 619 621	in
+F9	executor1_Type 703 705	in
+F10	executor1_NoneType 370 373	for
+F11	executor1_NoneType 431 434	for
