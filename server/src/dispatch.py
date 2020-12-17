@@ -281,6 +281,7 @@ def dispatch(http_args, client_ip, client_hostname):
         json_dic['action'] = action
         # Return the protocol version for symmetry
         json_dic['protocol'] = PROTOCOL_VERSION
+        json_dic['comments'] = []
         # GLOBAL_LOGGER.log_error(json_dic.__str__())
         return json_dic
 
@@ -336,6 +337,8 @@ def dispatch(http_args, client_ip, client_hostname):
     # json_dic['events'] = [['E1', 'T1', [('Theme', 'T7')]], ['E2', 'T2', [('Theme', 'T8')]]]
     # json_dic['triggers'] = [['T1', 'Protein', [(0, 6)]], ['T2', 'PPP', [(381, 387)]]]
     json_dic['comments'] = []
+    if 'annotations' in json_dic.keys():
+        json_dic['annotations']['comments'] = []
     json_dic['action'] = action
     # Return the protocol version for symmetry
     json_dic['protocol'] = PROTOCOL_VERSION

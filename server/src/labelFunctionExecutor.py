@@ -13,7 +13,7 @@ import time
 import os
 import logging
 
-from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER, annotation_file_generate
+from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER
 from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
                         AnnotationsIsReadOnlyError, AttributeAnnotation,
                         BinaryRelationAnnotation,
@@ -23,6 +23,7 @@ from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
                         TextAnnotations, TextBoundAnnotation,
                         TextBoundAnnotationWithText, open_textfile)
 from annotator import ModificationTracker
+from document import get_document
 def resort_entities(entity_list, func_name_list):
     all_entities = dict()
     ENTITY_INDEX = get_entity_index()
@@ -131,11 +132,10 @@ def function_executor(**kwargs):
     out["collection"] = collection
     if out is None:
         return
-    return out
+    return get_document(collection, document)
 
 
 def _instant_executor(code, name, collection, document):
-    ann_entities = merge_ann_files(collection, document)
     file_path = "./data" + collection + '/' + document + ".txt"
     ENTITY_INDEX = get_entity_index()
     with open(file_path, "r", encoding="utf-8") as f:
@@ -145,7 +145,6 @@ def _instant_executor(code, name, collection, document):
             exec(code)
             out = eval("{}(content, ENTITY_INDEX)".format(name))
             if out is not None:
-                #out = out.add(ann_entities)
                 return add_common_info(content, out)
         except Exception as e:
             logging.exception(str(e))

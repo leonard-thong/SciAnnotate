@@ -8,7 +8,16 @@ from os.path import isabs
 from annotation import Annotations
 from expandLogger import Logger
 from tokenise import whitespace_token_boundary_gen
-
+from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
+                        AnnotationsIsReadOnlyError, AttributeAnnotation,
+                        BinaryRelationAnnotation,
+                        DependingAnnotationDeleteError, EquivAnnotation,
+                        EventAnnotation, NormalizationAnnotation,
+                        OnelineCommentAnnotation, SpanOffsetOverlapError,
+                        TextAnnotations, TextBoundAnnotation,
+                        TextBoundAnnotationWithText, open_textfile)
+from annotator import ModificationTracker
+from document import get_document
 GLOBAL_LOGGER = Logger()
 
 # def generate_color_config(name, entities):
@@ -81,34 +90,22 @@ def get_entity_index_exist(indexNo):
         yield index
 '''
 
-def annotation_file_generate(res, file_path, text, mode='w'):
-    anno_content = ""
-    for entity in res["entities"]:
-        anno_content += (
-            str(entity[0])
-            + "\t"
-            + str(entity[1])
-            + " "
-            + str(entity[2][0][0])
-            + " "
-            + str(entity[2][0][1])
-            + "\t"
-            + str(text[entity[2][0][0]: entity[2][0][1]])
-            + "\n"
-        )
-    with open(file_path, mode) as f:
-        f.write(anno_content)
+def annotation_file_generate(out, file_path, text, mode='w'):
+    """ Generate ann file content
+    """
+    file_path = file_path[:-4]
+    mods = ModificationTracker()
+    with TextAnnotations(file_path) as ann_obj:
+        for idx, entity in enumerate(out['entities']):
+            new_id = ann_obj.get_new_id('F')
+            ann = TextBoundAnnotationWithText(entity[2], new_id, entity[1], entity[3])
+            ann_obj.add_annotation(ann)
+            mods.addition(ann)
 
 def fetch_all_annotations(**kwargs):
     collection = kwargs['collection']
     document = kwargs['document']
-    res = dict()
-    res['entities'] = merge_ann_files(collection, document)
-    txt_file_path = "data" + collection + '/' + document + '.txt'
-    with open(txt_file_path, 'r') as f:
-        txt = f.read()
-        res = add_common_info(txt, res)
-    return res
+    return get_document(collection, document)
 
 
 def real_directory(directory, rel_to=DATA_DIR):
@@ -137,44 +134,8 @@ def _prehandle_data(out, txt_file_path, ann_file_path, function_ann_file_path):
     res = dict()
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
-            if line[0] != 'T':
+            if line[0] != 'T' and line[0] != 'F':
                 continue
-            line_num = -1
-            sentence = dict()
-            sentence['sentence'] = ''
-            sentence['annotation'] = []
-            data = []
-            line = line.replace('\t', ' ')
-            info = line.split(' ')
-            source_name = info[1].split('_')[0]
-            temp = info[1].split('_')[1:]
-            label = ''
-            for i in range(len(temp)):
-                label += temp[i]
-            data.append(source_name)
-            data.append(label)
-            start = int(info[2])
-            end = int(info[3])
-            line_dict = judge_line(txt_file_path)
-            line_start_index = [key for key in line_dict]
-            line_start_index = sorted(line_start_index)
-            for i in range(len(line_start_index)):
-                if start > int(line_start_index[i]) and end < (int(line_start_index[i]) + len(line_dict[line_start_index[i]])):
-                    sentence['sentence']=line_dict[line_start_index[i]]
-                    start -= int(line_start_index[i])
-                    end -= int(line_start_index[i])
-                    line_num = i
-                    break
-                '''
-                elif start > line_start_index[i] and end > (line_start_index[i] + len(line_dict[line_start_index[i]])):
-                '''
-            data.append(start)
-            data.append(end)
-            out[line_num]['annotation'].append(data)
-
-    with open(function_ann_file_path, 'r') as function_ann_file:
-        
-        for line in function_ann_file.readlines():
             line_num = -1
             sentence = dict()
             sentence['sentence'] = ''

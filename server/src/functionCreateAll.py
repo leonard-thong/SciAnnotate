@@ -1,6 +1,6 @@
 
 
-from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER, annotation_file_generate
+from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER
 from labelFunctionExecutor import _function_executor
 from document import real_directory
 from os.path import join as path_join

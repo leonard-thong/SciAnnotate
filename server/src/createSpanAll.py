@@ -1,5 +1,5 @@
 import re
-from document import real_directory
+from document import real_directory, get_document
 from os.path import join as path_join
 from os.path import join as path_join
 from os.path import split as path_split
@@ -33,7 +33,8 @@ def create_span_all_text(**kwargs):
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-4] + '.ann'
-    return _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs)
+    _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs)
+    return get_document(collection, document)
 
 def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, entity_index = get_entity_index_exist_normal):
     collection = kwargs['collection']   
@@ -51,7 +52,7 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
 
     location = locations_of_substring(text,keyword)
     entities = [
-        ["T" + str(next(entity_index)), label, [(pos, pos + len(keyword))]]
+        ["F" + str(next(entity_index)), label, [(pos, pos + len(keyword))], text[pos:pos + len(keyword)]]
         for pos in location
     ]
     '''
@@ -62,21 +63,6 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
     '''
     res["entities"] = entities
     annotation_file_generate(res, ann_file_path, text, 'a')
-    cur_anns = parse_annotation_file(ann_file_path)
-    cur_entities = []
-    for cur_ann in cur_anns:
-        try:
-            if cur_ann:
-                cur_entities.append([cur_ann.id, cur_ann.type, cur_ann.spans])
-        except AttributeError:
-            pass
-    collection = kwargs['collection']
-    document = kwargs['document']
-    #merge_ann_files(collection, document)
-    res['entities'] = cur_entities
-    res = add_common_info(text, res)
-    ann_entities = merge_ann_files(collection, document)
-    res['entities'] = ann_entities
     return res
 
 def create_span_all_re(**kwargs):
@@ -89,7 +75,8 @@ def create_span_all_re(**kwargs):
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-4] + '.ann'
-    return _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs)
+    _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs)
+    return get_document(collection, document)
 
 def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
     collection = kwargs['collection']   
@@ -108,22 +95,10 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
     location = locations_of_substring(text,keyword)
     
     entities = [
-        ["T" + str(next(entity_index)), label, [(pos.start(), pos.end())]]
+        ["F" + str(next(entity_index)), label, [(pos.start(), pos.end())], text[pos:pos + len(keyword)]]
         for pos in re.finditer(keyword, text)
     ]
     
     res["entities"] = entities
     annotation_file_generate(res, ann_file_path, text, 'a')
-    cur_anns = parse_annotation_file(ann_file_path)
-    cur_entities = []
-    for cur_ann in cur_anns:
-        try:
-            if cur_ann:
-                cur_entities.append([cur_ann.id, cur_ann.type, cur_ann.spans])
-        except AttributeError:
-            pass
-    res['entities'] = cur_entities
-    res = add_common_info(text, res)
-    ann_entities = merge_ann_files(collection, document)
-    res['entities'] = ann_entities
     return res
