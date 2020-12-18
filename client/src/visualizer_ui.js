@@ -902,6 +902,9 @@ var VisualizerUI = (function ($, window, undefined) {
                                             $("#label_form_scope")
                                                 .find('input[type="radio"]')
                                                 .button();
+                                            $("#keyword_form_scope")
+                                                .find('input[type="radio"]')
+                                                .button();
                                         }
                                     );
                                 }
@@ -1051,6 +1054,9 @@ var VisualizerUI = (function ($, window, undefined) {
                                             .find('input[type="button"]')
                                             .button();
                                         $("#label_form_scope")
+                                            .find('input[type="radio"]')
+                                            .button();
+                                        $("#keyword_form_scope")
                                             .find('input[type="radio"]')
                                             .button();
                                     }
@@ -2268,7 +2274,12 @@ var VisualizerUI = (function ($, window, undefined) {
                     $("#label_form_select")
                         .find('input[type="button"]')
                         .button();
-                    $("#label_form_scope").find('input[type="radio"]').button();
+                    $("#label_form_scope")
+                        .find('input[type="radio"]')
+                        .button();
+                    $("#keyword_form_scope")
+                        .find('input[type="radio"]')
+                        .button();
                 }
             );
             dispatcher.post("showForm", [labelForm]);
@@ -2581,7 +2592,13 @@ var VisualizerUI = (function ($, window, undefined) {
                     if (args.status === 200) {
                         alert("New Document Imported !");
                         window.location =
-                            window.location.pathname + "#" + collection + fileObjs[0].name.substr(0, fileObjs[0].name.lastIndexOf('.'));
+                            window.location.pathname +
+                            "#" +
+                            collection +
+                            fileObjs[0].name.substr(
+                                0,
+                                fileObjs[0].name.lastIndexOf(".")
+                            );
                         dispatcher.post("ajax", [
                             {
                                 action: "getCollectionInformation",
