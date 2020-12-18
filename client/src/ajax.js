@@ -33,6 +33,8 @@ var Ajax = (function($, window, undefined) {
             data: data,
             type: 'POST',
             success: function(response) {
+              // WARNING: remove get_document messages
+              response.messages = [];
               pending--;
               // If no exception is set, verify the server results
               if (response.exception == undefined && response.action !== data.action) {

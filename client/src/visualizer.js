@@ -1512,6 +1512,27 @@ Util.profileStart('chunks');
             return;
           }
 
+          let entity_name = span.type.indexOf('_') === -1 ? span.type : span.type[span.type.indexOf('_') + 1];
+          if(spanDesc === undefined)
+              bgColor = '#' + hex_md5(entity_name).toString().slice(0, 6);
+          bgColor = bgColor.split('');
+          for(let i=1;i<7;i+=2) {
+            if(9 >= Number(bgColor[i]) >= 0) {
+              let numColor = Number(bgColor[i]);
+              let x = numColor % 6 + 10;
+              if(x == 7) bgColor[i] = '7';
+              else if(x == 8) bgColor[i] = '8';
+              else if(x == 9) bgColor[i] = '9';
+              else if(x == 10) bgColor[i] = 'a';
+              else if(x == 11) bgColor[i] = 'b';
+              else if(x == 12) bgColor[i] = 'c';
+              else if(x == 13) bgColor[i] = 'd';
+              else if(x == 14) bgColor[i] = 'e';
+              else if(x == 15) bgColor[i] = 'f';
+            }
+          }
+          bgColor = bgColor.join('');
+
           var f1 = span.firstFragment, f2 = span.lastFragment;
 
           var x1 = (f1.curly.from + f1.curly.to - f1.width) / 2 -
@@ -1882,6 +1903,27 @@ Util.profileStart('chunks');
                                '#000000');
                 curlyColor = Util.adjustColorLightness(bgColor, -0.6);
               }
+
+              let entity_name = span.type.indexOf('_') === -1 ? span.type : span.type[span.type.indexOf('_') + 1];
+              if(spanDesc === undefined)
+                  bgColor = '#' + hex_md5(entity_name).toString().slice(0, 6);
+              bgColor = bgColor.split('');
+              for(let i=1;i<7;i+=2) {
+                if(9 >= Number(bgColor[i]) >= 0) {
+                  let numColor = Number(bgColor[i]);
+                  let x = numColor % 6 + 10;
+                  if(x == 7) bgColor[i] = '7';
+                  else if(x == 8) bgColor[i] = '8';
+                  else if(x == 9) bgColor[i] = '9';
+                  else if(x == 10) bgColor[i] = 'a';
+                  else if(x == 11) bgColor[i] = 'b';
+                  else if(x == 12) bgColor[i] = 'c';
+                  else if(x == 13) bgColor[i] = 'd';
+                  else if(x == 14) bgColor[i] = 'e';
+                  else if(x == 15) bgColor[i] = 'f';
+                }
+              }
+              bgColor = bgColor.join('');
 
               var bottom = yy + hh + Configuration.visual.margin.y - span.floor + 1;
               svg.path(fragment.group, svg.createPath()
@@ -3046,6 +3088,26 @@ Util.profileStart('chunkFinish');
               } else if(fragment.nestingDepth == 0 && fragment.nestingHeight > 0) {
                   shrink = -1;
               }
+              let entity_name = fragment.span.type.indexOf('_') === -1 ? fragment.span.type : fragment.span.type[fragment.span.type.indexOf('_') + 1];
+              if(spanDesc === undefined)
+                  bgColor = '#' + hex_md5(entity_name).toString().slice(0, 6);
+              bgColor = bgColor.split('');
+              for(let i=1;i<7;i+=2) {
+                if(9 >= Number(bgColor[i]) >= 0) {
+                  let numColor = Number(bgColor[i]);
+                  let x = numColor % 6 + 10;
+                  if(x == 7) bgColor[i] = '7';
+                  else if(x == 8) bgColor[i] = '8';
+                  else if(x == 9) bgColor[i] = '9';
+                  else if(x == 10) bgColor[i] = 'a';
+                  else if(x == 11) bgColor[i] = 'b';
+                  else if(x == 12) bgColor[i] = 'c';
+                  else if(x == 13) bgColor[i] = 'd';
+                  else if(x == 14) bgColor[i] = 'e';
+                  else if(x == 15) bgColor[i] = 'f';
+                }
+              }
+              bgColor = bgColor.join('');
               var yShrink = shrink * nestingAdjustYStepSize;
               var xShrink = shrink * nestingAdjustXStepSize;
               // bit lighter
@@ -3258,6 +3320,26 @@ Util.profileStart('before render');
                          '#ffffff');
           if (span.hidden) return;
           highlight = [];
+          let entity_name = span.type.indexOf('_') === -1 ? span.type : span.type[span.type.indexOf('_') + 1];
+          if(spanDesc === undefined)
+              bgColor = '#' + hex_md5(entity_name).toString().slice(0, 6);
+          bgColor = bgColor.split('');
+          for(let i=1;i<7;i+=2) {
+            if(9 >= Number(bgColor[i]) >= 0) {
+              let numColor = Number(bgColor[i]);
+              let x = numColor % 6 + 10;
+              if(x == 7) bgColor[i] = '7';
+              else if(x == 8) bgColor[i] = '8';
+              else if(x == 9) bgColor[i] = '9';
+              else if(x == 10) bgColor[i] = 'a';
+              else if(x == 11) bgColor[i] = 'b';
+              else if(x == 12) bgColor[i] = 'c';
+              else if(x == 13) bgColor[i] = 'd';
+              else if(x == 14) bgColor[i] = 'e';
+              else if(x == 15) bgColor[i] = 'f';
+            }
+          }
+            bgColor = bgColor.join('');
           $.each(span.fragments, function(fragmentNo, fragment) {
             highlight.push(svg.rect(highlightGroup,
                                  fragment.highlightPos.x, fragment.highlightPos.y,
