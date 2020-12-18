@@ -664,7 +664,9 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
-                        let scopes = $("#keyword_form_scope input:radio:checked")
+                        let scopes = $(
+                            "#keyword_form_scope input:radio:checked"
+                        )
                             .map(function () {
                                 return $(this).val();
                             })
@@ -1116,7 +1118,22 @@ var VisualizerUI = (function ($, window, undefined) {
                 buttons.push({
                     id: formId + "-delete-document",
                     text: "Delete",
-                    click: function () {},
+                    click: function () {
+                        // create new document
+                        let collection = $("#collection_input").val();
+                        let document = "";
+                        $("#document_select tbody tr").each(function () {
+                            if ($(this).hasClass("selected"))
+                                document = $(this).context.dataset["doc"];
+                        });
+
+                        $.post("ajax.cgi", {
+                            protocol: 1,
+                            action: "deleteDocument",
+                            collection: collection,
+                            document: document,
+                        });
+                    },
                 });
             }
             /* STOP creating document related */
