@@ -148,7 +148,7 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
     location = locations_of_substring(text,keyword)
     
     entities = [
-        ["F" + str(next(entity_index)), label, [(pos.start(), pos.end())], text[pos:pos + len(keyword)]]
+        ["F" + str(next(entity_index)), label, [(pos.start(), pos.end())], text[pos.start():pos.end()]]
         for pos in re.finditer(keyword, text)
     ]
     
