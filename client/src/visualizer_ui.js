@@ -1129,7 +1129,7 @@ var VisualizerUI = (function ($, window, undefined) {
 
                         $.post("ajax.cgi", {
                             protocol: 1,
-                            action: "deleteDocument",
+                            action: "deleteNewDocument",
                             collection: collection,
                             document: document,
                         });
