@@ -664,6 +664,12 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
+                        let scopes = $("#label_form_scope input:radio:checked")
+                            .map(function () {
+                                return $(this).val();
+                            })
+                            .get();
+                            
                         if (option[0] === "text") {
                             $.post(
                                 "ajax.cgi",
@@ -673,6 +679,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                     collection: collection,
                                     document: document,
                                     keyword: keyword,
+                                    scope: scopes,
                                     label: label,
                                 },
                                 function (result) {
@@ -2274,9 +2281,7 @@ var VisualizerUI = (function ($, window, undefined) {
                     $("#label_form_select")
                         .find('input[type="button"]')
                         .button();
-                    $("#label_form_scope")
-                        .find('input[type="radio"]')
-                        .button();
+                    $("#label_form_scope").find('input[type="radio"]').button();
                     $("#keyword_form_scope")
                         .find('input[type="radio"]')
                         .button();
