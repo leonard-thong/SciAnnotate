@@ -165,32 +165,3 @@ R62	Apparatus_Of Arg1:T82 Arg2:E15
 R63	Number_Of Arg1:T35 Arg2:T64	
 R64	Condition_Of Arg1:T64 Arg2:E15	
 R65	Descriptor_Of Arg1:T84 Arg2:T51	
-F1	executor1_Type 102 104	in
-F2	executor1_Type 423 425	in
-F3	executor1_Type 561 563	in
-F4	executor1_Type 565 567	in
-F5	executor1_Type 823 825	in
-F6	executor1_Type 829 831	in
-F7	executor1_Type 941 943	in
-F8	executor1_Type 1077 1079	in
-F9	executor1_Type 1109 1111	in
-F10	executor1_NoneType 94 97	for
-F11	executor1_NoneType 1063 1066	for
-F12	in_label_2 102 104	in
-F13	in_label_2 423 425	in
-F14	in_label_2 561 563	in
-F15	in_label_2 565 567	in
-F16	in_label_2 823 825	in
-F17	in_label_2 829 831	in
-F18	in_label_2 941 943	in
-F19	in_label_2 1077 1079	in
-F20	in_label_2 1109 1111	in
-F21	in_label_2 102 104	in
-F22	in_label_2 423 425	in
-F23	in_label_2 561 563	in
-F24	in_label_2 565 567	in
-F25	in_label_2 823 825	in
-F26	in_label_2 829 831	in
-F27	in_label_2 941 943	in
-F28	in_label_2 1077 1079	in
-F29	in_label_2 1109 1111	in

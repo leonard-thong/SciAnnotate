@@ -306,7 +306,3 @@ T159	punc 819 820	?
 R147	PUNC Arg1:T158 Arg2:T157
 R148	PUNC Arg1:T156 Arg2:T158
 R149	PUNC Arg1:T158 Arg2:T159
-F1	executor1_Type 356 358	in
-F2	executor1_Type 625 627	in
-F3	in_label_2 356 358	in
-F4	in_label_2 625 627	in

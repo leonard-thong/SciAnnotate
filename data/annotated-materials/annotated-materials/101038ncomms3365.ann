@@ -75,33 +75,3 @@ R24	Number_Of Arg1:T38 Arg2:T39
 R25	Condition_Of Arg1:T39 Arg2:E6	
 R26	Descriptor_Of Arg1:T41 Arg2:T40	
 R27	Apparatus_Of Arg1:T40 Arg2:E6	
-F1	executor1_Type 30 32	in
-F2	executor1_Type 124 126	in
-F3	executor1_Type 178 180	in
-F4	executor1_Type 285 287	in
-F5	executor1_Type 352 354	in
-F6	executor1_Type 378 380	in
-F7	executor1_Type 409 411	in
-F8	executor1_Type 499 501	in
-F9	executor1_Type 509 511	in
-F10	executor1_NoneType 79 82	for
-F11	executor1_NoneType 248 251	for
-F12	executor1_NoneType 490 493	for
-F13	in_label_2 30 32	in
-F14	in_label_2 124 126	in
-F15	in_label_2 178 180	in
-F16	in_label_2 285 287	in
-F17	in_label_2 352 354	in
-F18	in_label_2 378 380	in
-F19	in_label_2 409 411	in
-F20	in_label_2 499 501	in
-F21	in_label_2 509 511	in
-F22	in_label_2 30 32	in
-F23	in_label_2 124 126	in
-F24	in_label_2 178 180	in
-F25	in_label_2 285 287	in
-F26	in_label_2 352 354	in
-F27	in_label_2 378 380	in
-F28	in_label_2 409 411	in
-F29	in_label_2 499 501	in
-F30	in_label_2 509 511	in

@@ -81,38 +81,3 @@ R20	Number_Of Arg1:T38 Arg2:T37
 R21	Condition_Of Arg1:T37 Arg2:E8	
 R22	Number_Of Arg1:T40 Arg2:T41	
 R23	Apparatus_Of Arg1:T42 Arg2:E9	
-F1	executor1_Type 146 148	in
-F2	executor1_Type 162 164	in
-F3	executor1_Type 236 238	in
-F4	executor1_Type 277 279	in
-F5	executor1_Type 328 330	in
-F6	executor1_Type 483 485	in
-F7	executor1_Type 504 506	in
-F8	executor1_Type 529 531	in
-F9	executor1_Type 647 649	in
-F10	executor1_Type 736 738	in
-F11	executor1_NoneType 88 91	for
-F12	executor1_NoneType 351 354	for
-F13	executor1_NoneType 538 541	for
-F14	executor1_NoneType 563 566	for
-F15	executor1_NoneType 599 602	for
-F16	in_label_2 146 148	in
-F17	in_label_2 162 164	in
-F18	in_label_2 236 238	in
-F19	in_label_2 277 279	in
-F20	in_label_2 328 330	in
-F21	in_label_2 483 485	in
-F22	in_label_2 504 506	in
-F23	in_label_2 529 531	in
-F24	in_label_2 647 649	in
-F25	in_label_2 736 738	in
-F26	in_label_2 146 148	in
-F27	in_label_2 162 164	in
-F28	in_label_2 236 238	in
-F29	in_label_2 277 279	in
-F30	in_label_2 328 330	in
-F31	in_label_2 483 485	in
-F32	in_label_2 504 506	in
-F33	in_label_2 529 531	in
-F34	in_label_2 647 649	in
-F35	in_label_2 736 738	in

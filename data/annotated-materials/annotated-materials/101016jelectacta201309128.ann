@@ -163,32 +163,3 @@ R52	Number_Of Arg1:T57 Arg2:T74
 R53	Number_Of Arg1:T58 Arg2:T75	
 R54	Brand_Of Arg1:T83 Arg2:T21	
 R55	Brand_Of Arg1:T81 Arg2:T20	
-F1	executor1_Type 272 274	in
-F2	executor1_Type 523 525	in
-F3	executor1_Type 564 566	in
-F4	executor1_Type 625 627	in
-F5	executor1_Type 758 760	in
-F6	executor1_Type 1001 1003	in
-F7	executor1_Type 1137 1139	in
-F8	executor1_Type 1222 1224	in
-F9	executor1_NoneType 90 93	for
-F10	executor1_NoneType 617 620	for
-F11	executor1_NoneType 861 864	for
-F12	executor1_NoneType 1176 1179	for
-F13	executor1_NoneType 1239 1242	for
-F14	in_label_2 272 274	in
-F15	in_label_2 523 525	in
-F16	in_label_2 564 566	in
-F17	in_label_2 625 627	in
-F18	in_label_2 758 760	in
-F19	in_label_2 1001 1003	in
-F20	in_label_2 1137 1139	in
-F21	in_label_2 1222 1224	in
-F22	in_label_2 272 274	in
-F23	in_label_2 523 525	in
-F24	in_label_2 564 566	in
-F25	in_label_2 625 627	in
-F26	in_label_2 758 760	in
-F27	in_label_2 1001 1003	in
-F28	in_label_2 1137 1139	in
-F29	in_label_2 1222 1224	in

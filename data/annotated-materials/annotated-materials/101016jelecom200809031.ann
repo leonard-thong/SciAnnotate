@@ -163,37 +163,3 @@ R60	Type_Of Arg1:T72 Arg2:T71
 R61	Property_Of Arg1:T71 Arg2:T82	
 R62	Descriptor_Of Arg1:T86 Arg2:T53	
 R63	Descriptor_Of Arg1:T86 Arg2:T52	
-F1	executor1_Type 37 39	in
-F2	executor1_Type 78 80	in
-F3	executor1_Type 99 101	in
-F4	executor1_Type 388 390	in
-F5	executor1_Type 405 407	in
-F6	executor1_Type 568 570	in
-F7	executor1_Type 604 606	in
-F8	executor1_Type 681 683	in
-F9	executor1_Type 1014 1016	in
-F10	executor1_Type 1042 1044	in
-F11	executor1_Type 1146 1148	in
-F12	executor1_NoneType 809 812	for
-F13	in_label_2 37 39	in
-F14	in_label_2 78 80	in
-F15	in_label_2 99 101	in
-F16	in_label_2 388 390	in
-F17	in_label_2 405 407	in
-F18	in_label_2 568 570	in
-F19	in_label_2 604 606	in
-F20	in_label_2 681 683	in
-F21	in_label_2 1014 1016	in
-F22	in_label_2 1042 1044	in
-F23	in_label_2 1146 1148	in
-F24	in_label_2 37 39	in
-F25	in_label_2 78 80	in
-F26	in_label_2 99 101	in
-F27	in_label_2 388 390	in
-F28	in_label_2 405 407	in
-F29	in_label_2 568 570	in
-F30	in_label_2 604 606	in
-F31	in_label_2 681 683	in
-F32	in_label_2 1014 1016	in
-F33	in_label_2 1042 1044	in
-F34	in_label_2 1146 1148	in

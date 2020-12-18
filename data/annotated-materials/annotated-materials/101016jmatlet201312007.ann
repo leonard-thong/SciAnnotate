@@ -146,33 +146,3 @@ R55	Condition_Of Arg1:T73 Arg2:E12
 R56	Condition_Of Arg1:T74 Arg2:E12	
 R57	Number_Of Arg1:T37 Arg2:T75	
 R58	Number_Of Arg1:T38 Arg2:T76	
-F1	executor1_Type 219 221	in
-F2	executor1_Type 274 276	in
-F3	executor1_Type 308 310	in
-F4	executor1_Type 624 626	in
-F5	executor1_Type 826 828	in
-F6	executor1_Type 854 856	in
-F7	executor1_Type 988 990	in
-F8	executor1_Type 1167 1169	in
-F9	executor1_Type 1195 1197	in
-F10	executor1_NoneType 349 352	for
-F11	executor1_NoneType 497 500	for
-F12	executor1_NoneType 774 777	for
-F13	in_label_2 219 221	in
-F14	in_label_2 274 276	in
-F15	in_label_2 308 310	in
-F16	in_label_2 624 626	in
-F17	in_label_2 826 828	in
-F18	in_label_2 854 856	in
-F19	in_label_2 988 990	in
-F20	in_label_2 1167 1169	in
-F21	in_label_2 1195 1197	in
-F22	in_label_2 219 221	in
-F23	in_label_2 274 276	in
-F24	in_label_2 308 310	in
-F25	in_label_2 624 626	in
-F26	in_label_2 826 828	in
-F27	in_label_2 854 856	in
-F28	in_label_2 988 990	in
-F29	in_label_2 1167 1169	in
-F30	in_label_2 1195 1197	in

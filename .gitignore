@@ -10,6 +10,7 @@ config.py
 work/
 .vscode
 data/Local
+data copy/
 data/visualConfigs
 model-deploy-template/venv
 model-deploy-template/Laptop

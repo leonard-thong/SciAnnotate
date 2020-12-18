@@ -440,15 +440,3 @@ R213	STA Arg1:T211 Arg2:T223
 R214	_gt_N Arg1:T225 Arg2:T224
 R215	SUBJ Arg1:T223 Arg2:T225
 R216	PUNC Arg1:T223 Arg2:T226
-F1	executor1_Type 35 37	in
-F2	executor1_Type 158 160	in
-F3	executor1_Type 200 202	in
-F4	executor1_Type 415 417	in
-F5	executor1_Type 491 493	in
-F6	executor1_Type 674 676	in
-F7	in_label_2 35 37	in
-F8	in_label_2 158 160	in
-F9	in_label_2 200 202	in
-F10	in_label_2 415 417	in
-F11	in_label_2 491 493	in
-F12	in_label_2 674 676	in

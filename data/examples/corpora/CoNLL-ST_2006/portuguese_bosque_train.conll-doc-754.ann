@@ -444,20 +444,3 @@ R215	N_lt_PRED Arg1:T220 Arg2:T225
 R216	_gt_N Arg1:T227 Arg2:T226
 R217	SUBJ Arg1:T225 Arg2:T227
 R218	PUNC Arg1:T202 Arg2:T228
-F1	executor1_Type 126 128	in
-F2	executor1_Type 189 191	in
-F3	executor1_Type 214 216	in
-F4	executor1_Type 254 256	in
-F5	executor1_Type 301 303	in
-F6	executor1_Type 408 410	in
-F7	executor1_Type 515 517	in
-F8	executor1_Type 668 670	in
-F9	executor1_NoneType 333 336	for
-F10	in_label_2 126 128	in
-F11	in_label_2 189 191	in
-F12	in_label_2 214 216	in
-F13	in_label_2 254 256	in
-F14	in_label_2 301 303	in
-F15	in_label_2 408 410	in
-F16	in_label_2 515 517	in
-F17	in_label_2 668 670	in

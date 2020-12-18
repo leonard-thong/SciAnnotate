@@ -96,23 +96,3 @@ R35	Number_Of Arg1:T41 Arg2:T43
 R36	Number_Of Arg1:T42 Arg2:T43	
 R37	Brand_Of Arg1:T12 Arg2:T10	
 R38	Brand_Of Arg1:T49 Arg2:T16	
-F1	executor1_Type 310 312	in
-F2	executor1_Type 312 314	in
-F3	executor1_Type 526 528	in
-F4	executor1_Type 560 562	in
-F5	executor1_Type 600 602	in
-F6	executor1_Type 778 780	in
-F7	executor1_NoneType 504 507	for
-F8	executor1_NoneType 540 543	for
-F9	in_label_2 310 312	in
-F10	in_label_2 312 314	in
-F11	in_label_2 526 528	in
-F12	in_label_2 560 562	in
-F13	in_label_2 600 602	in
-F14	in_label_2 778 780	in
-F15	in_label_2 310 312	in
-F16	in_label_2 312 314	in
-F17	in_label_2 526 528	in
-F18	in_label_2 560 562	in
-F19	in_label_2 600 602	in
-F20	in_label_2 778 780	in

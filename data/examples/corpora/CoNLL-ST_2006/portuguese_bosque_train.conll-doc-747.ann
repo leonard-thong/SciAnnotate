@@ -296,12 +296,3 @@ R141	A_lt_ Arg1:T150 Arg2:T151
 R142	_gt_N Arg1:T153 Arg2:T152
 R143	P_lt_ Arg1:T151 Arg2:T153
 R144	PUNC Arg1:T141 Arg2:T154
-F1	executor1_Type 79 81	in
-F2	executor1_Type 147 149	in
-F3	executor1_Type 206 208	in
-F4	executor1_Type 550 552	in
-F5	executor1_NoneType 282 285	for
-F6	in_label_2 79 81	in
-F7	in_label_2 147 149	in
-F8	in_label_2 206 208	in
-F9	in_label_2 550 552	in
