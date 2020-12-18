@@ -41,7 +41,7 @@ from dynamicLabeling import add_labeling_function, delete_labeling_function, get
 from newDocument import create_new_document, import_new_document
 from createSpanAll import create_span_all_text, create_span_all_re
 from utils import GLOBAL_LOGGER, fetch_all_annotations, prehandle_data
-from deleteDocument import delete_new_document
+from deleteNewDocument import delete_new_document
 # no-op function that can be invoked by client to log a user action
 
 
