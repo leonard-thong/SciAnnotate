@@ -669,7 +669,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                 return $(this).val();
                             })
                             .get();
-                            
+
                         if (option[0] === "text") {
                             $.post(
                                 "ajax.cgi",
@@ -716,6 +716,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                         collection: collection,
                                         document: document,
                                         keyword: keyword,
+                                        scope: scopes,
                                         label: label,
                                     },
                                     function (result) {
