@@ -766,6 +766,7 @@ class Annotations(object):
             and not isinstance(d, EquivAnnotation)
             and not isinstance(d, OnelineCommentAnnotation)
             and not isinstance(d, NormalizationAnnotation)
+            and not isinstance(d, BinaryRelationAnnotation)
         ))):
 
             for d in ann_deps:
@@ -791,6 +792,11 @@ class Annotations(object):
                     if tracker is not None:
                         tracker.deletion(d)
                 elif isinstance(d, NormalizationAnnotation):
+                    # Nothing should be able to reference normalizations
+                    self._atomic_del_annotation(d)
+                    if tracker is not None:
+                        tracker.deletion(d)
+                elif isinstance(d, BinaryRelationAnnotation):
                     # Nothing should be able to reference normalizations
                     self._atomic_del_annotation(d)
                     if tracker is not None:
