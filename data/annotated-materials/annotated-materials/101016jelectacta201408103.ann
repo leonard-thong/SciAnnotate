@@ -112,3 +112,20 @@ R41	Number_Of Arg1:T33 Arg2:T34
 R42	Number_Of Arg1:T35 Arg2:T36	
 R43	Brand_Of Arg1:T16 Arg2:T15	
 R44	Apparatus_Attr_Of Arg1:T18 Arg2:T15	
+F1	executor1_Type 248 250	in
+F2	executor1_Type 376 378	in
+F3	executor1_Type 424 426	in
+F4	executor1_Type 476 478	in
+F5	executor1_Type 535 537	in
+F6	executor1_Type 592 594	in
+F7	executor1_Type 780 782	in
+F8	executor1_Type 836 838	in
+F9	executor1_Type 916 918	in
+F10	executor1_Type 996 998	in
+F11	executor1_Type 1055 1057	in
+F12	executor1_NoneType 100 103	for
+F13	executor1_NoneType 116 119	for
+F14	executor1_NoneType 140 143	for
+F15	executor1_NoneType 325 328	for
+F16	executor1_NoneType 769 772	for
+F17	executor1_NoneType 908 911	for

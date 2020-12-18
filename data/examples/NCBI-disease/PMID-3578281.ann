@@ -30,3 +30,25 @@ T15	Disease 956 972	hypopigmentation
 A15	Category T15 DiseaseClass
 T16	Disease 1064 1080	hypopigmentation
 A16	Category T16 DiseaseClass
+F1	executor1_Type 17 19	in
+F2	executor1_Type 96 98	in
+F3	executor1_Type 102 104	in
+F4	executor1_Type 185 187	in
+F5	executor1_Type 225 227	in
+F6	executor1_Type 245 247	in
+F7	executor1_Type 253 255	in
+F8	executor1_Type 321 323	in
+F9	executor1_Type 380 382	in
+F10	executor1_Type 470 472	in
+F11	executor1_Type 575 577	in
+F12	executor1_Type 578 580	in
+F13	executor1_Type 662 664	in
+F14	executor1_Type 716 718	in
+F15	executor1_Type 725 727	in
+F16	executor1_Type 755 757	in
+F17	executor1_Type 762 764	in
+F18	executor1_Type 891 893	in
+F19	executor1_Type 922 924	in
+F20	executor1_NoneType 164 167	for
+F21	executor1_NoneType 625 628	for
+F22	executor1_NoneType 1056 1059	for

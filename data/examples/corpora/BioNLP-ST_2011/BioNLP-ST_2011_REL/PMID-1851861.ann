@@ -16,3 +16,39 @@ T15	Entity 1347 1363	NF kappa B sites
 T16	Entity 1347 1357	NF kappa B
 T17	Entity 1371 1383	HIV promoter
 T18	Entity 1464 1476	HIV promoter
+F1	executor1_Type 96 98	in
+F2	executor1_Type 112 114	in
+F3	executor1_Type 177 179	in
+F4	executor1_Type 331 333	in
+F5	executor1_Type 338 340	in
+F6	executor1_Type 377 379	in
+F7	executor1_Type 449 451	in
+F8	executor1_Type 567 569	in
+F9	executor1_Type 637 639	in
+F10	executor1_Type 668 670	in
+F11	executor1_Type 695 697	in
+F12	executor1_Type 726 728	in
+F13	executor1_Type 729 731	in
+F14	executor1_Type 766 768	in
+F15	executor1_Type 811 813	in
+F16	executor1_Type 813 815	in
+F17	executor1_Type 877 879	in
+F18	executor1_Type 963 965	in
+F19	executor1_Type 1138 1140	in
+F20	executor1_Type 1140 1142	in
+F21	executor1_Type 1155 1157	in
+F22	executor1_Type 1247 1249	in
+F23	executor1_Type 1261 1263	in
+F24	executor1_Type 1329 1331	in
+F25	executor1_Type 1425 1427	in
+F26	executor1_Type 1439 1441	in
+F27	executor1_Type 1453 1455	in
+F28	executor1_Type 1460 1462	in
+F29	executor1_Type 1486 1488	in
+F30	executor1_Type 1535 1537	in
+F31	executor1_Type 1565 1567	in
+F32	executor1_Type 1575 1577	in
+F33	executor1_Type 1584 1586	in
+F34	executor1_Type 1614 1616	in
+F35	executor1_NoneType 423 426	for
+F36	executor1_NoneType 1398 1401	for

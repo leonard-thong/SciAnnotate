@@ -1446,3 +1446,44 @@ R234	comparator Arg1:T238 Arg2:T237
 R235	compar Arg1:T236 Arg2:T238
 R236	nsubj-cop Arg1:T230 Arg2:T227
 R237	acomp Arg1:T235 Arg2:T236
+F1	executor1_Type 11 13	in
+F2	executor1_Type 103 105	in
+F3	executor1_Type 170 172	in
+F4	executor1_Type 214 216	in
+F5	executor1_Type 295 297	in
+F6	executor1_Type 374 376	in
+F7	executor1_Type 377 379	in
+F8	executor1_Type 402 404	in
+F9	executor1_Type 414 416	in
+F10	executor1_Type 460 462	in
+F11	executor1_Type 495 497	in
+F12	executor1_Type 532 534	in
+F13	executor1_Type 569 571	in
+F14	executor1_Type 601 603	in
+F15	executor1_Type 604 606	in
+F16	executor1_Type 678 680	in
+F17	executor1_Type 828 830	in
+F18	executor1_Type 891 893	in
+F19	executor1_Type 914 916	in
+F20	executor1_Type 1003 1005	in
+F21	executor1_Type 1048 1050	in
+F22	executor1_Type 1053 1055	in
+F23	executor1_Type 1076 1078	in
+F24	executor1_Type 1088 1090	in
+F25	executor1_Type 1161 1163	in
+F26	executor1_Type 1194 1196	in
+F27	executor1_Type 1227 1229	in
+F28	executor1_Type 1247 1249	in
+F29	executor1_Type 1326 1328	in
+F30	executor1_Type 1329 1331	in
+F31	executor1_Type 1378 1380	in
+F32	executor1_Type 1415 1417	in
+F33	executor1_Type 1496 1498	in
+F34	executor1_Type 1506 1508	in
+F35	executor1_Type 1598 1600	in
+F36	executor1_Type 1632 1634	in
+F37	executor1_Type 1653 1655	in
+F38	executor1_Type 1681 1683	in
+F39	executor1_Type 1708 1710	in
+F40	executor1_Type 1727 1729	in
+F41	executor1_Type 1794 1796	in

@@ -195,3 +195,16 @@ R64	Condition_Of Arg1:T94 Arg2:E12
 R65	Property_Of Arg1:T96 Arg2:T95	
 R66	Descriptor_Of Arg1:T100 Arg2:T99	
 R67	Brand_Of Arg1:T104 Arg2:T109	
+F1	executor1_Type 123 125	in
+F2	executor1_Type 229 231	in
+F3	executor1_Type 487 489	in
+F4	executor1_Type 609 611	in
+F5	executor1_Type 723 725	in
+F6	executor1_Type 786 788	in
+F7	executor1_Type 1144 1146	in
+F8	executor1_Type 1442 1444	in
+F9	executor1_Type 1500 1502	in
+F10	executor1_NoneType 34 37	for
+F11	executor1_NoneType 759 762	for
+F12	executor1_NoneType 1042 1045	for
+F13	executor1_NoneType 1216 1219	for

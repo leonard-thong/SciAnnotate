@@ -614,3 +614,12 @@ R300	ACC Arg1:T307 Arg2:T310
 R301	MV Arg1:T310 Arg2:T311
 R302	ADVL Arg1:T311 Arg2:T312
 R303	PUNC Arg1:T307 Arg2:T313
+F1	executor1_Type 273 275	in
+F2	executor1_Type 623 625	in
+F3	executor1_Type 693 695	in
+F4	executor1_Type 1169 1171	in
+F5	executor1_Type 1191 1193	in
+F6	executor1_Type 1494 1496	in
+F7	executor1_Type 1541 1543	in
+F8	executor1_NoneType 529 532	for
+F9	executor1_NoneType 1677 1680	for

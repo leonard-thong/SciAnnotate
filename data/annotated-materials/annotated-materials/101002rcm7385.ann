@@ -254,3 +254,21 @@ R92	Descriptor_Of Arg1:T133 Arg2:T79
 R93	Number_Of Arg1:T47 Arg2:T99	
 R94	Type_Of Arg1:T100 Arg2:T99	
 R95	Property_Of Arg1:T99 Arg2:T80	
+F1	executor1_Type 112 114	in
+F2	executor1_Type 172 174	in
+F3	executor1_Type 446 448	in
+F4	executor1_Type 760 762	in
+F5	executor1_Type 801 803	in
+F6	executor1_Type 919 921	in
+F7	executor1_Type 967 969	in
+F8	executor1_Type 1066 1068	in
+F9	executor1_Type 1093 1095	in
+F10	executor1_Type 1306 1308	in
+F11	executor1_Type 1358 1360	in
+F12	executor1_Type 1420 1422	in
+F13	executor1_Type 1472 1474	in
+F14	executor1_Type 1479 1481	in
+F15	executor1_Type 1559 1561	in
+F16	executor1_Type 1892 1894	in
+F17	executor1_NoneType 214 217	for
+F18	executor1_NoneType 1735 1738	for

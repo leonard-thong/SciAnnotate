@@ -290,3 +290,6 @@ R138	_gt_N Arg1:T149 Arg2:T148
 R139	P_lt_ Arg1:T147 Arg2:T149
 R140	PUNC Arg1:T137 Arg2:T150
 R141	PUNC Arg1:T137 Arg2:T151
+F1	executor1_Type 553 555	in
+F2	executor1_Type 623 625	in
+F3	executor1_NoneType 71 74	for

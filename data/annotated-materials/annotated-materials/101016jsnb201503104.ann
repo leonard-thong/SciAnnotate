@@ -93,3 +93,19 @@ R37	Apparatus_Attr_Of Arg1:T42 Arg2:T15
 R38	Number_Of Arg1:T44 Arg2:T45	
 R39	Number_Of Arg1:T46 Arg2:T47	
 R40	Number_Of Arg1:T48 Arg2:T49	
+F1	executor1_Type 192 194	in
+F2	executor1_Type 312 314	in
+F3	executor1_Type 377 379	in
+F4	executor1_Type 396 398	in
+F5	executor1_Type 419 421	in
+F6	executor1_Type 438 440	in
+F7	executor1_Type 446 448	in
+F8	executor1_Type 569 571	in
+F9	executor1_Type 629 631	in
+F10	executor1_Type 634 636	in
+F11	executor1_Type 956 958	in
+F12	executor1_Type 1274 1276	in
+F13	executor1_NoneType 52 55	for
+F14	executor1_NoneType 369 372	for
+F15	executor1_NoneType 489 492	for
+F16	executor1_NoneType 806 809	for

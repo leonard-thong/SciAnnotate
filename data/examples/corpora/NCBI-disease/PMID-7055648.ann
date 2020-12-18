@@ -14,3 +14,22 @@ T7	Disease 1343 1348	CNSHA
 A7	Category T7 SpecificDisease
 T8	Disease 1515 1533	deficiency of G6PD
 A8	Category T8 SpecificDisease
+F1	executor1_Type 130 132	in
+F2	executor1_Type 158 160	in
+F3	executor1_Type 240 242	in
+F4	executor1_Type 320 322	in
+F5	executor1_Type 420 422	in
+F6	executor1_Type 448 450	in
+F7	executor1_Type 486 488	in
+F8	executor1_Type 536 538	in
+F9	executor1_Type 572 574	in
+F10	executor1_Type 620 622	in
+F11	executor1_Type 776 778	in
+F12	executor1_Type 1037 1039	in
+F13	executor1_Type 1161 1163	in
+F14	executor1_Type 1256 1258	in
+F15	executor1_Type 1421 1423	in
+F16	executor1_Type 1534 1536	in
+F17	executor1_Type 1571 1573	in
+F18	executor1_NoneType 782 785	for
+F19	executor1_NoneType 1500 1503	for

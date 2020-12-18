@@ -104,3 +104,19 @@ R34	Number_Of Arg1:T48 Arg2:T49
 R35	Number_Of Arg1:T51 Arg2:T52	
 R36	Number_Of Arg1:T53 Arg2:T54	
 R37	Number_Of Arg1:T56 Arg2:T57	
+F1	executor1_Type 49 51	in
+F2	executor1_Type 51 53	in
+F3	executor1_Type 244 246	in
+F4	executor1_Type 356 358	in
+F5	executor1_Type 409 411	in
+F6	executor1_Type 460 462	in
+F7	executor1_Type 576 578	in
+F8	executor1_Type 617 619	in
+F9	executor1_Type 714 716	in
+F10	executor1_Type 722 724	in
+F11	executor1_Type 887 889	in
+F12	executor1_Type 965 967	in
+F13	executor1_Type 973 975	in
+F14	executor1_Type 999 1001	in
+F15	executor1_NoneType 213 216	for
+F16	executor1_NoneType 763 766	for

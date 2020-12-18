@@ -3,3 +3,35 @@ T2	Protein 1158 1192	interleukin-2 receptor alpha chain
 T3	Entity 92 121	T cell interleukin-2 receptor
 T4	Entity 1037 1050	NADPH oxidase
 T5	Entity 1285 1320	nuclear transcription factor-kappaB
+F1	executor1_Type 11 13	in
+F2	executor1_Type 15 17	in
+F3	executor1_Type 38 40	in
+F4	executor1_Type 99 101	in
+F5	executor1_Type 108 110	in
+F6	executor1_Type 136 138	in
+F7	executor1_Type 143 145	in
+F8	executor1_Type 147 149	in
+F9	executor1_Type 162 164	in
+F10	executor1_Type 166 168	in
+F11	executor1_Type 196 198	in
+F12	executor1_Type 277 279	in
+F13	executor1_Type 350 352	in
+F14	executor1_Type 370 372	in
+F15	executor1_Type 374 376	in
+F16	executor1_Type 437 439	in
+F17	executor1_Type 576 578	in
+F18	executor1_Type 610 612	in
+F19	executor1_Type 808 810	in
+F20	executor1_Type 847 849	in
+F21	executor1_Type 918 920	in
+F22	executor1_Type 947 949	in
+F23	executor1_Type 988 990	in
+F24	executor1_Type 1133 1135	in
+F25	executor1_Type 1158 1160	in
+F26	executor1_Type 1167 1169	in
+F27	executor1_Type 1190 1192	in
+F28	executor1_Type 1199 1201	in
+F29	executor1_Type 1260 1262	in
+F30	executor1_Type 1400 1402	in
+F31	executor1_Type 1449 1451	in
+F32	executor1_Type 1467 1469	in

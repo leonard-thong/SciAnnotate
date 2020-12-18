@@ -19,3 +19,17 @@ T13	Protein 626 631	c-Rel
 R2	Part-of Arg1:T13 Arg2:T12	
 T14	Binding 583 588	binds
 E2	Binding:T14 Theme:T9 Theme2:T10 Theme3:T11
+F1	executor1_Type 109 111	in
+F2	executor1_Type 292 294	in
+F3	executor1_Type 343 345	in
+F4	executor1_Type 438 440	in
+F5	executor1_Type 530 532	in
+F6	executor1_Type 584 586	in
+F7	executor1_Type 677 679	in
+F8	executor1_Type 710 712	in
+F9	executor1_Type 720 722	in
+F10	executor1_Type 745 747	in
+F11	executor1_Type 761 763	in
+F12	executor1_Type 803 805	in
+F13	executor1_NoneType 663 666	for
+F14	executor1_NoneType 737 740	for

@@ -184,3 +184,23 @@ R66	Coref_Of Arg1:T87 Arg2:T86
 R67	Property_Of Arg1:T89 Arg2:T88	
 R68	Coref_Of Arg1:T90 Arg2:T88	
 R69	Condition_Of Arg1:T91 Arg2:E21	
+F1	executor1_Type 273 275	in
+F2	executor1_Type 321 323	in
+F3	executor1_Type 381 383	in
+F4	executor1_Type 426 428	in
+F5	executor1_Type 457 459	in
+F6	executor1_Type 594 596	in
+F7	executor1_Type 605 607	in
+F8	executor1_Type 660 662	in
+F9	executor1_Type 718 720	in
+F10	executor1_Type 733 735	in
+F11	executor1_Type 747 749	in
+F12	executor1_Type 878 880	in
+F13	executor1_Type 1009 1011	in
+F14	executor1_Type 1018 1020	in
+F15	executor1_NoneType 128 131	for
+F16	executor1_NoneType 140 143	for
+F17	executor1_NoneType 419 422	for
+F18	executor1_NoneType 598 601	for
+F19	executor1_NoneType 724 727	for
+F20	executor1_NoneType 972 975	for

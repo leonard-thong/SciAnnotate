@@ -200,3 +200,25 @@ R78	Number_Of Arg1:T65 Arg2:T78
 R79	Number_Of Arg1:T66 Arg2:T79	
 R80	Brand_Of Arg1:T80 Arg2:T3	
 R81	Brand_Of Arg1:T81 Arg2:T6	
+F1	executor1_Type 78 80	in
+F2	executor1_Type 154 156	in
+F3	executor1_Type 430 432	in
+F4	executor1_Type 482 484	in
+F5	executor1_Type 529 531	in
+F6	executor1_Type 553 555	in
+F7	executor1_Type 638 640	in
+F8	executor1_Type 680 682	in
+F9	executor1_Type 757 759	in
+F10	executor1_Type 945 947	in
+F11	executor1_Type 1067 1069	in
+F12	executor1_Type 1109 1111	in
+F13	executor1_Type 1158 1160	in
+F14	executor1_Type 1216 1218	in
+F15	executor1_Type 1273 1275	in
+F16	executor1_Type 1382 1384	in
+F17	executor1_Type 1394 1396	in
+F18	executor1_Type 1481 1483	in
+F19	executor1_NoneType 149 152	for
+F20	executor1_NoneType 631 634	for
+F21	executor1_NoneType 797 800	for
+F22	executor1_NoneType 980 983	for

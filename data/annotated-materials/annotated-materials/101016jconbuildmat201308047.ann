@@ -111,3 +111,27 @@ T60	Condition-Unit 888 892	degC
 R38	Number_Of Arg1:T59 Arg2:T60	
 R39	Condition_Of Arg1:T60 Arg2:E13	
 R40	Type_Of Arg1:T58 Arg2:T60	
+F1	executor1_Type 112 114	in
+F2	executor1_Type 114 116	in
+F3	executor1_Type 167 169	in
+F4	executor1_Type 184 186	in
+F5	executor1_Type 281 283	in
+F6	executor1_Type 298 300	in
+F7	executor1_Type 378 380	in
+F8	executor1_Type 432 434	in
+F9	executor1_Type 439 441	in
+F10	executor1_Type 488 490	in
+F11	executor1_Type 563 565	in
+F12	executor1_Type 633 635	in
+F13	executor1_Type 704 706	in
+F14	executor1_Type 793 795	in
+F15	executor1_Type 1065 1067	in
+F16	executor1_Type 1067 1069	in
+F17	executor1_Type 1104 1106	in
+F18	executor1_Type 1115 1117	in
+F19	executor1_Type 1150 1152	in
+F20	executor1_Type 1260 1262	in
+F21	executor1_NoneType 405 408	for
+F22	executor1_NoneType 555 558	for
+F23	executor1_NoneType 697 700	for
+F24	executor1_NoneType 1195 1198	for

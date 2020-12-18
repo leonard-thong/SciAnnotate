@@ -277,3 +277,33 @@ R107	Property_Of Arg1:T133 Arg2:T75
 R108	Amount_Of Arg1:T100 Arg2:T75	
 R109	Amount_Of Arg1:T101 Arg2:T75	
 R110	Amount_Of Arg1:T102 Arg2:T75	
+F1	executor1_Type 219 221	in
+F2	executor1_Type 449 451	in
+F3	executor1_Type 529 531	in
+F4	executor1_Type 544 546	in
+F5	executor1_Type 555 557	in
+F6	executor1_Type 609 611	in
+F7	executor1_Type 617 619	in
+F8	executor1_Type 666 668	in
+F9	executor1_Type 670 672	in
+F10	executor1_Type 901 903	in
+F11	executor1_Type 953 955	in
+F12	executor1_Type 960 962	in
+F13	executor1_Type 1009 1011	in
+F14	executor1_Type 1013 1015	in
+F15	executor1_Type 1045 1047	in
+F16	executor1_Type 1143 1145	in
+F17	executor1_Type 1272 1274	in
+F18	executor1_Type 1317 1319	in
+F19	executor1_Type 1334 1336	in
+F20	executor1_Type 1384 1386	in
+F21	executor1_Type 1413 1415	in
+F22	executor1_Type 1424 1426	in
+F23	executor1_Type 1534 1536	in
+F24	executor1_Type 1583 1585	in
+F25	executor1_Type 1648 1650	in
+F26	executor1_Type 1659 1661	in
+F27	executor1_NoneType 675 678	for
+F28	executor1_NoneType 831 834	for
+F29	executor1_NoneType 1030 1033	for
+F30	executor1_NoneType 1514 1517	for

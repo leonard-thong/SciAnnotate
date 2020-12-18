@@ -176,3 +176,17 @@ R64	Brand_Of Arg1:T56 Arg2:T25
 R65	Brand_Of Arg1:T65 Arg2:T29	
 R66	Brand_Of Arg1:T69 Arg2:T30	
 R67	Brand_Of Arg1:T72 Arg2:T31	
+F1	executor1_Type 340 342	in
+F2	executor1_Type 386 388	in
+F3	executor1_Type 550 552	in
+F4	executor1_Type 736 738	in
+F5	executor1_Type 772 774	in
+F6	executor1_Type 830 832	in
+F7	executor1_Type 898 900	in
+F8	executor1_Type 953 955	in
+F9	executor1_Type 1037 1039	in
+F10	executor1_Type 1050 1052	in
+F11	executor1_Type 1099 1101	in
+F12	executor1_NoneType 250 253	for
+F13	executor1_NoneType 364 367	for
+F14	executor1_NoneType 839 842	for

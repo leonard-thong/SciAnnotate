@@ -113,3 +113,22 @@ R35	Number_Of Arg1:T53 Arg2:T54
 R36	Number_Of Arg1:T55 Arg2:T56	
 R37	Number_Of Arg1:T57 Arg2:T58	
 R38	Number_Of Arg1:T35 Arg2:T61	
+F1	executor1_Type 120 122	in
+F2	executor1_Type 324 326	in
+F3	executor1_Type 342 344	in
+F4	executor1_Type 424 426	in
+F5	executor1_Type 588 590	in
+F6	executor1_Type 629 631	in
+F7	executor1_Type 703 705	in
+F8	executor1_Type 721 723	in
+F9	executor1_Type 756 758	in
+F10	executor1_Type 998 1000	in
+F11	executor1_Type 1012 1014	in
+F12	executor1_Type 1031 1033	in
+F13	executor1_Type 1122 1124	in
+F14	executor1_Type 1194 1196	in
+F15	executor1_NoneType 316 319	for
+F16	executor1_NoneType 656 659	for
+F17	executor1_NoneType 835 838	for
+F18	executor1_NoneType 843 846	for
+F19	executor1_NoneType 1059 1062	for

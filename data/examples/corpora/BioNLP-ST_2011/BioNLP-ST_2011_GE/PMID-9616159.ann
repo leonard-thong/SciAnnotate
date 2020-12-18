@@ -14,3 +14,37 @@ T11	Positive_regulation 829 843	overexpression
 T12	Gene_expression 829 843	overexpression
 E1	Positive_regulation:T11 Theme:E2
 E2	Gene_expression:T12 Theme:T10
+F1	executor1_Type 79 81	in
+F2	executor1_Type 105 107	in
+F3	executor1_Type 110 112	in
+F4	executor1_Type 207 209	in
+F5	executor1_Type 328 330	in
+F6	executor1_Type 393 395	in
+F7	executor1_Type 398 400	in
+F8	executor1_Type 462 464	in
+F9	executor1_Type 480 482	in
+F10	executor1_Type 485 487	in
+F11	executor1_Type 491 493	in
+F12	executor1_Type 540 542	in
+F13	executor1_Type 587 589	in
+F14	executor1_Type 611 613	in
+F15	executor1_Type 702 704	in
+F16	executor1_Type 730 732	in
+F17	executor1_Type 742 744	in
+F18	executor1_Type 761 763	in
+F19	executor1_Type 786 788	in
+F20	executor1_Type 797 799	in
+F21	executor1_Type 811 813	in
+F22	executor1_Type 884 886	in
+F23	executor1_Type 920 922	in
+F24	executor1_Type 950 952	in
+F25	executor1_Type 979 981	in
+F26	executor1_Type 1000 1002	in
+F27	executor1_Type 1009 1011	in
+F28	executor1_Type 1018 1020	in
+F29	executor1_Type 1071 1073	in
+F30	executor1_Type 1115 1117	in
+F31	executor1_Type 1221 1223	in
+F32	executor1_Type 1291 1293	in
+F33	executor1_Type 1322 1324	in
+F34	executor1_NoneType 880 883	for

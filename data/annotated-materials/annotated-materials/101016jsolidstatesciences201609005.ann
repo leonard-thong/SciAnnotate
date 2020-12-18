@@ -115,3 +115,29 @@ R42	Number_Of Arg1:T43 Arg2:T44
 R43	Number_Of Arg1:T45 Arg2:T46	
 R44	Number_Of Arg1:T47 Arg2:T48	
 R45	Brand_Of Arg1:T31 Arg2:T30	
+F1	executor1_Type 145 147	in
+F2	executor1_Type 246 248	in
+F3	executor1_Type 305 307	in
+F4	executor1_Type 368 370	in
+F5	executor1_Type 427 429	in
+F6	executor1_Type 429 431	in
+F7	executor1_Type 464 466	in
+F8	executor1_Type 502 504	in
+F9	executor1_Type 508 510	in
+F10	executor1_Type 564 566	in
+F11	executor1_Type 612 614	in
+F12	executor1_Type 740 742	in
+F13	executor1_Type 828 830	in
+F14	executor1_Type 909 911	in
+F15	executor1_Type 946 948	in
+F16	executor1_Type 996 998	in
+F17	executor1_Type 1016 1018	in
+F18	executor1_Type 1022 1024	in
+F19	executor1_Type 1090 1092	in
+F20	executor1_Type 1109 1111	in
+F21	executor1_Type 1136 1138	in
+F22	executor1_Type 1200 1202	in
+F23	executor1_Type 1236 1238	in
+F24	executor1_Type 1254 1256	in
+F25	executor1_NoneType 782 785	for
+F26	executor1_NoneType 902 905	for

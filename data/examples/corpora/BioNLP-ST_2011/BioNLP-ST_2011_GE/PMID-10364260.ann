@@ -13,3 +13,36 @@ E2	Binding:T7 Theme:T1
 E3	Gene_expression:T8 Theme:T2
 E4	Negative_regulation:T9 Theme:T3
 E5	Negative_regulation:T10 Theme:T5
+F1	executor1_Type 50 52	in
+F2	executor1_Type 73 75	in
+F3	executor1_Type 76 78	in
+F4	executor1_Type 287 289	in
+F5	executor1_Type 371 373	in
+F6	executor1_Type 374 376	in
+F7	executor1_Type 457 459	in
+F8	executor1_Type 521 523	in
+F9	executor1_Type 575 577	in
+F10	executor1_Type 578 580	in
+F11	executor1_Type 638 640	in
+F12	executor1_Type 676 678	in
+F13	executor1_Type 756 758	in
+F14	executor1_Type 791 793	in
+F15	executor1_Type 828 830	in
+F16	executor1_Type 831 833	in
+F17	executor1_Type 843 845	in
+F18	executor1_Type 884 886	in
+F19	executor1_Type 890 892	in
+F20	executor1_Type 952 954	in
+F21	executor1_Type 1025 1027	in
+F22	executor1_Type 1057 1059	in
+F23	executor1_Type 1144 1146	in
+F24	executor1_Type 1157 1159	in
+F25	executor1_Type 1169 1171	in
+F26	executor1_Type 1178 1180	in
+F27	executor1_Type 1191 1193	in
+F28	executor1_Type 1194 1196	in
+F29	executor1_Type 1279 1281	in
+F30	executor1_Type 1385 1387	in
+F31	executor1_Type 1389 1391	in
+F32	executor1_NoneType 238 241	for
+F33	executor1_NoneType 1442 1445	for

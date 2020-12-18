@@ -598,3 +598,15 @@ R292	P_lt_ Arg1:T301 Arg2:T302
 R293	N_lt_ Arg1:T302 Arg2:T303
 R294	P_lt_ Arg1:T303 Arg2:T304
 R295	PUNC Arg1:T298 Arg2:T305
+F1	executor1_Type 15 17	in
+F2	executor1_Type 77 79	in
+F3	executor1_Type 312 314	in
+F4	executor1_Type 379 381	in
+F5	executor1_Type 591 593	in
+F6	executor1_Type 848 850	in
+F7	executor1_Type 987 989	in
+F8	executor1_Type 1134 1136	in
+F9	executor1_Type 1341 1343	in
+F10	executor1_NoneType 352 355	for
+F11	executor1_NoneType 668 671	for
+F12	executor1_NoneType 960 963	for

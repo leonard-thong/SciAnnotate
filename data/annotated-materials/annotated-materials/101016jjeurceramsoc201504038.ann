@@ -188,3 +188,34 @@ R73	Brand_Of Arg1:T40 Arg2:T16
 R74	Brand_Of Arg1:T59 Arg2:T20	
 R75	Brand_Of Arg1:T54 Arg2:T19	
 R76	Apparatus_Attr_Of Arg1:T67 Arg2:T24	
+F1	executor1_Type 91 93	in
+F2	executor1_Type 96 98	in
+F3	executor1_Type 285 287	in
+F4	executor1_Type 291 293	in
+F5	executor1_Type 332 334	in
+F6	executor1_Type 338 340	in
+F7	executor1_Type 375 377	in
+F8	executor1_Type 434 436	in
+F9	executor1_Type 567 569	in
+F10	executor1_Type 572 574	in
+F11	executor1_Type 612 614	in
+F12	executor1_Type 657 659	in
+F13	executor1_Type 774 776	in
+F14	executor1_Type 886 888	in
+F15	executor1_Type 978 980	in
+F16	executor1_Type 1034 1036	in
+F17	executor1_Type 1098 1100	in
+F18	executor1_Type 1148 1150	in
+F19	executor1_Type 1169 1171	in
+F20	executor1_Type 1185 1187	in
+F21	executor1_Type 1207 1209	in
+F22	executor1_Type 1218 1220	in
+F23	executor1_Type 1223 1225	in
+F24	executor1_Type 1278 1280	in
+F25	executor1_Type 1505 1507	in
+F26	executor1_NoneType 448 451	for
+F27	executor1_NoneType 649 652	for
+F28	executor1_NoneType 791 794	for
+F29	executor1_NoneType 1083 1086	for
+F30	executor1_NoneType 1269 1272	for
+F31	executor1_NoneType 1480 1483	for

@@ -192,3 +192,16 @@ R75	Condition_Of Arg1:T92 Arg2:E15
 R76	Condition_Of Arg1:T93 Arg2:E15	
 R77	Number_Of Arg1:T49 Arg2:T94	
 R78	Condition_Of Arg1:T94 Arg2:E15	
+F1	executor1_Type 248 250	in
+F2	executor1_Type 424 426	in
+F3	executor1_Type 460 462	in
+F4	executor1_Type 499 501	in
+F5	executor1_Type 667 669	in
+F6	executor1_Type 799 801	in
+F7	executor1_NoneType 339 342	for
+F8	executor1_NoneType 557 560	for
+F9	executor1_NoneType 772 775	for
+F10	executor1_NoneType 838 841	for
+F11	executor1_NoneType 845 848	for
+F12	executor1_NoneType 897 900	for
+F13	executor1_NoneType 1029 1032	for

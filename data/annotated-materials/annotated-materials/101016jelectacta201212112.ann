@@ -95,3 +95,16 @@ T48	Material 112 131	iron phthalocyanine
 T49	Material 91 97	carbon
 T50	Property-Misc 98 107	nanotubes
 R38	Property_Of Arg1:T50 Arg2:T49	
+F1	executor1_Type 128 130	in
+F2	executor1_Type 145 147	in
+F3	executor1_Type 227 229	in
+F4	executor1_Type 266 268	in
+F5	executor1_Type 302 304	in
+F6	executor1_Type 333 335	in
+F7	executor1_Type 360 362	in
+F8	executor1_Type 533 535	in
+F9	executor1_Type 627 629	in
+F10	executor1_Type 650 652	in
+F11	executor1_Type 715 717	in
+F12	executor1_Type 797 799	in
+F13	executor1_NoneType 387 390	for

@@ -199,3 +199,23 @@ R71	Apparatus_Of Arg1:T98 Arg2:E14
 R72	Number_Of Arg1:T99 Arg2:T100	
 R73	Condition_Of Arg1:T100 Arg2:E14	
 R74	Descriptor_Of Arg1:T102 Arg2:T101	
+F1	executor1_Type 175 177	in
+F2	executor1_Type 320 322	in
+F3	executor1_Type 407 409	in
+F4	executor1_Type 530 532	in
+F5	executor1_Type 680 682	in
+F6	executor1_Type 763 765	in
+F7	executor1_Type 823 825	in
+F8	executor1_Type 873 875	in
+F9	executor1_Type 936 938	in
+F10	executor1_Type 976 978	in
+F11	executor1_Type 988 990	in
+F12	executor1_Type 1033 1035	in
+F13	executor1_Type 1056 1058	in
+F14	executor1_Type 1222 1224	in
+F15	executor1_NoneType 110 113	for
+F16	executor1_NoneType 324 327	for
+F17	executor1_NoneType 424 427	for
+F18	executor1_NoneType 694 697	for
+F19	executor1_NoneType 980 983	for
+F20	executor1_NoneType 1169 1172	for

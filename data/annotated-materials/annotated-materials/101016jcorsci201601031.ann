@@ -113,3 +113,20 @@ R38	Descriptor_Of Arg1:T58 Arg2:T57
 R39	Number_Of Arg1:T59 Arg2:T60	
 R40	Condition_Of Arg1:T60 Arg2:E7	
 R41	Apparatus_Of Arg1:T62 Arg2:E9	
+F1	executor1_Type 33 35	in
+F2	executor1_Type 94 96	in
+F3	executor1_Type 105 107	in
+F4	executor1_Type 138 140	in
+F5	executor1_Type 311 313	in
+F6	executor1_Type 335 337	in
+F7	executor1_Type 397 399	in
+F8	executor1_Type 591 593	in
+F9	executor1_Type 615 617	in
+F10	executor1_Type 630 632	in
+F11	executor1_Type 689 691	in
+F12	executor1_Type 718 720	in
+F13	executor1_Type 761 763	in
+F14	executor1_Type 801 803	in
+F15	executor1_Type 827 829	in
+F16	executor1_NoneType 413 416	for
+F17	executor1_NoneType 793 796	for

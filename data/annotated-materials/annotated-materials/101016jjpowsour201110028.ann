@@ -44,3 +44,18 @@ R14	Number_Of Arg1:T15 Arg2:T16
 R15	Number_Of Arg1:T17 Arg2:T18	
 R16	Number_Of Arg1:T19 Arg2:T20	
 R17	Number_Of Arg1:T21 Arg2:T22	
+F1	executor1_Type 84 86	in
+F2	executor1_Type 145 147	in
+F3	executor1_Type 276 278	in
+F4	executor1_Type 323 325	in
+F5	executor1_Type 326 328	in
+F6	executor1_Type 345 347	in
+F7	executor1_Type 371 373	in
+F8	executor1_Type 387 389	in
+F9	executor1_Type 546 548	in
+F10	executor1_Type 612 614	in
+F11	executor1_Type 648 650	in
+F12	executor1_NoneType 80 83	for
+F13	executor1_NoneType 297 300	for
+F14	executor1_NoneType 362 365	for
+F15	executor1_NoneType 452 455	for

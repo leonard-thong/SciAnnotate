@@ -1000,3 +1000,28 @@ R155	conj Arg1:T165 Arg2:T169
 R156	amod Arg1:T169 Arg2:T168
 R157	xcomp Arg1:T162 Arg2:T163
 R158	cc Arg1:T165 Arg2:T166
+F1	executor1_Type 51 53	in
+F2	executor1_Type 88 90	in
+F3	executor1_Type 103 105	in
+F4	executor1_Type 132 134	in
+F5	executor1_Type 227 229	in
+F6	executor1_Type 243 245	in
+F7	executor1_Type 275 277	in
+F8	executor1_Type 290 292	in
+F9	executor1_Type 385 387	in
+F10	executor1_Type 392 394	in
+F11	executor1_Type 421 423	in
+F12	executor1_Type 470 472	in
+F13	executor1_Type 520 522	in
+F14	executor1_Type 541 543	in
+F15	executor1_Type 670 672	in
+F16	executor1_Type 685 687	in
+F17	executor1_Type 713 715	in
+F18	executor1_Type 732 734	in
+F19	executor1_Type 738 740	in
+F20	executor1_Type 878 880	in
+F21	executor1_Type 941 943	in
+F22	executor1_Type 946 948	in
+F23	executor1_Type 1042 1044	in
+F24	executor1_Type 1078 1080	in
+F25	executor1_Type 1193 1195	in

@@ -106,3 +106,8 @@ R38	Descriptor_Of Arg1:T48 Arg2:T33
 R39	Descriptor_Of Arg1:T48 Arg2:T32	
 R40	Descriptor_Of Arg1:T49 Arg2:T35	
 R41	Condition_Of Arg1:T50 Arg2:E10	
+F1	executor1_Type 308 310	in
+F2	executor1_Type 350 352	in
+F3	executor1_Type 419 421	in
+F4	executor1_Type 468 470	in
+F5	executor1_Type 550 552	in

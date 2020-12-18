@@ -10,3 +10,44 @@ T8	Person 1264 1278	Joanne Rowling
 T9	Person 1296 1306	Jo Rowling
 T10	Person 1311 1324	J. K. Rowling
 R1	Located Arg1:T1 Arg2:T2	
+F1	executor1_Type 79 81	in
+F2	executor1_Type 161 163	in
+F3	executor1_Type 188 190	in
+F4	executor1_Type 272 274	in
+F5	executor1_Type 454 456	in
+F6	executor1_Type 494 496	in
+F7	executor1_Type 522 524	in
+F8	executor1_Type 540 542	in
+F9	executor1_Type 617 619	in
+F10	executor1_Type 628 630	in
+F11	executor1_Type 731 733	in
+F12	executor1_Type 767 769	in
+F13	executor1_Type 783 785	in
+F14	executor1_Type 819 821	in
+F15	executor1_Type 845 847	in
+F16	executor1_Type 849 851	in
+F17	executor1_Type 888 890	in
+F18	executor1_Type 1118 1120	in
+F19	executor1_Type 1247 1249	in
+F20	executor1_Type 1275 1277	in
+F21	executor1_Type 1303 1305	in
+F22	executor1_Type 1321 1323	in
+F23	executor1_Type 1344 1346	in
+F24	executor1_Type 1352 1354	in
+F25	executor1_Type 1455 1457	in
+F26	executor1_Type 1500 1502	in
+F27	executor1_Type 1540 1542	in
+F28	executor1_Type 1578 1580	in
+F29	executor1_Type 1770 1772	in
+F30	executor1_Type 1848 1850	in
+F31	executor1_Type 2076 2078	in
+F32	executor1_Type 2118 2120	in
+F33	executor1_Type 2197 2199	in
+F34	executor1_Type 2227 2229	in
+F35	executor1_NoneType 34 37	for
+F36	executor1_NoneType 397 400	for
+F37	executor1_NoneType 1108 1111	for
+F38	executor1_NoneType 1191 1194	for
+F39	executor1_NoneType 1699 1702	for
+F40	executor1_NoneType 1877 1880	for
+F41	executor1_NoneType 1964 1967	for

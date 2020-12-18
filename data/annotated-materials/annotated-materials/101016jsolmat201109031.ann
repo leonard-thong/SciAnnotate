@@ -172,3 +172,24 @@ R57	Condition_Of Arg1:T90 Arg2:E17
 R58	Property_Of Arg1:T92 Arg2:T91	
 R59	Descriptor_Of Arg1:T94 Arg2:T93	
 R60	Descriptor_Of Arg1:T95 Arg2:T93	
+F1	executor1_Type 166 168	in
+F2	executor1_Type 211 213	in
+F3	executor1_Type 246 248	in
+F4	executor1_Type 326 328	in
+F5	executor1_Type 359 361	in
+F6	executor1_Type 384 386	in
+F7	executor1_Type 437 439	in
+F8	executor1_Type 511 513	in
+F9	executor1_Type 566 568	in
+F10	executor1_Type 576 578	in
+F11	executor1_Type 599 601	in
+F12	executor1_Type 670 672	in
+F13	executor1_Type 723 725	in
+F14	executor1_Type 802 804	in
+F15	executor1_Type 1020 1022	in
+F16	executor1_Type 1092 1094	in
+F17	executor1_NoneType 81 84	for
+F18	executor1_NoneType 152 155	for
+F19	executor1_NoneType 376 379	for
+F20	executor1_NoneType 503 506	for
+F21	executor1_NoneType 1033 1036	for

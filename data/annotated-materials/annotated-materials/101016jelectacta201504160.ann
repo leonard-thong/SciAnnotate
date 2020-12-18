@@ -59,3 +59,11 @@ R20	Brand_Of Arg1:T11 Arg2:T30
 R21	Descriptor_Of Arg1:T24 Arg2:T13	
 R22	Apparatus_Of Arg1:T27 Arg2:E4	
 R23	Brand_Of Arg1:T9 Arg2:T27	
+F1	executor1_Type 111 113	in
+F2	executor1_Type 159 161	in
+F3	executor1_Type 185 187	in
+F4	executor1_Type 245 247	in
+F5	executor1_Type 361 363	in
+F6	executor1_Type 639 641	in
+F7	executor1_NoneType 68 71	for
+F8	executor1_NoneType 231 234	for

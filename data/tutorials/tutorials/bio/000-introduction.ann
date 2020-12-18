@@ -13,3 +13,15 @@ A2	Confidence E1 Certain
 A3	Confidence E3 Certain
 A4	Confidence E4 Certain
 #1	AnnotatorNotes E1	The "suggest that" applies to the "inhibit", this expression event is certain.
+F1	executor1_Type 159 161	in
+F2	executor1_Type 207 209	in
+F3	executor1_Type 229 231	in
+F4	executor1_Type 302 304	in
+F5	executor1_Type 475 477	in
+F6	executor1_Type 624 626	in
+F7	executor1_Type 665 667	in
+F8	executor1_Type 799 801	in
+F9	executor1_Type 819 821	in
+F10	executor1_Type 856 858	in
+F11	executor1_NoneType 85 88	for
+F12	executor1_NoneType 395 398	for

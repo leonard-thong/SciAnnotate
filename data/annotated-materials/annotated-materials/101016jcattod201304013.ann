@@ -90,3 +90,16 @@ R33	Number_Of Arg1:T40 Arg2:T41
 R34	Number_Of Arg1:T42 Arg2:T43	
 R35	Number_Of Arg1:T44 Arg2:T45	
 R36	Number_Of Arg1:T46 Arg2:T47	
+F1	executor1_Type 49 51	in
+F2	executor1_Type 251 253	in
+F3	executor1_Type 495 497	in
+F4	executor1_Type 674 676	in
+F5	executor1_Type 767 769	in
+F6	executor1_Type 793 795	in
+F7	executor1_Type 840 842	in
+F8	executor1_Type 908 910	in
+F9	executor1_Type 917 919	in
+F10	executor1_Type 947 949	in
+F11	executor1_Type 957 959	in
+F12	executor1_NoneType 45 48	for
+F13	executor1_NoneType 679 682	for

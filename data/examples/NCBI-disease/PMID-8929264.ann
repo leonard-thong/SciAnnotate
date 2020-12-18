@@ -28,3 +28,28 @@ T14	Disease 1362 1392	stage II colorectal carcinomas
 A14	Category T14 SpecificDisease
 T15	Disease 1478 1495	stage III cancers
 A15	Category T15 DiseaseClass
+F1	executor1_Type 13 15	in
+F2	executor1_Type 30 32	in
+F3	executor1_Type 119 121	in
+F4	executor1_Type 192 194	in
+F5	executor1_Type 269 271	in
+F6	executor1_Type 317 319	in
+F7	executor1_Type 369 371	in
+F8	executor1_Type 372 374	in
+F9	executor1_Type 410 412	in
+F10	executor1_Type 428 430	in
+F11	executor1_Type 503 505	in
+F12	executor1_Type 516 518	in
+F13	executor1_Type 607 609	in
+F14	executor1_Type 685 687	in
+F15	executor1_Type 691 693	in
+F16	executor1_Type 868 870	in
+F17	executor1_Type 914 916	in
+F18	executor1_Type 1043 1045	in
+F19	executor1_Type 1300 1302	in
+F20	executor1_Type 1386 1388	in
+F21	executor1_Type 1505 1507	in
+F22	executor1_Type 1508 1510	in
+F23	executor1_Type 1552 1554	in
+F24	executor1_NoneType 670 673	for
+F25	executor1_NoneType 855 858	for

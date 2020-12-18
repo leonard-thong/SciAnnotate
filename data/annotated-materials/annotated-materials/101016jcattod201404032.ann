@@ -191,3 +191,23 @@ R74	Descriptor_Of Arg1:T98 Arg2:T60
 R75	Descriptor_Of Arg1:T99 Arg2:T96	
 R76	Descriptor_Of Arg1:T99 Arg2:T61	
 R77	Descriptor_Of Arg1:T100 Arg2:T62	
+F1	executor1_Type 143 145	in
+F2	executor1_Type 325 327	in
+F3	executor1_Type 393 395	in
+F4	executor1_Type 407 409	in
+F5	executor1_Type 540 542	in
+F6	executor1_Type 581 583	in
+F7	executor1_Type 668 670	in
+F8	executor1_Type 702 704	in
+F9	executor1_Type 1004 1006	in
+F10	executor1_Type 1015 1017	in
+F11	executor1_Type 1063 1065	in
+F12	executor1_Type 1081 1083	in
+F13	executor1_Type 1245 1247	in
+F14	executor1_Type 1248 1250	in
+F15	executor1_Type 1269 1271	in
+F16	executor1_NoneType 428 431	for
+F17	executor1_NoneType 868 871	for
+F18	executor1_NoneType 990 993	for
+F19	executor1_NoneType 1032 1035	for
+F20	executor1_NoneType 1055 1058	for

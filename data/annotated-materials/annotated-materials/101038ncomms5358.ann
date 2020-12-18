@@ -114,3 +114,19 @@ R39	Brand_Of Arg1:T33 Arg2:T15
 R40	Brand_Of Arg1:T39 Arg2:T18	
 R41	Brand_Of Arg1:T54 Arg2:T24	
 R42	Brand_Of Arg1:T57 Arg2:T25	
+F1	executor1_Type 112 114	in
+F2	executor1_Type 203 205	in
+F3	executor1_Type 221 223	in
+F4	executor1_Type 342 344	in
+F5	executor1_Type 395 397	in
+F6	executor1_Type 440 442	in
+F7	executor1_Type 549 551	in
+F8	executor1_Type 605 607	in
+F9	executor1_Type 690 692	in
+F10	executor1_Type 729 731	in
+F11	executor1_Type 776 778	in
+F12	executor1_Type 896 898	in
+F13	executor1_NoneType 284 287	for
+F14	executor1_NoneType 414 417	for
+F15	executor1_NoneType 468 471	for
+F16	executor1_NoneType 676 679	for

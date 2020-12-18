@@ -235,3 +235,18 @@ R86	Condition_Of Arg1:T109 Arg2:E21
 R87	Condition_Of Arg1:T120 Arg2:E21	
 T122	Property-Type 1445 1454	viscosity
 R88	Apparatus_Of Arg1:T28 Arg2:E25	
+F1	executor1_Type 81 83	in
+F2	executor1_Type 191 193	in
+F3	executor1_Type 258 260	in
+F4	executor1_Type 400 402	in
+F5	executor1_Type 907 909	in
+F6	executor1_Type 1157 1159	in
+F7	executor1_Type 1251 1253	in
+F8	executor1_Type 1400 1402	in
+F9	executor1_Type 1505 1507	in
+F10	executor1_Type 1531 1533	in
+F11	executor1_NoneType 238 241	for
+F12	executor1_NoneType 871 874	for
+F13	executor1_NoneType 897 900	for
+F14	executor1_NoneType 1184 1187	for
+F15	executor1_NoneType 1333 1336	for

@@ -41,3 +41,11 @@ T40	MISC 2724 2731	Primera
 T41	ORG 2790 2798	Atlético
 T42	PER 2928 2933	REYES
 T43	LOC 2936 2944	LA RIOJA
+F1	executor1_Type 223 225	in
+F2	executor1_Type 439 441	in
+F3	executor1_Type 527 529	in
+F4	executor1_Type 567 569	in
+F5	executor1_Type 1019 1021	in
+F6	executor1_Type 2128 2130	in
+F7	executor1_Type 2513 2515	in
+F8	executor1_NoneType 926 929	for

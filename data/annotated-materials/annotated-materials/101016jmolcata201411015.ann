@@ -167,3 +167,24 @@ R64	Type_Of Arg1:T79 Arg2:T83
 R65	Property_Of Arg1:T81 Arg2:T86	
 R66	Property_Of Arg1:T82 Arg2:T87	
 R67	Property_Of Arg1:T83 Arg2:T88	
+F1	executor1_Type 34 36	in
+F2	executor1_Type 72 74	in
+F3	executor1_Type 359 361	in
+F4	executor1_Type 553 555	in
+F5	executor1_Type 605 607	in
+F6	executor1_Type 640 642	in
+F7	executor1_Type 666 668	in
+F8	executor1_Type 696 698	in
+F9	executor1_Type 721 723	in
+F10	executor1_Type 1068 1070	in
+F11	executor1_NoneType 144 147	for
+F12	executor1_NoneType 423 426	for
+F13	executor1_NoneType 444 447	for
+F14	executor1_NoneType 467 470	for
+F15	executor1_NoneType 644 647	for
+F16	executor1_NoneType 700 703	for
+F17	executor1_NoneType 751 754	for
+F18	executor1_NoneType 927 930	for
+F19	executor1_NoneType 1029 1032	for
+F20	executor1_NoneType 1036 1039	for
+F21	executor1_NoneType 1124 1127	for

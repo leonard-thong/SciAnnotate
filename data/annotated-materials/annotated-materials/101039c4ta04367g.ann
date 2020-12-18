@@ -248,3 +248,30 @@ R90	Amount_Of Arg1:T99 Arg2:T79
 R91	Number_Of Arg1:T47 Arg2:T100	
 R92	Amount_Of Arg1:T100 Arg2:T101	
 R93	Descriptor_Of Arg1:T125 Arg2:T82	
+F1	executor1_Type 31 33	in
+F2	executor1_Type 94 96	in
+F3	executor1_Type 114 116	in
+F4	executor1_Type 383 385	in
+F5	executor1_Type 480 482	in
+F6	executor1_Type 516 518	in
+F7	executor1_Type 572 574	in
+F8	executor1_Type 750 752	in
+F9	executor1_Type 818 820	in
+F10	executor1_Type 974 976	in
+F11	executor1_Type 995 997	in
+F12	executor1_Type 1039 1041	in
+F13	executor1_Type 1089 1091	in
+F14	executor1_Type 1101 1103	in
+F15	executor1_Type 1218 1220	in
+F16	executor1_Type 1269 1271	in
+F17	executor1_Type 1312 1314	in
+F18	executor1_Type 1361 1363	in
+F19	executor1_Type 1407 1409	in
+F20	executor1_Type 1466 1468	in
+F21	executor1_Type 1568 1570	in
+F22	executor1_Type 1672 1674	in
+F23	executor1_NoneType 509 512	for
+F24	executor1_NoneType 615 618	for
+F25	executor1_NoneType 1150 1153	for
+F26	executor1_NoneType 1255 1258	for
+F27	executor1_NoneType 1436 1439	for

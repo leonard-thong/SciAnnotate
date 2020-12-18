@@ -70,3 +70,15 @@ R22	Descriptor_Of Arg1:T32 Arg2:T31
 R23	Number_Of Arg1:T17 Arg2:T18	
 R24	Number_Of Arg1:T26 Arg2:T27	
 R25	Number_Of Arg1:T21 Arg2:T22	
+F1	executor1_Type 230 232	in
+F2	executor1_Type 329 331	in
+F3	executor1_Type 486 488	in
+F4	executor1_Type 536 538	in
+F5	executor1_Type 614 616	in
+F6	executor1_Type 757 759	in
+F7	executor1_Type 776 778	in
+F8	executor1_Type 838 840	in
+F9	executor1_NoneType 101 104	for
+F10	executor1_NoneType 125 128	for
+F11	executor1_NoneType 642 645	for
+F12	executor1_NoneType 718 721	for

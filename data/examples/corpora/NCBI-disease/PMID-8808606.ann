@@ -12,3 +12,25 @@ T6	Disease 764 766	DM
 A6	Category T6 Modifier
 T7	Disease 1261 1279	myotonic dystrophy
 A7	Category T7 Modifier
+F1	executor1_Type 35 37	in
+F2	executor1_Type 40 42	in
+F3	executor1_Type 55 57	in
+F4	executor1_Type 193 195	in
+F5	executor1_Type 215 217	in
+F6	executor1_Type 219 221	in
+F7	executor1_Type 221 223	in
+F8	executor1_Type 241 243	in
+F9	executor1_Type 392 394	in
+F10	executor1_Type 415 417	in
+F11	executor1_Type 543 545	in
+F12	executor1_Type 693 695	in
+F13	executor1_Type 777 779	in
+F14	executor1_Type 832 834	in
+F15	executor1_Type 867 869	in
+F16	executor1_Type 968 970	in
+F17	executor1_Type 1167 1169	in
+F18	executor1_Type 1316 1318	in
+F19	executor1_NoneType 209 212	for
+F20	executor1_NoneType 977 980	for
+F21	executor1_NoneType 1032 1035	for
+F22	executor1_NoneType 1074 1077	for

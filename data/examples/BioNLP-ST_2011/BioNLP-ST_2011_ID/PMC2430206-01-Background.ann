@@ -59,3 +59,41 @@ E10	Regulation:T45 Theme:E11 Cause:T27
 E11	Process:T46 
 E12	Regulation:T47 Theme:E13 Cause:T31
 E13	Process:T48 Participant:T32
+F1	executor1_Type 61 63	in
+F2	executor1_Type 125 127	in
+F3	executor1_Type 292 294	in
+F4	executor1_Type 303 305	in
+F5	executor1_Type 400 402	in
+F6	executor1_Type 465 467	in
+F7	executor1_Type 498 500	in
+F8	executor1_Type 508 510	in
+F9	executor1_Type 538 540	in
+F10	executor1_Type 659 661	in
+F11	executor1_Type 869 871	in
+F12	executor1_Type 900 902	in
+F13	executor1_Type 908 910	in
+F14	executor1_Type 945 947	in
+F15	executor1_Type 996 998	in
+F16	executor1_Type 1017 1019	in
+F17	executor1_Type 1200 1202	in
+F18	executor1_Type 1213 1215	in
+F19	executor1_Type 1254 1256	in
+F20	executor1_Type 1306 1308	in
+F21	executor1_Type 1315 1317	in
+F22	executor1_Type 1389 1391	in
+F23	executor1_Type 1619 1621	in
+F24	executor1_Type 1623 1625	in
+F25	executor1_Type 1724 1726	in
+F26	executor1_Type 1730 1732	in
+F27	executor1_Type 1741 1743	in
+F28	executor1_Type 1756 1758	in
+F29	executor1_Type 1772 1774	in
+F30	executor1_Type 1790 1792	in
+F31	executor1_Type 1835 1837	in
+F32	executor1_Type 1860 1862	in
+F33	executor1_Type 1863 1865	in
+F34	executor1_Type 1928 1930	in
+F35	executor1_Type 2028 2030	in
+F36	executor1_Type 2125 2127	in
+F37	executor1_NoneType 494 497	for
+F38	executor1_NoneType 1157 1160	for

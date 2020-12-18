@@ -11,3 +11,28 @@ T10	Entity 797 807	NF-kappa B
 T11	Entity 1091 1098	complex
 T12	Entity 1167 1177	NF-kappa B
 R1	Subunit-Complex Arg1:T5 Arg2:T11
+F1	executor1_Type 38 40	in
+F2	executor1_Type 57 59	in
+F3	executor1_Type 66 68	in
+F4	executor1_Type 72 74	in
+F5	executor1_Type 89 91	in
+F6	executor1_Type 93 95	in
+F7	executor1_Type 100 102	in
+F8	executor1_Type 136 138	in
+F9	executor1_Type 158 160	in
+F10	executor1_Type 176 178	in
+F11	executor1_Type 379 381	in
+F12	executor1_Type 579 581	in
+F13	executor1_Type 588 590	in
+F14	executor1_Type 606 608	in
+F15	executor1_Type 709 711	in
+F16	executor1_Type 740 742	in
+F17	executor1_Type 755 757	in
+F18	executor1_Type 776 778	in
+F19	executor1_Type 808 810	in
+F20	executor1_Type 927 929	in
+F21	executor1_Type 1153 1155	in
+F22	executor1_Type 1215 1217	in
+F23	executor1_Type 1266 1268	in
+F24	executor1_Type 1302 1304	in
+F25	executor1_Type 1309 1311	in

@@ -27,3 +27,24 @@ E2	Methylation:T13 Theme:T3 Site:T14
 E3	Methylation:T16 Theme:T5 Site:T18
 E4	Methylation:T17 Theme:T5 Site:T18
 E5	Demethylation:T20 Theme:T11
+F1	executor1_Type 11 13	in
+F2	executor1_Type 89 91	in
+F3	executor1_Type 209 211	in
+F4	executor1_Type 377 379	in
+F5	executor1_Type 428 430	in
+F6	executor1_Type 476 478	in
+F7	executor1_Type 490 492	in
+F8	executor1_Type 512 514	in
+F9	executor1_Type 663 665	in
+F10	executor1_Type 742 744	in
+F11	executor1_Type 960 962	in
+F12	executor1_Type 1036 1038	in
+F13	executor1_Type 1098 1100	in
+F14	executor1_Type 1101 1103	in
+F15	executor1_Type 1407 1409	in
+F16	executor1_Type 1414 1416	in
+F17	executor1_Type 1586 1588	in
+F18	executor1_NoneType 198 201	for
+F19	executor1_NoneType 716 719	for
+F20	executor1_NoneType 907 910	for
+F21	executor1_NoneType 1362 1365	for

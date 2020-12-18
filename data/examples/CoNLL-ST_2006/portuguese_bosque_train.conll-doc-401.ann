@@ -470,3 +470,9 @@ R228	ACC Arg1:T236 Arg2:T238
 R229	_gt_N Arg1:T240 Arg2:T239
 R230	SC Arg1:T238 Arg2:T240
 R231	PUNC Arg1:T236 Arg2:T241
+F1	executor1_Type 567 569	in
+F2	executor1_Type 713 715	in
+F3	executor1_Type 929 931	in
+F4	executor1_Type 984 986	in
+F5	executor1_Type 1177 1179	in
+F6	executor1_NoneType 354 357	for

@@ -96,3 +96,13 @@ R31	Descriptor_Of Arg1:T33 Arg2:T32
 R32	Number_Of Arg1:T20 Arg2:T45	
 R33	Condition_Of Arg1:T45 Arg2:E8	
 R34	Condition_Of Arg1:T52 Arg2:E8	
+F1	executor1_Type 63 65	in
+F2	executor1_Type 164 166	in
+F3	executor1_Type 201 203	in
+F4	executor1_Type 290 292	in
+F5	executor1_Type 324 326	in
+F6	executor1_Type 328 330	in
+F7	executor1_Type 353 355	in
+F8	executor1_Type 550 552	in
+F9	executor1_NoneType 112 115	for
+F10	executor1_NoneType 472 475	for

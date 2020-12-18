@@ -200,3 +200,32 @@ R77	Property_Of Arg1:T98 Arg2:T58
 R78	Property_Of Arg1:T97 Arg2:T58	
 R79	Descriptor_Of Arg1:T99 Arg2:T59	
 R80	Descriptor_Of Arg1:T100 Arg2:T60	
+F1	executor1_Type 213 215	in
+F2	executor1_Type 260 262	in
+F3	executor1_Type 342 344	in
+F4	executor1_Type 399 401	in
+F5	executor1_Type 493 495	in
+F6	executor1_Type 515 517	in
+F7	executor1_Type 540 542	in
+F8	executor1_Type 621 623	in
+F9	executor1_Type 632 634	in
+F10	executor1_Type 638 640	in
+F11	executor1_Type 667 669	in
+F12	executor1_Type 718 720	in
+F13	executor1_Type 775 777	in
+F14	executor1_Type 887 889	in
+F15	executor1_Type 922 924	in
+F16	executor1_Type 942 944	in
+F17	executor1_Type 947 949	in
+F18	executor1_Type 1027 1029	in
+F19	executor1_Type 1091 1093	in
+F20	executor1_Type 1228 1230	in
+F21	executor1_NoneType 110 113	for
+F22	executor1_NoneType 139 142	for
+F23	executor1_NoneType 334 337	for
+F24	executor1_NoneType 370 373	for
+F25	executor1_NoneType 384 387	for
+F26	executor1_NoneType 472 475	for
+F27	executor1_NoneType 532 535	for
+F28	executor1_NoneType 861 864	for
+F29	executor1_NoneType 903 906	for

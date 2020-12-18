@@ -104,3 +104,13 @@ R33	Condition_Of Arg1:T51 Arg2:E12
 R34	Property_Of Arg1:T52 Arg2:T17	
 R35	Number_Of Arg1:T53 Arg2:T54	
 R36	Amount_Of Arg1:T54 Arg2:T55	
+F1	executor1_Type 137 139	in
+F2	executor1_Type 350 352	in
+F3	executor1_Type 379 381	in
+F4	executor1_Type 537 539	in
+F5	executor1_Type 622 624	in
+F6	executor1_Type 663 665	in
+F7	executor1_Type 731 733	in
+F8	executor1_NoneType 59 62	for
+F9	executor1_NoneType 434 437	for
+F10	executor1_NoneType 507 510	for

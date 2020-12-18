@@ -56,3 +56,28 @@ E10	Protein_catabolism:T42 Theme:T24
 E11	Protein_catabolism:T43 Theme:T31
 E12	Gene_expression:T44 Theme:T37
 E13	Gene_expression:T44 Theme:T38
+F1	executor1_Type 62 64	in
+F2	executor1_Type 71 73	in
+F3	executor1_Type 115 117	in
+F4	executor1_Type 154 156	in
+F5	executor1_Type 174 176	in
+F6	executor1_Type 213 215	in
+F7	executor1_Type 273 275	in
+F8	executor1_Type 289 291	in
+F9	executor1_Type 326 328	in
+F10	executor1_Type 398 400	in
+F11	executor1_Type 444 446	in
+F12	executor1_Type 555 557	in
+F13	executor1_Type 621 623	in
+F14	executor1_Type 753 755	in
+F15	executor1_Type 792 794	in
+F16	executor1_Type 910 912	in
+F17	executor1_Type 1008 1010	in
+F18	executor1_Type 1059 1061	in
+F19	executor1_Type 1103 1105	in
+F20	executor1_Type 1188 1190	in
+F21	executor1_Type 1249 1251	in
+F22	executor1_Type 1267 1269	in
+F23	executor1_NoneType 128 131	for
+F24	executor1_NoneType 359 362	for
+F25	executor1_NoneType 411 414	for

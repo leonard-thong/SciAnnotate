@@ -140,3 +140,19 @@ R54	Descriptor_Of Arg1:T70 Arg2:T69
 R55	Apparatus_Of Arg1:T69 Arg2:E13	
 R56	Number_Of Arg1:T33 Arg2:T59	
 R57	Condition_Of Arg1:T59 Arg2:E13	
+F1	executor1_Type 278 280	in
+F2	executor1_Type 539 541	in
+F3	executor1_Type 573 575	in
+F4	executor1_Type 585 587	in
+F5	executor1_Type 629 631	in
+F6	executor1_Type 651 653	in
+F7	executor1_Type 659 661	in
+F8	executor1_Type 694 696	in
+F9	executor1_Type 698 700	in
+F10	executor1_Type 730 732	in
+F11	executor1_Type 773 775	in
+F12	executor1_NoneType 98 101	for
+F13	executor1_NoneType 319 322	for
+F14	executor1_NoneType 475 478	for
+F15	executor1_NoneType 577 580	for
+F16	executor1_NoneType 715 718	for

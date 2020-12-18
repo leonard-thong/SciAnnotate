@@ -154,3 +154,24 @@ R57	Number_Of Arg1:T34 Arg2:T58
 R58	Condition_Of Arg1:T58 Arg2:E16	
 R59	Descriptor_Of Arg1:T75 Arg2:T46	
 R60	Property_Of Arg1:T76 Arg2:T47	
+F1	executor1_Type 249 251	in
+F2	executor1_Type 287 289	in
+F3	executor1_Type 322 324	in
+F4	executor1_Type 396 398	in
+F5	executor1_Type 456 458	in
+F6	executor1_Type 472 474	in
+F7	executor1_Type 483 485	in
+F8	executor1_Type 587 589	in
+F9	executor1_Type 627 629	in
+F10	executor1_Type 675 677	in
+F11	executor1_Type 745 747	in
+F12	executor1_Type 752 754	in
+F13	executor1_Type 785 787	in
+F14	executor1_Type 821 823	in
+F15	executor1_Type 926 928	in
+F16	executor1_NoneType 67 70	for
+F17	executor1_NoneType 83 86	for
+F18	executor1_NoneType 334 337	for
+F19	executor1_NoneType 387 390	for
+F20	executor1_NoneType 697 700	for
+F21	executor1_NoneType 831 834	for

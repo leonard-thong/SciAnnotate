@@ -374,3 +374,42 @@ R140	Number_Of Arg1:T195 Arg2:T196
 R141	Condition_Of Arg1:T196 Arg2:E30	
 R142	Descriptor_Of Arg1:T198 Arg2:T197	
 R143	Descriptor_Of Arg1:T201 Arg2:T200	
+F1	executor1_Type 180 182	in
+F2	executor1_Type 188 190	in
+F3	executor1_Type 225 227	in
+F4	executor1_Type 561 563	in
+F5	executor1_Type 809 811	in
+F6	executor1_Type 1045 1047	in
+F7	executor1_Type 1110 1112	in
+F8	executor1_Type 1238 1240	in
+F9	executor1_Type 1289 1291	in
+F10	executor1_Type 1405 1407	in
+F11	executor1_Type 1439 1441	in
+F12	executor1_Type 1490 1492	in
+F13	executor1_Type 1516 1518	in
+F14	executor1_Type 1560 1562	in
+F15	executor1_Type 1593 1595	in
+F16	executor1_Type 1605 1607	in
+F17	executor1_Type 1792 1794	in
+F18	executor1_Type 1810 1812	in
+F19	executor1_Type 1927 1929	in
+F20	executor1_Type 2039 2041	in
+F21	executor1_Type 2057 2059	in
+F22	executor1_Type 2138 2140	in
+F23	executor1_Type 2187 2189	in
+F24	executor1_Type 2313 2315	in
+F25	executor1_Type 2347 2349	in
+F26	executor1_Type 2391 2393	in
+F27	executor1_Type 2541 2543	in
+F28	executor1_Type 2655 2657	in
+F29	executor1_Type 2762 2764	in
+F30	executor1_NoneType 149 152	for
+F31	executor1_NoneType 853 856	for
+F32	executor1_NoneType 996 999	for
+F33	executor1_NoneType 1073 1076	for
+F34	executor1_NoneType 1082 1085	for
+F35	executor1_NoneType 1431 1434	for
+F36	executor1_NoneType 1609 1612	for
+F37	executor1_NoneType 2260 2263	for
+F38	executor1_NoneType 2410 2413	for
+F39	executor1_NoneType 2497 2500	for

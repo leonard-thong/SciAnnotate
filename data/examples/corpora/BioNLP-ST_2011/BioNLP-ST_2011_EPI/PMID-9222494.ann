@@ -1,2 +1,23 @@
 T1	Protein 534 558	cysteine tRNA synthetase
 T2	Protein 1199 1223	cysteine tRNA synthetase
+F1	executor1_Type 36 38	in
+F2	executor1_Type 51 53	in
+F3	executor1_Type 103 105	in
+F4	executor1_Type 165 167	in
+F5	executor1_Type 273 275	in
+F6	executor1_Type 410 412	in
+F7	executor1_Type 539 541	in
+F8	executor1_Type 680 682	in
+F9	executor1_Type 752 754	in
+F10	executor1_Type 769 771	in
+F11	executor1_Type 788 790	in
+F12	executor1_Type 814 816	in
+F13	executor1_Type 862 864	in
+F14	executor1_Type 989 991	in
+F15	executor1_Type 1093 1095	in
+F16	executor1_Type 1204 1206	in
+F17	executor1_Type 1388 1390	in
+F18	executor1_NoneType 503 506	for
+F19	executor1_NoneType 1357 1360	for
+F20	executor1_NoneType 1512 1515	for
+F21	executor1_NoneType 1584 1587	for

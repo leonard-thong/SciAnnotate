@@ -40,3 +40,19 @@ T22	Protein 1001 1005	vicK
 T23	Organism 1100 1116	DeltavicK mutant
 T24	Protein 1105 1109	vicK
 T25	Organism 1140 1147	S. equi
+F1	executor1_Type 90 92	in
+F2	executor1_Type 245 247	in
+F3	executor1_Type 387 389	in
+F4	executor1_Type 407 409	in
+F5	executor1_Type 450 452	in
+F6	executor1_Type 533 535	in
+F7	executor1_Type 687 689	in
+F8	executor1_Type 809 811	in
+F9	executor1_Type 816 818	in
+F10	executor1_Type 939 941	in
+F11	executor1_Type 1030 1032	in
+F12	executor1_Type 1039 1041	in
+F13	executor1_Type 1080 1082	in
+F14	executor1_Type 1087 1089	in
+F15	executor1_Type 1121 1123	in
+F16	executor1_NoneType 436 439	for

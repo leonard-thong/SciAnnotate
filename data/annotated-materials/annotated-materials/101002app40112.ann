@@ -221,3 +221,25 @@ R82	Condition_Of Arg1:T89 Arg2:E22
 R83	Apparatus_Of Arg1:T112 Arg2:E22	
 R84	Number_Of Arg1:T43 Arg2:T90	
 R85	Condition_Of Arg1:T90 Arg2:E22	
+F1	executor1_Type 191 193	in
+F2	executor1_Type 354 356	in
+F3	executor1_Type 482 484	in
+F4	executor1_Type 520 522	in
+F5	executor1_Type 550 552	in
+F6	executor1_Type 552 554	in
+F7	executor1_Type 696 698	in
+F8	executor1_Type 734 736	in
+F9	executor1_Type 792 794	in
+F10	executor1_Type 847 849	in
+F11	executor1_Type 991 993	in
+F12	executor1_Type 1183 1185	in
+F13	executor1_Type 1261 1263	in
+F14	executor1_Type 1440 1442	in
+F15	executor1_Type 1483 1485	in
+F16	executor1_Type 1512 1514	in
+F17	executor1_NoneType 869 872	for
+F18	executor1_NoneType 1012 1015	for
+F19	executor1_NoneType 1143 1146	for
+F20	executor1_NoneType 1314 1317	for
+F21	executor1_NoneType 1424 1427	for
+F22	executor1_NoneType 1494 1497	for

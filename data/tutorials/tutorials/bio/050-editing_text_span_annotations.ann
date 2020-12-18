@@ -4,3 +4,37 @@ T3	Protein 469 473	have
 T4	Protein 870 879	study p53
 T5	Protein 884 904	p105 phosphorylation
 T6	Organism 1132 1135	p53
+F1	executor1_Type 4 6	in
+F2	executor1_Type 235 237	in
+F3	executor1_Type 273 275	in
+F4	executor1_Type 291 293	in
+F5	executor1_Type 343 345	in
+F6	executor1_Type 415 417	in
+F7	executor1_Type 439 441	in
+F8	executor1_Type 446 448	in
+F9	executor1_Type 509 511	in
+F10	executor1_Type 522 524	in
+F11	executor1_Type 569 571	in
+F12	executor1_Type 618 620	in
+F13	executor1_Type 709 711	in
+F14	executor1_Type 774 776	in
+F15	executor1_Type 835 837	in
+F16	executor1_Type 948 950	in
+F17	executor1_Type 963 965	in
+F18	executor1_Type 1002 1004	in
+F19	executor1_Type 1034 1036	in
+F20	executor1_Type 1146 1148	in
+F21	executor1_Type 1200 1202	in
+F22	executor1_Type 1271 1273	in
+F23	executor1_Type 1316 1318	in
+F24	executor1_Type 1393 1395	in
+F25	executor1_Type 1484 1486	in
+F26	executor1_Type 1498 1500	in
+F27	executor1_Type 1570 1572	in
+F28	executor1_Type 1731 1733	in
+F29	executor1_Type 1748 1750	in
+F30	executor1_Type 1764 1766	in
+F31	executor1_Type 1831 1833	in
+F32	executor1_Type 1844 1846	in
+F33	executor1_Type 1902 1904	in
+F34	executor1_NoneType 1192 1195	for

@@ -95,3 +95,15 @@ R35	Number_Of Arg1:T51 Arg2:T52
 R36	Condition_Of Arg1:T52 Arg2:E2	
 T54	Property-Misc 718 723	films
 R37	Property_Of Arg1:T54 Arg2:T50	
+F1	executor1_Type 133 135	in
+F2	executor1_Type 199 201	in
+F3	executor1_Type 241 243	in
+F4	executor1_Type 411 413	in
+F5	executor1_Type 435 437	in
+F6	executor1_Type 469 471	in
+F7	executor1_Type 473 475	in
+F8	executor1_Type 576 578	in
+F9	executor1_Type 753 755	in
+F10	executor1_Type 823 825	in
+F11	executor1_Type 832 834	in
+F12	executor1_NoneType 745 748	for

@@ -20,3 +20,23 @@ T10	Disease 496 499	FAP
 A10	Category T10 SpecificDisease
 T11	Disease 504 521	Chronic hemolysis
 A11	Category T11 SpecificDisease
+F1	executor1_Type 104 106	in
+F2	executor1_Type 206 208	in
+F3	executor1_Type 380 382	in
+F4	executor1_Type 534 536	in
+F5	executor1_Type 552 554	in
+F6	executor1_Type 582 584	in
+F7	executor1_Type 679 681	in
+F8	executor1_Type 747 749	in
+F9	executor1_Type 780 782	in
+F10	executor1_Type 890 892	in
+F11	executor1_Type 1008 1010	in
+F12	executor1_Type 1021 1023	in
+F13	executor1_Type 1161 1163	in
+F14	executor1_Type 1167 1169	in
+F15	executor1_Type 1282 1284	in
+F16	executor1_Type 1435 1437	in
+F17	executor1_Type 1592 1594	in
+F18	executor1_Type 1604 1606	in
+F19	executor1_NoneType 896 899	for
+F20	executor1_NoneType 1540 1543	for

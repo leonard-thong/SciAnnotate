@@ -12,3 +12,25 @@ R2	Part-of Arg1:T6 Arg2:T8
 T9	Protein 755 760	c-Rel
 T10	Complex 779 789	NF-kappa B
 R3	Member-of Arg1:T9 Arg2:T10	
+F1	executor1_Type 4 6	in
+F2	executor1_Type 116 118	in
+F3	executor1_Type 178 180	in
+F4	executor1_Type 267 269	in
+F5	executor1_Type 280 282	in
+F6	executor1_Type 331 333	in
+F7	executor1_Type 364 366	in
+F8	executor1_Type 389 391	in
+F9	executor1_Type 431 433	in
+F10	executor1_Type 532 534	in
+F11	executor1_Type 576 578	in
+F12	executor1_Type 654 656	in
+F13	executor1_Type 814 816	in
+F14	executor1_Type 825 827	in
+F15	executor1_Type 920 922	in
+F16	executor1_Type 937 939	in
+F17	executor1_Type 941 943	in
+F18	executor1_NoneType 468 471	for
+F19	executor1_NoneType 515 518	for
+F20	executor1_NoneType 855 858	for
+F21	executor1_NoneType 911 914	for
+F22	executor1_NoneType 960 963	for

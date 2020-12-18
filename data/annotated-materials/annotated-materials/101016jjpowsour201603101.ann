@@ -66,3 +66,15 @@ R21	Number_Of Arg1:T35 Arg2:T36
 T40	Material 715 717	it
 R22	Number_Of Arg1:T37 Arg2:T38	
 R23	Condition_Of Arg1:T38 Arg2:E4	
+F1	executor1_Type 250 252	in
+F2	executor1_Type 341 343	in
+F3	executor1_Type 492 494	in
+F4	executor1_Type 635 637	in
+F5	executor1_Type 726 728	in
+F6	executor1_Type 752 754	in
+F7	executor1_NoneType 59 62	for
+F8	executor1_NoneType 106 109	for
+F9	executor1_NoneType 581 584	for
+F10	executor1_NoneType 700 703	for
+F11	executor1_NoneType 710 713	for
+F12	executor1_NoneType 743 746	for

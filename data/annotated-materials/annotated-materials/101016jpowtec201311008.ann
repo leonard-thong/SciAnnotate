@@ -364,3 +364,39 @@ R135	Amount_Of Arg1:T187 Arg2:T177
 R136	Amount_Of Arg1:T185 Arg2:T177	
 R137	Apparatus_Of Arg1:T178 Arg2:E35	
 R138	Descriptor_Of Arg1:T182 Arg2:T181	
+F1	executor1_Type 648 650	in
+F2	executor1_Type 826 828	in
+F3	executor1_Type 868 870	in
+F4	executor1_Type 960 962	in
+F5	executor1_Type 990 992	in
+F6	executor1_Type 1110 1112	in
+F7	executor1_Type 1183 1185	in
+F8	executor1_Type 1302 1304	in
+F9	executor1_Type 1417 1419	in
+F10	executor1_Type 1428 1430	in
+F11	executor1_Type 1465 1467	in
+F12	executor1_Type 1489 1491	in
+F13	executor1_Type 1578 1580	in
+F14	executor1_Type 1604 1606	in
+F15	executor1_Type 1730 1732	in
+F16	executor1_Type 1749 1751	in
+F17	executor1_Type 1754 1756	in
+F18	executor1_Type 1772 1774	in
+F19	executor1_Type 1779 1781	in
+F20	executor1_Type 1844 1846	in
+F21	executor1_Type 1862 1864	in
+F22	executor1_Type 1877 1879	in
+F23	executor1_Type 1999 2001	in
+F24	executor1_Type 2176 2178	in
+F25	executor1_Type 2195 2197	in
+F26	executor1_Type 2200 2202	in
+F27	executor1_Type 2348 2350	in
+F28	executor1_Type 2406 2408	in
+F29	executor1_NoneType 759 762	for
+F30	executor1_NoneType 982 985	for
+F31	executor1_NoneType 1216 1219	for
+F32	executor1_NoneType 1571 1574	for
+F33	executor1_NoneType 1595 1598	for
+F34	executor1_NoneType 1881 1884	for
+F35	executor1_NoneType 2073 2076	for
+F36	executor1_NoneType 2215 2218	for

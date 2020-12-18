@@ -267,3 +267,33 @@ R100	Number_Of Arg1:T43 Arg2:T100
 R101	Condition_Of Arg1:T100 Arg2:E25	
 R102	Descriptor_Of Arg1:T135 Arg2:T85	
 R103	Descriptor_Of Arg1:T136 Arg2:T85	
+F1	executor1_Type 67 69	in
+F2	executor1_Type 110 112	in
+F3	executor1_Type 188 190	in
+F4	executor1_Type 354 356	in
+F5	executor1_Type 595 597	in
+F6	executor1_Type 626 628	in
+F7	executor1_Type 650 652	in
+F8	executor1_Type 810 812	in
+F9	executor1_Type 889 891	in
+F10	executor1_Type 1012 1014	in
+F11	executor1_Type 1099 1101	in
+F12	executor1_Type 1167 1169	in
+F13	executor1_Type 1171 1173	in
+F14	executor1_Type 1173 1175	in
+F15	executor1_Type 1237 1239	in
+F16	executor1_Type 1276 1278	in
+F17	executor1_Type 1291 1293	in
+F18	executor1_Type 1316 1318	in
+F19	executor1_Type 1367 1369	in
+F20	executor1_Type 1371 1373	in
+F21	executor1_Type 1408 1410	in
+F22	executor1_Type 1593 1595	in
+F23	executor1_Type 1620 1622	in
+F24	executor1_Type 1655 1657	in
+F25	executor1_Type 1694 1696	in
+F26	executor1_NoneType 105 108	for
+F27	executor1_NoneType 979 982	for
+F28	executor1_NoneType 1067 1070	for
+F29	executor1_NoneType 1388 1391	for
+F30	executor1_NoneType 1742 1745	for

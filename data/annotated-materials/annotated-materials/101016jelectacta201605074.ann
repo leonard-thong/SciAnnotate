@@ -192,3 +192,28 @@ R70	Number_Of Arg1:T38 Arg2:T81
 R71	Amount_Of Arg1:T81 Arg2:T62	
 R72	Number_Of Arg1:T39 Arg2:T82	
 R73	Amount_Of Arg1:T82 Arg2:T63	
+F1	executor1_Type 122 124	in
+F2	executor1_Type 184 186	in
+F3	executor1_Type 457 459	in
+F4	executor1_Type 562 564	in
+F5	executor1_Type 659 661	in
+F6	executor1_Type 676 678	in
+F7	executor1_Type 678 680	in
+F8	executor1_Type 730 732	in
+F9	executor1_Type 765 767	in
+F10	executor1_Type 767 769	in
+F11	executor1_Type 823 825	in
+F12	executor1_Type 892 894	in
+F13	executor1_Type 908 910	in
+F14	executor1_Type 1012 1014	in
+F15	executor1_Type 1041 1043	in
+F16	executor1_Type 1097 1099	in
+F17	executor1_Type 1130 1132	in
+F18	executor1_NoneType 68 71	for
+F19	executor1_NoneType 72 75	for
+F20	executor1_NoneType 129 132	for
+F21	executor1_NoneType 301 304	for
+F22	executor1_NoneType 477 480	for
+F23	executor1_NoneType 722 725	for
+F24	executor1_NoneType 830 833	for
+F25	executor1_NoneType 1034 1037	for

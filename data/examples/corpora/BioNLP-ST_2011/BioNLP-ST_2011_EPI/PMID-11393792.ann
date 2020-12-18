@@ -12,3 +12,25 @@ T11	Protein 1562 1571	alpha2(I)
 T12	Hydroxylation 1323 1339	overhydroxylated
 E1	Hydroxylation:T12 Theme:T7
 E2	Hydroxylation:T12 Theme:T8
+F1	executor1_Type 3 5	in
+F2	executor1_Type 29 31	in
+F3	executor1_Type 33 35	in
+F4	executor1_Type 42 44	in
+F5	executor1_Type 166 168	in
+F6	executor1_Type 364 366	in
+F7	executor1_Type 393 395	in
+F8	executor1_Type 459 461	in
+F9	executor1_Type 560 562	in
+F10	executor1_Type 635 637	in
+F11	executor1_Type 666 668	in
+F12	executor1_Type 694 696	in
+F13	executor1_Type 708 710	in
+F14	executor1_Type 779 781	in
+F15	executor1_Type 818 820	in
+F16	executor1_Type 912 914	in
+F17	executor1_Type 1023 1025	in
+F18	executor1_Type 1079 1081	in
+F19	executor1_Type 1314 1316	in
+F20	executor1_Type 1550 1552	in
+F21	executor1_NoneType 889 892	for
+F22	executor1_NoneType 926 929	for

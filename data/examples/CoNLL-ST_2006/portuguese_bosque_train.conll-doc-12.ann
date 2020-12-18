@@ -210,3 +210,8 @@ R98	SUBJ Arg1:T110 Arg2:T108
 R99	N_lt_ Arg1:T108 Arg2:T109
 R100	STA Arg1:T107 Arg2:T110
 R101	ACC Arg1:T110 Arg2:T111
+F1	executor1_Type 9 11	in
+F2	executor1_Type 158 160	in
+F3	executor1_Type 313 315	in
+F4	executor1_NoneType 143 146	for
+F5	executor1_NoneType 243 246	for

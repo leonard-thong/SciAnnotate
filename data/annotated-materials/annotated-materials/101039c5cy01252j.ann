@@ -138,3 +138,24 @@ R49	Condition_Of Arg1:T62 Arg2:E12
 R50	Property_Of Arg1:T64 Arg2:T63	
 R51	Apparatus_Of Arg1:T65 Arg2:E14	
 R52	Property_Of Arg1:T67 Arg2:T66	
+F1	executor1_Type 55 57	in
+F2	executor1_Type 89 91	in
+F3	executor1_Type 176 178	in
+F4	executor1_Type 227 229	in
+F5	executor1_Type 307 309	in
+F6	executor1_Type 473 475	in
+F7	executor1_Type 485 487	in
+F8	executor1_Type 573 575	in
+F9	executor1_Type 587 589	in
+F10	executor1_Type 611 613	in
+F11	executor1_Type 727 729	in
+F12	executor1_Type 759 761	in
+F13	executor1_Type 833 835	in
+F14	executor1_Type 856 858	in
+F15	executor1_Type 970 972	in
+F16	executor1_NoneType 31 34	for
+F17	executor1_NoneType 83 86	for
+F18	executor1_NoneType 489 492	for
+F19	executor1_NoneType 563 566	for
+F20	executor1_NoneType 700 703	for
+F21	executor1_NoneType 912 915	for

@@ -91,3 +91,19 @@ R39	Brand_Of Arg1:T42 Arg2:T12
 R40	Brand_Of Arg1:T42 Arg2:T13	
 R41	Brand_Of Arg1:T42 Arg2:T14	
 R42	Brand_Of Arg1:T40 Arg2:T41	
+F1	executor1_Type 412 414	in
+F2	executor1_Type 431 433	in
+F3	executor1_Type 474 476	in
+F4	executor1_Type 816 818	in
+F5	executor1_Type 825 827	in
+F6	executor1_Type 912 914	in
+F7	executor1_Type 928 930	in
+F8	executor1_Type 982 984	in
+F9	executor1_Type 1029 1031	in
+F10	executor1_NoneType 445 448	for
+F11	executor1_NoneType 494 497	for
+F12	executor1_NoneType 542 545	for
+F13	executor1_NoneType 611 614	for
+F14	executor1_NoneType 953 956	for
+F15	executor1_NoneType 989 992	for
+F16	executor1_NoneType 1091 1094	for

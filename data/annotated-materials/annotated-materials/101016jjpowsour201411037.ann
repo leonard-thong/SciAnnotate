@@ -64,3 +64,17 @@ R20	Number_Of Arg1:T28 Arg2:T29
 R21	Brand_Of Arg1:T31 Arg2:T11	
 R22	Brand_Of Arg1:T32 Arg2:T12	
 R23	Brand_Of Arg1:T33 Arg2:T13	
+F1	executor1_Type 355 357	in
+F2	executor1_Type 390 392	in
+F3	executor1_Type 416 418	in
+F4	executor1_Type 474 476	in
+F5	executor1_Type 490 492	in
+F6	executor1_Type 576 578	in
+F7	executor1_Type 580 582	in
+F8	executor1_Type 637 639	in
+F9	executor1_Type 693 695	in
+F10	executor1_Type 721 723	in
+F11	executor1_NoneType 72 75	for
+F12	executor1_NoneType 128 131	for
+F13	executor1_NoneType 619 622	for
+F14	executor1_NoneType 712 715	for

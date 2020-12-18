@@ -139,3 +139,23 @@ R52	Condition_Of Arg1:T69 Arg2:E14
 R53	Condition_Of Arg1:T70 Arg2:E14	
 R54	Condition_Of Arg1:T71 Arg2:E14	
 T72	Material 1157 1171	final products
+F1	executor1_Type 190 192	in
+F2	executor1_Type 585 587	in
+F3	executor1_Type 617 619	in
+F4	executor1_Type 651 653	in
+F5	executor1_Type 772 774	in
+F6	executor1_Type 784 786	in
+F7	executor1_Type 866 868	in
+F8	executor1_Type 949 951	in
+F9	executor1_Type 1037 1039	in
+F10	executor1_Type 1072 1074	in
+F11	executor1_Type 1141 1143	in
+F12	executor1_Type 1154 1156	in
+F13	executor1_Type 1158 1160	in
+F14	executor1_NoneType 114 117	for
+F15	executor1_NoneType 126 129	for
+F16	executor1_NoneType 354 357	for
+F17	executor1_NoneType 604 607	for
+F18	executor1_NoneType 776 779	for
+F19	executor1_NoneType 938 941	for
+F20	executor1_NoneType 1124 1127	for

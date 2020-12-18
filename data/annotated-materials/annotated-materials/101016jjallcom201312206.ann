@@ -171,3 +171,19 @@ R65	Condition_Of Arg1:T63 Arg2:E13
 R66	Apparatus_Of Arg1:T86 Arg2:E13	
 R67	Property_Of Arg1:T87 Arg2:T48	
 R68	Property_Of Arg1:T88 Arg2:T48	
+F1	executor1_Type 435 437	in
+F2	executor1_Type 484 486	in
+F3	executor1_Type 537 539	in
+F4	executor1_Type 541 543	in
+F5	executor1_Type 646 648	in
+F6	executor1_Type 696 698	in
+F7	executor1_Type 890 892	in
+F8	executor1_Type 926 928	in
+F9	executor1_Type 930 932	in
+F10	executor1_Type 956 958	in
+F11	executor1_Type 1098 1100	in
+F12	executor1_Type 1179 1181	in
+F13	executor1_NoneType 156 159	for
+F14	executor1_NoneType 566 569	for
+F15	executor1_NoneType 947 950	for
+F16	executor1_NoneType 1089 1092	for

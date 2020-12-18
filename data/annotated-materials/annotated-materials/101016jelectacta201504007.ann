@@ -112,3 +112,15 @@ R33	Number_Of Arg1:T50 Arg2:T51
 R34	Amount_Of Arg1:T51 Arg2:T49	
 R35	Brand_Of Arg1:T52 Arg2:T49	
 R36	Condition_Of Arg1:T58 Arg2:E7	
+F1	executor1_Type 52 54	in
+F2	executor1_Type 121 123	in
+F3	executor1_Type 130 132	in
+F4	executor1_Type 138 140	in
+F5	executor1_Type 481 483	in
+F6	executor1_Type 622 624	in
+F7	executor1_Type 685 687	in
+F8	executor1_Type 743 745	in
+F9	executor1_Type 775 777	in
+F10	executor1_Type 816 818	in
+F11	executor1_NoneType 436 439	for
+F12	executor1_NoneType 855 858	for

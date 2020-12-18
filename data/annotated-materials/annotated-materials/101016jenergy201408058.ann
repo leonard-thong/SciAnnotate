@@ -78,3 +78,15 @@ R26	Number_Of Arg1:T32 Arg2:T33
 R27	Number_Of Arg1:T36 Arg2:T37	
 R28	Number_Of Arg1:T38 Arg2:T39	
 R29	Apparatus_Attr_Of Arg1:T33 Arg2:T34	
+F1	executor1_Type 393 395	in
+F2	executor1_Type 559 561	in
+F3	executor1_Type 581 583	in
+F4	executor1_Type 628 630	in
+F5	executor1_Type 661 663	in
+F6	executor1_Type 812 814	in
+F7	executor1_Type 882 884	in
+F8	executor1_Type 961 963	in
+F9	executor1_NoneType 112 115	for
+F10	executor1_NoneType 619 622	for
+F11	executor1_NoneType 770 773	for
+F12	executor1_NoneType 828 831	for

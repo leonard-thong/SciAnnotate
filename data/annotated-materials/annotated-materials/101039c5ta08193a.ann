@@ -150,3 +150,25 @@ A2	End_Recipe E16
 R57	Property_Of Arg1:T72 Arg2:T42	
 R58	Property_Of Arg1:T73 Arg2:T42	
 R59	Amount_Of Arg1:T74 Arg2:T42	
+F1	executor1_Type 51 53	in
+F2	executor1_Type 211 213	in
+F3	executor1_Type 226 228	in
+F4	executor1_Type 269 271	in
+F5	executor1_Type 379 381	in
+F6	executor1_Type 394 396	in
+F7	executor1_Type 402 404	in
+F8	executor1_Type 452 454	in
+F9	executor1_Type 588 590	in
+F10	executor1_Type 660 662	in
+F11	executor1_Type 683 685	in
+F12	executor1_Type 815 817	in
+F13	executor1_Type 854 856	in
+F14	executor1_Type 861 863	in
+F15	executor1_Type 925 927	in
+F16	executor1_Type 981 983	in
+F17	executor1_Type 984 986	in
+F18	executor1_NoneType 297 300	for
+F19	executor1_NoneType 500 503	for
+F20	executor1_NoneType 653 656	for
+F21	executor1_NoneType 802 805	for
+F22	executor1_NoneType 918 921	for

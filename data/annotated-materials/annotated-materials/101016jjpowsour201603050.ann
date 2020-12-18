@@ -113,3 +113,22 @@ R39	Condition_Of Arg1:T59 Arg2:E10
 R40	Number_Of Arg1:T60 Arg2:T61	
 R41	Condition_Of Arg1:T61 Arg2:E10	
 R42	Descriptor_Of Arg1:T63 Arg2:T62	
+F1	executor1_Type 181 183	in
+F2	executor1_Type 265 267	in
+F3	executor1_Type 340 342	in
+F4	executor1_Type 403 405	in
+F5	executor1_Type 437 439	in
+F6	executor1_Type 454 456	in
+F7	executor1_Type 456 458	in
+F8	executor1_Type 549 551	in
+F9	executor1_Type 650 652	in
+F10	executor1_Type 684 686	in
+F11	executor1_Type 821 823	in
+F12	executor1_Type 836 838	in
+F13	executor1_Type 858 860	in
+F14	executor1_Type 883 885	in
+F15	executor1_Type 949 951	in
+F16	executor1_NoneType 128 131	for
+F17	executor1_NoneType 803 806	for
+F18	executor1_NoneType 875 878	for
+F19	executor1_NoneType 928 931	for

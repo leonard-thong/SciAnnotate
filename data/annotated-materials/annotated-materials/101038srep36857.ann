@@ -138,3 +138,20 @@ R49	Number_Of Arg1:T69 Arg2:T71
 R50	Condition_Of Arg1:T71 Arg2:E13	
 R51	Number_Of Arg1:T70 Arg2:T72	
 R52	Condition_Of Arg1:T72 Arg2:E13	
+F1	executor1_Type 275 277	in
+F2	executor1_Type 329 331	in
+F3	executor1_Type 346 348	in
+F4	executor1_Type 358 360	in
+F5	executor1_Type 369 371	in
+F6	executor1_Type 536 538	in
+F7	executor1_Type 613 615	in
+F8	executor1_Type 619 621	in
+F9	executor1_Type 736 738	in
+F10	executor1_Type 819 821	in
+F11	executor1_Type 842 844	in
+F12	executor1_Type 848 850	in
+F13	executor1_Type 875 877	in
+F14	executor1_NoneType 476 479	for
+F15	executor1_NoneType 706 709	for
+F16	executor1_NoneType 832 835	for
+F17	executor1_NoneType 907 910	for

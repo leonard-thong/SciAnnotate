@@ -133,3 +133,17 @@ R53	Property_Of Arg1:T67 Arg2:T32
 R54	Number_Of Arg1:T23 Arg2:T44	
 R55	Property_Of Arg1:T44 Arg2:T32	
 R56	Property_Of Arg1:T68 Arg2:T32	
+F1	executor1_Type 254 256	in
+F2	executor1_Type 296 298	in
+F3	executor1_Type 318 320	in
+F4	executor1_Type 400 402	in
+F5	executor1_Type 522 524	in
+F6	executor1_Type 537 539	in
+F7	executor1_Type 569 571	in
+F8	executor1_Type 617 619	in
+F9	executor1_Type 658 660	in
+F10	executor1_NoneType 147 150	for
+F11	executor1_NoneType 278 281	for
+F12	executor1_NoneType 480 483	for
+F13	executor1_NoneType 514 517	for
+F14	executor1_NoneType 684 687	for

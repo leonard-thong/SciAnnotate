@@ -188,3 +188,28 @@ R65	Number_Of Arg1:T38 Arg2:T85
 R66	Number_Of Arg1:T39 Arg2:T85	
 R67	Amount_Of Arg1:T85 Arg2:T68	
 T98	Material 47 61	Ni-Pt bimetals
+F1	executor1_Type 67 69	in
+F2	executor1_Type 72 74	in
+F3	executor1_Type 83 85	in
+F4	executor1_Type 107 109	in
+F5	executor1_Type 263 265	in
+F6	executor1_Type 408 410	in
+F7	executor1_Type 510 512	in
+F8	executor1_Type 567 569	in
+F9	executor1_Type 571 573	in
+F10	executor1_Type 715 717	in
+F11	executor1_Type 755 757	in
+F12	executor1_Type 763 765	in
+F13	executor1_Type 888 890	in
+F14	executor1_Type 945 947	in
+F15	executor1_Type 1023 1025	in
+F16	executor1_Type 1070 1072	in
+F17	executor1_Type 1075 1077	in
+F18	executor1_Type 1127 1129	in
+F19	executor1_Type 1190 1192	in
+F20	executor1_NoneType 62 65	for
+F21	executor1_NoneType 103 106	for
+F22	executor1_NoneType 420 423	for
+F23	executor1_NoneType 625 628	for
+F24	executor1_NoneType 789 792	for
+F25	executor1_NoneType 1101 1104	for

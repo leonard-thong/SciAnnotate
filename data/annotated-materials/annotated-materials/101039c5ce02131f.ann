@@ -84,3 +84,17 @@ R29	Brand_Of Arg1:T17 Arg2:T34
 R30	Apparatus_Attr_Of Arg1:T37 Arg2:T34	
 R31	Apparatus_Attr_Of Arg1:T40 Arg2:T34	
 R32	Apparatus_Attr_Of Arg1:T41 Arg2:T34	
+F1	executor1_Type 96 98	in
+F2	executor1_Type 157 159	in
+F3	executor1_Type 169 171	in
+F4	executor1_Type 171 173	in
+F5	executor1_Type 249 251	in
+F6	executor1_Type 262 264	in
+F7	executor1_Type 391 393	in
+F8	executor1_Type 418 420	in
+F9	executor1_Type 457 459	in
+F10	executor1_Type 539 541	in
+F11	executor1_Type 595 597	in
+F12	executor1_Type 620 622	in
+F13	executor1_NoneType 193 196	for
+F14	executor1_NoneType 449 452	for

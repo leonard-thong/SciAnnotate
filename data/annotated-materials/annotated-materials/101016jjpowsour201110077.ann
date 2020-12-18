@@ -57,3 +57,12 @@ R19	Number_Of Arg1:T22 Arg2:T23
 R20	Number_Of Arg1:T24 Arg2:T25	
 R21	Number_Of Arg1:T26 Arg2:T27	
 R22	Number_Of Arg1:T28 Arg2:T29	
+F1	executor1_Type 104 106	in
+F2	executor1_Type 169 171	in
+F3	executor1_Type 194 196	in
+F4	executor1_Type 239 241	in
+F5	executor1_Type 351 353	in
+F6	executor1_Type 404 406	in
+F7	executor1_Type 418 420	in
+F8	executor1_NoneType 59 62	for
+F9	executor1_NoneType 435 438	for

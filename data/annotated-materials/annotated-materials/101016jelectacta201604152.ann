@@ -124,3 +124,16 @@ R46	Condition_Of Arg1:T58 Arg2:E6
 R47	Condition_Of Arg1:T59 Arg2:E6	
 R48	Number_Of Arg1:T60 Arg2:T61	
 R49	Condition_Of Arg1:T61 Arg2:E6	
+F1	executor1_Type 45 47	in
+F2	executor1_Type 291 293	in
+F3	executor1_Type 337 339	in
+F4	executor1_Type 463 465	in
+F5	executor1_Type 598 600	in
+F6	executor1_Type 619 621	in
+F7	executor1_Type 662 664	in
+F8	executor1_NoneType 95 98	for
+F9	executor1_NoneType 104 107	for
+F10	executor1_NoneType 397 400	for
+F11	executor1_NoneType 444 447	for
+F12	executor1_NoneType 507 510	for
+F13	executor1_NoneType 589 592	for

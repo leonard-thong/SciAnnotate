@@ -336,3 +336,33 @@ R127	Number_Of Arg1:T64 Arg2:T139
 R128	Type_Of Arg1:T138 Arg2:T139	
 R129	Descriptor_Of Arg1:T170 Arg2:T107	
 R130	Brand_Of Arg1:T34 Arg2:T107	
+F1	executor1_Type 28 30	in
+F2	executor1_Type 265 267	in
+F3	executor1_Type 319 321	in
+F4	executor1_Type 395 397	in
+F5	executor1_Type 397 399	in
+F6	executor1_Type 423 425	in
+F7	executor1_Type 462 464	in
+F8	executor1_Type 575 577	in
+F9	executor1_Type 709 711	in
+F10	executor1_Type 718 720	in
+F11	executor1_Type 733 735	in
+F12	executor1_Type 778 780	in
+F13	executor1_Type 922 924	in
+F14	executor1_Type 1026 1028	in
+F15	executor1_Type 1162 1164	in
+F16	executor1_Type 1371 1373	in
+F17	executor1_Type 1523 1525	in
+F18	executor1_Type 1569 1571	in
+F19	executor1_Type 1581 1583	in
+F20	executor1_Type 1628 1630	in
+F21	executor1_Type 1755 1757	in
+F22	executor1_Type 1801 1803	in
+F23	executor1_Type 1835 1837	in
+F24	executor1_NoneType 95 98	for
+F25	executor1_NoneType 466 469	for
+F26	executor1_NoneType 689 692	for
+F27	executor1_NoneType 1037 1040	for
+F28	executor1_NoneType 1573 1576	for
+F29	executor1_NoneType 1619 1622	for
+F30	executor1_NoneType 1852 1855	for

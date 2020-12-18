@@ -45,3 +45,11 @@ R12	Apparatus_Of Arg1:T25 Arg2:E4
 R13	Condition_Of Arg1:T26 Arg2:E4	
 R14	Number_Of Arg1:T27 Arg2:T28	
 R15	Condition_Of Arg1:T28 Arg2:E4	
+F1	executor1_Type 59 61	in
+F2	executor1_Type 72 74	in
+F3	executor1_Type 130 132	in
+F4	executor1_Type 192 194	in
+F5	executor1_Type 265 267	in
+F6	executor1_Type 411 413	in
+F7	executor1_Type 485 487	in
+F8	executor1_NoneType 92 95	for

@@ -14,3 +14,30 @@ T7	Disease 1713 1729	Deficiency of C5
 A7	Category T7 SpecificDisease
 T8	Disease 1815 1835	gonococcal infection
 A8	Category T8 SpecificDisease
+F1	executor1_Type 48 50	in
+F2	executor1_Type 69 71	in
+F3	executor1_Type 109 111	in
+F4	executor1_Type 121 123	in
+F5	executor1_Type 155 157	in
+F6	executor1_Type 274 276	in
+F7	executor1_Type 319 321	in
+F8	executor1_Type 338 340	in
+F9	executor1_Type 385 387	in
+F10	executor1_Type 407 409	in
+F11	executor1_Type 425 427	in
+F12	executor1_Type 517 519	in
+F13	executor1_Type 595 597	in
+F14	executor1_Type 647 649	in
+F15	executor1_Type 983 985	in
+F16	executor1_Type 1077 1079	in
+F17	executor1_Type 1090 1092	in
+F18	executor1_Type 1115 1117	in
+F19	executor1_Type 1529 1531	in
+F20	executor1_Type 1668 1670	in
+F21	executor1_Type 1682 1684	in
+F22	executor1_Type 1808 1810	in
+F23	executor1_Type 1826 1828	in
+F24	executor1_NoneType 931 934	for
+F25	executor1_NoneType 1133 1136	for
+F26	executor1_NoneType 1273 1276	for
+F27	executor1_NoneType 1536 1539	for

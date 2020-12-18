@@ -169,3 +169,26 @@ R60	Number_Of Arg1:T39 Arg2:T83
 R61	Type_Of Arg1:T86 Arg2:T83	
 R62	Number_Of Arg1:T40 Arg2:T84	
 R63	Apparatus_Attr_Of Arg1:T84 Arg2:T85	
+F1	executor1_Type 96 98	in
+F2	executor1_Type 109 111	in
+F3	executor1_Type 324 326	in
+F4	executor1_Type 468 470	in
+F5	executor1_Type 475 477	in
+F6	executor1_Type 600 602	in
+F7	executor1_Type 662 664	in
+F8	executor1_Type 733 735	in
+F9	executor1_Type 748 750	in
+F10	executor1_Type 816 818	in
+F11	executor1_Type 966 968	in
+F12	executor1_Type 1123 1125	in
+F13	executor1_Type 1164 1166	in
+F14	executor1_Type 1220 1222	in
+F15	executor1_Type 1235 1237	in
+F16	executor1_Type 1292 1294	in
+F17	executor1_Type 1477 1479	in
+F18	executor1_Type 1494 1496	in
+F19	executor1_Type 1704 1706	in
+F20	executor1_Type 1852 1854	in
+F21	executor1_NoneType 349 352	for
+F22	executor1_NoneType 654 657	for
+F23	executor1_NoneType 791 794	for

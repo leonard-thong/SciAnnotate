@@ -196,3 +196,28 @@ R64	Condition_Of Arg1:T99 Arg2:E22
 R65	Condition_Of Arg1:T101 Arg2:E22	
 T106	Material-Descriptor 1301 1306	crude
 R66	Descriptor_Of Arg1:T106 Arg2:T103	
+F1	executor1_Type 64 66	in
+F2	executor1_Type 98 100	in
+F3	executor1_Type 120 122	in
+F4	executor1_Type 173 175	in
+F5	executor1_Type 299 301	in
+F6	executor1_Type 406 408	in
+F7	executor1_Type 456 458	in
+F8	executor1_Type 490 492	in
+F9	executor1_Type 621 623	in
+F10	executor1_Type 663 665	in
+F11	executor1_Type 738 740	in
+F12	executor1_Type 762 764	in
+F13	executor1_Type 780 782	in
+F14	executor1_Type 834 836	in
+F15	executor1_Type 882 884	in
+F16	executor1_Type 1111 1113	in
+F17	executor1_Type 1223 1225	in
+F18	executor1_Type 1239 1241	in
+F19	executor1_Type 1283 1285	in
+F20	executor1_Type 1294 1296	in
+F21	executor1_NoneType 363 366	for
+F22	executor1_NoneType 375 378	for
+F23	executor1_NoneType 874 877	for
+F24	executor1_NoneType 1059 1062	for
+F25	executor1_NoneType 1216 1219	for

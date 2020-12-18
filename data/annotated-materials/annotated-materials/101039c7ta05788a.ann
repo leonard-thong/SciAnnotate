@@ -109,3 +109,37 @@ R46	Number_Of Arg1:T48 Arg2:T49
 R47	Brand_Of Arg1:T21 Arg2:T13	
 R48	Brand_Of Arg1:T25 Arg2:T14	
 R49	Brand_Of Arg1:T29 Arg2:T15	
+F1	executor1_Type 90 92	in
+F2	executor1_Type 151 153	in
+F3	executor1_Type 229 231	in
+F4	executor1_Type 244 246	in
+F5	executor1_Type 285 287	in
+F6	executor1_Type 425 427	in
+F7	executor1_Type 430 432	in
+F8	executor1_Type 472 474	in
+F9	executor1_Type 523 525	in
+F10	executor1_Type 634 636	in
+F11	executor1_Type 638 640	in
+F12	executor1_Type 704 706	in
+F13	executor1_Type 725 727	in
+F14	executor1_Type 809 811	in
+F15	executor1_Type 860 862	in
+F16	executor1_Type 864 866	in
+F17	executor1_Type 893 895	in
+F18	executor1_Type 907 909	in
+F19	executor1_Type 928 930	in
+F20	executor1_Type 948 950	in
+F21	executor1_Type 995 997	in
+F22	executor1_Type 1000 1002	in
+F23	executor1_Type 1067 1069	in
+F24	executor1_Type 1088 1090	in
+F25	executor1_Type 1095 1097	in
+F26	executor1_Type 1120 1122	in
+F27	executor1_Type 1177 1179	in
+F28	executor1_Type 1232 1234	in
+F29	executor1_Type 1274 1276	in
+F30	executor1_NoneType 81 84	for
+F31	executor1_NoneType 663 666	for
+F32	executor1_NoneType 739 742	for
+F33	executor1_NoneType 1060 1063	for
+F34	executor1_NoneType 1211 1214	for

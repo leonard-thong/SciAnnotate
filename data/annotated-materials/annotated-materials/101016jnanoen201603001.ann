@@ -79,3 +79,9 @@ R28	Number_Of Arg1:T36 Arg2:T38
 R29	Condition_Of Arg1:T38 Arg2:E6	
 R30	Number_Of Arg1:T37 Arg2:T39	
 R31	Condition_Of Arg1:T39 Arg2:E6	
+F1	executor1_Type 298 300	in
+F2	executor1_Type 515 517	in
+F3	executor1_Type 579 581	in
+F4	executor1_Type 584 586	in
+F5	executor1_NoneType 117 120	for
+F6	executor1_NoneType 537 540	for

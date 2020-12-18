@@ -18,3 +18,22 @@ T9	Disease 1316 1319	DMD
 A9	Category T9 Modifier
 T10	Disease 1527 1530	DMD
 A10	Category T10 SpecificDisease
+F1	executor1_Type 8 10	in
+F2	executor1_Type 40 42	in
+F3	executor1_Type 200 202	in
+F4	executor1_Type 286 288	in
+F5	executor1_Type 300 302	in
+F6	executor1_Type 497 499	in
+F7	executor1_Type 514 516	in
+F8	executor1_Type 687 689	in
+F9	executor1_Type 809 811	in
+F10	executor1_Type 957 959	in
+F11	executor1_Type 1038 1040	in
+F12	executor1_Type 1072 1074	in
+F13	executor1_Type 1124 1126	in
+F14	executor1_Type 1131 1133	in
+F15	executor1_Type 1188 1190	in
+F16	executor1_Type 1477 1479	in
+F17	executor1_Type 1518 1520	in
+F18	executor1_NoneType 416 419	for
+F19	executor1_NoneType 1192 1195	for

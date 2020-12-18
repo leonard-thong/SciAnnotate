@@ -135,3 +135,22 @@ R48	Number_Of Arg1:T43 Arg2:T55
 R49	Number_Of Arg1:T44 Arg2:T56	
 R50	Brand_Of Arg1:T60 Arg2:T17	
 R51	Apparatus_Attr_Of Arg1:T51 Arg2:T66	
+F1	executor1_Type 187 189	in
+F2	executor1_Type 499 501	in
+F3	executor1_Type 534 536	in
+F4	executor1_Type 653 655	in
+F5	executor1_Type 684 686	in
+F6	executor1_Type 708 710	in
+F7	executor1_Type 719 721	in
+F8	executor1_Type 754 756	in
+F9	executor1_Type 857 859	in
+F10	executor1_Type 996 998	in
+F11	executor1_Type 998 1000	in
+F12	executor1_Type 1002 1004	in
+F13	executor1_Type 1010 1012	in
+F14	executor1_Type 1026 1028	in
+F15	executor1_Type 1044 1046	in
+F16	executor1_Type 1068 1070	in
+F17	executor1_NoneType 662 665	for
+F18	executor1_NoneType 828 831	for
+F19	executor1_NoneType 1087 1090	for
