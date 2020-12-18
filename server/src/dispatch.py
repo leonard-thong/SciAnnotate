@@ -119,7 +119,7 @@ DISPATCHER = {
 
     'createNewDocument': create_new_document,
     'importNewDocument': import_new_document,
-    'deleteDocument':delete_new_document,
+    'deleteNewDocument':delete_new_document,
 
     'createSpanAllText': create_span_all_text,
     'createSpanAllRe': create_span_all_re,
