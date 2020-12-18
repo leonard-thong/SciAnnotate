@@ -448,9 +448,3 @@ R217	PUNC Arg1:T228 Arg2:T227
 R218	STA Arg1:T220 Arg2:T228
 R219	ACC Arg1:T228 Arg2:T229
 R220	PUNC Arg1:T228 Arg2:T230
-F1	executor1_Type 645 647	in
-F2	executor1_Type 761 763	in
-F3	executor1_Type 1111 1113	in
-F4	in_label_2 645 647	in
-F5	in_label_2 761 763	in
-F6	in_label_2 1111 1113	in

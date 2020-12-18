@@ -338,6 +338,7 @@ T171	Condition-Unit 2486 2489	min
 R128	Number_Of Arg1:T170 Arg2:T171	
 R129	Condition_Of Arg1:T171 Arg2:E38	
 T172	Material 2533 2540	polymer
+<<<<<<< HEAD
 F1	executor1_Type 385 387	in
 F2	executor1_Type 420 422	in
 F3	executor1_Type 475 477	in
@@ -480,3 +481,5 @@ F139	in_label_2 2451 2453	in
 F140	in_label_2 2487 2489	in
 F141	top 1009 1012	top
 F142	top 1009 1012	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

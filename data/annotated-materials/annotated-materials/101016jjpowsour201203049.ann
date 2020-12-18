@@ -65,28 +65,3 @@ R21	Number_Of Arg1:T26 Arg2:T27
 R22	Number_Of Arg1:T28 Arg2:T29	
 R23	Number_Of Arg1:T30 Arg2:T31	
 R24	Number_Of Arg1:T32 Arg2:T33	
-F1	executor1_Type 213 215	in
-F2	executor1_Type 342 344	in
-F3	executor1_Type 420 422	in
-F4	executor1_Type 479 481	in
-F5	executor1_Type 526 528	in
-F6	executor1_Type 556 558	in
-F7	executor1_Type 600 602	in
-F8	executor1_NoneType 70 73	for
-F9	executor1_NoneType 116 119	for
-F10	executor1_NoneType 411 414	for
-F11	executor1_NoneType 518 521	for
-F12	in_label_2 213 215	in
-F13	in_label_2 342 344	in
-F14	in_label_2 420 422	in
-F15	in_label_2 479 481	in
-F16	in_label_2 526 528	in
-F17	in_label_2 556 558	in
-F18	in_label_2 600 602	in
-F19	in_label_2 213 215	in
-F20	in_label_2 342 344	in
-F21	in_label_2 420 422	in
-F22	in_label_2 479 481	in
-F23	in_label_2 526 528	in
-F24	in_label_2 556 558	in
-F25	in_label_2 600 602	in

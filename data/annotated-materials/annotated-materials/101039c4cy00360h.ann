@@ -262,6 +262,7 @@ R88	Amount_Of Arg1:T112 Arg2:T111
 R89	Amount_Of Arg1:T112 Arg2:T110	
 R90	Amount_Of Arg1:T117 Arg2:T116	
 R91	Amount_Of Arg1:T117 Arg2:T115	
+<<<<<<< HEAD
 F1	executor1_Type 385 387	in
 F2	executor1_Type 458 460	in
 F3	executor1_Type 496 498	in
@@ -347,3 +348,5 @@ F82	in_label_2 1974 1976	in
 F83	in_label_2 1985 1987	in
 F84	top 55 58	top
 F85	top 55 58	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

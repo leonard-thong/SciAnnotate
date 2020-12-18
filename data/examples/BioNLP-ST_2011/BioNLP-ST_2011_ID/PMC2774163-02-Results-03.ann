@@ -84,6 +84,7 @@ E5	Binding:T69 Theme:T32
 E6	Phosphorylation:T70 Theme:T40
 E7	Gene_expression:T71 Theme:T44
 E8	Gene_expression:T72 Theme:T46
+<<<<<<< HEAD
 F1	executor1_Type 73 75	in
 F2	executor1_Type 202 204	in
 F3	executor1_Type 246 248	in
@@ -303,3 +304,5 @@ F216	in_label_2 4737 4739	in
 F217	in_label_2 4747 4749	in
 F218	top 2146 2149	top
 F219	top 2991 2994	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

@@ -92,24 +92,3 @@ R34	Number_Of Arg1:T21 Arg2:T42
 R35	Condition_Of Arg1:T42 Arg2:E6	
 R36	Number_Of Arg1:T22 Arg2:T43	
 R37	Condition_Of Arg1:T43 Arg2:E6	
-F1	executor1_Type 101 103	in
-F2	executor1_Type 113 115	in
-F3	executor1_Type 195 197	in
-F4	executor1_Type 319 321	in
-F5	executor1_Type 408 410	in
-F6	executor1_Type 538 540	in
-F7	executor1_NoneType 507 510	for
-F8	executor1_NoneType 555 558	for
-F9	executor1_NoneType 563 566	for
-F10	in_label_2 101 103	in
-F11	in_label_2 113 115	in
-F12	in_label_2 195 197	in
-F13	in_label_2 319 321	in
-F14	in_label_2 408 410	in
-F15	in_label_2 538 540	in
-F16	in_label_2 101 103	in
-F17	in_label_2 113 115	in
-F18	in_label_2 195 197	in
-F19	in_label_2 319 321	in
-F20	in_label_2 408 410	in
-F21	in_label_2 538 540	in

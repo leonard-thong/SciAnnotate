@@ -143,38 +143,3 @@ R47	Amount_Of Arg1:T75 Arg2:T62
 R48	Number_Of Arg1:T76 Arg2:T77	
 R49	Amount_Of Arg1:T77 Arg2:T62	
 R50	Descriptor_Of Arg1:T80 Arg2:T79	
-F1	executor1_Type 113 115	in
-F2	executor1_Type 143 145	in
-F3	executor1_Type 147 149	in
-F4	executor1_Type 257 259	in
-F5	executor1_Type 507 509	in
-F6	executor1_Type 552 554	in
-F7	executor1_Type 674 676	in
-F8	executor1_Type 830 832	in
-F9	executor1_Type 834 836	in
-F10	executor1_Type 927 929	in
-F11	executor1_NoneType 88 91	for
-F12	executor1_NoneType 186 189	for
-F13	executor1_NoneType 313 316	for
-F14	executor1_NoneType 589 592	for
-F15	executor1_NoneType 979 982	for
-F16	in_label_2 113 115	in
-F17	in_label_2 143 145	in
-F18	in_label_2 147 149	in
-F19	in_label_2 257 259	in
-F20	in_label_2 507 509	in
-F21	in_label_2 552 554	in
-F22	in_label_2 674 676	in
-F23	in_label_2 830 832	in
-F24	in_label_2 834 836	in
-F25	in_label_2 927 929	in
-F26	in_label_2 113 115	in
-F27	in_label_2 143 145	in
-F28	in_label_2 147 149	in
-F29	in_label_2 257 259	in
-F30	in_label_2 507 509	in
-F31	in_label_2 552 554	in
-F32	in_label_2 674 676	in
-F33	in_label_2 830 832	in
-F34	in_label_2 834 836	in
-F35	in_label_2 927 929	in

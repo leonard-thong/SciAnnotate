@@ -12,6 +12,7 @@ T2	Protein 566 575	TNF-alpha
 T3	Protein 658 667	TNF-alpha
 T4	Protein 919 947	toxic shock syndrome toxin-I
 T5	Protein 951 979	staphylococcal enterotoxin B
+<<<<<<< HEAD
 F1	executor1_Type 42 44	in
 F2	executor1_Type 64 66	in
 F3	executor1_Type 156 158	in
@@ -65,3 +66,5 @@ F50	in_label_2 975 977	in
 F51	in_label_2 1006 1008	in
 F52	in_label_2 1009 1011	in
 F53	top 809 812	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

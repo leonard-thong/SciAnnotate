@@ -15,6 +15,7 @@ A3	Mention T5 Nominal
 A4	Individual T5
 A5	Confidence E1 High
 N1	Reference T5 Wikipedia:64488	Carlos Salinas de Gortari
+<<<<<<< HEAD
 F1	executor1_Type 159 161	in
 F2	executor1_Type 207 209	in
 F3	executor1_Type 229 231	in
@@ -63,3 +64,5 @@ F45	in_label_2 859 861	in
 F46	in_label_2 896 898	in
 F47	top 949 952	top
 F48	top 949 952	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

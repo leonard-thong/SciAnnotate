@@ -78,24 +78,3 @@ R30	Number_Of Arg1:T28 Arg2:T29
 R31	Number_Of Arg1:T35 Arg2:T40	
 R32	Number_Of Arg1:T36 Arg2:T37	
 R33	Number_Of Arg1:T38 Arg2:T39	
-F1	executor1_Type 28 30	in
-F2	executor1_Type 162 164	in
-F3	executor1_Type 347 349	in
-F4	executor1_Type 460 462	in
-F5	executor1_Type 496 498	in
-F6	executor1_Type 624 626	in
-F7	executor1_NoneType 420 423	for
-F8	executor1_NoneType 517 520	for
-F9	executor1_NoneType 670 673	for
-F10	in_label_2 28 30	in
-F11	in_label_2 162 164	in
-F12	in_label_2 347 349	in
-F13	in_label_2 460 462	in
-F14	in_label_2 496 498	in
-F15	in_label_2 624 626	in
-F16	in_label_2 28 30	in
-F17	in_label_2 162 164	in
-F18	in_label_2 347 349	in
-F19	in_label_2 460 462	in
-F20	in_label_2 496 498	in
-F21	in_label_2 624 626	in

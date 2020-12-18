@@ -67,25 +67,3 @@ R22	Number_Of Arg1:T23 Arg2:T35
 R23	Condition_Of Arg1:T35 Arg2:E7	
 T36	Property-Misc 74 94	manganese containing
 R24	Property_Of Arg1:T36 Arg2:T1	
-F1	executor1_Type 89 91	in
-F2	executor1_Type 91 93	in
-F3	executor1_Type 209 211	in
-F4	executor1_Type 259 261	in
-F5	executor1_Type 406 408	in
-F6	executor1_Type 466 468	in
-F7	executor1_Type 471 473	in
-F8	executor1_NoneType 490 493	for
-F9	in_label_2 89 91	in
-F10	in_label_2 91 93	in
-F11	in_label_2 209 211	in
-F12	in_label_2 259 261	in
-F13	in_label_2 406 408	in
-F14	in_label_2 466 468	in
-F15	in_label_2 471 473	in
-F16	in_label_2 89 91	in
-F17	in_label_2 91 93	in
-F18	in_label_2 209 211	in
-F19	in_label_2 259 261	in
-F20	in_label_2 406 408	in
-F21	in_label_2 466 468	in
-F22	in_label_2 471 473	in

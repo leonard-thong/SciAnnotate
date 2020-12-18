@@ -17,6 +17,7 @@ T16	Protein 1653 1656	AhR
 T17	Protein 1812 1815	AhR
 *	Equiv T1 T2
 *	Equiv T3 T4
+<<<<<<< HEAD
 F1	executor1_Type 45 47	in
 F2	executor1_Type 168 170	in
 F3	executor1_Type 197 199	in
@@ -101,3 +102,5 @@ F81	in_label_2 1843 1845	in
 F82	in_label_2 1881 1883	in
 F83	in_label_2 1929 1931	in
 F84	top 461 464	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

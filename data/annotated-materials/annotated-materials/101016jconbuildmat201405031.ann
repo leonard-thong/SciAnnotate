@@ -452,6 +452,7 @@ R156	Condition_Of Arg1:T224 Arg2:E45
 R157	Apparatus_Of Arg1:T225 Arg2:E46	
 R158	Condition_Of Arg1:T226 Arg2:E55	
 R159	Apparatus_Of Arg1:T229 Arg2:E47	
+<<<<<<< HEAD
 F1	executor1_Type 175 177	in
 F2	executor1_Type 189 191	in
 F3	executor1_Type 426 428	in
@@ -614,3 +615,5 @@ F159	in_label_2 3467 3469	in
 F160	in_label_2 3535 3537	in
 F161	top 2697 2700	top
 F162	top 2697 2700	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

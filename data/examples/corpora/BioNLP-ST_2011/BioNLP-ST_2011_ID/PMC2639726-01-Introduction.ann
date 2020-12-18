@@ -37,6 +37,7 @@ E6	Process:T27
 E7	Process:T28 
 E8	Process:T29 Participant:T18
 E9	Process:T30 Participant:T20
+<<<<<<< HEAD
 F1	executor1_Type 20 22	in
 F2	executor1_Type 26 28	in
 F3	executor1_Type 31 33	in
@@ -174,3 +175,5 @@ F134	in_label_2 3807 3809	in
 F135	in_label_2 3820 3822	in
 F136	in_label_2 3850 3852	in
 F137	top 1685 1688	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

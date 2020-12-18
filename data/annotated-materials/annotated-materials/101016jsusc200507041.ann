@@ -78,32 +78,3 @@ R34	Number_Of Arg1:T37 Arg2:T38
 R35	Brand_Of Arg1:T18 Arg2:T11	
 R36	Brand_Of Arg1:T18 Arg2:T12	
 R37	Brand_Of Arg1:T18 Arg2:T13	
-F1	executor1_Type 60 62	in
-F2	executor1_Type 148 150	in
-F3	executor1_Type 290 292	in
-F4	executor1_Type 352 354	in
-F5	executor1_Type 397 399	in
-F6	executor1_Type 416 418	in
-F7	executor1_Type 495 497	in
-F8	executor1_Type 548 550	in
-F9	executor1_Type 555 557	in
-F10	executor1_NoneType 318 321	for
-F11	executor1_NoneType 461 464	for
-F12	in_label_2 60 62	in
-F13	in_label_2 148 150	in
-F14	in_label_2 290 292	in
-F15	in_label_2 352 354	in
-F16	in_label_2 397 399	in
-F17	in_label_2 416 418	in
-F18	in_label_2 495 497	in
-F19	in_label_2 548 550	in
-F20	in_label_2 555 557	in
-F21	in_label_2 60 62	in
-F22	in_label_2 148 150	in
-F23	in_label_2 290 292	in
-F24	in_label_2 352 354	in
-F25	in_label_2 397 399	in
-F26	in_label_2 416 418	in
-F27	in_label_2 495 497	in
-F28	in_label_2 548 550	in
-F29	in_label_2 555 557	in

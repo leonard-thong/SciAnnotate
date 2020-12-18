@@ -70,6 +70,7 @@ T20	Protein 1212 1215	Btk
 T21	Protein 1318 1321	Btk
 T22	Protein 1366 1369	Sp1
 T23	Protein 1375 1379	PU.1
+<<<<<<< HEAD
 F1	executor1_Type 55 57	in
 F2	executor1_Type 67 69	in
 F3	executor1_Type 72 74	in
@@ -120,3 +121,5 @@ F47	in_label_2 985 987	in
 F48	in_label_2 1351 1353	in
 F49	top 199 202	top
 F50	top 323 326	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

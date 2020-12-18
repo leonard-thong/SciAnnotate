@@ -85,30 +85,3 @@ R31	Amount_Of Arg1:T15 Arg2:T12
 R32	Amount_Of Arg1:T15 Arg2:T11	
 R33	Amount_Of Arg1:T28 Arg2:T18	
 R34	Amount_Of Arg1:T28 Arg2:T19	
-F1	executor1_Type 144 146	in
-F2	executor1_Type 252 254	in
-F3	executor1_Type 449 451	in
-F4	executor1_Type 478 480	in
-F5	executor1_Type 558 560	in
-F6	executor1_Type 625 627	in
-F7	executor1_Type 642 644	in
-F8	executor1_Type 698 700	in
-F9	executor1_NoneType 65 68	for
-F10	executor1_NoneType 85 88	for
-F11	executor1_NoneType 532 535	for
-F12	in_label_2 144 146	in
-F13	in_label_2 252 254	in
-F14	in_label_2 449 451	in
-F15	in_label_2 478 480	in
-F16	in_label_2 558 560	in
-F17	in_label_2 625 627	in
-F18	in_label_2 642 644	in
-F19	in_label_2 698 700	in
-F20	in_label_2 144 146	in
-F21	in_label_2 252 254	in
-F22	in_label_2 449 451	in
-F23	in_label_2 478 480	in
-F24	in_label_2 558 560	in
-F25	in_label_2 625 627	in
-F26	in_label_2 642 644	in
-F27	in_label_2 698 700	in

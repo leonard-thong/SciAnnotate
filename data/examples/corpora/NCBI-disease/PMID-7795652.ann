@@ -16,37 +16,3 @@ T8	Disease 658 664	tumour
 A8	Category T8 Modifier
 T9	Disease 790 805	ovarian cancers
 A9	Category T9 SpecificDisease
-F1	executor1_Type 18 20	in
-F2	executor1_Type 36 38	in
-F3	executor1_Type 135 137	in
-F4	executor1_Type 153 155	in
-F5	executor1_Type 232 234	in
-F6	executor1_Type 306 308	in
-F7	executor1_Type 322 324	in
-F8	executor1_Type 430 432	in
-F9	executor1_Type 441 443	in
-F10	executor1_Type 450 452	in
-F11	executor1_Type 535 537	in
-F12	executor1_Type 619 621	in
-F13	executor1_Type 735 737	in
-F14	executor1_Type 738 740	in
-F15	executor1_Type 760 762	in
-F16	executor1_NoneType 115 118	for
-F17	executor1_NoneType 416 419	for
-F18	executor1_NoneType 466 469	for
-F19	executor1_NoneType 686 689	for
-F20	in_label_2 18 20	in
-F21	in_label_2 36 38	in
-F22	in_label_2 135 137	in
-F23	in_label_2 153 155	in
-F24	in_label_2 232 234	in
-F25	in_label_2 306 308	in
-F26	in_label_2 322 324	in
-F27	in_label_2 430 432	in
-F28	in_label_2 441 443	in
-F29	in_label_2 450 452	in
-F30	in_label_2 535 537	in
-F31	in_label_2 619 621	in
-F32	in_label_2 735 737	in
-F33	in_label_2 738 740	in
-F34	in_label_2 760 762	in

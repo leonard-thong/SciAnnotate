@@ -39,6 +39,7 @@ T32	Protein 1950 1954	CD34
 T33	Protein 1983 1987	CD34
 T34	Protein 1991 1995	CD38
 T35	Protein 2128 2132	CD34
+<<<<<<< HEAD
 F1	executor1_Type 16 18	in
 F2	executor1_Type 104 106	in
 F3	executor1_Type 261 263	in
@@ -108,3 +109,5 @@ F66	top 145 148	top
 F67	top 454 457	top
 F68	top 892 895	top
 F69	top 2396 2399	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

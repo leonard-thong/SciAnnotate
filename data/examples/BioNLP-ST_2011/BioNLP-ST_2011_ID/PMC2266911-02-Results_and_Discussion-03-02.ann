@@ -130,6 +130,7 @@ E14	Binding:T109 Theme:T76
 E15	Positive_regulation:T110 Theme:T97
 E16	Process:T111 
 E17	Process:T112 
+<<<<<<< HEAD
 F1	executor1_Type 137 139	in
 F2	executor1_Type 149 151	in
 F3	executor1_Type 152 154	in
@@ -273,3 +274,5 @@ F140	in_label_2 2716 2718	in
 F141	in_label_2 2764 2766	in
 F142	top 1766 1769	top
 F143	top 1888 1891	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

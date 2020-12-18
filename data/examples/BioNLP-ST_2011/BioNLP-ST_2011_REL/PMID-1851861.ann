@@ -16,6 +16,7 @@ T15	Entity 1347 1363	NF kappa B sites
 T16	Entity 1347 1357	NF kappa B
 T17	Entity 1371 1383	HIV promoter
 T18	Entity 1464 1476	HIV promoter
+<<<<<<< HEAD
 F1	executor1_Type 96 98	in
 F2	executor1_Type 112 114	in
 F3	executor1_Type 177 179	in
@@ -88,3 +89,5 @@ F69	in_label_2 1584 1586	in
 F70	in_label_2 1614 1616	in
 F71	top 314 317	top
 F72	top 1593 1596	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

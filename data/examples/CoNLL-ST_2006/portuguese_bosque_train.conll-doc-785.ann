@@ -468,12 +468,3 @@ R227	P_lt_ Arg1:T236 Arg2:T237
 R228	_gt_N Arg1:T239 Arg2:T238
 R229	ACC Arg1:T237 Arg2:T239
 R230	PUNC Arg1:T226 Arg2:T240
-F1	executor1_Type 101 103	in
-F2	executor1_Type 267 269	in
-F3	executor1_Type 446 448	in
-F4	executor1_Type 514 516	in
-F5	executor1_NoneType 448 451	for
-F6	in_label_2 101 103	in
-F7	in_label_2 267 269	in
-F8	in_label_2 446 448	in
-F9	in_label_2 514 516	in

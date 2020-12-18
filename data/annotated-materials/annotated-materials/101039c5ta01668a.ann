@@ -169,6 +169,7 @@ R60	Number_Of Arg1:T39 Arg2:T83
 R61	Type_Of Arg1:T86 Arg2:T83	
 R62	Number_Of Arg1:T40 Arg2:T84	
 R63	Apparatus_Attr_Of Arg1:T84 Arg2:T85	
+<<<<<<< HEAD
 F1	executor1_Type 96 98	in
 F2	executor1_Type 109 111	in
 F3	executor1_Type 324 326	in
@@ -234,3 +235,5 @@ F62	in_label_2 1704 1706	in
 F63	in_label_2 1852 1854	in
 F64	top 1047 1050	top
 F65	top 1047 1050	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

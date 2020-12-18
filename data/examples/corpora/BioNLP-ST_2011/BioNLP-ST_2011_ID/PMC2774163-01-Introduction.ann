@@ -106,6 +106,7 @@ E19	Positive_regulation:T83 Theme:E21 Cause:E17
 E20	Positive_regulation:T83 Theme:E21 Cause:E18
 E21	Positive_regulation:T84 Theme:E22
 E22	Process:T85 
+<<<<<<< HEAD
 F1	executor1_Type 94 96	in
 F2	executor1_Type 196 198	in
 F3	executor1_Type 340 342	in
@@ -358,3 +359,5 @@ F249	in_label_2 6262 6264	in
 F250	in_label_2 6266 6268	in
 F251	in_label_2 6293 6295	in
 F252	top 3333 3336	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

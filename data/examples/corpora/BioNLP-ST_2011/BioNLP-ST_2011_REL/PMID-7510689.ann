@@ -34,6 +34,7 @@ T33	Entity 987 990	TRP
 T34	Entity 1142 1162	nuclear factor NF-kB
 T35	Entity 1434 1437	TRP
 T36	Entity 1853 1856	TRP
+<<<<<<< HEAD
 F1	executor1_Type 6 8	in
 F2	executor1_Type 19 21	in
 F3	executor1_Type 47 49	in
@@ -168,3 +169,5 @@ F131	in_label_2 2016 2018	in
 F132	in_label_2 2019 2021	in
 F133	in_label_2 2052 2054	in
 F134	top 1190 1193	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

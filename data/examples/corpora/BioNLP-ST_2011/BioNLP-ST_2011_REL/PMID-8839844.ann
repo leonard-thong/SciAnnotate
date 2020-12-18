@@ -21,6 +21,7 @@ T19	Entity 1194 1234	bipartite retinoic acid response element
 T20	Entity 1336 1363	hematopoietic-specific gene
 R1	Protein-Component Arg1:T11 Arg2:T19
 R2	Protein-Component Arg1:T11 Arg2:T18
+<<<<<<< HEAD
 F1	executor1_Type 69 71	in
 F2	executor1_Type 100 102	in
 F3	executor1_Type 116 118	in
@@ -87,3 +88,5 @@ F63	in_label_2 1423 1425	in
 F64	top 10 13	top
 F65	top 969 972	top
 F66	top 1340 1343	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

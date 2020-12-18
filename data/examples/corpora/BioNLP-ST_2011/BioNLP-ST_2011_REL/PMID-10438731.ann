@@ -61,6 +61,7 @@ R9	Protein-Component Arg1:T18 Arg2:T43
 R10	Protein-Component Arg1:T18 Arg2:T44
 R11	Protein-Component Arg1:T21 Arg2:T46
 R12	Protein-Component Arg1:T32 Arg2:T47
+<<<<<<< HEAD
 F1	executor1_Type 65 67	in
 F2	executor1_Type 98 100	in
 F3	executor1_Type 146 148	in
@@ -177,3 +178,5 @@ F113	in_label_2 2178 2180	in
 F114	in_label_2 2187 2189	in
 F115	in_label_2 2274 2276	in
 F116	top 284 287	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

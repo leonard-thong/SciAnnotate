@@ -546,13 +546,3 @@ R266	ADVS Arg1:T275 Arg2:T276
 R267	_gt_N Arg1:T278 Arg2:T277
 R268	P_lt_ Arg1:T276 Arg2:T278
 R269	PUNC Arg1:T259 Arg2:T279
-F1	executor1_Type 38 40	in
-F2	executor1_Type 910 912	in
-F3	executor1_Type 1111 1113	in
-F4	executor1_Type 1217 1219	in
-F5	executor1_NoneType 12 15	for
-F6	executor1_NoneType 1533 1536	for
-F7	in_label_2 38 40	in
-F8	in_label_2 910 912	in
-F9	in_label_2 1111 1113	in
-F10	in_label_2 1217 1219	in

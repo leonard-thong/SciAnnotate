@@ -158,6 +158,7 @@ T87	Protein 4869 4875	Rv2623
 T88	Organism 4900 4915	M. tuberculosis
 T89	Protein 4943 4949	Rv2623
 T90	Organism 4955 4972	tubercle bacillus
+<<<<<<< HEAD
 F1	executor1_Type 38 40	in
 F2	executor1_Type 72 74	in
 F3	executor1_Type 160 162	in
@@ -377,3 +378,5 @@ F216	in_label_2 4925 4927	in
 F217	in_label_2 5013 5015	in
 F218	in_label_2 5031 5033	in
 F219	top 1958 1961	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

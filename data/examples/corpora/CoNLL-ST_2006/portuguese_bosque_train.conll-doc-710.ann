@@ -356,19 +356,3 @@ R171	N_lt_ Arg1:T180 Arg2:T181
 R172	_gt_N Arg1:T183 Arg2:T182
 R173	P_lt_ Arg1:T181 Arg2:T183
 R174	PUNC Arg1:T173 Arg2:T184
-F1	executor1_Type 61 63	in
-F2	executor1_Type 145 147	in
-F3	executor1_Type 237 239	in
-F4	executor1_Type 340 342	in
-F5	executor1_Type 483 485	in
-F6	executor1_Type 495 497	in
-F7	executor1_Type 859 861	in
-F8	executor1_Type 889 891	in
-F9	in_label_2 61 63	in
-F10	in_label_2 145 147	in
-F11	in_label_2 237 239	in
-F12	in_label_2 340 342	in
-F13	in_label_2 483 485	in
-F14	in_label_2 495 497	in
-F15	in_label_2 859 861	in
-F16	in_label_2 889 891	in
