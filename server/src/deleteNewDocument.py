@@ -12,5 +12,11 @@ def delete_new_document(**kwargs):
     real_dir = real_directory(directory)
     GLOBAL_LOGGER.log_normal(real_dir)
     document = path_join(real_dir, document)
-    os.remove(document)
+    if os.path.isdir(document):
+        os.remove(document)
+    else:
+        os.remove(document+'.txt')
+        os.remove(document+'.ann')
+        if os.path.exists(document+'_func.ann'):
+            os.remove(document+'_func.ann')
     return res

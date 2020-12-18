@@ -119,7 +119,7 @@ DISPATCHER = {
 
     'createNewDocument': create_new_document,
     'importNewDocument': import_new_document,
-    'deleteDocument':delete_new_document,
+    'deleteNewDocument':delete_new_document,
 
     'createSpanAllText': create_span_all_text,
     'createSpanAllRe': create_span_all_re,
@@ -128,7 +128,7 @@ DISPATCHER = {
 
 # Actions that correspond to labeling function functionality
 EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 
-                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'importNewDocument','deleteDocument'}
+                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'importNewDocument','deleteNewDocument'}
 
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}
