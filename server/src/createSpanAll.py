@@ -77,7 +77,7 @@ def _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs, 
     
     entity_index = get_entity_index_exist_normal(exist_index)
 
-    location = locations_of_substring(text,keyword)
+    location = locations_of_substring(text.lower(),keyword.lower())
     entities = [
         ["F" + str(next(entity_index)), label, [(pos, pos + len(keyword))], text[pos:pos + len(keyword)]]
         for pos in location
