@@ -664,7 +664,7 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
-                        let scopes = $("#label_form_scope input:radio:checked")
+                        let scopes = $("#keyword_form_scope input:radio:checked")
                             .map(function () {
                                 return $(this).val();
                             })
