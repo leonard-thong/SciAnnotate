@@ -5,7 +5,7 @@ from os.path import join as path_join
 from os.path import split as path_split
 from jsonwrap import dumps as json_dumps
 from jsonwrap import loads as json_loads
-from utils import get_entity_index_exist_normal, add_common_info, annotation_file_generate,parse_annotation_file, merge_ann_files, GLOBAL_LOGGER
+from utils import get_entity_index_exist_normal, add_common_info, annotation_file_generate,parse_annotation_file, merge_ann_files,clean_cached_config, GLOBAL_LOGGER
 from labelFunctionExecutor import get_label_scope
 
 
@@ -31,9 +31,6 @@ def create_span_all_text(**kwargs):
     label = kwargs['label']
     keyword = kwargs['keyword']
     scope = kwargs["scope[]"] if kwargs['scope[]'] else "currentDocument"
-    if type(kwargs["function[]"]) == str:
-            kwargs["function[]"] = [kwargs["function[]"]]
-    functions = list(kwargs["function[]"])
     out = dict()
     if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
@@ -41,7 +38,12 @@ def create_span_all_text(**kwargs):
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
     if scope not in ['currentCollection', 'allCollections']:
         clean_cached_config()
-        out = _function_executor(collection, document, functions)
+        directory = collection
+        real_dir = real_directory(directory)
+        doc = path_join(real_dir, document)
+        txt_file_path = doc + '.txt'
+        ann_file_path = txt_file_path[:-4] + '.ann'
+        out = _create_span_all_text(txt_file_path, ann_file_path, keyword, label, kwargs)
     else:
         operation_scope_list = get_label_scope(collection, scope)
         clean_cached_config()
@@ -97,9 +99,6 @@ def create_span_all_re(**kwargs):
     label = kwargs['label']
     keyword = kwargs['keyword']
     scope = kwargs["scope[]"] if kwargs['scope[]'] else "currentDocument"
-    if type(kwargs["function[]"]) == str:
-            kwargs["function[]"] = [kwargs["function[]"]]
-    functions = list(kwargs["function[]"])
     out = dict()
     if collection is None:
         GLOBAL_LOGGER.log_error("INVALID DIRECTORY")
@@ -107,7 +106,12 @@ def create_span_all_re(**kwargs):
         GLOBAL_LOGGER.log_error("INVALID DOCUMENT, CANNOT FETCH DOCUMENT")
     if scope not in ['currentCollection', 'allCollections']:
         clean_cached_config()
-        out = _function_executor(collection, document, functions)
+        directory = collection
+        real_dir = real_directory(directory)
+        doc = path_join(real_dir, document)
+        txt_file_path = doc + '.txt'
+        ann_file_path = txt_file_path[:-4] + '.ann'
+        out = _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs)
     else:
         operation_scope_list = get_label_scope(collection, scope)
         clean_cached_config()
