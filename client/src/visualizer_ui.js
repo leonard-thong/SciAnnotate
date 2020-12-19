@@ -1127,12 +1127,18 @@ var VisualizerUI = (function ($, window, undefined) {
                                 document = $(this).context.dataset["doc"];
                         });
 
-                        $.post("ajax.cgi", {
-                            protocol: 1,
-                            action: "deleteNewDocument",
-                            collection: collection,
-                            document: document,
-                        });
+                        $.post(
+                            "ajax.cgi",
+                            {
+                                protocol: 1,
+                                action: "deleteNewDocument",
+                                collection: collection,
+                                document: document,
+                            },
+                            function () {
+                                location.reload();
+                            }
+                        );
                     },
                 });
             }
