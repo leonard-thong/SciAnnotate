@@ -969,35 +969,46 @@ var VisualizerUI = (function ($, window, undefined) {
                         let functions = $(
                             ".CodeMirror"
                         )[0].CodeMirror.getValue();
-                        var name = functions.split(" ")[1].split("(")[0];
 
-                        $("#tick").css("visibility", "visible");
+                        if (functions === null) {
+                            dispatcher.post("messages", [
+                                [
+                                    [
+                                        "Insert your labeling function in the text area",
+                                        "warning",
+                                    ],
+                                ],
+                            ]);
+                        } else {
+                            var name = functions.split(" ")[1].split("(")[0];
 
-                        $.post(
-                            "ajax.cgi",
-                            {
-                                protocol: 1,
-                                action: "instantExecutor",
-                                collection: collection,
-                                document: document,
-                                function: functions,
-                                name: name,
-                            },
-                            function (result) {
-                                dispatcher.post("ajax", [
-                                    {
-                                        action: "getCollectionInformation",
-                                        collection: collection,
-                                    },
-                                    "collectionLoaded",
-                                    {
-                                        collection: collection,
-                                        keep: true,
-                                    },
-                                ]);
-                                dispatcher.post("renderData", [result]);
-                            }
-                        );
+                            $.post(
+                                "ajax.cgi",
+                                {
+                                    protocol: 1,
+                                    action: "instantExecutor",
+                                    collection: collection,
+                                    document: document,
+                                    function: functions,
+                                    name: name,
+                                },
+                                function (result) {
+                                    dispatcher.post("ajax", [
+                                        {
+                                            action: "getCollectionInformation",
+                                            collection: collection,
+                                        },
+                                        "collectionLoaded",
+                                        {
+                                            collection: collection,
+                                            keep: true,
+                                        },
+                                    ]);
+                                    dispatcher.post("renderData", [result]);
+                                    $("#tick").css("visibility", "visible");
+                                }
+                            );
+                        }
                     },
                 });
                 buttons.push({
