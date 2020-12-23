@@ -29,12 +29,6 @@ You should then be able to access the brat server from the address printed out b
 LABELING_FUNCTION_SET = {"alias": your_new_function}
 ```
 
-## Release Note Sept.4 2020
-### Feature:
-* Labeling Function Real Time Debug
-* Labeling Function Hot Append
-* MD5 Color Generation, Stable color for each added labeing function
-
 
 ## Release Note Dec.17 2020
 - Recontruct basic storage logic of annotations from labeling function, annotations from labeling function will appear in ann file like F1, F2, etc...
@@ -65,3 +59,10 @@ def executor1(text="", entity_index=None):
     res["entities"] = entities
     return res
 ```
+
+
+## Release Note Sept.4 2020
+### Feature:
+* Labeling Function Real Time Debug
+* Labeling Function Hot Append
+* MD5 Color Generation, Stable color for each added labeing function
