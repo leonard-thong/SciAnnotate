@@ -1026,85 +1026,105 @@ var VisualizerUI = (function ($, window, undefined) {
                         let functions = $(
                             ".CodeMirror"
                         )[0].CodeMirror.getValue();
-                        let array = functions.split(new RegExp(" |\n", "g"));
-                        let name = "";
 
-                        for (let i = 0; i < array.length; i++) {
-                            if (array[i].trim() === "def") {
-                                name = array[i + 1].split("(")[0];
+                        if (functions === null) {
+                            dispatcher.post("messages", [
+                                [
+                                    [
+                                        "Insert your labeling function in the text area",
+                                        "warning",
+                                    ],
+                                ],
+                            ]);
+                        } else {
+                            let array = functions.split(
+                                new RegExp(" |\n", "g")
+                            );
+                            let name = "";
+
+                            for (let i = 0; i < array.length; i++) {
+                                if (array[i].trim() === "def") {
+                                    name = array[i + 1].split("(")[0];
+                                }
                             }
-                        }
 
-                        $.post(
-                            "ajax.cgi",
-                            {
-                                protocol: 1,
-                                action: "addLabelingFunction",
-                                collection: collection,
-                                function: functions,
-                                name: name,
-                                async: false,
-                            },
-                            function () {
-                                // get labeling function and update dom
-                                $.post(
-                                    "ajax.cgi",
-                                    {
-                                        protocol: 1,
-                                        action: "getAvailableLabelingFunction",
-                                        collection: collection,
-                                    },
-                                    function (result) {
-                                        alert("Add Labeling Function Succeed!");
-                                        let container = $("#label_form_select");
-                                        let functions = result["function_list"];
-
-                                        container.empty();
-
-                                        $.each(functions, function (index) {
-                                            let name = functions[index];
-
-                                            $("<input />", {
-                                                type: "checkbox",
-                                                id: name,
-                                                name: name,
-                                                value: name,
-                                                class:
-                                                    "ui-helper-hidden-accessible",
-                                            }).appendTo(container);
-                                            $("<label />", {
-                                                for: name,
-                                                id: "lb-" + name,
-                                                class:
-                                                    "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only",
-                                                role: "button",
-                                            }).appendTo(container);
-
-                                            let labelContainer = $(
-                                                "#lb-" + name
+                            $.post(
+                                "ajax.cgi",
+                                {
+                                    protocol: 1,
+                                    action: "addLabelingFunction",
+                                    collection: collection,
+                                    function: functions,
+                                    name: name,
+                                    async: false,
+                                },
+                                function () {
+                                    // get labeling function and update dom
+                                    $.post(
+                                        "ajax.cgi",
+                                        {
+                                            protocol: 1,
+                                            action:
+                                                "getAvailableLabelingFunction",
+                                            collection: collection,
+                                        },
+                                        function (result) {
+                                            alert(
+                                                "Add Labeling Function Succeed!"
                                             );
-                                            $("<span />", {
-                                                text: name,
-                                                class: "ui-button-text",
-                                            }).appendTo(labelContainer);
-                                        });
+                                            let container = $(
+                                                "#label_form_select"
+                                            );
+                                            let functions =
+                                                result["function_list"];
 
-                                        $("#label_form_select")
-                                            .find('input[type="checkbox"]')
-                                            .button();
-                                        $("#label_form_select")
-                                            .find('input[type="button"]')
-                                            .button();
-                                        $("#label_form_scope")
-                                            .find('input[type="radio"]')
-                                            .button();
-                                        $("#keyword_form_scope")
-                                            .find('input[type="radio"]')
-                                            .button();
-                                    }
-                                );
-                            }
-                        );
+                                            container.empty();
+
+                                            $.each(functions, function (index) {
+                                                let name = functions[index];
+
+                                                $("<input />", {
+                                                    type: "checkbox",
+                                                    id: name,
+                                                    name: name,
+                                                    value: name,
+                                                    class:
+                                                        "ui-helper-hidden-accessible",
+                                                }).appendTo(container);
+                                                $("<label />", {
+                                                    for: name,
+                                                    id: "lb-" + name,
+                                                    class:
+                                                        "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only",
+                                                    role: "button",
+                                                }).appendTo(container);
+
+                                                let labelContainer = $(
+                                                    "#lb-" + name
+                                                );
+                                                $("<span />", {
+                                                    text: name,
+                                                    class: "ui-button-text",
+                                                }).appendTo(labelContainer);
+                                            });
+
+                                            $("#label_form_select")
+                                                .find('input[type="checkbox"]')
+                                                .button();
+                                            $("#label_form_select")
+                                                .find('input[type="button"]')
+                                                .button();
+                                            $("#label_form_scope")
+                                                .find('input[type="radio"]')
+                                                .button();
+                                            $("#keyword_form_scope")
+                                                .find('input[type="radio"]')
+                                                .button();
+                                        }
+                                    );
+                                }
+                            );
+                        }
                     },
                 });
             }
