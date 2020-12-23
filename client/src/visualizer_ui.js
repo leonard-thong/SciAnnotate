@@ -664,61 +664,39 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
-                        let scopes = $(
-                            "#keyword_form_scope input:radio:checked"
-                        )
+                        let scope = $("#keyword_form_scope input:radio:checked")
                             .map(function () {
                                 return $(this).val();
                             })
                             .get();
 
-                        if (option[0] === "text") {
-                            $.post(
-                                "ajax.cgi",
-                                {
-                                    protocol: 1,
-                                    action: "createSpanAllText",
-                                    collection: collection,
-                                    document: document,
-                                    keyword: keyword,
-                                    scope: scopes,
-                                    label: label,
-                                },
-                                function (result) {
-                                    dispatcher.post("ajax", [
-                                        {
-                                            action: "getCollectionInformation",
-                                            collection: collection,
-                                        },
-                                        "collectionLoaded",
-                                        {
-                                            collection: collection,
-                                            keep: true,
-                                        },
-                                    ]);
-                                    setTimeout(() => {
-                                        dispatcher.post("renderData", [result]);
-                                    }, 300);
-                                }
-                            );
+                        if (keyword === "") {
+                            dispatcher.post("messages", [
+                                [["Please enter a keyword", "warning"]],
+                            ]);
+                        } else if (label === "") {
+                            dispatcher.post("messages", [
+                                [["Please enter a label", "warning"]],
+                            ]);
+                        } else if (label === "" || option === null) {
+                            dispatcher.post("messages", [
+                                [["Please select a match case", "warning"]],
+                            ]);
+                        } else if (scope === "" || scope === null) {
+                            dispatcher.post("messages", [
+                                [["Please select a scope", "warning"]],
+                            ]);
                         } else {
-                            var isValid = true;
-                            try {
-                                new RegExp(keyword);
-                            } catch (e) {
-                                isValid = false;
-                            }
-
-                            if (isValid) {
+                            if (option[0] === "text") {
                                 $.post(
                                     "ajax.cgi",
                                     {
                                         protocol: 1,
-                                        action: "createSpanAllRe",
+                                        action: "createSpanAllText",
                                         collection: collection,
                                         document: document,
                                         keyword: keyword,
-                                        scope: scopes,
+                                        scope: scope,
                                         label: label,
                                     },
                                     function (result) {
@@ -734,18 +712,61 @@ var VisualizerUI = (function ($, window, undefined) {
                                                 keep: true,
                                             },
                                         ]);
-                                        dispatcher.post("renderData", [result]);
+                                        setTimeout(() => {
+                                            dispatcher.post("renderData", [
+                                                result,
+                                            ]);
+                                        }, 300);
                                     }
                                 );
                             } else {
-                                dispatcher.post("messages", [
-                                    [
+                                var isValid = true;
+                                try {
+                                    new RegExp(keyword);
+                                } catch (e) {
+                                    isValid = false;
+                                }
+
+                                if (isValid) {
+                                    $.post(
+                                        "ajax.cgi",
+                                        {
+                                            protocol: 1,
+                                            action: "createSpanAllRe",
+                                            collection: collection,
+                                            document: document,
+                                            keyword: keyword,
+                                            scope: scope,
+                                            label: label,
+                                        },
+                                        function (result) {
+                                            dispatcher.post("ajax", [
+                                                {
+                                                    action:
+                                                        "getCollectionInformation",
+                                                    collection: collection,
+                                                },
+                                                "collectionLoaded",
+                                                {
+                                                    collection: collection,
+                                                    keep: true,
+                                                },
+                                            ]);
+                                            dispatcher.post("renderData", [
+                                                result,
+                                            ]);
+                                        }
+                                    );
+                                } else {
+                                    dispatcher.post("messages", [
                                         [
-                                            "Please enter a valid Regular Expression",
-                                            "warning",
+                                            [
+                                                "Please enter a valid Regular Expression",
+                                                "warning",
+                                            ],
                                         ],
-                                    ],
-                                ]);
+                                    ]);
+                                }
                             }
                         }
                     },
@@ -772,7 +793,7 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
-                        let scopes = $("#label_form_scope input:radio:checked")
+                        let scope = $("#label_form_scope input:radio:checked")
                             .map(function () {
                                 return $(this).val();
                             })
@@ -786,7 +807,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                     collection: collection,
                                     document: document,
                                     function: functions,
-                                    scope: scopes,
+                                    scope: scope,
                                 },
                                 function (result) {
                                     console.log(result);
