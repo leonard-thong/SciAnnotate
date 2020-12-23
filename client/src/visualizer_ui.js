@@ -1124,7 +1124,7 @@ var VisualizerUI = (function ($, window, undefined) {
                         let document = "";
                         $("#document_select tbody tr").each(function () {
                             if ($(this).hasClass("selected"))
-                                document = $(this).context.dataset["doc"];
+                                document = $(this);
                         });
 
                         $.post(
@@ -1133,10 +1133,10 @@ var VisualizerUI = (function ($, window, undefined) {
                                 protocol: 1,
                                 action: "deleteNewDocument",
                                 collection: collection,
-                                document: document,
+                                document: document.context.dataset["doc"],
                             },
                             function () {
-                                location.reload();
+                                document.remove();
                             }
                         );
                     },
