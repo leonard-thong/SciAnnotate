@@ -1,0 +1,278 @@
+T1	Chemical 0 4	Iron
+T2	Chemical 84 88	iron
+T3	Chemical 143 147	iron
+T4	Chemical 223 227	iron
+T5	Chemical 245 249	heme
+T6	Chemical 331 345	yersiniabactin
+T7	Organism 396 413	Y. enterocolitica
+T8	Organism 445 459	P. luminescens
+T9	Organism 520 537	Y. enterocolitica
+T10	Organism 560 562	1B
+T11	Chemical 640 646	hemine
+T12	Protein 662 668	ye0323
+T13	Protein 669 673	0332
+T14	Protein 674 681	plu2631
+T15	Protein 682 686	2636
+T16	Protein 693 697	YfeA
+T17	Protein 697 698	B
+T18	Protein 698 699	C
+T19	Protein 699 700	D
+T20	Chemical 732 736	iron
+T21	Chemical 742 761	ferrous (Fe2+) iron
+T22	Protein 783 787	FeoA
+T23	Protein 787 788	B
+T24	Protein 794 798	AfuA
+T25	Protein 798 799	B
+T26	Protein 799 800	C
+T27	Protein 801 805	SfuA
+T28	Protein 805 806	B
+T29	Protein 806 807	C
+T30	Chemical 808 814	ferric
+T31	Chemical 816 820	Fe3+
+T32	Chemical 839 851	enterobactin
+T33	Protein 873 877	FepB
+T34	Protein 877 878	D
+T35	Protein 878 879	C
+T36	Protein 879 880	G
+T37	Protein 887 891	FecA
+T38	Protein 891 892	B
+T39	Protein 892 893	C
+T40	Protein 893 894	D
+T41	Protein 894 895	E
+T42	Chemical 941 946	hemin
+T43	Chemical 947 958	siderophore
+T44	Chemical 959 963	iron
+T45	Protein 981 987	YE1459
+T46	Protein 988 992	1461
+T47	Protein 993 1000	Plu2850
+T48	Protein 1001 1005	2852
+T49	Protein 1008 1014	YE3190
+T50	Protein 1015 1022	Plu2853
+T51	Protein 1028 1034	YE0555
+T52	Protein 1035 1042	Plu3738
+T53	Organism 1073 1087	P. luminescens
+T54	Regulon-operon 1088 1098	fecIRABCDE
+T55	Protein 1088 1092	fecI
+T56	Protein 1092 1093	R
+T57	Protein 1093 1094	A
+T58	Protein 1094 1095	B
+T59	Protein 1095 1096	C
+T60	Protein 1096 1097	D
+T61	Protein 1097 1098	E
+T62	Organism 1143 1150	E. coli
+T63	Chemical 1151 1155	Fe3+
+T64	Organism 1224 1241	Y. enterocolitica
+T65	Organism 1291 1308	Y. enterocolitica
+T66	Chemical 1322 1326	heme
+T67	Protein 1355 1361	YE0123
+T68	Protein 1362 1365	126
+T69	Protein 1367 1373	YE2180
+T70	Protein 1374 1378	2182
+T71	Protein 1390 1394	SfuA
+T72	Protein 1394 1395	B
+T73	Protein 1395 1396	C
+T74	Chemical 1409 1420	ferrichrome
+T75	Protein 1453 1459	YE0730
+T76	Protein 1460 1464	0732
+T77	Chemical 1478 1489	siderophore
+T78	Protein 1491 1497	YE0704
+T79	Chemical 1506 1511	hemin
+T80	Protein 1528 1534	YE2481
+T81	Protein 1535 1539	2484
+T82	Chemical 1556 1560	iron
+T83	Organism 1595 1609	P. luminescens
+T84	Chemical 1641 1652	siderophore
+T85	Organism 1685 1699	P. luminescens
+T86	Chemical 1721 1725	heme
+T87	Protein 1775 1779	PpxA
+T88	Protein 1781 1788	Plu4242
+T89	Protein 1794 1798	PpxB
+T90	Protein 1800 1807	Plu4243
+T91	Organism 1912 1926	P. luminescens
+T92	Chemical 1939 1943	iron
+T93	Chemical 2028 2032	iron
+T94	Chemical 2076 2081	hemin
+T95	Chemical 2102 2116	yersiniabactin
+T96	Chemical 2125 2137	enterobactin
+T97	Protein 2150 2154	FepG
+T98	Organism 2227 2236	Y. pestis
+T99	Organism 2240 2250	Y. ruckeri
+T100	Chemical 2294 2298	iron
+T101	Chemical 2300 2305	hemin
+T102	Chemical 2307 2311	heme
+T103	Chemical 2370 2374	iron
+T104	Organism 2411 2425	P. luminescens
+T105	Organism 2430 2447	Y. enterocolitica
+T106	Chemical 2472 2476	iron
+T107	Organism 2701 2715	P. luminescens
+*	Equiv T30 T31
+*	Equiv T87 T88
+*	Equiv T89 T90
+T108	Gene_expression 1309 1317	produces
+T109	Binding 1421 1428	binding
+T110	Positive_regulation 2185 2197	up-regulated
+T111	Process 2515 2524	infection
+T112	Process 2743 2752	virulence
+E1	Gene_expression:T108 Theme:T67
+E2	Gene_expression:T108 Theme:T75
+E3	Gene_expression:T108 Theme:T76
+E4	Gene_expression:T108 Theme:T78
+E5	Gene_expression:T108 Theme:T80
+E6	Gene_expression:T108 Theme:T81
+E7	Gene_expression:T108 Theme:T68
+E8	Gene_expression:T108 Theme:T69
+E9	Gene_expression:T108 Theme:T70
+E10	Gene_expression:T108 Theme:T71
+E11	Gene_expression:T108 Theme:T72
+E12	Gene_expression:T108 Theme:T73
+E13	Binding:T109 Theme:T75
+E14	Binding:T109 Theme:T76
+E15	Positive_regulation:T110 Theme:T97
+E16	Process:T111 
+E17	Process:T112 
+<<<<<<< HEAD
+F1	executor1_Type 137 139	in
+F2	executor1_Type 149 151	in
+F3	executor1_Type 152 154	in
+F4	executor1_Type 257 259	in
+F5	executor1_Type 266 268	in
+F6	executor1_Type 335 337	in
+F7	executor1_Type 343 345	in
+F8	executor1_Type 360 362	in
+F9	executor1_Type 442 444	in
+F10	executor1_Type 451 453	in
+F11	executor1_Type 492 494	in
+F12	executor1_Type 500 502	in
+F13	executor1_Type 513 515	in
+F14	executor1_Type 542 544	in
+F15	executor1_Type 572 574	in
+F16	executor1_Type 634 636	in
+F17	executor1_Type 643 645	in
+F18	executor1_Type 779 781	in
+F19	executor1_Type 849 851	in
+F20	executor1_Type 944 946	in
+F21	executor1_Type 976 978	in
+F22	executor1_Type 1054 1056	in
+F23	executor1_Type 1079 1081	in
+F24	executor1_Type 1207 1209	in
+F25	executor1_Type 1332 1334	in
+F26	executor1_Type 1422 1424	in
+F27	executor1_Type 1425 1427	in
+F28	executor1_Type 1448 1450	in
+F29	executor1_Type 1509 1511	in
+F30	executor1_Type 1592 1594	in
+F31	executor1_Type 1601 1603	in
+F32	executor1_Type 1616 1618	in
+F33	executor1_Type 1662 1664	in
+F34	executor1_Type 1691 1693	in
+F35	executor1_Type 1727 1729	in
+F36	executor1_Type 1730 1732	in
+F37	executor1_Type 1741 1743	in
+F38	executor1_Type 1754 1756	in
+F39	executor1_Type 1771 1773	in
+F40	executor1_Type 1837 1839	in
+F41	executor1_Type 1847 1849	in
+F42	executor1_Type 1893 1895	in
+F43	executor1_Type 1918 1920	in
+F44	executor1_Type 1949 1951	in
+F45	executor1_Type 1951 1953	in
+F46	executor1_Type 1970 1972	in
+F47	executor1_Type 1993 1995	in
+F48	executor1_Type 2016 2018	in
+F49	executor1_Type 2025 2027	in
+F50	executor1_Type 2068 2070	in
+F51	executor1_Type 2079 2081	in
+F52	executor1_Type 2106 2108	in
+F53	executor1_Type 2114 2116	in
+F54	executor1_Type 2135 2137	in
+F55	executor1_Type 2224 2226	in
+F56	executor1_Type 2303 2305	in
+F57	executor1_Type 2347 2349	in
+F58	executor1_Type 2417 2419	in
+F59	executor1_Type 2457 2459	in
+F60	executor1_Type 2515 2517	in
+F61	executor1_Type 2565 2567	in
+F62	executor1_Type 2588 2590	in
+F63	executor1_Type 2591 2593	in
+F64	executor1_Type 2621 2623	in
+F65	executor1_Type 2660 2662	in
+F66	executor1_Type 2670 2672	in
+F67	executor1_Type 2707 2709	in
+F68	executor1_Type 2716 2718	in
+F69	executor1_Type 2764 2766	in
+F70	executor1_NoneType 219 222	for
+F71	executor1_NoneType 2388 2391	for
+F72	executor1_NoneType 2507 2510	for
+F73	in_label_2 137 139	in
+F74	in_label_2 149 151	in
+F75	in_label_2 152 154	in
+F76	in_label_2 257 259	in
+F77	in_label_2 266 268	in
+F78	in_label_2 335 337	in
+F79	in_label_2 343 345	in
+F80	in_label_2 360 362	in
+F81	in_label_2 442 444	in
+F82	in_label_2 451 453	in
+F83	in_label_2 492 494	in
+F84	in_label_2 500 502	in
+F85	in_label_2 513 515	in
+F86	in_label_2 542 544	in
+F87	in_label_2 572 574	in
+F88	in_label_2 634 636	in
+F89	in_label_2 643 645	in
+F90	in_label_2 779 781	in
+F91	in_label_2 849 851	in
+F92	in_label_2 944 946	in
+F93	in_label_2 976 978	in
+F94	in_label_2 1054 1056	in
+F95	in_label_2 1079 1081	in
+F96	in_label_2 1207 1209	in
+F97	in_label_2 1332 1334	in
+F98	in_label_2 1422 1424	in
+F99	in_label_2 1425 1427	in
+F100	in_label_2 1448 1450	in
+F101	in_label_2 1509 1511	in
+F102	in_label_2 1592 1594	in
+F103	in_label_2 1601 1603	in
+F104	in_label_2 1616 1618	in
+F105	in_label_2 1662 1664	in
+F106	in_label_2 1691 1693	in
+F107	in_label_2 1727 1729	in
+F108	in_label_2 1730 1732	in
+F109	in_label_2 1741 1743	in
+F110	in_label_2 1754 1756	in
+F111	in_label_2 1771 1773	in
+F112	in_label_2 1837 1839	in
+F113	in_label_2 1847 1849	in
+F114	in_label_2 1893 1895	in
+F115	in_label_2 1918 1920	in
+F116	in_label_2 1949 1951	in
+F117	in_label_2 1951 1953	in
+F118	in_label_2 1970 1972	in
+F119	in_label_2 1993 1995	in
+F120	in_label_2 2016 2018	in
+F121	in_label_2 2025 2027	in
+F122	in_label_2 2068 2070	in
+F123	in_label_2 2079 2081	in
+F124	in_label_2 2106 2108	in
+F125	in_label_2 2114 2116	in
+F126	in_label_2 2135 2137	in
+F127	in_label_2 2224 2226	in
+F128	in_label_2 2303 2305	in
+F129	in_label_2 2347 2349	in
+F130	in_label_2 2417 2419	in
+F131	in_label_2 2457 2459	in
+F132	in_label_2 2515 2517	in
+F133	in_label_2 2565 2567	in
+F134	in_label_2 2588 2590	in
+F135	in_label_2 2591 2593	in
+F136	in_label_2 2621 2623	in
+F137	in_label_2 2660 2662	in
+F138	in_label_2 2670 2672	in
+F139	in_label_2 2707 2709	in
+F140	in_label_2 2716 2718	in
+F141	in_label_2 2764 2766	in
+F142	top 1766 1769	top
+F143	top 1888 1891	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

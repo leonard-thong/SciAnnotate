@@ -1,0 +1,139 @@
+T1	Organism 12 33	Staphylococcus aureus
+T2	Organism 55 60	human
+T3	Organism 566 575	S. aureus
+T4	Protein 745 761	phospholipase A2
+T5	Protein 767 782	myeloperoxidase
+T6	Chemical 958 978	phosphatidylglycerol
+T7	Protein 986 990	MprF
+T8	Regulon-operon 1119 1126	dltABCD
+T9	Protein 1119 1123	dltA
+T10	Protein 1123 1124	B
+T11	Protein 1124 1125	C
+T12	Protein 1125 1126	D
+T13	Chemical 1273 1287	teichoic acids
+T14	Organism 1455 1464	S. aureus
+T15	Two-component-system 1497 1502	graRS
+T16	Protein 1497 1501	graR
+T17	Protein 1501 1502	S
+T18	Regulon-operon 1542 1545	dlt
+T19	Organism 1559 1596	S. aureus SA113 graRS deletion mutant
+T20	Two-component-system 1575 1580	graRS
+T21	Protein 1575 1579	graR
+T22	Protein 1579 1580	S
+T23	Chemical 1626 1640	teichoic acids
+T24	Chemical 1734 1745	polymyxin B
+T25	Chemical 1747 1758	gallidermin
+T26	Chemical 1764 1774	vancomycin
+T27	Two-component-system 1797 1802	graRS
+T28	Protein 1797 1801	graR
+T29	Protein 1801 1802	S
+T30	Chemical 1852 1862	vancomycin
+T31	Regulon-operon 1900 1903	dlt
+T32	Organism 1931 1940	S. aureus
+T33	Two-component-system 1998 2003	graRS
+T34	Protein 1998 2002	graR
+T35	Protein 2002 2003	S
+T36	Process 61 71	infections
+T37	Process 83 92	resistant
+T38	Process 662 672	resistance
+T39	Positive_regulation 1145 1156	responsible
+T40	Process 1342 1352	resistance
+T41	Positive_regulation 1503 1523	positively regulates
+T42	Gene_expression 1524 1534	expression
+T43	Negative_regulation 1682 1689	reduced
+T44	Process 1690 1700	resistance
+T45	Regulation 1838 1848	regulation
+T46	Process 1876 1886	resistance
+T47	Regulation 1911 1927	plays a key role
+T48	Process 1941 1951	resistance
+E1	Process:T36 Participant:T1
+E2	Process:T37 Participant:T1
+E3	Process:T38 Participant:T3
+E4	Positive_regulation:T39 Theme:T8
+E5	Process:T40 
+E6	Positive_regulation:T41 Theme:E7 Cause:T15
+E7	Gene_expression:T42 Theme:T18
+E8	Negative_regulation:T43 Theme:E9
+E9	Process:T44 Participant:T19
+E10	Regulation:T45 Theme:E11 Cause:T27
+E11	Process:T46 
+E12	Regulation:T47 Theme:E13 Cause:T31
+E13	Process:T48 Participant:T32
+<<<<<<< HEAD
+F1	executor1_Type 61 63	in
+F2	executor1_Type 125 127	in
+F3	executor1_Type 292 294	in
+F4	executor1_Type 303 305	in
+F5	executor1_Type 400 402	in
+F6	executor1_Type 465 467	in
+F7	executor1_Type 498 500	in
+F8	executor1_Type 508 510	in
+F9	executor1_Type 538 540	in
+F10	executor1_Type 659 661	in
+F11	executor1_Type 869 871	in
+F12	executor1_Type 900 902	in
+F13	executor1_Type 908 910	in
+F14	executor1_Type 945 947	in
+F15	executor1_Type 996 998	in
+F16	executor1_Type 1017 1019	in
+F17	executor1_Type 1200 1202	in
+F18	executor1_Type 1213 1215	in
+F19	executor1_Type 1254 1256	in
+F20	executor1_Type 1306 1308	in
+F21	executor1_Type 1315 1317	in
+F22	executor1_Type 1389 1391	in
+F23	executor1_Type 1619 1621	in
+F24	executor1_Type 1623 1625	in
+F25	executor1_Type 1724 1726	in
+F26	executor1_Type 1730 1732	in
+F27	executor1_Type 1741 1743	in
+F28	executor1_Type 1756 1758	in
+F29	executor1_Type 1772 1774	in
+F30	executor1_Type 1790 1792	in
+F31	executor1_Type 1835 1837	in
+F32	executor1_Type 1860 1862	in
+F33	executor1_Type 1863 1865	in
+F34	executor1_Type 1928 1930	in
+F35	executor1_Type 2028 2030	in
+F36	executor1_Type 2125 2127	in
+F37	executor1_NoneType 494 497	for
+F38	executor1_NoneType 1157 1160	for
+F39	in_label_2 61 63	in
+F40	in_label_2 125 127	in
+F41	in_label_2 292 294	in
+F42	in_label_2 303 305	in
+F43	in_label_2 400 402	in
+F44	in_label_2 465 467	in
+F45	in_label_2 498 500	in
+F46	in_label_2 508 510	in
+F47	in_label_2 538 540	in
+F48	in_label_2 659 661	in
+F49	in_label_2 869 871	in
+F50	in_label_2 900 902	in
+F51	in_label_2 908 910	in
+F52	in_label_2 945 947	in
+F53	in_label_2 996 998	in
+F54	in_label_2 1017 1019	in
+F55	in_label_2 1200 1202	in
+F56	in_label_2 1213 1215	in
+F57	in_label_2 1254 1256	in
+F58	in_label_2 1306 1308	in
+F59	in_label_2 1315 1317	in
+F60	in_label_2 1389 1391	in
+F61	in_label_2 1619 1621	in
+F62	in_label_2 1623 1625	in
+F63	in_label_2 1724 1726	in
+F64	in_label_2 1730 1732	in
+F65	in_label_2 1741 1743	in
+F66	in_label_2 1756 1758	in
+F67	in_label_2 1772 1774	in
+F68	in_label_2 1790 1792	in
+F69	in_label_2 1835 1837	in
+F70	in_label_2 1860 1862	in
+F71	in_label_2 1863 1865	in
+F72	in_label_2 1928 1930	in
+F73	in_label_2 2028 2030	in
+F74	in_label_2 2125 2127	in
+F75	top 878 881	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

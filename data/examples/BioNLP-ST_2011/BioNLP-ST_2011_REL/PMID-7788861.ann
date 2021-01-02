@@ -1,0 +1,106 @@
+T1	Protein 14 25	Ah receptor
+T2	Protein 27 40	TCDD receptor
+T3	Protein 135 146	Ah receptor
+T4	Protein 148 161	TCDD receptor
+T5	Protein 364 375	Ah receptor
+T6	Protein 437 440	AhR
+T7	Protein 528 535	P450IA1
+T8	Protein 537 540	AhR
+T9	Protein 840 843	AhR
+T10	Protein 1056 1059	AhR
+T11	Protein 1086 1119	transforming growth factor beta 1
+T12	Protein 1194 1197	AhR
+T13	Protein 1256 1259	AhR
+T14	Protein 1561 1564	AhR
+T15	Protein 1596 1603	P450IA1
+T16	Protein 1653 1656	AhR
+T17	Protein 1812 1815	AhR
+*	Equiv T1 T2
+*	Equiv T3 T4
+<<<<<<< HEAD
+F1	executor1_Type 45 47	in
+F2	executor1_Type 168 170	in
+F3	executor1_Type 197 199	in
+F4	executor1_Type 253 255	in
+F5	executor1_Type 278 280	in
+F6	executor1_Type 291 293	in
+F7	executor1_Type 330 332	in
+F8	executor1_Type 340 342	in
+F9	executor1_Type 381 383	in
+F10	executor1_Type 446 448	in
+F11	executor1_Type 477 479	in
+F12	executor1_Type 491 493	in
+F13	executor1_Type 570 572	in
+F14	executor1_Type 636 638	in
+F15	executor1_Type 723 725	in
+F16	executor1_Type 780 782	in
+F17	executor1_Type 827 829	in
+F18	executor1_Type 847 849	in
+F19	executor1_Type 881 883	in
+F20	executor1_Type 894 896	in
+F21	executor1_Type 933 935	in
+F22	executor1_Type 990 992	in
+F23	executor1_Type 1025 1027	in
+F24	executor1_Type 1044 1046	in
+F25	executor1_Type 1070 1072	in
+F26	executor1_Type 1095 1097	in
+F27	executor1_Type 1149 1151	in
+F28	executor1_Type 1164 1166	in
+F29	executor1_Type 1182 1184	in
+F30	executor1_Type 1347 1349	in
+F31	executor1_Type 1352 1354	in
+F32	executor1_Type 1380 1382	in
+F33	executor1_Type 1431 1433	in
+F34	executor1_Type 1456 1458	in
+F35	executor1_Type 1566 1568	in
+F36	executor1_Type 1624 1626	in
+F37	executor1_Type 1680 1682	in
+F38	executor1_Type 1691 1693	in
+F39	executor1_Type 1843 1845	in
+F40	executor1_Type 1881 1883	in
+F41	executor1_Type 1929 1931	in
+F42	executor1_NoneType 1091 1094	for
+F43	in_label_2 45 47	in
+F44	in_label_2 168 170	in
+F45	in_label_2 197 199	in
+F46	in_label_2 253 255	in
+F47	in_label_2 278 280	in
+F48	in_label_2 291 293	in
+F49	in_label_2 330 332	in
+F50	in_label_2 340 342	in
+F51	in_label_2 381 383	in
+F52	in_label_2 446 448	in
+F53	in_label_2 477 479	in
+F54	in_label_2 491 493	in
+F55	in_label_2 570 572	in
+F56	in_label_2 636 638	in
+F57	in_label_2 723 725	in
+F58	in_label_2 780 782	in
+F59	in_label_2 827 829	in
+F60	in_label_2 847 849	in
+F61	in_label_2 881 883	in
+F62	in_label_2 894 896	in
+F63	in_label_2 933 935	in
+F64	in_label_2 990 992	in
+F65	in_label_2 1025 1027	in
+F66	in_label_2 1044 1046	in
+F67	in_label_2 1070 1072	in
+F68	in_label_2 1095 1097	in
+F69	in_label_2 1149 1151	in
+F70	in_label_2 1164 1166	in
+F71	in_label_2 1182 1184	in
+F72	in_label_2 1347 1349	in
+F73	in_label_2 1352 1354	in
+F74	in_label_2 1380 1382	in
+F75	in_label_2 1431 1433	in
+F76	in_label_2 1456 1458	in
+F77	in_label_2 1566 1568	in
+F78	in_label_2 1624 1626	in
+F79	in_label_2 1680 1682	in
+F80	in_label_2 1691 1693	in
+F81	in_label_2 1843 1845	in
+F82	in_label_2 1881 1883	in
+F83	in_label_2 1929 1931	in
+F84	top 461 464	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

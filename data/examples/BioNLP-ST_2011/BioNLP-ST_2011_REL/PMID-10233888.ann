@@ -1,0 +1,113 @@
+*	Equiv T14 T15
+*	Equiv T16 T17
+*	Equiv T20 T21
+T36	Entity 70 85	regulatory gene
+T37	Entity 1558 1563	NF-E2
+T38	Entity 1707 1712	NF-E2
+T1	Protein 1310 1314	EKLF
+T2	Protein 1316 1322	GATA-1
+T3	Protein 1324 1330	GATA-2
+T4	Protein 1332 1341	p45 NF-E2
+T5	Protein 1343 1347	PU.1
+T6	Protein 1353 1356	SCL
+T7	Protein 1357 1361	Tal1
+T8	Protein 1430 1434	CD34
+T9	Protein 1454 1458	CD34
+T10	Protein 1460 1465	c-kit
+T11	Protein 1467 1471	PU.1
+T12	Protein 1477 1483	GATA-2
+T13	Protein 1504 1508	CD36
+T14	Protein 1510 1533	erythropoietin receptor
+T15	Protein 1535 1539	EpoR
+T16	Protein 1542 1545	SCL
+T17	Protein 1546 1550	Tal1
+T18	Protein 1552 1556	EKLF
+T19	Protein 1565 1571	GATA-1
+T20	Protein 1576 1590	glyocophorin A
+T21	Protein 1592 1595	GPA
+T22	Protein 1689 1693	CD36
+T23	Protein 1695 1699	Tal1
+T24	Protein 1701 1705	EKLF
+T25	Protein 1718 1724	GATA-1
+T26	Protein 1754 1758	EpoR
+T27	Protein 1800 1803	GPA
+T28	Protein 1829 1833	CD34
+T29	Protein 1835 1840	c-kit
+T30	Protein 1842 1846	PU.1
+T31	Protein 1852 1858	GATA-2
+T32	Protein 1950 1954	CD34
+T33	Protein 1983 1987	CD34
+T34	Protein 1991 1995	CD38
+T35	Protein 2128 2132	CD34
+<<<<<<< HEAD
+F1	executor1_Type 16 18	in
+F2	executor1_Type 104 106	in
+F3	executor1_Type 261 263	in
+F4	executor1_Type 350 352	in
+F5	executor1_Type 354 356	in
+F6	executor1_Type 415 417	in
+F7	executor1_Type 622 624	in
+F8	executor1_Type 736 738	in
+F9	executor1_Type 958 960	in
+F10	executor1_Type 1090 1092	in
+F11	executor1_Type 1137 1139	in
+F12	executor1_Type 1205 1207	in
+F13	executor1_Type 1522 1524	in
+F14	executor1_Type 1586 1588	in
+F15	executor1_Type 1610 1612	in
+F16	executor1_Type 1676 1678	in
+F17	executor1_Type 1914 1916	in
+F18	executor1_Type 1972 1974	in
+F19	executor1_Type 1979 1981	in
+F20	executor1_Type 2017 2019	in
+F21	executor1_Type 2021 2023	in
+F22	executor1_Type 2028 2030	in
+F23	executor1_Type 2186 2188	in
+F24	executor1_Type 2271 2273	in
+F25	executor1_Type 2307 2309	in
+F26	executor1_Type 2329 2331	in
+F27	executor1_Type 2333 2335	in
+F28	executor1_Type 2433 2435	in
+F29	executor1_Type 2437 2439	in
+F30	executor1_Type 2462 2464	in
+F31	executor1_Type 2469 2471	in
+F32	executor1_NoneType 407 410	for
+F33	executor1_NoneType 951 954	for
+F34	executor1_NoneType 1055 1058	for
+F35	in_label_2 16 18	in
+F36	in_label_2 104 106	in
+F37	in_label_2 261 263	in
+F38	in_label_2 350 352	in
+F39	in_label_2 354 356	in
+F40	in_label_2 415 417	in
+F41	in_label_2 622 624	in
+F42	in_label_2 736 738	in
+F43	in_label_2 958 960	in
+F44	in_label_2 1090 1092	in
+F45	in_label_2 1137 1139	in
+F46	in_label_2 1205 1207	in
+F47	in_label_2 1522 1524	in
+F48	in_label_2 1586 1588	in
+F49	in_label_2 1610 1612	in
+F50	in_label_2 1676 1678	in
+F51	in_label_2 1914 1916	in
+F52	in_label_2 1972 1974	in
+F53	in_label_2 1979 1981	in
+F54	in_label_2 2017 2019	in
+F55	in_label_2 2021 2023	in
+F56	in_label_2 2028 2030	in
+F57	in_label_2 2186 2188	in
+F58	in_label_2 2271 2273	in
+F59	in_label_2 2307 2309	in
+F60	in_label_2 2329 2331	in
+F61	in_label_2 2333 2335	in
+F62	in_label_2 2433 2435	in
+F63	in_label_2 2437 2439	in
+F64	in_label_2 2462 2464	in
+F65	in_label_2 2469 2471	in
+F66	top 145 148	top
+F67	top 454 457	top
+F68	top 892 895	top
+F69	top 2396 2399	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

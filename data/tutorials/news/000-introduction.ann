@@ -1,0 +1,69 @@
+T1	Organization 418 426	Citibank
+T2	Money 456 468	$100 million
+T3	Transfer-money 443 449	moving
+E1	Transfer-money:T3 Giver-Arg:T1 Money-Arg:T2 Beneficiary-Arg:T4 Recipient-Arg:T6
+T4	Person 473 496	Raul Salinas de Gortari
+T5	Person 511 535	former Mexican president
+T6	Organization 540 545	banks
+T7	GPE 549 560	Switzerland
+R2	Origin Arg1:T6 Arg2:T7	
+#1	AnnotatorNotes T2	100000000 USD
+R1	Family Arg1:T4 Arg2:T5	
+A1	Mention T4 Name
+A2	Individual T4
+A3	Mention T5 Nominal
+A4	Individual T5
+A5	Confidence E1 High
+N1	Reference T5 Wikipedia:64488	Carlos Salinas de Gortari
+<<<<<<< HEAD
+F1	executor1_Type 159 161	in
+F2	executor1_Type 207 209	in
+F3	executor1_Type 229 231	in
+F4	executor1_Type 302 304	in
+F5	executor1_Type 431 433	in
+F6	executor1_Type 440 442	in
+F7	executor1_Type 446 448	in
+F8	executor1_Type 481 483	in
+F9	executor1_Type 546 548	in
+F10	executor1_Type 664 666	in
+F11	executor1_Type 705 707	in
+F12	executor1_Type 839 841	in
+F13	executor1_Type 859 861	in
+F14	executor1_Type 896 898	in
+F15	executor1_NoneType 85 88	for
+F16	executor1_NoneType 395 398	for
+F17	executor1_NoneType 469 472	for
+F18	executor1_NoneType 511 514	for
+F19	in_label_2 159 161	in
+F20	in_label_2 207 209	in
+F21	in_label_2 229 231	in
+F22	in_label_2 302 304	in
+F23	in_label_2 431 433	in
+F24	in_label_2 440 442	in
+F25	in_label_2 446 448	in
+F26	in_label_2 481 483	in
+F27	in_label_2 546 548	in
+F28	in_label_2 664 666	in
+F29	in_label_2 705 707	in
+F30	in_label_2 839 841	in
+F31	in_label_2 859 861	in
+F32	in_label_2 896 898	in
+F33	in_label_2 159 161	in
+F34	in_label_2 207 209	in
+F35	in_label_2 229 231	in
+F36	in_label_2 302 304	in
+F37	in_label_2 431 433	in
+F38	in_label_2 440 442	in
+F39	in_label_2 446 448	in
+F40	in_label_2 481 483	in
+F41	in_label_2 546 548	in
+F42	in_label_2 664 666	in
+F43	in_label_2 705 707	in
+F44	in_label_2 839 841	in
+F45	in_label_2 859 861	in
+F46	in_label_2 896 898	in
+F47	top 949 952	top
+F48	top 949 952	top
+F49	top_label 949 952	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

@@ -1,0 +1,93 @@
+T1	Entity 23 60	human immunodeficiency virus promoter
+T2	Entity 165 205	transactivating HHV-6(GS) gene fragments
+T3	Entity 253 296	human immunodeficiency virus (HIV) promoter
+T4	Entity 288 296	promoter
+T5	Entity 401 413	HIV promoter
+T6	Entity 612 624	HIV promoter
+T7	Entity 659 667	promoter
+T8	Entity 739 751	HIV promoter
+T9	Entity 864 876	HIV promoter
+T10	Entity 1110 1177	HIV promoter construct containing a mutation in the NF kappa B site
+T11	Entity 1110 1122	HIV promoter
+T12	Entity 1193 1220	mutated NF kappa B promoter
+T13	Entity 1201 1220	NF kappa B promoter
+T14	Entity 1347 1383	NF kappa B sites of the HIV promoter
+T15	Entity 1347 1363	NF kappa B sites
+T16	Entity 1347 1357	NF kappa B
+T17	Entity 1371 1383	HIV promoter
+T18	Entity 1464 1476	HIV promoter
+<<<<<<< HEAD
+F1	executor1_Type 96 98	in
+F2	executor1_Type 112 114	in
+F3	executor1_Type 177 179	in
+F4	executor1_Type 331 333	in
+F5	executor1_Type 338 340	in
+F6	executor1_Type 377 379	in
+F7	executor1_Type 449 451	in
+F8	executor1_Type 567 569	in
+F9	executor1_Type 637 639	in
+F10	executor1_Type 668 670	in
+F11	executor1_Type 695 697	in
+F12	executor1_Type 726 728	in
+F13	executor1_Type 729 731	in
+F14	executor1_Type 766 768	in
+F15	executor1_Type 811 813	in
+F16	executor1_Type 813 815	in
+F17	executor1_Type 877 879	in
+F18	executor1_Type 963 965	in
+F19	executor1_Type 1138 1140	in
+F20	executor1_Type 1140 1142	in
+F21	executor1_Type 1155 1157	in
+F22	executor1_Type 1247 1249	in
+F23	executor1_Type 1261 1263	in
+F24	executor1_Type 1329 1331	in
+F25	executor1_Type 1425 1427	in
+F26	executor1_Type 1439 1441	in
+F27	executor1_Type 1453 1455	in
+F28	executor1_Type 1460 1462	in
+F29	executor1_Type 1486 1488	in
+F30	executor1_Type 1535 1537	in
+F31	executor1_Type 1565 1567	in
+F32	executor1_Type 1575 1577	in
+F33	executor1_Type 1584 1586	in
+F34	executor1_Type 1614 1616	in
+F35	executor1_NoneType 423 426	for
+F36	executor1_NoneType 1398 1401	for
+F37	in_label_2 96 98	in
+F38	in_label_2 112 114	in
+F39	in_label_2 177 179	in
+F40	in_label_2 331 333	in
+F41	in_label_2 338 340	in
+F42	in_label_2 377 379	in
+F43	in_label_2 449 451	in
+F44	in_label_2 567 569	in
+F45	in_label_2 637 639	in
+F46	in_label_2 668 670	in
+F47	in_label_2 695 697	in
+F48	in_label_2 726 728	in
+F49	in_label_2 729 731	in
+F50	in_label_2 766 768	in
+F51	in_label_2 811 813	in
+F52	in_label_2 813 815	in
+F53	in_label_2 877 879	in
+F54	in_label_2 963 965	in
+F55	in_label_2 1138 1140	in
+F56	in_label_2 1140 1142	in
+F57	in_label_2 1155 1157	in
+F58	in_label_2 1247 1249	in
+F59	in_label_2 1261 1263	in
+F60	in_label_2 1329 1331	in
+F61	in_label_2 1425 1427	in
+F62	in_label_2 1439 1441	in
+F63	in_label_2 1453 1455	in
+F64	in_label_2 1460 1462	in
+F65	in_label_2 1486 1488	in
+F66	in_label_2 1535 1537	in
+F67	in_label_2 1565 1567	in
+F68	in_label_2 1575 1577	in
+F69	in_label_2 1584 1586	in
+F70	in_label_2 1614 1616	in
+F71	top 314 317	top
+F72	top 1593 1596	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

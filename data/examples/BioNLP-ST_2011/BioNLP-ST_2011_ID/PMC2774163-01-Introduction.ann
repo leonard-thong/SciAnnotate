@@ -1,0 +1,363 @@
+T1	Organism 577 585	patients
+T2	Organism 599 604	human
+T3	Organism 614 636	Pseudomonas aeruginosa
+T4	Organism 693 701	patients
+T5	Organism 799 812	P. aeruginosa
+T6	Organism 1178 1183	human
+T7	Organism 1425 1438	P. aeruginosa
+T8	Protein 2210 2214	MvaT
+T9	Organism 2218 2231	P. aeruginosa
+T10	Protein 2334 2338	MvaT
+T11	Organism 2400 2412	type IV pili
+T12	Organism 2417 2442	flagella deletion mutants
+T13	Chemical 2629 2682	bis-(3'-5')-cyclic diguanylic guanosine monophosphate
+T14	Chemical 2684 2697	cyclic-di-GMP
+T15	Organism 2767 2786	Acetobacter xylinum
+T16	Organism 3030 3043	P. aeruginosa
+T17	Chemical 3100 3113	cyclic-di-GMP
+T18	Protein 3263 3267	BifA
+T19	Protein 3318 3322	SadC
+T20	Protein 3351 3355	SadB
+T21	Chemical 3408 3421	cyclic-di-GMP
+T22	Protein 3446 3449	Pel
+T23	Protein 3454 3457	Psl
+T24	Organism 3490 3503	P. aeruginosa
+T25	Protein 3574 3577	Pel
+T26	Protein 3582 3585	Psl
+T27	Protein 3750 3753	pel
+T28	Protein 3758 3761	psl
+T29	Protein 3807 3811	RetS
+T30	Protein 4008 4012	RetS
+T31	Protein 4235 4239	RetS
+T32	Protein 4333 4337	GacS
+T33	Protein 4342 4346	LadS
+T34	Organism 4487 4500	P. aeruginosa
+T35	Protein 4530 4534	rsmZ
+T36	Protein 4562 4566	RetS
+T37	Protein 4674 4678	LadS
+T38	Protein 4683 4687	GacS
+T39	Organism 4885 4898	P. aeruginosa
+T40	Two-component-system 4965 4974	GacA/GacS
+T41	Protein 4965 4969	GacA
+T42	Protein 4970 4974	GacS
+T43	Organism 5643 5656	P. aeruginosa
+T44	Two-component-system 5846 5851	BfiRS
+T45	Protein 5846 5850	BfiR
+T46	Protein 5850 5851	S
+T47	Protein 5853 5859	PA4196
+T48	Protein 5860 5864	4197
+T49	Two-component-system 5867 5872	BfmRS
+T50	Protein 5867 5871	BfmR
+T51	Protein 5871 5872	S
+T52	Protein 5874 5880	PA4101
+T53	Protein 5881 5885	4102
+T54	Two-component-system 5892 5897	MifRS
+T55	Protein 5892 5896	MifR
+T56	Protein 5896 5897	S
+T57	Protein 5899 5905	PA5511
+T58	Protein 5906 5910	5512
+T59	Organism 5983 5996	P. aeruginosa
+T60	Organism 6149 6162	P. aeruginosa
+T61	Two-component-system 6326 6331	BfiRS
+T62	Protein 6326 6330	BfiR
+T63	Protein 6330 6331	S
+T64	Two-component-system 6354 6359	BfmRS
+T65	Protein 6354 6358	BfmR
+T66	Protein 6358 6359	S
+T67	Two-component-system 6389 6394	MifRS
+T68	Protein 6389 6393	MifR
+T69	Protein 6393 6394	S
+*	Equiv T13 T14
+T70	Process 513 523	infections
+T71	Process 542 552	infections
+T72	Process 872 882	infections
+T73	Process 1144 1154	resistance
+T74	Regulation 3091 3099	modulate
+T75	Positive_regulation 3422 3431	dependent
+T76	Regulation 3432 3442	regulation
+T77	Gene_expression 3732 3742	Expression
+T78	Regulation 3771 3782	coordinated
+T79	Process 3918 3927	virulence
+T80	Process 3992 4001	infection
+T81	Negative_regulation 4546 4558	Inactivation
+T82	Negative_regulation 4653 4665	inactivation
+T83	Positive_regulation 4688 4695	results
+T84	Positive_regulation 4699 4708	increased
+T85	Process 4709 4718	virulence
+E1	Process:T70 
+E2	Process:T71 
+E3	Process:T72 Participant:T5
+E4	Process:T73 
+E5	Regulation:T74 Theme:T17
+E6	Positive_regulation:T75 Theme:E8 Cause:T21
+E7	Positive_regulation:T75 Theme:E9 Cause:T21
+E8	Regulation:T76 Theme:T22
+E9	Regulation:T76 Theme:T23
+E10	Gene_expression:T77 Theme:T28
+E11	Gene_expression:T77 Theme:T27
+E12	Regulation:T78 Theme:E11 Cause:T29
+E13	Regulation:T78 Theme:E10 Cause:T29
+E14	Process:T79 
+E15	Process:T80 
+E16	Negative_regulation:T81 Theme:T36
+E17	Negative_regulation:T82 Theme:T37
+E18	Negative_regulation:T82 Theme:T38
+E19	Positive_regulation:T83 Theme:E21 Cause:E17
+E20	Positive_regulation:T83 Theme:E21 Cause:E18
+E21	Positive_regulation:T84 Theme:E22
+E22	Process:T85 
+<<<<<<< HEAD
+F1	executor1_Type 94 96	in
+F2	executor1_Type 196 198	in
+F3	executor1_Type 340 342	in
+F4	executor1_Type 363 365	in
+F5	executor1_Type 380 382	in
+F6	executor1_Type 400 402	in
+F7	executor1_Type 406 408	in
+F8	executor1_Type 465 467	in
+F9	executor1_Type 471 473	in
+F10	executor1_Type 486 488	in
+F11	executor1_Type 513 515	in
+F12	executor1_Type 542 544	in
+F13	executor1_Type 553 555	in
+F14	executor1_Type 631 633	in
+F15	executor1_Type 690 692	in
+F16	executor1_Type 740 742	in
+F17	executor1_Type 763 765	in
+F18	executor1_Type 807 809	in
+F19	executor1_Type 842 844	in
+F20	executor1_Type 845 847	in
+F21	executor1_Type 872 874	in
+F22	executor1_Type 924 926	in
+F23	executor1_Type 947 949	in
+F24	executor1_Type 1048 1050	in
+F25	executor1_Type 1070 1072	in
+F26	executor1_Type 1099 1101	in
+F27	executor1_Type 1103 1105	in
+F28	executor1_Type 1110 1112	in
+F29	executor1_Type 1126 1128	in
+F30	executor1_Type 1132 1134	in
+F31	executor1_Type 1235 1237	in
+F32	executor1_Type 1379 1381	in
+F33	executor1_Type 1382 1384	in
+F34	executor1_Type 1415 1417	in
+F35	executor1_Type 1421 1423	in
+F36	executor1_Type 1433 1435	in
+F37	executor1_Type 1472 1474	in
+F38	executor1_Type 1501 1503	in
+F39	executor1_Type 1537 1539	in
+F40	executor1_Type 1703 1705	in
+F41	executor1_Type 1712 1714	in
+F42	executor1_Type 1980 1982	in
+F43	executor1_Type 2069 2071	in
+F44	executor1_Type 2084 2086	in
+F45	executor1_Type 2095 2097	in
+F46	executor1_Type 2115 2117	in
+F47	executor1_Type 2215 2217	in
+F48	executor1_Type 2226 2228	in
+F49	executor1_Type 2275 2277	in
+F50	executor1_Type 2284 2286	in
+F51	executor1_Type 2472 2474	in
+F52	executor1_Type 2479 2481	in
+F53	executor1_Type 2596 2598	in
+F54	executor1_Type 2616 2618	in
+F55	executor1_Type 2665 2667	in
+F56	executor1_Type 2764 2766	in
+F57	executor1_Type 2782 2784	in
+F58	executor1_Type 2820 2822	in
+F59	executor1_Type 3003 3005	in
+F60	executor1_Type 3038 3040	in
+F61	executor1_Type 3273 3275	in
+F62	executor1_Type 3348 3350	in
+F63	executor1_Type 3381 3383	in
+F64	executor1_Type 3390 3392	in
+F65	executor1_Type 3498 3500	in
+F66	executor1_Type 3686 3688	in
+F67	executor1_Type 3710 3712	in
+F68	executor1_Type 3776 3778	in
+F69	executor1_Type 3830 3832	in
+F70	executor1_Type 3860 3862	in
+F71	executor1_Type 3886 3888	in
+F72	executor1_Type 3992 3994	in
+F73	executor1_Type 4110 4112	in
+F74	executor1_Type 4162 4164	in
+F75	executor1_Type 4168 4170	in
+F76	executor1_Type 4230 4232	in
+F77	executor1_Type 4261 4263	in
+F78	executor1_Type 4299 4301	in
+F79	executor1_Type 4356 4358	in
+F80	executor1_Type 4386 4388	in
+F81	executor1_Type 4393 4395	in
+F82	executor1_Type 4402 4404	in
+F83	executor1_Type 4451 4453	in
+F84	executor1_Type 4484 4486	in
+F85	executor1_Type 4495 4497	in
+F86	executor1_Type 4575 4577	in
+F87	executor1_Type 4603 4605	in
+F88	executor1_Type 4653 4655	in
+F89	executor1_Type 4696 4698	in
+F90	executor1_Type 4699 4701	in
+F91	executor1_Type 4893 4895	in
+F92	executor1_Type 5000 5002	in
+F93	executor1_Type 5003 5005	in
+F94	executor1_Type 5110 5112	in
+F95	executor1_Type 5166 5168	in
+F96	executor1_Type 5186 5188	in
+F97	executor1_Type 5204 5206	in
+F98	executor1_Type 5391 5393	in
+F99	executor1_Type 5407 5409	in
+F100	executor1_Type 5450 5452	in
+F101	executor1_Type 5489 5491	in
+F102	executor1_Type 5502 5504	in
+F103	executor1_Type 5555 5557	in
+F104	executor1_Type 5651 5653	in
+F105	executor1_Type 5670 5672	in
+F106	executor1_Type 5680 5682	in
+F107	executor1_Type 5922 5924	in
+F108	executor1_Type 5991 5993	in
+F109	executor1_Type 6017 6019	in
+F110	executor1_Type 6080 6082	in
+F111	executor1_Type 6093 6095	in
+F112	executor1_Type 6157 6159	in
+F113	executor1_Type 6183 6185	in
+F114	executor1_Type 6262 6264	in
+F115	executor1_Type 6266 6268	in
+F116	executor1_Type 6293 6295	in
+F117	executor1_NoneType 158 161	for
+F118	executor1_NoneType 1458 1461	for
+F119	executor1_NoneType 1524 1527	for
+F120	executor1_NoneType 1607 1610	for
+F121	executor1_NoneType 2511 2514	for
+F122	executor1_NoneType 2866 2869	for
+F123	executor1_NoneType 3132 3135	for
+F124	executor1_NoneType 3674 3677	for
+F125	executor1_NoneType 3948 3951	for
+F126	executor1_NoneType 3967 3970	for
+F127	executor1_NoneType 4413 4416	for
+F128	executor1_NoneType 4467 4470	for
+F129	executor1_NoneType 4636 4639	for
+F130	executor1_NoneType 4741 4744	for
+F131	executor1_NoneType 5372 5375	for
+F132	executor1_NoneType 5960 5963	for
+F133	executor1_NoneType 6068 6071	for
+F134	executor1_NoneType 6315 6318	for
+F135	executor1_NoneType 6378 6381	for
+F136	in_label_2 94 96	in
+F137	in_label_2 196 198	in
+F138	in_label_2 340 342	in
+F139	in_label_2 363 365	in
+F140	in_label_2 380 382	in
+F141	in_label_2 400 402	in
+F142	in_label_2 406 408	in
+F143	in_label_2 465 467	in
+F144	in_label_2 471 473	in
+F145	in_label_2 486 488	in
+F146	in_label_2 513 515	in
+F147	in_label_2 542 544	in
+F148	in_label_2 553 555	in
+F149	in_label_2 631 633	in
+F150	in_label_2 690 692	in
+F151	in_label_2 740 742	in
+F152	in_label_2 763 765	in
+F153	in_label_2 807 809	in
+F154	in_label_2 842 844	in
+F155	in_label_2 845 847	in
+F156	in_label_2 872 874	in
+F157	in_label_2 924 926	in
+F158	in_label_2 947 949	in
+F159	in_label_2 1048 1050	in
+F160	in_label_2 1070 1072	in
+F161	in_label_2 1099 1101	in
+F162	in_label_2 1103 1105	in
+F163	in_label_2 1110 1112	in
+F164	in_label_2 1126 1128	in
+F165	in_label_2 1132 1134	in
+F166	in_label_2 1235 1237	in
+F167	in_label_2 1379 1381	in
+F168	in_label_2 1382 1384	in
+F169	in_label_2 1415 1417	in
+F170	in_label_2 1421 1423	in
+F171	in_label_2 1433 1435	in
+F172	in_label_2 1472 1474	in
+F173	in_label_2 1501 1503	in
+F174	in_label_2 1537 1539	in
+F175	in_label_2 1703 1705	in
+F176	in_label_2 1712 1714	in
+F177	in_label_2 1980 1982	in
+F178	in_label_2 2069 2071	in
+F179	in_label_2 2084 2086	in
+F180	in_label_2 2095 2097	in
+F181	in_label_2 2115 2117	in
+F182	in_label_2 2215 2217	in
+F183	in_label_2 2226 2228	in
+F184	in_label_2 2275 2277	in
+F185	in_label_2 2284 2286	in
+F186	in_label_2 2472 2474	in
+F187	in_label_2 2479 2481	in
+F188	in_label_2 2596 2598	in
+F189	in_label_2 2616 2618	in
+F190	in_label_2 2665 2667	in
+F191	in_label_2 2764 2766	in
+F192	in_label_2 2782 2784	in
+F193	in_label_2 2820 2822	in
+F194	in_label_2 3003 3005	in
+F195	in_label_2 3038 3040	in
+F196	in_label_2 3273 3275	in
+F197	in_label_2 3348 3350	in
+F198	in_label_2 3381 3383	in
+F199	in_label_2 3390 3392	in
+F200	in_label_2 3498 3500	in
+F201	in_label_2 3686 3688	in
+F202	in_label_2 3710 3712	in
+F203	in_label_2 3776 3778	in
+F204	in_label_2 3830 3832	in
+F205	in_label_2 3860 3862	in
+F206	in_label_2 3886 3888	in
+F207	in_label_2 3992 3994	in
+F208	in_label_2 4110 4112	in
+F209	in_label_2 4162 4164	in
+F210	in_label_2 4168 4170	in
+F211	in_label_2 4230 4232	in
+F212	in_label_2 4261 4263	in
+F213	in_label_2 4299 4301	in
+F214	in_label_2 4356 4358	in
+F215	in_label_2 4386 4388	in
+F216	in_label_2 4393 4395	in
+F217	in_label_2 4402 4404	in
+F218	in_label_2 4451 4453	in
+F219	in_label_2 4484 4486	in
+F220	in_label_2 4495 4497	in
+F221	in_label_2 4575 4577	in
+F222	in_label_2 4603 4605	in
+F223	in_label_2 4653 4655	in
+F224	in_label_2 4696 4698	in
+F225	in_label_2 4699 4701	in
+F226	in_label_2 4893 4895	in
+F227	in_label_2 5000 5002	in
+F228	in_label_2 5003 5005	in
+F229	in_label_2 5110 5112	in
+F230	in_label_2 5166 5168	in
+F231	in_label_2 5186 5188	in
+F232	in_label_2 5204 5206	in
+F233	in_label_2 5391 5393	in
+F234	in_label_2 5407 5409	in
+F235	in_label_2 5450 5452	in
+F236	in_label_2 5489 5491	in
+F237	in_label_2 5502 5504	in
+F238	in_label_2 5555 5557	in
+F239	in_label_2 5651 5653	in
+F240	in_label_2 5670 5672	in
+F241	in_label_2 5680 5682	in
+F242	in_label_2 5922 5924	in
+F243	in_label_2 5991 5993	in
+F244	in_label_2 6017 6019	in
+F245	in_label_2 6080 6082	in
+F246	in_label_2 6093 6095	in
+F247	in_label_2 6157 6159	in
+F248	in_label_2 6183 6185	in
+F249	in_label_2 6262 6264	in
+F250	in_label_2 6266 6268	in
+F251	in_label_2 6293 6295	in
+F252	top 3333 3336	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e

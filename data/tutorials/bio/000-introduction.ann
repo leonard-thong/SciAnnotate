@@ -1,0 +1,53 @@
+T1	Gene_expression 447 457	expression
+E1	Gene_expression:T1 Theme:T2
+T2	Protein 461 470	IkB-alpha
+T3	Negative_regulation 475 482	inhibit
+E2	Negative_regulation:T3 Cause:E1 Theme:E3
+T4	Positive_regulation 487 499	upregulation
+E3	Positive_regulation:T4 Theme:E4
+T5	Protein 503 509	VCAM-1
+T6	Gene_expression 510 520	expression
+E4	Gene_expression:T6 Theme:T5
+A1	Confidence E2 Possible
+A2	Confidence E1 Certain
+A3	Confidence E3 Certain
+A4	Confidence E4 Certain
+#1	AnnotatorNotes E1	The "suggest that" applies to the "inhibit", this expression event is certain.
+<<<<<<< HEAD
+F1	executor1_Type 159 161	in
+F2	executor1_Type 207 209	in
+F3	executor1_Type 229 231	in
+F4	executor1_Type 302 304	in
+F5	executor1_Type 475 477	in
+F6	executor1_Type 624 626	in
+F7	executor1_Type 665 667	in
+F8	executor1_Type 799 801	in
+F9	executor1_Type 819 821	in
+F10	executor1_Type 856 858	in
+F11	executor1_NoneType 85 88	for
+F12	executor1_NoneType 395 398	for
+F13	in_label_2 159 161	in
+F14	in_label_2 207 209	in
+F15	in_label_2 229 231	in
+F16	in_label_2 302 304	in
+F17	in_label_2 475 477	in
+F18	in_label_2 624 626	in
+F19	in_label_2 665 667	in
+F20	in_label_2 799 801	in
+F21	in_label_2 819 821	in
+F22	in_label_2 856 858	in
+F23	in_label_2 159 161	in
+F24	in_label_2 207 209	in
+F25	in_label_2 229 231	in
+F26	in_label_2 302 304	in
+F27	in_label_2 475 477	in
+F28	in_label_2 624 626	in
+F29	in_label_2 665 667	in
+F30	in_label_2 799 801	in
+F31	in_label_2 819 821	in
+F32	in_label_2 856 858	in
+F33	top 909 912	top
+F34	top 909 912	top
+F35	top 909 912	top
+=======
+>>>>>>> 2281523c4f1a84fbc403af6a202d4e081dccc51e
