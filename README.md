@@ -4,7 +4,7 @@
 
 First, please note the following:
 
-- The brat standalone server only is available in brat v1.3 and above.
+- The brat standalone server only is available in dlmat v1.0 and above.
 - The standalone server is experimental and should not be used for sensitive data or systems accessible from the internet.
 
 
