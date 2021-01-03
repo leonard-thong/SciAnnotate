@@ -339,6 +339,8 @@ def dispatch(http_args, client_ip, client_hostname):
     json_dic['comments'] = []
     if 'annotations' in json_dic.keys():
         json_dic['annotations']['comments'] = []
+        del json_dic['annotations']['sentence_offsets']
+
     json_dic['action'] = action
     # Return the protocol version for symmetry
     json_dic['protocol'] = PROTOCOL_VERSION
