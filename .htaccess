@@ -9,7 +9,7 @@
 #     [...]
 # </Directory>
 #
-# (See also http://brat.nlplab.org/troubleshooting.html)
+# (See also http://nlp.dlmat.org/troubleshooting.html)
 <FilesMatch "^(\.htaccess|config\.py)$">
     Require all granted
 </FilesMatch>
