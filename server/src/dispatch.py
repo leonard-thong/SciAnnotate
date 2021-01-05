@@ -38,10 +38,9 @@ from tag import tag
 from undo import undo
 from labelFunctionExecutor import function_executor, instant_executor
 from dynamicLabeling import add_labeling_function, delete_labeling_function, get_available_labeling_function
-from newDocument import create_new_document, import_new_document
+from newDocument import create_new_document, import_new_document, delete_new_document
 from createSpanAll import create_span_all_text, create_span_all_re
 from utils import GLOBAL_LOGGER, fetch_all_annotations, prehandle_data
-from deleteNewDocument import delete_new_document
 # no-op function that can be invoked by client to log a user action
 
 

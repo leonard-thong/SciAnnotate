@@ -664,61 +664,39 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
-                        let scopes = $(
-                            "#keyword_form_scope input:radio:checked"
-                        )
+                        let scope = $("#keyword_form_scope input:radio:checked")
                             .map(function () {
                                 return $(this).val();
                             })
                             .get();
 
-                        if (option[0] === "text") {
-                            $.post(
-                                "ajax.cgi",
-                                {
-                                    protocol: 1,
-                                    action: "createSpanAllText",
-                                    collection: collection,
-                                    document: document,
-                                    keyword: keyword,
-                                    scope: scopes,
-                                    label: label,
-                                },
-                                function (result) {
-                                    dispatcher.post("ajax", [
-                                        {
-                                            action: "getCollectionInformation",
-                                            collection: collection,
-                                        },
-                                        "collectionLoaded",
-                                        {
-                                            collection: collection,
-                                            keep: true,
-                                        },
-                                    ]);
-                                    setTimeout(() => {
-                                        dispatcher.post("renderData", [result]);
-                                    }, 300);
-                                }
-                            );
+                        if (keyword === "") {
+                            dispatcher.post("messages", [
+                                [["Please enter a keyword", "warning"]],
+                            ]);
+                        } else if (label === "") {
+                            dispatcher.post("messages", [
+                                [["Please enter a label", "warning"]],
+                            ]);
+                        } else if (label === "" || option === null) {
+                            dispatcher.post("messages", [
+                                [["Please select a match case", "warning"]],
+                            ]);
+                        } else if (scope === "" || scope === null) {
+                            dispatcher.post("messages", [
+                                [["Please select a scope", "warning"]],
+                            ]);
                         } else {
-                            var isValid = true;
-                            try {
-                                new RegExp(keyword);
-                            } catch (e) {
-                                isValid = false;
-                            }
-
-                            if (isValid) {
+                            if (option[0] === "text") {
                                 $.post(
                                     "ajax.cgi",
                                     {
                                         protocol: 1,
-                                        action: "createSpanAllRe",
+                                        action: "createSpanAllText",
                                         collection: collection,
                                         document: document,
                                         keyword: keyword,
-                                        scope: scopes,
+                                        scope: scope,
                                         label: label,
                                     },
                                     function (result) {
@@ -734,18 +712,61 @@ var VisualizerUI = (function ($, window, undefined) {
                                                 keep: true,
                                             },
                                         ]);
-                                        dispatcher.post("renderData", [result]);
+                                        setTimeout(() => {
+                                            dispatcher.post("renderData", [
+                                                result,
+                                            ]);
+                                        }, 300);
                                     }
                                 );
                             } else {
-                                dispatcher.post("messages", [
-                                    [
+                                var isValid = true;
+                                try {
+                                    new RegExp(keyword);
+                                } catch (e) {
+                                    isValid = false;
+                                }
+
+                                if (isValid) {
+                                    $.post(
+                                        "ajax.cgi",
+                                        {
+                                            protocol: 1,
+                                            action: "createSpanAllRe",
+                                            collection: collection,
+                                            document: document,
+                                            keyword: keyword,
+                                            scope: scope,
+                                            label: label,
+                                        },
+                                        function (result) {
+                                            dispatcher.post("ajax", [
+                                                {
+                                                    action:
+                                                        "getCollectionInformation",
+                                                    collection: collection,
+                                                },
+                                                "collectionLoaded",
+                                                {
+                                                    collection: collection,
+                                                    keep: true,
+                                                },
+                                            ]);
+                                            dispatcher.post("renderData", [
+                                                result,
+                                            ]);
+                                        }
+                                    );
+                                } else {
+                                    dispatcher.post("messages", [
                                         [
-                                            "Please enter a valid Regular Expression",
-                                            "warning",
+                                            [
+                                                "Please enter a valid Regular Expression",
+                                                "warning",
+                                            ],
                                         ],
-                                    ],
-                                ]);
+                                    ]);
+                                }
                             }
                         }
                     },
@@ -772,7 +793,7 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
 
-                        let scopes = $("#label_form_scope input:radio:checked")
+                        let scope = $("#label_form_scope input:radio:checked")
                             .map(function () {
                                 return $(this).val();
                             })
@@ -786,7 +807,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                     collection: collection,
                                     document: document,
                                     function: functions,
-                                    scope: scopes,
+                                    scope: scope,
                                 },
                                 function (result) {
                                     console.log(result);
@@ -948,35 +969,46 @@ var VisualizerUI = (function ($, window, undefined) {
                         let functions = $(
                             ".CodeMirror"
                         )[0].CodeMirror.getValue();
-                        var name = functions.split(" ")[1].split("(")[0];
 
-                        $("#tick").css("visibility", "visible");
+                        if (functions === null) {
+                            dispatcher.post("messages", [
+                                [
+                                    [
+                                        "Insert your labeling function in the text area",
+                                        "warning",
+                                    ],
+                                ],
+                            ]);
+                        } else {
+                            var name = functions.split(" ")[1].split("(")[0];
 
-                        $.post(
-                            "ajax.cgi",
-                            {
-                                protocol: 1,
-                                action: "instantExecutor",
-                                collection: collection,
-                                document: document,
-                                function: functions,
-                                name: name,
-                            },
-                            function (result) {
-                                dispatcher.post("ajax", [
-                                    {
-                                        action: "getCollectionInformation",
-                                        collection: collection,
-                                    },
-                                    "collectionLoaded",
-                                    {
-                                        collection: collection,
-                                        keep: true,
-                                    },
-                                ]);
-                                dispatcher.post("renderData", [result]);
-                            }
-                        );
+                            $.post(
+                                "ajax.cgi",
+                                {
+                                    protocol: 1,
+                                    action: "instantExecutor",
+                                    collection: collection,
+                                    document: document,
+                                    function: functions,
+                                    name: name,
+                                },
+                                function (result) {
+                                    dispatcher.post("ajax", [
+                                        {
+                                            action: "getCollectionInformation",
+                                            collection: collection,
+                                        },
+                                        "collectionLoaded",
+                                        {
+                                            collection: collection,
+                                            keep: true,
+                                        },
+                                    ]);
+                                    dispatcher.post("renderData", [result]);
+                                    $("#tick").css("visibility", "visible");
+                                }
+                            );
+                        }
                     },
                 });
                 buttons.push({
@@ -994,85 +1026,105 @@ var VisualizerUI = (function ($, window, undefined) {
                         let functions = $(
                             ".CodeMirror"
                         )[0].CodeMirror.getValue();
-                        let array = functions.split(new RegExp(" |\n", "g"));
-                        let name = "";
 
-                        for (let i = 0; i < array.length; i++) {
-                            if (array[i].trim() === "def") {
-                                name = array[i + 1].split("(")[0];
+                        if (functions === null) {
+                            dispatcher.post("messages", [
+                                [
+                                    [
+                                        "Insert your labeling function in the text area",
+                                        "warning",
+                                    ],
+                                ],
+                            ]);
+                        } else {
+                            let array = functions.split(
+                                new RegExp(" |\n", "g")
+                            );
+                            let name = "";
+
+                            for (let i = 0; i < array.length; i++) {
+                                if (array[i].trim() === "def") {
+                                    name = array[i + 1].split("(")[0];
+                                }
                             }
-                        }
 
-                        $.post(
-                            "ajax.cgi",
-                            {
-                                protocol: 1,
-                                action: "addLabelingFunction",
-                                collection: collection,
-                                function: functions,
-                                name: name,
-                                async: false,
-                            },
-                            function () {
-                                // get labeling function and update dom
-                                $.post(
-                                    "ajax.cgi",
-                                    {
-                                        protocol: 1,
-                                        action: "getAvailableLabelingFunction",
-                                        collection: collection,
-                                    },
-                                    function (result) {
-                                        alert("Add Labeling Function Succeed!");
-                                        let container = $("#label_form_select");
-                                        let functions = result["function_list"];
-
-                                        container.empty();
-
-                                        $.each(functions, function (index) {
-                                            let name = functions[index];
-
-                                            $("<input />", {
-                                                type: "checkbox",
-                                                id: name,
-                                                name: name,
-                                                value: name,
-                                                class:
-                                                    "ui-helper-hidden-accessible",
-                                            }).appendTo(container);
-                                            $("<label />", {
-                                                for: name,
-                                                id: "lb-" + name,
-                                                class:
-                                                    "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only",
-                                                role: "button",
-                                            }).appendTo(container);
-
-                                            let labelContainer = $(
-                                                "#lb-" + name
+                            $.post(
+                                "ajax.cgi",
+                                {
+                                    protocol: 1,
+                                    action: "addLabelingFunction",
+                                    collection: collection,
+                                    function: functions,
+                                    name: name,
+                                    async: false,
+                                },
+                                function () {
+                                    // get labeling function and update dom
+                                    $.post(
+                                        "ajax.cgi",
+                                        {
+                                            protocol: 1,
+                                            action:
+                                                "getAvailableLabelingFunction",
+                                            collection: collection,
+                                        },
+                                        function (result) {
+                                            alert(
+                                                "Add Labeling Function Succeed!"
                                             );
-                                            $("<span />", {
-                                                text: name,
-                                                class: "ui-button-text",
-                                            }).appendTo(labelContainer);
-                                        });
+                                            let container = $(
+                                                "#label_form_select"
+                                            );
+                                            let functions =
+                                                result["function_list"];
 
-                                        $("#label_form_select")
-                                            .find('input[type="checkbox"]')
-                                            .button();
-                                        $("#label_form_select")
-                                            .find('input[type="button"]')
-                                            .button();
-                                        $("#label_form_scope")
-                                            .find('input[type="radio"]')
-                                            .button();
-                                        $("#keyword_form_scope")
-                                            .find('input[type="radio"]')
-                                            .button();
-                                    }
-                                );
-                            }
-                        );
+                                            container.empty();
+
+                                            $.each(functions, function (index) {
+                                                let name = functions[index];
+
+                                                $("<input />", {
+                                                    type: "checkbox",
+                                                    id: name,
+                                                    name: name,
+                                                    value: name,
+                                                    class:
+                                                        "ui-helper-hidden-accessible",
+                                                }).appendTo(container);
+                                                $("<label />", {
+                                                    for: name,
+                                                    id: "lb-" + name,
+                                                    class:
+                                                        "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only",
+                                                    role: "button",
+                                                }).appendTo(container);
+
+                                                let labelContainer = $(
+                                                    "#lb-" + name
+                                                );
+                                                $("<span />", {
+                                                    text: name,
+                                                    class: "ui-button-text",
+                                                }).appendTo(labelContainer);
+                                            });
+
+                                            $("#label_form_select")
+                                                .find('input[type="checkbox"]')
+                                                .button();
+                                            $("#label_form_select")
+                                                .find('input[type="button"]')
+                                                .button();
+                                            $("#label_form_scope")
+                                                .find('input[type="radio"]')
+                                                .button();
+                                            $("#keyword_form_scope")
+                                                .find('input[type="radio"]')
+                                                .button();
+                                        }
+                                    );
+                                }
+                            );
+                        }
                     },
                 });
             }
@@ -1124,7 +1176,7 @@ var VisualizerUI = (function ($, window, undefined) {
                         let document = "";
                         $("#document_select tbody tr").each(function () {
                             if ($(this).hasClass("selected"))
-                                document = $(this).context.dataset["doc"];
+                                document = $(this);
                         });
 
                         $.post(
@@ -1133,10 +1185,10 @@ var VisualizerUI = (function ($, window, undefined) {
                                 protocol: 1,
                                 action: "deleteNewDocument",
                                 collection: collection,
-                                document: document,
+                                document: document.context.dataset["doc"],
                             },
                             function () {
-                                location.reload();
+                                document.remove();
                             }
                         );
                     },

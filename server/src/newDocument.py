@@ -49,3 +49,19 @@ def import_new_document(**kwargs):
     except Exception as e:
       res['status'] = 503
     return res
+
+def delete_new_document(**kwargs):
+    res = dict()
+    collection = kwargs['collection']
+    document = kwargs['document']
+    directory = collection
+    real_dir = real_directory(directory)
+    document = path_join(real_dir, document)
+    if os.path.isdir(document):
+        os.remove(document)
+    else:
+        os.remove(document+'.txt')
+        os.remove(document+'.ann')
+        if os.path.exists(document+'_func.ann'):
+            os.remove(document+'_func.ann')
+    return res
