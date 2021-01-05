@@ -4,7 +4,8 @@
 #
 # Author:   Sampo Pyysalo       <smp is s u tokyo ac jp>
 # Author:   Pontus Stenetorp    <pontus is s u tokyo ac jp>
-# Version:  2012-02-09
+# Author:   Mengyang Liu        <myl is s of GT  us>
+# Version:  2021-01-04
 
 # defaults
 
@@ -53,20 +54,20 @@ else
     # not quick; ask details for config
     while true; do
 	echo 'Please enter the user name that you want to use when logging into brat:'
-	read user_name
+	user_name="admin"
 	if [ -n "$user_name" ]; then
 	    break
 	fi
     done
     while true; do
 	echo "Please enter a brat password (this shows on screen):"
-	read password
+	password="1"
 	if [ -n "$password" ]; then
 	    break
 	fi
     done
     echo "Please enter the administrator contact email:"
-    read admin_email
+    admin_email="admin@dlmat.org"
 fi
 
 # Put a configuration in place.
