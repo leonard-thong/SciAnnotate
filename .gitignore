@@ -1,7 +1,7 @@
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/tasks.json
-!.vscode/launch.json
+.vscode/tasks.json
+.vscode/launch.json
 *.code-workspace
 
 ### VisualStudioCode Patch ###
