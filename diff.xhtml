@@ -173,6 +173,7 @@
         <div id="pulldown_padder">
           <div>
             <input id="auth_button" type="button" value="Login"/>
+            <input id="sign_up_button" type="button" value="Sign Up"/>
             <input id="collection_browser_button" type="button" value="Collection" tabindex="-1" title="Open Collection Browser (Tab)"/>
             <input id="data_button" type="button" value="Data" tabindex="-1" title="Import, Export Data; Manage Collection"/>
             <input id="search_button" type="checkbox" class="login" value="true" tabindex="-1"/><label id="search_button_label" for="search_button" title="Search text and annotations">Search</label><input id="clear_search_button" type="button" value="✕" tabindex="-1" title="Clear search" style="display: none"/>
@@ -720,6 +721,21 @@
         <input id="auth_pass" type="password" placeholder="Password" class="borderless"/>
       </fieldset>
     </form>
+    <!-- Sign up dialog -->
+    <form id="sign_up_form" class="dialog" title="Sign up">
+      <fieldset>
+          <legend>Username</legend>
+          <input id="sign_up_user" placeholder="Username" class="borderless" />
+      </fieldset>
+      <fieldset>
+          <legend>Password</legend>
+          <input id="sign_up_passwd" type="password" placeholder="Password" class="borderless" />
+      </fieldset>
+      <fieldset>
+          <legend>Confirm Password</legend>
+          <input id="sign_up_confirm_passwd" type="password" placeholder="Password" class="borderless" />
+      </fieldset>
+  </form>
     <!-- Split span annotation dialog -->
     <form id="split_form" class="dialog" title="Split the Span">
       <fieldset>

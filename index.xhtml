@@ -154,6 +154,7 @@
             <div id="pulldown_padder">
                 <div>
                     <input id="auth_button" type="button" value="Login" />
+                    <input id="sign_up_button" type="button" value="Sign Up" tabindex="-1"/>
                     <input id="collection_browser_button" type="button" value="Collection" tabindex="-1"
                         title="Open Collection Browser (Tab)" />
                     <input id="data_button" type="button" value="Data" tabindex="-1"
@@ -893,6 +894,21 @@
             <input id="auth_pass" type="password" placeholder="Password" class="borderless" />
         </fieldset>
     </form>
+    <!-- Sign up dialog -->
+    <form id="sign_up_form" class="dialog" title="Sign up">
+        <fieldset>
+            <legend>Username</legend>
+            <input id="sign_up_user" placeholder="Username" class="borderless" />
+        </fieldset>
+        <fieldset>
+            <legend>Password</legend>
+            <input id="sign_up_passwd" type="password" placeholder="Password" class="borderless" />
+        </fieldset>
+        <fieldset>
+            <legend>Confirm Password</legend>
+            <input id="sign_up_confirm_passwd" type="password" placeholder="Password" class="borderless" />
+        </fieldset>
+    </form>
     <!-- Split span annotation dialog -->
     <form id="split_form" class="dialog" title="Split the Span">
         <fieldset>
@@ -1023,6 +1039,7 @@
                 <li><b>Connect</b>: connect to machine learning model</li>
                 <li><b>Options</b>: system configuration options</li>
                 <li><b>Login</b>: log in for editing</li>
+                <li><b>Sign Up</b>: log in for editing</li>
             </ul>
         </p>
         <h3>Basic editing</h3>

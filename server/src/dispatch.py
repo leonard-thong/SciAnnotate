@@ -18,7 +18,7 @@ from config import DATA_DIR
 from annlog import log_annotation
 from annotator import (create_arc, create_span, delete_arc, delete_span,
                        reverse_arc, split_span)
-from auth import NotAuthorisedError, login, logout, whoami
+from auth import NotAuthorisedError, login, logout, whoami, create_new_user
 from common import ProtocolError
 from convert.convert import convert
 from delete import delete_collection, delete_document
@@ -65,6 +65,7 @@ DISPATCHER = {
     'login': login,
     'logout': logout,
     'whoami': whoami,
+    'createNewUser': create_new_user,
 
     'createSpan': create_span,
     'deleteSpan': delete_span,
@@ -127,7 +128,7 @@ DISPATCHER = {
 
 # Actions that correspond to labeling function functionality
 EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 
-                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'importNewDocument','deleteNewDocument'}
+                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'importNewDocument','deleteNewDocument', 'createNewUser'}
 
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}

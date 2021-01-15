@@ -3349,6 +3349,48 @@ var VisualizerUI = (function ($, window, undefined) {
             return false;
         });
 
+        var signUpForm = $("#sign_up_form");
+        initForm(signUpForm, { resizable: false});
+        var signUpFormSubmit = function (evt) {
+            dispatcher.post("hideForm");
+            var _user = $("#sign_up_user").val();
+            var _password = $("#sign_up_passwd").val();
+            var _confirm_password = $("#sign_up_confirm_passwd").val();
+            if(_password !== _confirm_password) {
+                alert("Password and confirmation are not identical. Please try again.");
+                return false;
+            }
+            $.post(
+                "ajax.cgi",
+                {
+                    protocol: 1,
+                    action: "createNewUser",
+                    username: _user,
+                    password: _password
+                },
+                function (result) {
+                    if(result.status === 200) {
+                        alert("User created successfully");
+                        $("#sign_up_user").val("");
+                        $("#sign_up_passwd").val("");
+                        $("#sign_up_confirm_passwd").val("");
+                    } else {
+                        alert("User creation failed");
+                    }
+                }
+            );
+
+        }
+
+        $("#sign_up_button").click(function (evt) {
+            if (!user)
+                dispatcher.post("showForm", [signUpForm]);
+            else
+                alert("You already have an account.")
+        });
+        signUpForm.submit(signUpFormSubmit);
+
+
         var authForm = $("#auth_form");
         initForm(authForm, { resizable: false });
         var authFormSubmit = function (evt) {

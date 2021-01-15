@@ -86,6 +86,20 @@ def login(user, password):
     Messager.info('Hello!')
     return {}
 
+def create_new_user(**kwargs):
+    username = kwargs['username']
+    password = kwargs['password']
+    res = dict()
+    try:
+        new_user_line = "            '{}': '{}',\n".format(username, password)
+        with open('config.py', 'r') as f:
+            new_config_lines = [line + new_user_line if 'USER_PASSWORD' in line else line for line in f.readlines()]
+        with open('config.py', 'w') as f:
+            f.writelines(new_config_lines)
+        res['status'] = 200
+    except Exception as e:
+        res['status'] = 503
+    return res
 
 def logout():
     try:
