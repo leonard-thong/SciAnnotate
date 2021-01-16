@@ -1,10 +1,10 @@
-# Brat Rapid Annotation Tool (brat) #
+# dlmat Rapid Annotation Tool (dlmat) #
 
 ## Quick start installation: standalone server ##
 
 First, please note the following:
 
-- The brat standalone server only is available in dlmat v1.0 and above.
+- The dlmat standalone server only is available in dlmat v1.0 and above.
 - The standalone server is experimental and should not be used for sensitive data or systems accessible from the internet.
 
 
@@ -17,7 +17,7 @@ Start the standalone server
     python standalone.py
 
 
-You should then be able to access the brat server from the address printed out by standalone.py.
+You should then be able to access the dlmat server from the address printed out by standalone.py.
 
 ## Add New Labeling Functions
 
