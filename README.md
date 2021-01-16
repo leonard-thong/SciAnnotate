@@ -1,4 +1,4 @@
-# dlmat Rapid Annotation Tool (dlmat) #
+# Dlmat Rapid Annotation Tool (dlmat) #
 
 ## Quick start installation: standalone server ##
 
