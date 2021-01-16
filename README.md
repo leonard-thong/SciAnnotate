@@ -1,4 +1,4 @@
-# Dlmat Rapid Annotation Tool (dlmat) #
+# Deep Learning Model Annotation Tool (dlmat) #
 
 ## Quick start installation: standalone server ##
 
