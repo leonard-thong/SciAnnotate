@@ -334,7 +334,7 @@ rect.shadow_EditHighlight {
 }
 fieldset {
   /* match relevant parts of jQuery UI .ui-widget-content */
-  border: 1px solid #a6c9e2;
+  border: 1px solid #b95512;
   /* round corners, same as jQuery UI .ui-corner-all */
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -493,7 +493,6 @@ fieldset legend {
   font-weight: normal;
   src: local('PT Sans Caption'), local('PTSans-Caption'), url('fonts/PT_Sans-Caption-Web-Regular.ttf') format('truetype');
 }
-
 /* Apple iPad, iPhone, iPod */
 
 * {
