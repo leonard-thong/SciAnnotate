@@ -30,7 +30,7 @@ text {
 }
 .center_wrapper > div > div {
   /* match jQuery UI .ui-widget-content color */
-  color: #2e6e9e;
+  color: #e26d2a;
   margin-left: auto;
   margin-right: auto;
   width: 30em;
@@ -348,7 +348,7 @@ fieldset legend {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  background-color: #70a8d2;
+  background-color: #c35b05;
   color: white;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -360,7 +360,7 @@ fieldset legend {
   font-weight: bold;
   font-size: 90%;
   /* match jQuery UI .ui-widget-content color */
-  color: #2e6e9e;
+  color: #e26d2a;
 }   
 
 

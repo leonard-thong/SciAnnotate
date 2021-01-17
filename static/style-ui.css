@@ -96,10 +96,10 @@ body .ui-widget {
     color: #000000;
 }
 .messages > div.comment {
-    background-color: #87b6d9;
+    background-color: #f15b15;
     color: #ffffff;
     font-weight: bold;
-    border: 1px outset #27628f;
+    border: 1px outset #ec920b;
 }
 .messages > div.debug {
     background-color: #ffff99;
@@ -331,7 +331,7 @@ div.scroll_wrapper_upper div.scroller {
 */
 
 .logo {
-    font-family: "Astloch", serif;
+    font-family: "generations";
     font-style: normal;
     text-decoration: none;
     text-transform: none;
@@ -543,6 +543,14 @@ div.scroll_wrapper_upper div.scroller {
     font-weight: bold;
     src: local("Astloch Bold"), local("Astloch-Bold"),
         url("fonts/Astloch-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "generations";
+    font-style: normal;
+    font-weight: bold;
+    src: local("generations"), local("generations"),
+        url("fonts/generations.ttf") format("truetype");
 }
 
 .tickStyle {
