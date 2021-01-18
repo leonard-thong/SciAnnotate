@@ -627,6 +627,15 @@ var VisualizerUI = (function ($, window, undefined) {
             }
         };
 
+        var capitalize = function(string) {
+            var words = string.split(" ");
+            var i;
+            for (i = 0; i < words.length; i++) {
+              words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+            }
+            return words.join(" ");
+        }
+
         /* END comment popup - related */
 
         /* START form management - related */
@@ -686,6 +695,9 @@ var VisualizerUI = (function ($, window, undefined) {
                             dispatcher.post("messages", [
                                 [["Please select a scope", "warning"]],
                             ]);
+                        } else if (label.indexOf("_") === -1 || capitalize(label) === label) {
+                            alert("Invalid label, lable must be comply with a pattern as labelSource_labelName, which is not capitalized");
+                            return;
                         } else {
                             if (option[0] === "text") {
                                 $.post(

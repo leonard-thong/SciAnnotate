@@ -319,6 +319,7 @@ div.scroll_wrapper_upper div.scroller {
 #document_name input {
     width: 95%;
     border: none;
+    font-family: 'denmark'
 }
 
 /*
@@ -551,6 +552,13 @@ div.scroll_wrapper_upper div.scroller {
     font-weight: bold;
     src: local("generations"), local("generations"),
         url("fonts/generations.ttf") format("truetype");
+}
+@font-face {
+    font-family: "denmark";
+    font-style: normal;
+    font-weight: normal;
+    src: local("denmark"), local("denmark"),
+        url("fonts/denmark.ttf") format("truetype");
 }
 
 .tickStyle {

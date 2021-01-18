@@ -919,6 +919,12 @@ def get_document(collection, document):
     del ori_response['sentence_offsets']
     return ori_response
 
+def get_document_with_sentence_offsets(collection, document):
+    directory = collection
+    real_dir = real_directory(directory)
+    doc_path = path_join(real_dir, document)
+    ori_response = _document_json_dict(doc_path)
+    return ori_response
 
 def get_document_timestamp(collection, document):
     directory = collection

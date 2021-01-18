@@ -17,7 +17,7 @@ from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
                         TextAnnotations, TextBoundAnnotation,
                         TextBoundAnnotationWithText, open_textfile)
 from annotator import ModificationTracker
-from document import get_document
+from document import get_document, get_document_with_sentence_offsets
 GLOBAL_LOGGER = Logger()
 
 # def generate_color_config(name, entities):
@@ -120,17 +120,34 @@ def prehandle_data(**kwargs):
     document = path_join(real_dir, document)
     txt_file_path = document + '.txt'
     ann_file_path = txt_file_path[:-4] + '.ann'
-    function_ann_file_path = txt_file_path[:-4] + '_func.ann'
     out = []
-    with open(txt_file_path, 'r') as txt_file:
-        for line in txt_file.readlines():
-            sentence = dict()
-            sentence['sentence'] = line
-            sentence['annotation'] = []
-            out.append(sentence)
-    return _prehandle_data(out, txt_file_path, ann_file_path,function_ann_file_path)
+    doc = get_document_with_sentence_offsets(collection, document)
+    entities = doc['entities']
+    sentent_offsets = doc['sentence_offsets']
+    ann_index = 0
+    res = dict()
+    res['processedData'] = []
+    for sentence_offset in sentent_offsets:
+        sentence = dict()
+        sentence['sentence'] = doc['text'][sentence_offset[0]:sentence_offset[1]]
+        sentence['annotation'] = []
+        while ann_index < len(entities) and entities[ann_index][2][0][1] <= sentence_offset[1]:
+            entity = entities[ann_index]
+            source_label = entity[1].split('_')
+            source = ''
+            label = source_label[0]
+            if len(source_label) == 1:
+                source = ''
+                label = source_label[0]
+            else:
+                source = source_label[0]
+                label = source_label[1]
+            sentence['annotation'].append([source, label, entity[2][0][0] -sentence_offset[0], entity[2][0][1] - sentence_offset[0]])
+            ann_index += 1
+        res['processedData'].append(sentence)
+    return res
 
-def _prehandle_data(out, txt_file_path, ann_file_path, function_ann_file_path):
+def _prehandle_data(out, txt_file_path, ann_file_path):
     res = dict()
     with open(ann_file_path, 'r') as ann_file:
         for line in ann_file.readlines():
@@ -146,8 +163,12 @@ def _prehandle_data(out, txt_file_path, ann_file_path, function_ann_file_path):
             source_name = info[1].split('_')[0]
             temp = info[1].split('_')[1:]
             label = ''
-            for i in range(len(temp)):
-                label += temp[i]
+            if len(temp) == 0 or source_name.capitalize() == source_name:
+                label = info[1]
+                source_name = 'spam'
+            else:
+                for i in range(len(temp)):
+                    label += temp[i]
             data.append(source_name)
             data.append(label)
             start = int(info[2])
