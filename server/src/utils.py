@@ -124,26 +124,30 @@ def prehandle_data(**kwargs):
     doc = get_document_with_sentence_offsets(collection, document)
     entities = doc['entities']
     sentent_offsets = doc['sentence_offsets']
-    ann_index = 0
     res = dict()
     res['processedData'] = []
+    res['labels'] = []
+    res['sources'] = []
     for sentence_offset in sentent_offsets:
         sentence = dict()
         sentence['sentence'] = doc['text'][sentence_offset[0]:sentence_offset[1]]
         sentence['annotation'] = []
-        while ann_index < len(entities) and entities[ann_index][2][0][1] <= sentence_offset[1]:
-            entity = entities[ann_index]
-            source_label = entity[1].split('_')
-            source = ''
-            label = source_label[0]
-            if len(source_label) == 1:
+        for entity in entities:
+            if entity[2][0][1] <= sentence_offset[1] and entity[2][0][0] >= sentence_offset[0]:
+                source_label = entity[1].split('_')
                 source = ''
                 label = source_label[0]
-            else:
-                source = source_label[0]
-                label = source_label[1]
-            sentence['annotation'].append([source, label, entity[2][0][0] -sentence_offset[0], entity[2][0][1] - sentence_offset[0]])
-            ann_index += 1
+                if len(source_label) == 1:
+                    source = ''
+                    label = source_label[0]
+                else:
+                    source = source_label[0]
+                    label = source_label[1]
+                if label not in res['labels']:
+                    res['labels'].append(label)
+                if source not in res['sources']:
+                    res['sources'].append(source)
+                sentence['annotation'].append([source, label, entity[2][0][0] - sentence_offset[0], entity[2][0][1] - sentence_offset[0]])
         res['processedData'].append(sentence)
     return res
 
