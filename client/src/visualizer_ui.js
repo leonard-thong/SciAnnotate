@@ -3155,15 +3155,15 @@ var VisualizerUI = (function ($, window, undefined) {
                 $sourceCollection.append($collectionDownloadLink);
                 $collectionDownloadLink.button();
 
-                $cmpButton = $("#side-by-side_cmp").empty();
-                var $cmpLink = $('<a target="_blank"/>')
-                    .text("Comparison mode")
-                    .attr(
-                        "href",
-                        "diff.xhtml#?diff=" + encodeURIComponent(coll)
-                    );
-                $cmpButton.append($cmpLink);
-                $cmpLink.button();
+                // $cmpButton = $("#side-by-side_cmp").empty();
+                // var $cmpLink = $('<a target="_blank"/>')
+                //     .text("Comparison mode")
+                //     .attr(
+                //         "href",
+                //         "diff.xhtml#?diff=" + encodeURIComponent(coll)
+                //     );
+                // $cmpButton.append($cmpLink);
+                // $cmpLink.button();
             }
 
             $docName = $("#document_name input").val(coll + doc);
