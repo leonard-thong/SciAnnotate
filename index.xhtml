@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="codemirror/theme/xq-light.css" />
     <!-- code mirror css -->
     <script type="text/javascript" src="client/lib/head.load.min.js"></script>
+    <script type="text/javascript" src="client/lib/jquery.js"></script>
     <script type="text/javascript">
         head.js(
             // libraries
@@ -60,6 +61,7 @@
 
             var label_function_editor = CodeMirror.fromTextArea(document.getElementById('add_labeling_function_textarea'), {
                 lineNumbers: true,
+                lineWrapping: true,
                 autoRefresh: true,
                 theme: "xq-light",
                 mode: "python",
@@ -68,13 +70,17 @@
             var model_api_editor = CodeMirror.fromTextArea(document.getElementById('model_api_textarea'), {
                 lineNumbers: true,
                 autoRefresh: true,
+                lineWrapping: true,
                 theme: "xq-light",
                 mode: "shell",
             });
 
+            // model_api_editor.setSize('auto','600px');
+
             var create_document_editor = CodeMirror.fromTextArea(document.getElementById('create_document_textarea'), {
                 lineNumbers: true,
                 autoRefresh: true,
+                lineWrapping: true,
                 theme: "xq-light",
             });
 
@@ -132,7 +138,52 @@
         var njsw = document.getElementById('no_js_wrapper');
         njsw.parentNode.removeChild(njsw);
     </script>
+    <style type="text/css">
+        @keyframes blink{
+        0%{opacity: 1;}
+        50%{opacity: 0;}
+        100%{opacity: 1;}
+        }
+        /* 添加兼容性前缀 */
+        @-webkit-keyframes blink {
+            0%{opacity: 1;}
+            50%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+        @-moz-keyframes blink {
+            0%{opacity: 1;}
+            50%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+        @-ms-keyframes blink {
+            0%{opacity: 1;}
+            50%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+        @-o-keyframes blink {
+            0%{opacity: 1;}
+            50%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+        /* 定义blink类*/
+        .blink{
+            color: #f1490c;
+            animation: blink 3s linear infinite;  
+            /* 其它浏览器兼容性前缀 */
+            -webkit-animation: blink 3s linear infinite;
+            -moz-animation: blink 3s linear infinite;
+            -ms-animation: blink 3s linear infinite;
+            -o-animation: blink 3s linear infinite;
+        }
+
+    </style>
     <img id="spinner" src="static/img/spinner.gif" />
+    <div id="loading" style="position:absolute; top:0; left:0; opacity: .5; background-color:#000; display:none; width:100%; height:100%;">
+        <!-- <img id="loading-img" src="static/img/loading.gif" style="position:absolute; top:45vh; left:47vw;"/> -->
+        <!-- <div id="progressbar" style="position:absolute; top:45vh; left:47vw;"></div> -->
+        <canvas id="c" style="position:absolute; top:35vh; left:38vw;"></canvas>
+        <h1 style="position:absolute; top:47vh; left:40vw;" class="blink" id="loading-message"><span>Loading Model Results</span></h1>
+    </div> 
     <div id="messagepullup" class="messages" style="display: none" />
     <div id="messages" class="messages" />
     <div id="pulluptrigger" />
@@ -403,7 +454,7 @@
                     <tr>
                         <td>Model API</td>
                         <td>
-                            <input id="connect_form_text" class="fullwidth" placeholder="Model API" />
+                            <input id="connect_form_text" class="fullwidth" placeholder="http://127.0.0.1:9001/api/model/test" />
                         </td>
                     </tr>
                 </table>
@@ -1058,6 +1109,7 @@
           manual</a> for more!
         </p>
     </div>
+    <script type="text/javascript" src="client/lib/loading.js"></script>
 </body>
 
 </html>

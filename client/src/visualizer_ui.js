@@ -2382,7 +2382,7 @@ var VisualizerUI = (function ($, window, undefined) {
         $("#label_tab_keyword_head").click(function () {
             initForm(labelForm, {
                 width: 500,
-                resizable: false,
+                resizable: true,
                 no_cancel: true,
                 no_ok: true,
                 label_keyword_option: true,
@@ -2409,7 +2409,7 @@ var VisualizerUI = (function ($, window, undefined) {
         $("#label_tab_select_head").click(function () {
             initForm(labelForm, {
                 width: 500,
-                resizable: false,
+                resizable: true,
                 no_cancel: true,
                 no_ok: true,
                 label_keyword_option: false,
@@ -2436,7 +2436,7 @@ var VisualizerUI = (function ($, window, undefined) {
         $("#label_tab_add_head").click(function () {
             initForm(labelForm, {
                 width: 800,
-                resizable: false,
+                resizable: true,
                 no_cancel: true,
                 no_ok: true,
                 label_keyword_option: false,
@@ -2507,7 +2507,7 @@ var VisualizerUI = (function ($, window, undefined) {
         connectForm.submit(connectFormSubmit);
         initForm(connectForm, {
             width: 550,
-            resizable: false,
+            resizable: true,
             no_cancel: true,
             open: function (evt) {
                 keymap = {};
@@ -2524,6 +2524,9 @@ var VisualizerUI = (function ($, window, undefined) {
                 fullPath.length - document.length
             );
             let url = $("#connect_form_text").val();
+            if(!url) {
+                url = $("#connect_form_text").attr("placeholder");
+            }
             let script = $(".CodeMirror")[1].CodeMirror.getValue();
             let data = {
                 shell: script,
@@ -2538,7 +2541,24 @@ var VisualizerUI = (function ($, window, undefined) {
                         alert("Model training is completed!");
                     },
                 });
-            } else
+            } else {
+                var loading  = $("#loading");
+                loading.css("display", "inherit");
+                setTimeout(function () {
+                    // loading message change
+                    if(loading.css("display") !== "none") {
+                        let loadingMessage = $("#loading-message");
+                        loadingMessage.text("Result will be ready soon.");
+                    }
+                }, 10000);
+
+                setTimeout(function () {
+                    // timeout handler
+                    if(loading.css("display") !== "none") {
+                        loading.css("display", "none");
+                        alert("Loading Model result timeout");
+                    }
+                }, 90000);
                 $.post(
                     "ajax.cgi",
                     {
@@ -2555,6 +2575,7 @@ var VisualizerUI = (function ($, window, undefined) {
                             type: "post",
                             data: `{"data": ${JSON.stringify(result)}}`,
                             success: function (arg) {
+                                loading.css('display', 'none');
                                 // 把返回的结果填充到 id是i3的input框中
                                 console.log(arg.data);
                                 dispatcher.post("renderData", [arg.data]);
@@ -2562,6 +2583,7 @@ var VisualizerUI = (function ($, window, undefined) {
                         });
                     }
                 );
+            }
         });
         // make nice-looking buttons for checkboxes and radios
         $("#connect_form")

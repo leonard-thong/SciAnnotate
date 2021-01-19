@@ -350,8 +350,8 @@ fieldset legend {
   border-radius: 3px;
   background-color: #c35b05;
   color: white;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  /* padding-left: 0.5em;
+  padding-right: 0.5em; */
 }
 .label-like {
    /* for UI consistency, this should match the "fieldset legend" style;
