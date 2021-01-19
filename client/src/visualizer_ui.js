@@ -2602,7 +2602,7 @@ var VisualizerUI = (function ($, window, undefined) {
                             type: "post",
                             data: `{"data": ${JSON.stringify(result)}}`,
                             success: function (arg) {
-                                loading.css('display', 'none');
+                                muteLoading();
                                 // 把返回的结果填充到 id是i3的input框中
                                 console.log(arg.data);
                                 dispatcher.post("renderData", [arg.data]);
