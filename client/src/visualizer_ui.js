@@ -699,6 +699,7 @@ var VisualizerUI = (function ($, window, undefined) {
                             alert("Invalid label, lable must be comply with a pattern as labelSource_labelName, which is not capitalized");
                             return;
                         } else {
+                            invokeLoading("Matching Keywords...");
                             if (option[0] === "text") {
                                 $.post(
                                     "ajax.cgi",
@@ -728,6 +729,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                             dispatcher.post("renderData", [
                                                 result,
                                             ]);
+                                            muteLoading();
                                         }, 300);
                                     }
                                 );
@@ -767,6 +769,7 @@ var VisualizerUI = (function ($, window, undefined) {
                                             dispatcher.post("renderData", [
                                                 result,
                                             ]);
+                                            muteLoading();
                                         }
                                     );
                                 } else {
@@ -811,6 +814,7 @@ var VisualizerUI = (function ($, window, undefined) {
                             })
                             .get();
                         if (functions.length >= 1) {
+                            invokeLoading("Executing Labeling Functions.");
                             $.post(
                                 "ajax.cgi",
                                 {
@@ -843,9 +847,11 @@ var VisualizerUI = (function ($, window, undefined) {
                                     });
                                     promise.then(function (value) {
                                         dispatcher.post("renderData", [result]);
+                                        muteLoading();
                                     });
                                     setTimeout(() => {
                                         dispatcher.post("renderData", [result]);
+                                        muteLoading();
                                     }, 300);
                                 }
                             );
@@ -1060,6 +1066,8 @@ var VisualizerUI = (function ($, window, undefined) {
                                 }
                             }
 
+                            invokeLoading("Appending Your Labeling Funciton: " + name);
+
                             $.post(
                                 "ajax.cgi",
                                 {
@@ -1081,9 +1089,13 @@ var VisualizerUI = (function ($, window, undefined) {
                                             collection: collection,
                                         },
                                         function (result) {
-                                            alert(
-                                                "Add Labeling Function Succeed!"
-                                            );
+                                            // alert(
+                                            //     "Add Labeling Function Succeed!"
+                                            // );
+                                            updateLoadingMessage("Add Labeling Function Succeed!");
+                                            setTimeout(function () {
+                                                muteLoading();
+                                            }, 3000);
                                             let container = $(
                                                 "#label_form_select"
                                             );
@@ -2490,6 +2502,24 @@ var VisualizerUI = (function ($, window, undefined) {
             }
         };
 
+        var invokeLoading = function (message) {
+            let loading  = $("#loading");
+            let loadingMessage = $("#loading-message");
+            loading.css("display", "inherit");
+            loadingMessage.text(message);
+        }
+
+        var updateLoadingMessage = function (message) {
+            let loadingMessage = $("#loading-message");
+            loadingMessage.text(message);
+        }
+
+        var muteLoading = function () {
+            let loading  = $("#loading");
+            let loadingMessage = $("#loading-message");
+            loading.css("display", "none");
+        }
+
         // set up jQuery UI elements in label form
         $("#label_tabs").tabs({
             show: onLabelTabSelect,
@@ -2542,21 +2572,18 @@ var VisualizerUI = (function ($, window, undefined) {
                     },
                 });
             } else {
-                var loading  = $("#loading");
-                let loadingMessage = $("#loading-message");
-                loadingMessage.text("Loading Model Results.");
-                loading.css("display", "inherit");
+                invokeLoading("Loading Model Results.");
                 setTimeout(function () {
                     // loading message change
                     if(loading.css("display") !== "none") {
-                        loadingMessage.text("Result will be ready soon.");
+                        updateLoadingMessage("Result will be ready soon.");
                     }
                 }, 10000);
 
                 setTimeout(function () {
                     // timeout handler
                     if(loading.css("display") !== "none") {
-                        loading.css("display", "none");
+                        muteLoading();
                         alert("Loading Model result timeout");
                     }
                 }, 90000);

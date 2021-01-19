@@ -7,7 +7,5 @@
   @file:    index.py
 ===========================================
 """
-from .spam import *
-from .spam1 import *
-from .spam2 import *
+from .contactLabeler import *
 from .executor1 import *
