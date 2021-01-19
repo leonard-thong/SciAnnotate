@@ -2575,17 +2575,16 @@ var VisualizerUI = (function ($, window, undefined) {
                 invokeLoading("Loading Model Results.");
                 setTimeout(function () {
                     // loading message change
-                    if(loading.css("display") !== "none") {
-                        updateLoadingMessage("Result will be ready soon.");
-                    }
+                    updateLoadingMessage("Result will be ready soon.");
                 }, 10000);
 
                 setTimeout(function () {
                     // timeout handler
-                    if(loading.css("display") !== "none") {
+                    muteLoading();
+                    updateLoadingMessage("Loading Model result timeout.")
+                    setTimeout(function () {
                         muteLoading();
-                        alert("Loading Model result timeout");
-                    }
+                    }, 3000);
                 }, 90000);
                 $.post(
                     "ajax.cgi",
