@@ -2543,11 +2543,12 @@ var VisualizerUI = (function ($, window, undefined) {
                 });
             } else {
                 var loading  = $("#loading");
+                let loadingMessage = $("#loading-message");
+                loadingMessage.text("Loading Model Results.");
                 loading.css("display", "inherit");
                 setTimeout(function () {
                     // loading message change
                     if(loading.css("display") !== "none") {
-                        let loadingMessage = $("#loading-message");
                         loadingMessage.text("Result will be ready soon.");
                     }
                 }, 10000);
