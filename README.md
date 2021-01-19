@@ -45,16 +45,16 @@ LABELING_FUNCTION_SET = {"alias": your_new_function}
 ```python
 import sys
 import re
-def executor1(text="", entity_index=None):
+def contactLabeler(text="", entity_index=None):
     res = dict()
     entities = [
-        ["F" + str(next(entity_index)), "Type", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
-        for pos in re.finditer("in", text)
+        ["F" + str(next(entity_index)), "Contact-Email", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
+        for pos in re.finditer("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$", text)
     ]
     entities.extend(
         [
-            ["F" + str(next(entity_index)), "NoneType", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
-            for pos in re.finditer("for", text)
+            ["F" + str(next(entity_index)), "Contact-Phone", [(pos.start(), pos.end())], text[pos.start(): pos.end()]]
+            for pos in re.finditer("(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})", text)
         ]
     )
     entity_list = set()
