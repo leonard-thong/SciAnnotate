@@ -141,7 +141,7 @@ def prehandle_data(**kwargs):
         sentence['sentence'] = doc['text'][sentence_offset[0]:sentence_offset[1]]
         sentence['annotation'] = []
         for entity in entities:
-            if entity[0][0] == 'F': 
+            if entity[0][0] == 'T': 
                 continue
             if entity[2][0][1] <= sentence_offset[1] and entity[2][0][0] >= sentence_offset[0]:
                 source_label = entity[1].split('_')
