@@ -149,7 +149,7 @@ def _create_span_all_re(txt_file_path, ann_file_path, keyword, label, kwargs):
     
     entities = [
         ["F" + str(next(entity_index)), label, [(pos.start(), pos.end())], text[pos.start():pos.end()]]
-        for pos in re.finditer(keyword, text)
+        for pos in re.finditer(r"{}".format(keyword), text)
     ]
     
     res["entities"] = entities

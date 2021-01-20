@@ -2604,8 +2604,20 @@ var VisualizerUI = (function ($, window, undefined) {
                             success: function (arg) {
                                 muteLoading();
                                 // 把返回的结果填充到 id是i3的input框中
-                                // console.log(arg.data);
+                                console.log(arg.data);
                                 dispatcher.post("renderData", [arg.data]);
+                                $.post(
+                                    "ajax.cgi",
+                                    {
+                                        protocol: 1,
+                                        action: "cacheModelResults",
+                                        collection: collection,
+                                        document: document,
+                                        data: JSON.stringify(arg.data),
+                                    }, function (result) {
+                                        console.log(result);
+                                    }
+                                );
                             },
                             error: function (arg) {
                                 muteLoading();

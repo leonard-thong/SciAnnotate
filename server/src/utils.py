@@ -2,6 +2,7 @@ import random
 import os
 import hashlib
 import time
+import json
 from config import BASE_DIR, DATA_DIR
 from os.path import join as path_join
 from os.path import isabs
@@ -19,6 +20,13 @@ from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
 from annotator import ModificationTracker
 from document import get_document, get_document_with_sentence_offsets
 GLOBAL_LOGGER = Logger()
+
+def get_md5_hash(text):
+    md5_obj = hashlib.md5()
+    md5_obj.update(text.encode('utf-8'))
+    hash_code = md5_obj.hexdigest()
+    return hash_code
+
 
 # def generate_color_config(name, entities):
 #     md5_obj = hashlib.md5()
@@ -133,6 +141,8 @@ def prehandle_data(**kwargs):
         sentence['sentence'] = doc['text'][sentence_offset[0]:sentence_offset[1]]
         sentence['annotation'] = []
         for entity in entities:
+            if entity[0][0] == 'F': 
+                continue
             if entity[2][0][1] <= sentence_offset[1] and entity[2][0][0] >= sentence_offset[0]:
                 source_label = entity[1].split('_')
                 source = ''
@@ -244,6 +254,60 @@ def merge_ann_files(collection, document, append_mode=False):
     if append_mode:
         return label_func_entities
     return ann_entities
+
+def cache_model_results(**kwargs):
+    res = dict()
+    collection = kwargs['collection']
+    document = kwargs['document']
+    real_dir = real_directory(collection)
+    document = path_join(real_dir, document)
+    model_results = json.loads(kwargs['data'])
+    
+    model_resutls_entities = model_results['entities']
+    model_resutls_entities = [[results[0], results[1], results[2][0]] for results in model_resutls_entities]
+    with TextAnnotations(document) as ann_obj:
+        manual_lines = list(ann_obj.get_entities())
+        manual_results = []
+        for line in manual_lines:
+            if line.id[0] == 'T':
+                manual_results.append([line.id, line.type, [line.start, line.end]])
+        acc = calc_accuracy(manual_results, model_resutls_entities)
+    res['acc'] = acc
+    return res
+
+def get_accuray(collection, document):
+    real_dir = real_directory(collection)
+    document = path_join(real_dir, document)
+    acc = 0
+    with TextAnnotations(document) as ann_obj:
+        all_lines = list(ann_obj.get_entities())
+        manual_results = []
+        model_results = []
+        for line in all_lines:
+            if line.id[0] == 'T':
+                manual_results.append([line.id, line.type, [line.start, line.end]])
+            if line.id[0] == 'F':
+                model_results.append([line.id, line.type, [line.start, line.end]])
+        acc = calc_accuracy(manual_results, model_results, True)
+    return acc
+
+def calc_accuracy(ann_manual, ann_model, soft=False):
+    # ['T1', 'label',  (start, end), 'text']
+    manual_length = len(ann_manual)
+    ann_manual_dict = {"({},{})".format(offset[0], offset[1]):label for _, label, offset in ann_manual}
+    ann_model_dict = {"({},{})".format(offset[0], offset[1]):label for _, label, offset in ann_model}
+
+    correct_count = 0
+    for key, val in ann_manual_dict.items():
+        if key in ann_model_dict.keys():
+            if ann_model_dict[key] == val or (soft and val in ann_model_dict[key]):
+                correct_count += 1
+            else:
+                GLOBAL_LOGGER.log_error(key + ' ' + val + ' ' + ann_model_dict[key])
+        else:
+            GLOBAL_LOGGER.log_error(key + ' ' + val)
+    
+    return correct_count / manual_length
     
 if __name__ == "__main__":
     merge_ann_files('/Local', 'test')
