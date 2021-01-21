@@ -216,6 +216,8 @@ def cache_model_results(**kwargs):
     real_dir = real_directory(collection)
     document = path_join(real_dir, document)
     model_results = json.loads(kwargs['data'])
+    with open('/tmp/DLMAT-Model-{}.json'.format(get_md5_hash(document)), 'w') as f:
+        json.dump(model_results, f)
     
     model_resutls_entities = model_results['entities']
     model_resutls_entities = [[results[0], results[1], results[2][0]] for results in model_resutls_entities]
@@ -225,7 +227,7 @@ def cache_model_results(**kwargs):
         for line in manual_lines:
             if line.id[0] == 'T':
                 manual_results.append([line.id, line.type, [line.start, line.end]])
-        acc = calc_accuracy(manual_results, model_resutls_entities)
+        acc = calc_recall(manual_results, model_resutls_entities)
     res['acc'] = acc
     return res
 
