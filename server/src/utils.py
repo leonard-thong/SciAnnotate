@@ -161,52 +161,6 @@ def prehandle_data(**kwargs):
         res['processedData'].append(sentence)
     return res
 
-def _prehandle_data(out, txt_file_path, ann_file_path):
-    res = dict()
-    with open(ann_file_path, 'r') as ann_file:
-        for line in ann_file.readlines():
-            if line[0] != 'T' and line[0] != 'F':
-                continue
-            line_num = -1
-            sentence = dict()
-            sentence['sentence'] = ''
-            sentence['annotation'] = []
-            data = []
-            line = line.replace('\t', ' ')
-            info = line.split(' ')
-            source_name = info[1].split('_')[0]
-            temp = info[1].split('_')[1:]
-            label = ''
-            if len(temp) == 0 or source_name.capitalize() == source_name:
-                label = info[1]
-                source_name = 'spam'
-            else:
-                for i in range(len(temp)):
-                    label += temp[i]
-            data.append(source_name)
-            data.append(label)
-            start = int(info[2])
-            end = int(info[3])
-            line_dict = judge_line(txt_file_path)
-            line_start_index = [key for key in line_dict]
-            line_start_index = sorted(line_start_index)
-            for i in range(len(line_start_index)):
-                if start > int(line_start_index[i]) and end < (int(line_start_index[i]) + len(line_dict[line_start_index[i]])):
-                    sentence['sentence']=line_dict[line_start_index[i]]
-                    start -= int(line_start_index[i])
-                    end -= int(line_start_index[i])
-                    line_num = i
-                    break
-                '''
-                elif start > line_start_index[i] and end > (line_start_index[i] + len(line_dict[line_start_index[i]])):
-                '''
-            data.append(start)
-            data.append(end)
-            out[line_num]['annotation'].append(data)
-    res['processedData'] = out
-    return res
-
-
 def judge_line(txt_file_path):
     count = 0
     line_dict = dict()
@@ -275,7 +229,7 @@ def cache_model_results(**kwargs):
     res['acc'] = acc
     return res
 
-def get_accuray(collection, document):
+def get_recall(collection, document):
     real_dir = real_directory(collection)
     document = path_join(real_dir, document)
     acc = 0
@@ -288,10 +242,10 @@ def get_accuray(collection, document):
                 manual_results.append([line.id, line.type, [line.start, line.end]])
             if line.id[0] == 'F':
                 model_results.append([line.id, line.type, [line.start, line.end]])
-        acc = calc_accuracy(manual_results, model_results, True)
+        acc = calc_recall(manual_results, model_results, True)
     return acc
 
-def calc_accuracy(ann_manual, ann_model, soft=False):
+def calc_recall(ann_manual, ann_model, soft=False):
     # ['T1', 'label',  (start, end), 'text']
     manual_length = len(ann_manual)
     ann_manual_dict = {"({},{})".format(offset[0], offset[1]):label for _, label, offset in ann_manual}
@@ -306,7 +260,7 @@ def calc_accuracy(ann_manual, ann_model, soft=False):
                 GLOBAL_LOGGER.log_error(key + ' ' + val + ' ' + ann_model_dict[key])
         else:
             GLOBAL_LOGGER.log_error(key + ' ' + val)
-    
+    GLOBAL_LOGGER.log_error(str(correct_count) + ' ' + str(manual_length))
     return correct_count / manual_length
     
 if __name__ == "__main__":

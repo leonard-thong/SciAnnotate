@@ -13,7 +13,7 @@ import time
 import os
 import logging
 
-from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER, get_accuray
+from utils import get_entity_index, clean_cached_config, add_common_info, merge_ann_files, GLOBAL_LOGGER, get_recall
 from annotation import (DISCONT_SEP, TEXT_FILE_SUFFIX,
                         AnnotationsIsReadOnlyError, AttributeAnnotation,
                         BinaryRelationAnnotation,
@@ -131,7 +131,7 @@ def function_executor(**kwargs):
     out["document"] = document
     out["collection"] = collection
     out = get_document(collection, document)
-    out["acc"] = get_accuray(collection, document)
+    out["acc"] = get_recall(collection, document)
     if out is None:
         return
     return out
