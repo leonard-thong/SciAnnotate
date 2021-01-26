@@ -1,4 +1,4 @@
-# Deep Learning Model Annotation Tool (dlwlrat) #
+# Deep Learning Weak Label Reinforcement Annotation Tool (dlwlrat) #
 
 ## Quick start installation: standalone server ##
 
