@@ -211,12 +211,13 @@ def merge_ann_files(collection, document, append_mode=False):
 
 def cache_model_results(**kwargs):
     res = dict()
+    GLOBAL_LOGGER.log_error(get_recall("/annotated-materials/annotated-materials/", "101002adma201300071"))
     collection = kwargs['collection']
     document = kwargs['document']
     real_dir = real_directory(collection)
     document = path_join(real_dir, document)
     model_results = json.loads(kwargs['data'])
-    with open('/tmp/DLMAT-Model-{}.json'.format(get_md5_hash(document)), 'w') as f:
+    with open('/tmp/DLWLRAT-Model-{}.json'.format(get_md5_hash(document)), 'w') as f:
         json.dump(model_results, f)
     
     model_resutls_entities = model_results['entities']
@@ -230,6 +231,19 @@ def cache_model_results(**kwargs):
         acc = calc_recall(manual_results, model_resutls_entities)
     res['acc'] = acc
     return res
+
+def get_cached_model_results(**kwargs):
+    res = dict()
+    collection = kwargs['collection']
+    document = kwargs['document']
+    real_dir = real_directory(collection)
+    document = path_join(real_dir, document)
+    cached_model_results = None
+    with open('/tmp/DLWLRAT-Model-{}.json'.format(get_md5_hash(document)), 'w') as f:
+        cached_model_results = json.load(f)
+    res['data'] = cached_model_results
+    return res
+    
 
 def get_recall(collection, document):
     real_dir = real_directory(collection)
@@ -266,4 +280,5 @@ def calc_recall(ann_manual, ann_model, soft=False):
     return correct_count / manual_length
     
 if __name__ == "__main__":
-    merge_ann_files('/Local', 'test')
+    print(get_recall("annotated-materials/annotated-materials/", "101002adma201300071"))
+    # merge_ann_files('/Local', 'test')

@@ -502,3 +502,223 @@ R183	Number_Of Arg1:T246 Arg2:T247
 R184	Condition_Of Arg1:T247 Arg2:E50	
 R185	Number_Of Arg1:T248 Arg2:T249	
 R186	Condition_Of Arg1:T249 Arg2:E50	
+F1	xx_Apparatus-Descriptor 492 548	poly(tetrafluoroethylene) (Teflon)-lined stainless steel
+F2	xx_Brand 344 379	Sinopharm Chemical Reagent Co., Ltd
+F3	xx_Material 1192 1224	SnO2 nanocrystals/graphene oxide
+F4	xx_Property-Misc 803 834	SnO2 nanocrystal/nitrogen-doped
+F5	xx_Property-Misc 294 324	nanocrystal aqueous suspension
+F6	xx_Property-Misc 723 753	nanocrystal aqueous suspension
+F7	xx_Property-Misc 1005 1035	nanocrystal aqueous suspension
+F8	xx_Property-Misc 2429 2459	nanocrystal aqueous suspension
+F9	xx_Material 2583 2605	SnO2 nanocrystal/N-RGO
+F10	xx_Material 1330 1351	hydrazine monohydrate
+F11	xx_Material 1421 1442	hydrazine monohydrate
+F12	xx_Material 1631 1652	hydrazine monohydrate
+F13	xx_Material 2628 2649	hydrazine monohydrate
+F14	xx_Material 2913 2934	hydrazine monohydrate
+F15	xx_Brand 222 242	Alfa Aesar, 325 mesh
+F16	xx_Material 1776 1796	SnO2 nanocrystal/RGO
+F17	xx_Material-Descriptor 897 915	aqueous suspension
+F18	xx_Reference 258 275	Hummers method.57
+F19	xx_Material-Descriptor 2650 2666	aqueous solution
+F20	xx_Material-Descriptor 2827 2843	aqueous solution
+F21	xx_Material 2319 2333	SnO2NC + N-RGO
+F22	xx_Material 2546 2560	SnO2NC + N-RGO
+F23	xx_Material-Descriptor 2678 2693	SnO2NC/N-RGO-HS
+F24	xx_Material-Descriptor 2696 2711	SnO2NC/N-RGO-HS
+F25	xx_Material-Descriptor 3123 3138	SnO2NC/N-RGO-HS
+F26	xx_Material 2117 2131	nitrogen-doped
+F27	xx_Property-Misc 53 67	Nitrogen-Doped
+F28	xx_Material 144 158	graphite oxide
+F29	xx_Material 164 178	graphite oxide
+F30	xx_Material 882 896	graphite oxide
+F31	xx_Material 1525 1539	graphene oxide
+F32	xx_Material 1805 1816	SnO2NC@ RGO
+F33	xx_Material 847 859	SnO2NC@N-RGO
+F34	xx_Material 1749 1761	SnO2NC@N-RGO
+F35	xx_Material 1882 1894	SnO2NC@N-RGO
+F36	xx_Material 2196 2208	SnO2NC@N-RGO
+F37	xx_Material 2761 2773	SnO2NC@N-RGO
+F38	xx_Property-Type 761 774	concentration
+F39	xx_Material-Descriptor 2226 2238	nanocrystals
+F40	xx_Material-Descriptor 2295 2307	nanocrystals
+F41	xx_Property-Misc 37 49	Nanocrystals
+F42	xx_Condition-Type 2025 2037	heating rate
+F43	xx_Condition-Misc 1061 1073	continuously
+F44	xx_Material-Descriptor 1094 1105	homogeneous
+F45	xx_Material 332 342	SnCl4*5H2O
+F46	xx_Material 1819 1829	SnO2NC@RGO
+F47	xx_Apparatus-Descriptor 1248 1259	small glass
+F48	xx_Material 622 633	precipitate
+F49	xx_Condition-Unit 2043 2053	degC min-1
+F50	xx_Synthesis-Apparatus 549 559	autoclaves
+F51	xx_Condition-Misc 2999 3009	vigorously
+F52	xx_Brand 1353 1363	Alfa Aesar
+F53	xx_Brand 2936 2946	Alfa Aesar
+F54	xx_Material 1657 1667	byproducts
+F55	xx_Material 1106 1116	suspension
+F56	xx_Material 2817 2826	hydrazine
+F57	xx_Material 2606 2615	composite
+F58	xx_Material-Descriptor 412 421	deionized
+F59	xx_Property-Misc 2270 2278	physical
+F60	xx_Material 448 456	solution
+F61	xx_Synthesis-Apparatus 3046 3054	oil bath
+F62	xx_Material 68 76	Graphene
+F63	xx_Material 205 213	graphite
+F64	xx_Synthesis-Apparatus 1976 1983	furnace
+F65	xx_Material-Descriptor 197 204	natural
+F66	xx_Material 1568 1575	product
+F67	xx_Material 3115 3122	product
+F68	xx_Property-Misc 1049 1056	mixture
+F69	xx_Property-Misc 2279 2286	mixture
+F70	xx_Property-Misc 2334 2341	mixture
+F71	xx_Property-Misc 2474 2481	mixture
+F72	xx_Property-Misc 2561 2568	mixture
+F73	xx_Property-Misc 2982 2989	mixture
+F74	xx_Condition-Misc 1540 1547	in situ
+F75	xx_Property-Unit 781 788	mg mL-1
+F76	xx_Property-Unit 922 929	mg mL-1
+F77	xx_Property-Misc 839 845	hybrid
+F78	xx_Property-Misc 1225 1231	hybrid
+F79	xx_Property-Misc 1742 1748	hybrid
+F80	xx_Property-Misc 1797 1803	hybrid
+F81	xx_Material-Descriptor 214 220	flakes
+F82	xx_Synthesis-Apparatus 1260 1266	beaker
+F83	xx_Property-Misc 77 83	Sheets
+F84	xx_Condition-Misc 1706 1712	vacuum
+F85	xx_Synthesis-Apparatus 1304 1310	bottle
+F86	xx_Synthesis-Apparatus 1469 1475	bottle
+F87	xx_Material-Descriptor 1184 1190	powder
+F88	xx_Material-Descriptor 1406 1412	powder
+F89	xx_Material-Descriptor 1926 1932	powder
+F90	xx_Material-Descriptor 2795 2801	powder
+F91	xx_Material-Descriptor 2864 2870	powder
+F92	xx_Apparatus-Descriptor 1298 1303	glass
+F93	xx_Apparatus-Descriptor 1463 1468	glass
+F94	xx_Material 31 36	SnO 2
+F95	xx_Material 427 432	water
+F96	xx_Material 699 704	water
+F97	xx_Material 951 956	water
+F98	xx_Material 1592 1597	water
+F99	xx_Material 2383 2388	water
+F100	xx_Material 2896 2901	water
+F101	xx_Material 2137 2142	N-RGO
+F102	xx_Material 2145 2150	N-RGO
+F103	xx_Material 2312 2317	N-RGO
+F104	xx_Material 2350 2355	N-RGO
+F105	xx_Synthesis-Apparatus 2965 2970	flask
+F106	xx_Synthesis-Apparatus 3023 3028	flask
+F107	xx_Condition-Unit 1602 1607	times
+F108	xx_Material-Descriptor 616 621	white
+F109	xx_Property-Misc 87 92	Anode
+F110	xx_Condition-Type 2013 2017	flow
+F111	xx_Synthesis-Apparatus 577 581	oven
+F112	xx_Condition-Unit 589 593	degC
+F113	xx_Condition-Unit 1498 1502	degC
+F114	xx_Condition-Unit 1695 1699	degC
+F115	xx_Condition-Unit 1991 1995	degC
+F116	xx_Condition-Unit 3060 3064	degC
+F117	xx_Apparatus-Descriptor 1971 1975	tube
+F118	xx_Material 289 293	SnO2
+F119	xx_Material 718 722	SnO2
+F120	xx_Material 1000 1004	SnO2
+F121	xx_Material 2221 2225	SnO2
+F122	xx_Material 2290 2294	SnO2
+F123	xx_Material 2424 2428	SnO2
+F124	xx_Number 917 921	10.0
+F125	xx_Material-Descriptor 1179 1183	gray
+F126	xx_Material-Descriptor 1921 1925	gray
+F127	xx_Material-Descriptor 2790 2794	gray
+F128	xx_Material-Descriptor 2859 2863	gray
+F129	xx_Number 2461 2464	3.5
+F130	xx_Number 1987 1990	500
+F131	xx_Number 2958 2961	500
+F132	xx_Number 585 588	120
+F133	xx_Number 1494 1497	120
+F134	xx_Number 1691 1694	120
+F135	xx_Number 326 329	2.0
+F136	xx_Number 2886 2889	200
+F137	xx_Number 2906 2909	200
+F138	xx_Number 1598 1601	six
+F139	xx_Number 2845 2848	150
+F140	xx_Number 1156 1159	300
+F141	xx_Number 1907 1910	300
+F142	xx_Number 405 408	100
+F143	xx_Number 485 488	100
+F144	xx_Number 2373 2376	100
+F145	xx_Number 3056 3059	100
+F146	xx_Condition-Misc 2244 2247	not
+F147	xx_Number 481 484	two
+F148	xx_Material 835 838	RGO
+F149	xx_Material 2132 2135	RGO
+F150	xx_Number 958 960	90
+F151	xx_Amount-Unit 409 411	mL
+F152	xx_Amount-Unit 489 491	mL
+F153	xx_Amount-Unit 693 695	mL
+F154	xx_Amount-Unit 876 878	mL
+F155	xx_Amount-Unit 961 963	mL
+F156	xx_Amount-Unit 1040 1042	mL
+F157	xx_Amount-Unit 1324 1326	mL
+F158	xx_Amount-Unit 2377 2379	mL
+F159	xx_Amount-Unit 2465 2467	mL
+F160	xx_Amount-Unit 2890 2892	mL
+F161	xx_Amount-Unit 2962 2964	mL
+F162	xx_Number 2344 2346	30
+F163	xx_Amount-Unit 1160 1162	mg
+F164	xx_Amount-Unit 1911 1913	mg
+F165	xx_Amount-Unit 2347 2349	mg
+F166	xx_Amount-Unit 2849 2851	mg
+F167	xx_Number 690 692	35
+F168	xx_Number 778 780	20
+F169	xx_Number 1717 1719	20
+F170	xx_Number 0 2	10
+F171	xx_Number 873 875	10
+F172	xx_Number 1037 1039	10
+F173	xx_Number 1365 1367	99
+F174	xx_Number 2948 2950	99
+F175	xx_Material 2010 2012	Ar
+F176	xx_Amount-Unit 2910 2912	μL
+F177	xx_Number 598 600	28
+F178	xx_Material-Descriptor 423 425	DI
+F179	xx_Material-Descriptor 696 698	DI
+F180	xx_Material-Descriptor 948 950	DI
+F181	xx_Material-Descriptor 2380 2382	DI
+F182	xx_Material-Descriptor 2893 2895	DI
+F183	xx_Condition-Misc 2058 2060	no
+F184	xx_Amount-Unit 330 331	g
+F185	xx_Number 2500 2501	1
+F186	xx_Number 3070 3071	1
+F187	xx_Condition-Unit 601 602	h
+F188	xx_Condition-Unit 1509 1510	h
+F189	xx_Condition-Unit 1720 1721	h
+F190	xx_Condition-Unit 2002 2003	h
+F191	xx_Condition-Unit 2502 2503	h
+F192	xx_Condition-Unit 3072 3073	h
+F193	xx_Number 1507 1508	2
+F194	xx_Number 2000 2001	2
+F195	xx_Number 2041 2042	2
+F196	xx_Number 1322 1323	6
+F199	xy_Material-Descriptor 1005 1035	nanocrystal aqueous suspension
+F200	xy_Material-Descriptor 2429 2459	nanocrystal aqueous suspension
+F197	xy_Apparatus-Unit 409 411	mL
+F198	xy_Apparatus-Unit 489 491	mL
+F201	xy_Apparatus-Unit 693 695	mL
+F211	xy_Apparatus-Unit 2962 2964	mL
+F204	zx_Material-Descriptor 1005 1035	nanocrystal aqueous suspension
+F205	zx_Material-Descriptor 2429 2459	nanocrystal aqueous suspension
+F202	zx_Apparatus-Unit 409 411	mL
+F203	zx_Apparatus-Unit 489 491	mL
+F206	zx_Apparatus-Unit 693 695	mL
+F217	zx_Apparatus-Unit 2962 2964	mL
+F207	zx_Material 1049 1056	mixture
+F208	zx_Material 2279 2286	mixture
+F209	zx_Material 2334 2341	mixture
+F210	zx_Material 2474 2481	mixture
+F212	zx_Material 2561 2568	mixture
+F213	zx_Material 2982 2989	mixture
+F214	zx_Material 2678 2693	SnO2NC/N-RGO-HS
+F215	zx_Material 2696 2711	SnO2NC/N-RGO-HS
+F216	zx_Material 3123 3138	SnO2NC/N-RGO-HS
+F218	mx_Material 2678 2693	SnO2NC/N-RGO-HS
+F219	mx_Material 2696 2711	SnO2NC/N-RGO-HS
+F220	mx_Material 3123 3138	SnO2NC/N-RGO-HS

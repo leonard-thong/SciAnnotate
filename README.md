@@ -1,10 +1,10 @@
-# Deep Learning Model Annotation Tool (dlmat) #
+# Deep Learning Model Annotation Tool (dlwlrat) #
 
 ## Quick start installation: standalone server ##
 
 First, please note the following:
 
-- The dlmat standalone server only is available in dlmat v1.0 and above.
+- The dlwlrat standalone server only is available in dlwlrat v1.0 and above.
 - The standalone server is experimental and should not be used for sensitive data or systems accessible from the internet.
 
 
@@ -17,7 +17,7 @@ Start the standalone server
     python standalone.py
 
 
-You should then be able to access the dlmat server from the address printed out by standalone.py.
+You should then be able to access the dlwlrat server from the address printed out by standalone.py.
 
 ## Add New Labeling Functions
 

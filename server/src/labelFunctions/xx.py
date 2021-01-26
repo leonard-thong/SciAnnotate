@@ -2,7 +2,7 @@ import sys
 import re
 label_text_map = {
 
-  'Material': ['SnO 2', 'Graphene', 'graphite oxide', 'graphite', 'SnCl4*5H2O', 'water', 'solution','precipitate', 'RGO', r'SnO2NC\@N-RGO', r'SnO2NC\@RG', r'SnO2NC\@RGO' , r'SnO2NC\@\sRGO', 'mixture', 'suspension', 'SnO2 nanocrystals/graphene oxide', 'hydrazine monohydrate', 'graphene oxide', 'product', 'byproducts', 'SnO2 nanocrystal/RGO', 'Ar', 'N-RGO', 'SnO2NC + N-RGO', 'hydrazine', r'SnO2 nanocrystal/N-RGO', r'SnO2NC \+ N-RGO', r'SnO2', r'\%', r'composite', r'nitrogen-doped', r'SnCl4\*5H2O', ],
+  'Material': ['SnO 2', 'Graphene', 'graphite oxide', 'graphite', 'SnCl4*5H2O', 'water', 'solution','precipitate', 'RGO', r'SnO2NC\@N-RGO', r'SnO2NC\@RG', r'SnO2NC\@RGO' , r'SnO2NC\@\sRGO', 'mixture', 'suspension', 'SnO2 nanocrystals/graphene oxide', 'hydrazine monohydrate', 'graphene oxide', 'product', 'byproducts', 'SnO2 nanocrystal/RGO', 'Ar', 'N-RGO', 'SnO2NC + N-RGO', 'hydrazine', r'SnO2 nanocrystal/N-RGO', r'SnO2NC\/N\-RGO\-HS', r'SnO2NC \+ N-RGO', r'SnO2', r'\%', r'composite', r'nitrogen-doped', r'SnCl4\*5H2O', ],
   
   'Property-Misc':['Nanocrystals', 'Nitrogen-Doped', 'Sheets', 'Anode', 'nanocrystal aqueous suspension', 'SnO2 nanocrystal/nitrogen-doped', 'hybrid', 'physical', 'mixture', ],
  
@@ -14,7 +14,7 @@ label_text_map = {
   
   'Number': ['2.0', '100', 'two', '120', '28', '35', '10', '10.0', '90', '300', '6', '99', 'six', '500', '100', '3.5', '150', '30', '1', '2', '20'],
   
-  'Material-Descriptor': ['natural', 'flakes', 'deionized', 'DI', 'white', 'DI', 'aqueous suspension', 'nanocrystal aqueous suspension', 'homogeneous', 'gray', 'powder', 'nanocrystals', 'aqueous solution', 'SnO2NC/N-RGO-HS'],
+  'Material-Descriptor': ['natural', 'flakes', 'deionized', 'DI', 'white', 'DI', 'aqueous suspension', 'nanocrystal aqueous suspension', 'homogeneous', 'gray', 'powder', 'nanocrystals', 'aqueous solution'],
   
   'Condition-Misc':['continuously', 'in situ', 'vacuum', 'no', 'not', 'vigorously'],
   

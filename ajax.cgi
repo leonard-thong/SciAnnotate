@@ -2,8 +2,8 @@
 # -*- Mode: Python; tab-width: 4; indent-tabs-mode: nil; -*-
 # vim:set ft=python ts=4 sw=4 sts=4 autoindent:
 
-"""Entry for CGI calls to dlmat. A simple wrapper around the CGI handling that
-then delegates the work to the CGI-agnostic dlmat server.
+"""Entry for CGI calls to dlwlrat. A simple wrapper around the CGI handling that
+then delegates the work to the CGI-agnostic dlwlrat server.
 
 Author:     Pontus Stenetorp    <pontus is s u-tokyo ac jp>
 Version:    2011-02-07
