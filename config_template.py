@@ -3,12 +3,12 @@
 # This configuration file specifies the global setup of the brat
 # server. It is recommended that you use the installation script
 # instead of editing this file directly. To do this, run the following
-# command in the dlwlrat directory:
+# command in the SciAnnotate directory:
 #
 #     ./install.sh
 #
 # if you wish to configure the server manually, you will first need to
-# make sure that this file appears as config.py in the dlwlrat server
+# make sure that this file appears as config.py in the SciAnnotate server
 # root directory. If this file is currently named config_template.py,
 # you can do this as follows:
 #
@@ -24,7 +24,7 @@
 # Contact email for users to use if the software encounters errors
 ADMIN_CONTACT_EMAIL = CHANGE_ME
 
-# Directories required by the dlwlrat server:
+# Directories required by the SciAnnotate server:
 #
 #     BASE_DIR: directory in which the server is installed
 #     DATA_DIR: directory containing texts and annotations

@@ -67,7 +67,7 @@ else
 	fi
     done
     echo "Please enter the administrator contact email:"
-    admin_email="admin@dlwlrat.org"
+    admin_email="admin@SciAnnotate.org"
 fi
 
 # Put a configuration in place.

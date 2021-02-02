@@ -3,8 +3,8 @@
 # vim:set ft=python ts=4 sw=4 sts=4 autoindent:
 
 '''
-Entry for FastCGI calls to dlwlrat. This is a simple wrapper around a persistent
-WSGI server that delegates the processing to the FastCGI-agnostic dlwlrat server.
+Entry for FastCGI calls to SciAnnotate. This is a simple wrapper around a persistent
+WSGI server that delegates the processing to the FastCGI-agnostic SciAnnotate server.
 
 Depends on flup:
 
@@ -37,7 +37,7 @@ sys_path.append(path_join(dirname(__file__), 'server/src'))
 
 from server import serve
 
-def dlwlrat_app(environ, start_response):
+def SciAnnotate_app(environ, start_response):
     # Get the data required by the server
     try:
         remote_addr = environ['REMOTE_ADDR']
@@ -73,5 +73,5 @@ def dlwlrat_app(environ, start_response):
 
 if __name__ == '__main__':
     from sys import exit
-    WSGIServer(dlwlrat_app).run()
+    WSGIServer(SciAnnotate_app).run()
     exit(0)
