@@ -1,4 +1,4 @@
-# Deep Learning Model Annotation Tool (SciAnnotate) #
+# A Tool for Integrating Weak Labeling Sources for Sequence Labeling (SciAnnotate) #
 
 ## Quick start installation: standalone server ##
 
