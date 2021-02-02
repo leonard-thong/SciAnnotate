@@ -1,4 +1,4 @@
-# Deep Learning Weak Label Reinforcement Annotation Tool (dlwlrat) #
+# A Tool for Integrating Weak Labeling Sources (SciAnnotate) #
 
 ## Quick start installation: standalone server ##
 
