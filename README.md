@@ -1,4 +1,4 @@
-# A Tool for Integrating Weak Labeling Sources (SciAnnotate) #
+# A Tool for Integrating Weak Labeling Sources for Sequence Labeling (SciAnnotate) #
 
 ## Quick start installation: standalone server ##
 
