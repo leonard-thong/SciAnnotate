@@ -9,6 +9,7 @@
 """
 
 import os
+import shutil
 from document import real_directory
 from os.path import join as path_join
 
@@ -25,6 +26,16 @@ def create_new_document(**kwargs):
     f.write(text)
     return res
 
+def create_folder(**kwargs):
+    res = dict()
+    collection = kwargs['collection']
+    folder_name = kwargs['folder_name']
+    real_dir = real_directory(collection)
+    folder_name = path_join(real_dir, folder_name)
+    os.makedirs(folder_name, exist_ok=True)
+    res['status'] = 200
+    return res
+
 def import_new_document(**kwargs):
     res = dict()
     res['action'] = kwargs['action']
@@ -39,6 +50,8 @@ def import_new_document(**kwargs):
         if not fileName or not fileContent: break
         document = path_join(real_dir, fileName)
         if document[-3:] == 'txt':
+          f = open(document, 'w')
+        elif document[-3:] == 'ann':
           f = open(document, 'w')
         else:
           document = document[:-len(document.split('.')[-1]) - 1] + '.txt'
@@ -58,7 +71,7 @@ def delete_new_document(**kwargs):
     real_dir = real_directory(directory)
     document = path_join(real_dir, document)
     if os.path.isdir(document):
-        os.remove(document)
+        shutil.rmtree(document)
     else:
         os.remove(document+'.txt')
         os.remove(document+'.ann')

@@ -1178,6 +1178,13 @@ var VisualizerUI = (function ($, window, undefined) {
             /* START creating document related */
             if (opts.create_document) {
                 buttons.push({
+                    id: formId + "-create-folder",
+                    text: "Create Folder",
+                    click: function () {
+                        dispatcher.post("showForm", [createFolderForm]);
+                    },
+                });
+                buttons.push({
                     id: formId + "-create-document",
                     text: "Create",
                     click: function () {
@@ -2676,11 +2683,51 @@ var VisualizerUI = (function ($, window, undefined) {
                 }
             );
         });
-        // make nice-looking buttons for checkboxes and radios
         $("#create_document_form")
             .find('input[type="checkbox"], input[type="button"]')
             .button();
         $("#create_document_form").find(".radio_group").buttonset();
+        $("#rapid_model").addClass("ui-widget ui-state-default ui-button-text");
+
+        var createFolderForm = $("#create_folder_form");
+        var createFolderFormSubmit = function (evt) {
+            dispatcher.post("hideForm");
+            return false;
+        };
+        createFolderForm.submit(createFolderFormSubmit);
+        initForm(createFolderForm, {
+            width: 550,
+            resizable: false,
+            no_cancel: true,
+            open: function (evt) {
+                keymap = {};
+            },
+        });
+        $("#create_folder_form-ok").click(function () {
+            // create new document
+            let collection = $("#collection_input").val();
+            // let collection = window.location.href.split("#")[1];
+            let folderName = $("#folder_name").val();
+
+            $.post(
+                "ajax.cgi",
+                {
+                    protocol: 1,
+                    action: "createFolder",
+                    collection: collection,
+                    folder_name: folderName,
+                },
+                function () {
+                    window.location = window.location.pathname + "#" + collection + folderName;
+                    $("#collection_browser").dialog("close");
+                }
+            );
+        });
+        // make nice-looking buttons for checkboxes and radios
+        $("#create_folder")
+            .find('input[type="checkbox"], input[type="button"]')
+            .button();
+        $("#create_folder").find(".radio_group").buttonset();
         $("#rapid_model").addClass("ui-widget ui-state-default ui-button-text");
 
         /* END create dialog - related */
