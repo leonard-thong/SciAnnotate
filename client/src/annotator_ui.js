@@ -3375,6 +3375,44 @@ var AnnotatorUI = (function ($, window, undefined) {
             );
         });
 
+
+        var deleteEntity = function () {
+            let entity = $('input[id^="span_"]').filter(':checked').val();
+            
+            let fullPath = window.location.href.split("#")[1];
+            let document = fullPath.split("/").reverse()[0];
+            let collection = fullPath.substr(
+                0,
+                fullPath.length - document.length
+            );
+
+            $.post(
+                "ajax.cgi",
+                {
+                    protocol: 1,
+                    action: "deleteEntity",
+                    entity_name: entity,
+                    collection: collection,
+                },
+                function () {
+                    dispatcher.post("ajax", [
+                        {
+                            action:
+                                "getCollectionInformation",
+                            collection: collection,
+                        },
+                        "collectionLoaded",
+                        {
+                            collection: collection,
+                            keep: true,
+                        },
+                    ]);
+                    // window.location = window.location.pathname + "#" + collection + folderName;
+                    // $("#span_form").dialog("close");
+                }
+            );
+        }
+
         var spanChangeLock = function (evt) {
             var $this = $(evt.target);
             var locked = $this.is(":checked");
@@ -3431,6 +3469,11 @@ var AnnotatorUI = (function ($, window, undefined) {
                         id: "span_form_create_entity",
                         text: "Create Entity",
                         click: createEntity,
+                    },
+                    {
+                        id: "span_form_delete_entity",
+                        text: "Delete Entity",
+                        click: deleteEntity,
                     },
                 ],
                 create: function (evt) {
