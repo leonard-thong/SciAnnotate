@@ -18,9 +18,14 @@ def create_new_entity(**kwargs):
     # section_lines = {section: []}
     # section_labels = {}
 
+    # Check duplicate entit type
+    if entity in configstr:
+        res['status'] = 200
+        return res
     for ln, l in enumerate(configstr):
         if l == "[relations]":
             configstr.insert(ln-2, entity)
+            break
         
     with open(config_dir, 'w') as configFile:
         configFile.write("\n".join(configstr))
