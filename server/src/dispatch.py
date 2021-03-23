@@ -41,6 +41,7 @@ from dynamicLabeling import add_labeling_function, delete_labeling_function, get
 from newDocument import create_new_document, import_new_document, delete_new_document, create_folder
 from createSpanAll import create_span_all_text, create_span_all_re
 from utils import GLOBAL_LOGGER, fetch_all_annotations, prehandle_data, cache_model_results
+from newEntity import create_new_entity
 # no-op function that can be invoked by client to log a user action
 
 
@@ -70,6 +71,8 @@ DISPATCHER = {
     'createSpan': create_span,
     'deleteSpan': delete_span,
     'splitSpan': split_span,
+
+    'createEntity': create_new_entity,
 
     'createArc': create_arc,
     'reverseArc': reverse_arc,
@@ -130,7 +133,7 @@ DISPATCHER = {
 
 # Actions that correspond to labeling function functionality
 EXPAND_ACTION = {'labelingFunctionProcess', 'instantExecutor', 'addLabelingFunction', 'deleteLabelingFunction', 'getAvailableLabelingFunction', 'createSpanAllText', 
-                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'importNewDocument','deleteNewDocument', 'createNewUser', 'cacheModelResults', 'createFolder'}
+                    'createSpanAllRe', 'fetchAllAnnotations', 'preprocessModelData', 'createNewDocument', 'importNewDocument','deleteNewDocument', 'createNewUser', 'cacheModelResults', 'createFolder', 'createEntity'}
 
 # Actions that correspond to annotation functionality
 ANNOTATION_ACTION = {'createArc', 'deleteArc', 'createSpan', 'deleteSpan', 'splitSpan', 'suggestSpanTypes', 'undo'}

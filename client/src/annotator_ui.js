@@ -3321,6 +3321,60 @@ var AnnotatorUI = (function ($, window, undefined) {
             $("#waiter").dialog("open");
         };
 
+        var createEntity = function () {
+            dispatcher.post("showForm", [createEntityForm]);
+        }
+        var createEntityForm = $("#create_entity_form");
+        var createEntityFormSubmit = function (evt) {
+            dispatcher.post("hideForm");
+            return false;
+        }
+        createEntityForm.submit(createEntityFormSubmit);
+        initForm(createEntityForm, {
+            width: 550,
+            resizable: false,
+            no_cancel: true,
+            open: function (evt) {
+                keymap = {};
+            },
+        });
+        $("#create_entity_form-ok").click(function () {
+            // create new entity
+            let entity = $("#entity_name").val();
+            // let collection = window.location.href.split("#")[1];
+            let fullPath = window.location.href.split("#")[1];
+            let document = fullPath.split("/").reverse()[0];
+            let collection = fullPath.substr(
+                0,
+                fullPath.length - document.length
+            );
+            $.post(
+                "ajax.cgi",
+                {
+                    protocol: 1,
+                    action: "createEntity",
+                    entity_name: entity,
+                    collection: collection,
+                },
+                function () {
+                    dispatcher.post("ajax", [
+                        {
+                            action:
+                                "getCollectionInformation",
+                            collection: collection,
+                        },
+                        "collectionLoaded",
+                        {
+                            collection: collection,
+                            keep: true,
+                        },
+                    ]);
+                    // window.location = window.location.pathname + "#" + collection + folderName;
+                    // $("#span_form").dialog("close");
+                }
+            );
+        });
+
         var spanChangeLock = function (evt) {
             var $this = $(evt.target);
             var locked = $this.is(":checked");
@@ -3372,6 +3426,11 @@ var AnnotatorUI = (function ($, window, undefined) {
                         id: "span_form_split",
                         text: "Split",
                         click: splitSpan,
+                    },
+                    {
+                        id: "span_form_create_entity",
+                        text: "Create Entity",
+                        click: createEntity,
                     },
                 ],
                 create: function (evt) {
