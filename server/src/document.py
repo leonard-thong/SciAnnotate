@@ -40,6 +40,7 @@ from projectconfig import (ARC_DRAWING_ATTRIBUTES, ATTR_DRAWING_ATTRIBUTES,
                            visual_options_get_arc_bundle,
                            visual_options_get_text_direction)
 from stats import get_statistics
+from session import get_session
 
 
 def _fill_type_configuration(
