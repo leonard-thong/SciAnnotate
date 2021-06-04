@@ -1660,6 +1660,10 @@ var VisualizerUI = (function ($, window, undefined) {
             }, 0);
         }; // end showFileBrowser()
         $("#collection_browser_button").click(function (evt) {
+            if (user == null) {
+                alert("you have to log in first");
+                return;
+            }
             dispatcher.post("clearSearch");
         });
 
@@ -2218,6 +2222,10 @@ var VisualizerUI = (function ($, window, undefined) {
 
         var showSearchForm = function () {
             // this.checked = searchActive; // TODO: dup? unnecessary? remove if yes.
+            if (user == null) {
+                alert("You have to log in first!");
+                return;
+            }
             updateSearchButtons();
             $("#search_form_event_type").change();
             $("#search_form_relation_type").change();
@@ -2287,6 +2295,10 @@ var VisualizerUI = (function ($, window, undefined) {
             },
         });
         $("#data_button").click(function () {
+            if (user == null) {
+                alert("You have to log in first!");
+                return;
+            }
             dispatcher.post("showForm", [dataForm]);
         });
         // make nice-looking buttons for checkboxes and buttons
@@ -2337,6 +2349,10 @@ var VisualizerUI = (function ($, window, undefined) {
             },
         });
         $("#label_button").click(function () {
+            if (user == null) {
+                alert("You have to log in first!");
+                return;
+            }
             // get labeling function and update dom
             let fullPath = window.location.href.split("#")[1];
             let document = fullPath.split("/").reverse()[0];
@@ -2551,6 +2567,10 @@ var VisualizerUI = (function ($, window, undefined) {
             },
         });
         $("#connect_button").click(function () {
+            if (user == null) {
+                alert("You have to log in first!");
+                return;
+            }
             dispatcher.post("showForm", [connectForm]);
         });
         $("#connect_form-ok").click(function () {
@@ -2864,6 +2884,10 @@ var VisualizerUI = (function ($, window, undefined) {
             },
         });
         $("#options_button").click(function () {
+            if (user == null) {
+                alert("You have to log in first!");
+                return;
+            }
             dispatcher.post("showForm", [optionsForm]);
         });
         // make nice-looking buttons for checkboxes and radios
@@ -2948,6 +2972,10 @@ var VisualizerUI = (function ($, window, undefined) {
             }
 
             if (code === $.ui.keyCode.TAB) {
+                if (user == null) {
+                    alert("you have to login first");
+                    return;
+                }
                 showFileBrowser();
                 return false;
             } else if (evt.shiftKey && code === $.ui.keyCode.RIGHT) {
@@ -3583,7 +3611,7 @@ var VisualizerUI = (function ($, window, undefined) {
                 },
             ],
             close: function () {
-                if (fileBrowserWaiting) {
+                if (user != null && fileBrowserWaiting) {
                     showFileBrowser();
                 }
             },
