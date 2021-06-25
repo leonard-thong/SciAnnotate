@@ -103,14 +103,14 @@ class AnnotationConfig(object):
 
 class ConfigManager(object):
     __instance = None
+    _postfix = "annotation.conf"
     def __new__(cls, *args, **kwargs):
         if cls.__instance == None:
             cls.__instance = super().__new__(cls)
         return cls.__instance
     
     def get_general_anno_config(self, general_path='/'):
-        general_path = real_directory(general_path)
-        print(general_path)
+        general_path = real_directory(general_path) + self._postfix
         return AnnotationConfig(general_path)
 
     def get_collection_anno_config(self, collection):
