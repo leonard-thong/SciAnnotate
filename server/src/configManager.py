@@ -4,7 +4,7 @@ from collections import defaultdict
 from enum import Enum
 from document import real_directory
 
-__all__ = ['AnnotationConfigOption', 'AnnotationConfig', 'global_config_manager', 'ConfigManager']
+__all__ = ['AnnotationConfigOption', 'AnnotationConfig', 'global_config_manager']
 
 class AnnotationConfigOption(Enum):
 
@@ -66,26 +66,34 @@ class AnnotationConfig(object):
     
     def remove(self, config_option, elem):
         if config_option == AnnotationConfigOption.entities:
-            self.entities.remove(elem)
+            if elem in set(self.entities):
+                self.entities.remove(elem)
         elif config_option == AnnotationConfigOption.relations:
-            self.relations.remove(elem)
+            if elem in set(self.relations):
+                self.relations.remove(elem)
         elif config_option == AnnotationConfigOption.events:
-            self.events.remove(elem)
+            if elem in set(self.events):
+                self.events.remove(elem)
         elif config_option == AnnotationConfigOption.attributes:
-            self.attributes.remove(elem)
+            if elem in set(self.attributes):
+                self.attributes.remove(elem)
     
     def update(self, config_option, old, new):
         if config_option == AnnotationConfigOption.entities:
-            self.entities.remove(old)
+            if old in set(self.entities):
+                self.entities.remove(old)
             self.entities.append(new)
         elif config_option == AnnotationConfigOption.relations:
-            self.relations.remove(old)
+            if old in set(self.relations):
+                self.relations.remove(old)
             self.relations.append(new)
         elif config_option == AnnotationConfigOption.events:
-            self.events.remove(old)
+            if old in set(self.events):
+                self.events.remove(old)
             self.events.append(new)
         elif config_option == AnnotationConfigOption.attributes:
-            self.attributes.remove(old)
+            if old in set(self.attributes):
+                self.attributes.remove(old)
             self.attributes.append(new)
     
     def archive(self):

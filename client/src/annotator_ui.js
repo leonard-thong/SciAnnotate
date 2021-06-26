@@ -3348,6 +3348,7 @@ var AnnotatorUI = (function ($, window, undefined) {
                 0,
                 fullPath.length - document.length
             );
+            console.log(collection);
             $.post(
                 "ajax.cgi",
                 {
@@ -3414,6 +3415,7 @@ var AnnotatorUI = (function ($, window, undefined) {
             );
         }
 
+
         var spanChangeLock = function (evt) {
             var $this = $(evt.target);
             var locked = $this.is(":checked");
@@ -3475,7 +3477,7 @@ var AnnotatorUI = (function ($, window, undefined) {
                         id: "span_form_delete_entity",
                         text: "Delete Entity",
                         click: deleteEntity,
-                    }
+                    },
                 ],
                 create: function (evt) {
                     var $ok = $("#span_form-ok").wrap(
