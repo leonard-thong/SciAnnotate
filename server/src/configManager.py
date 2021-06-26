@@ -4,7 +4,7 @@ from collections import defaultdict
 from enum import Enum
 from document import real_directory
 
-__all__ = ['AnnotationConfigOption', 'AnnotationConfig', 'global_config_manager', 'ConfigManager']
+__all__ = ['AnnotationConfigOption', 'AnnotationConfig', 'global_config_manager']
 
 class AnnotationConfigOption(Enum):
 

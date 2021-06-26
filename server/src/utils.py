@@ -1,5 +1,6 @@
 import random
 import os
+import sys
 import hashlib
 import time
 import json
@@ -59,6 +60,12 @@ def get_md5_hash(text):
 #        with open('./data/visualConfigs/drawings.conf', 'a') as color_config:
 #             color_config.write(''.join(entity_color_items)) 
 #     os.system('sh ./data/build_visual_conf.sh')
+
+def print_f(msg):
+    savedOut = sys.stdout
+    sys.stdout = sys.__stdout__
+    print(msg)
+    sys.stdout = savedOut
 
 def get_entity_index():
     index = 0
