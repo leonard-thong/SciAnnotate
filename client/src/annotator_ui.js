@@ -3353,9 +3353,10 @@ var AnnotatorUI = (function ($, window, undefined) {
                 "ajax.cgi",
                 {
                     protocol: 1,
-                    action: "createEntity",
+                    action: "modifyEntity",
                     entity_name: entity,
                     collection: collection,
+                    type: "create"
                 },
                 function () {
                     dispatcher.post("ajax", [
@@ -3390,9 +3391,10 @@ var AnnotatorUI = (function ($, window, undefined) {
                 "ajax.cgi",
                 {
                     protocol: 1,
-                    action: "deleteEntity",
+                    action: "modifyEntity",
                     entity_name: entity,
                     collection: collection,
+                    type: "delete"
                 },
                 function () {
                     dispatcher.post("ajax", [
