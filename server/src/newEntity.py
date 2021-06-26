@@ -20,3 +20,24 @@ def create_new_entity(**kwargs):
     res['status'] = 200
 
     return res
+
+
+
+def delete_entity(**kwargs):
+    res = dict()
+    entity = kwargs['entity_name']
+    collection = kwargs['collection']
+    real_dir = real_directory(collection)
+    config_dir = real_dir + "annotation.conf"
+    configstr = __read_or_default(config_dir, __default_configuration)
+    configstr = configstr.split("\n")
+
+    configstr.remove(entity)
+
+    with open(config_dir, 'w') as configFile:
+        configFile.write("\n".join(configstr))
+
+
+    res['status'] = 200
+
+    return res

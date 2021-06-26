@@ -3611,7 +3611,10 @@ var VisualizerUI = (function ($, window, undefined) {
                 },
             ],
             close: function () {
+<<<<<<< HEAD
                 document.querySelector('.ui-widget-overlay').remove();
+=======
+>>>>>>> 0653de4fa4f3b42ecd4f5628619b94642db4f3b0
                 if (user != null && fileBrowserWaiting) {
                     showFileBrowser();
                 }
