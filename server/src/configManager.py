@@ -101,7 +101,9 @@ class AnnotationConfig(object):
         for config_option in ['entities', 'relations', 'events', 'attributes']:
             elems = getattr(self, config_option)
             if not self.allow_duplicate:
-                elems = list(set(elems))
+                new_elems = list(set(elems))
+                new_elems.sort(key=elems.index)
+            elems = new_elems
             file_string += f'[{config_option}]\n\n'
             for elem in elems:
                 file_string += f'{elem}\n'
