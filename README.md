@@ -69,7 +69,7 @@ def contactLabeler(text="", entity_index=None):
 - Add Sign Up Entry, User now can create their own account without asking administor for help
 
 
-## Citing RobLAX
+## Citing SciAnnotate
 If you would like to reference SciAnnotate in a publication, please use:
 ```
 @software{SciAnnotate2021github,
