@@ -67,3 +67,16 @@ def contactLabeler(text="", entity_index=None):
 
 ## Release Note Jan.15 2021
 - Add Sign Up Entry, User now can create their own account without asking administor for help
+
+
+## Citing RobLAX
+If you would like to reference SciAnnotate in a publication, please use:
+```
+@software{SciAnnotate2021github,
+  author = {Mengyang Liu, Haozheng Luo, Leonard Thong, Yinghao Li, Chao Zhang, Le Song },
+  title = {SciAnnotate-A Tool for Integrating Weak Labeling Sources for Sequence Labeling},
+  url = {http://github.com/robinzixuan/SciAnnotate},
+  version = {0.1.4},
+  year = {2021},
+}
+```
